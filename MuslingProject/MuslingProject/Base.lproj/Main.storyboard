@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ti5-po-5WU">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -82,6 +81,122 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+        </scene>
+        <!--홈-->
+        <scene sceneID="4Gz-WG-S8f">
+            <objects>
+                <viewController title="홈" id="9P4-wI-eCy" customClass="HomeViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dee-1C-zYo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbg-oq-lPN">
+                                <rect key="frame" x="167" y="161" width="41.333333333333343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.bullet" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uxq-di-DOa">
+                                <rect key="frame" x="314" y="156" width="31" height="28"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="FX6-h3-8cY"/>
+                                    <constraint firstAttribute="width" constant="31" id="Hu0-rV-baH"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h53-Cu-ckz">
+                                <rect key="frame" x="172.33333333333334" y="360" width="30.333333333333343" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPc-HT-ShJ" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
+                                <rect key="frame" x="136" y="422" width="103" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="ZIS-IA-fmG"/>
+                                    <constraint firstAttribute="width" constant="103" id="kLZ-ch-JrV"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="작성하기">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iCZ-9x-BO4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qbg-oq-lPN" firstAttribute="centerX" secondItem="dee-1C-zYo" secondAttribute="centerX" id="1wX-z6-kXV"/>
+                            <constraint firstItem="uxq-di-DOa" firstAttribute="top" secondItem="iCZ-9x-BO4" secondAttribute="top" constant="106" id="GWf-bT-lHJ"/>
+                            <constraint firstItem="fPc-HT-ShJ" firstAttribute="top" secondItem="h53-Cu-ckz" secondAttribute="bottom" constant="45" id="Gcj-OA-9WY"/>
+                            <constraint firstItem="h53-Cu-ckz" firstAttribute="centerX" secondItem="dee-1C-zYo" secondAttribute="centerX" id="IUs-jl-dHg"/>
+                            <constraint firstItem="h53-Cu-ckz" firstAttribute="top" secondItem="Qbg-oq-lPN" secondAttribute="bottom" constant="178" id="IyG-Yr-QYn"/>
+                            <constraint firstItem="Qbg-oq-lPN" firstAttribute="top" secondItem="iCZ-9x-BO4" secondAttribute="top" constant="114" id="adR-nu-FXI"/>
+                            <constraint firstItem="iCZ-9x-BO4" firstAttribute="trailing" secondItem="uxq-di-DOa" secondAttribute="trailing" constant="30" id="dOR-Wj-ivd"/>
+                            <constraint firstItem="fPc-HT-ShJ" firstAttribute="centerX" secondItem="dee-1C-zYo" secondAttribute="centerX" id="eqh-Jo-9fW"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="홈" image="home_icon" id="I9G-gn-Di2"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="Qbg-oq-lPN" id="tGP-Mh-yIh"/>
+                        <outlet property="noneLabel" destination="h53-Cu-ckz" id="P5a-mg-2og"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzS-mi-WjH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="724.13793103448279"/>
+        </scene>
+        <!--찜-->
+        <scene sceneID="sBK-db-3cS">
+            <objects>
+                <viewController title="찜" id="DNZ-j7-IEe" customClass="MypageViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gsA-Kn-Hhr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="마이페이지 화면입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKB-GI-XS3">
+                                <rect key="frame" x="111" y="219" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MiF-UE-oV1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="mypage_icon" id="9Qd-0m-hxq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yMu-S9-6bt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="2134"/>
+        </scene>
+        <!--찜-->
+        <scene sceneID="VYd-Zo-esK">
+            <objects>
+                <viewController id="ihU-Tg-JGg" customClass="FavoriteViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b9E-OK-321">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="찜 화면입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAW-00-4HC">
+                                <rect key="frame" x="141" y="282" width="93" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="brP-y1-shO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="찜" image="heart_icon" id="sIM-Dy-Vym"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FKg-6F-Tjc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="1429"/>
         </scene>
         <!--회원가입-->
         <scene sceneID="aSx-GW-vQd">
@@ -210,9 +325,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iab-mu-y47">
-                                <rect key="frame" x="103" y="426" width="235" height="33"/>
+                                <rect key="frame" x="103" y="426" width="235" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="DvC-ZO-mGJ"/>
+                                    <constraint firstAttribute="height" constant="38" id="DvC-ZO-mGJ"/>
                                     <constraint firstAttribute="width" constant="235" id="LUs-Bd-iwy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -249,7 +364,7 @@
                             <constraint firstItem="sBe-Re-aUg" firstAttribute="top" secondItem="mgN-Ex-tmb" secondAttribute="bottom" constant="44" id="aMp-ge-T2V"/>
                             <constraint firstItem="5c2-cD-feG" firstAttribute="leading" secondItem="v6s-P6-6Mf" secondAttribute="leading" constant="136" id="dyA-Ne-j1b"/>
                             <constraint firstItem="mgN-Ex-tmb" firstAttribute="top" secondItem="v6s-P6-6Mf" secondAttribute="top" constant="75" id="fhX-Mg-rL9"/>
-                            <constraint firstItem="5c2-cD-feG" firstAttribute="top" secondItem="iab-mu-y47" secondAttribute="bottom" constant="76" id="mtY-0t-b7o"/>
+                            <constraint firstItem="5c2-cD-feG" firstAttribute="top" secondItem="iab-mu-y47" secondAttribute="bottom" constant="71" id="sfC-DN-TJl"/>
                         </constraints>
                     </view>
                     <connections>
@@ -287,16 +402,6 @@
                                 <color key="textColor" red="0.12866950760000001" green="0.12866950760000001" blue="0.12866950760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nrl-dt-D1G">
-                                <rect key="frame" x="137" y="257" width="200" height="30"/>
-                                <menu key="menu" id="NTi-Lk-0OK">
-                                    <children>
-                                        <command title="Item 1" id="mgm-on-f4S"/>
-                                        <command title="Item 2" id="w1z-Ay-Wfj"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CSA-1r-b9A">
                                 <rect key="frame" x="165" y="310" width="134" height="32"/>
                                 <segments>
@@ -316,78 +421,212 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-at-2pY">
-                                <rect key="frame" x="51" y="513" width="70" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-at-2pY" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
+                                <rect key="frame" x="31" y="513" width="83" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="Vzu-Gc-ZYS"/>
+                                    <constraint firstAttribute="height" constant="35" id="l4E-go-kog"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="k-pop"/>
+                                <buttonConfiguration key="configuration" style="plain" title="k-pop">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e36-XE-pq6">
-                                <rect key="frame" x="149" y="513" width="69" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e36-XE-pq6" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
+                                <rect key="frame" x="137" y="513" width="83" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="Tji-ZX-enU"/>
+                                    <constraint firstAttribute="height" constant="35" id="l1O-Jh-A4v"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="발라드"/>
+                                <buttonConfiguration key="configuration" style="plain" title="발라드">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9os-6e-9vK">
-                                <rect key="frame" x="245" y="513" width="54" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9os-6e-9vK" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
+                                <rect key="frame" x="245" y="513" width="83" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="YP9-5y-1SA"/>
+                                    <constraint firstAttribute="width" constant="83" id="kGC-Gn-P72"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="힙합"/>
+                                <buttonConfiguration key="configuration" style="plain" title="힙합">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="af6-oS-VT5">
-                                <rect key="frame" x="82" y="569" width="54" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="af6-oS-VT5" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
+                                <rect key="frame" x="48" y="569" width="83" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="osw-HW-an5"/>
+                                    <constraint firstAttribute="height" constant="35" id="wlf-ev-obc"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="인디"/>
+                                <buttonConfiguration key="configuration" style="plain" title="인디">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spr-qr-bmQ">
-                                <rect key="frame" x="165" y="569" width="73" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spr-qr-bmQ" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
+                                <rect key="frame" x="157" y="569" width="83" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="Bj3-gg-MiN"/>
+                                    <constraint firstAttribute="height" constant="35" id="EeL-P6-Rba"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="락/메탈"/>
+                                <buttonConfiguration key="configuration" style="plain" title="락/메탈">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-n8-c0N">
-                                <rect key="frame" x="266" y="569" width="58" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWZ-n8-c0N" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
+                                <rect key="frame" x="265" y="569" width="83" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Im1-qm-ctY"/>
+                                    <constraint firstAttribute="width" constant="83" id="zjr-bT-Jxm"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="R&amp;B"/>
+                                <buttonConfiguration key="configuration" style="plain" title="R&amp;B">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXL-UT-iru">
+                                <rect key="frame" x="113" y="679" width="149" height="36"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="다 완성했어요 ✨">
+                                    <fontDescription key="titleFontDescription" type="system" weight="black" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="0.4196078479" green="0.49411764740000003" blue="0.63921570780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1V-Cn-wva">
+                                <rect key="frame" x="196" y="258" width="76" height="32"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="선택하기">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                    <color key="baseForegroundColor" red="0.34793670650000003" green="0.4413938651" blue="0.70421006939999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GNc-S5-FVm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Spr-qr-bmQ" firstAttribute="top" secondItem="e36-XE-pq6" secondAttribute="bottom" constant="21" id="2Gt-C7-KMh"/>
+                            <constraint firstItem="Spr-qr-bmQ" firstAttribute="leading" secondItem="af6-oS-VT5" secondAttribute="trailing" constant="26" id="46F-Ad-lVU"/>
+                            <constraint firstItem="e5Y-at-2pY" firstAttribute="top" secondItem="oQo-gH-Y4V" secondAttribute="bottom" constant="178" id="6Vl-xp-AaN"/>
                             <constraint firstItem="hNd-u9-ome" firstAttribute="leading" secondItem="GNc-S5-FVm" secondAttribute="leading" constant="23" id="A5R-sc-Cmr"/>
-                            <constraint firstItem="CSA-1r-b9A" firstAttribute="top" secondItem="Nrl-dt-D1G" secondAttribute="bottom" constant="23" id="BRY-DQ-Oph"/>
                             <constraint firstItem="ZhL-Xt-8Dl" firstAttribute="top" secondItem="CSA-1r-b9A" secondAttribute="bottom" constant="83" id="F59-7m-y91"/>
+                            <constraint firstItem="e36-XE-pq6" firstAttribute="leading" secondItem="e5Y-at-2pY" secondAttribute="trailing" constant="23" id="Fwc-ZR-5K2"/>
                             <constraint firstItem="oQo-gH-Y4V" firstAttribute="top" secondItem="LXo-WR-1fL" secondAttribute="bottom" constant="31" id="GJ1-XO-zp9"/>
+                            <constraint firstItem="WXL-UT-iru" firstAttribute="centerX" secondItem="b0E-Dg-Hel" secondAttribute="centerX" id="HFT-Ea-6en"/>
                             <constraint firstItem="oQo-gH-Y4V" firstAttribute="leading" secondItem="GNc-S5-FVm" secondAttribute="leading" constant="41" id="J5S-lm-eCW"/>
+                            <constraint firstItem="CSA-1r-b9A" firstAttribute="top" secondItem="n1V-Cn-wva" secondAttribute="bottom" constant="20" id="MNN-wC-GAZ"/>
                             <constraint firstItem="CSA-1r-b9A" firstAttribute="leading" secondItem="oQo-gH-Y4V" secondAttribute="trailing" constant="94" id="NJM-n7-Sjd"/>
-                            <constraint firstItem="GNc-S5-FVm" firstAttribute="trailing" secondItem="Nrl-dt-D1G" secondAttribute="trailing" constant="38" id="Qlm-Zj-qfW"/>
+                            <constraint firstItem="n1V-Cn-wva" firstAttribute="leading" secondItem="LXo-WR-1fL" secondAttribute="trailing" constant="110" id="NOa-g2-g8I"/>
+                            <constraint firstItem="WXL-UT-iru" firstAttribute="top" secondItem="af6-oS-VT5" secondAttribute="bottom" constant="75" id="TUi-87-Myw"/>
+                            <constraint firstItem="NWZ-n8-c0N" firstAttribute="top" secondItem="9os-6e-9vK" secondAttribute="bottom" constant="21" id="UY5-qY-fEp"/>
                             <constraint firstItem="hNd-u9-ome" firstAttribute="top" secondItem="GNc-S5-FVm" secondAttribute="top" constant="65" id="YV0-WC-Lwo"/>
+                            <constraint firstItem="GNc-S5-FVm" firstAttribute="trailing" secondItem="NWZ-n8-c0N" secondAttribute="trailing" constant="27" id="Ze8-zv-b7j"/>
+                            <constraint firstItem="GNc-S5-FVm" firstAttribute="trailing" secondItem="9os-6e-9vK" secondAttribute="trailing" constant="47" id="aKT-vn-T0c"/>
                             <constraint firstItem="N5B-e0-HTC" firstAttribute="leading" secondItem="GNc-S5-FVm" secondAttribute="leading" constant="117" id="bJh-jN-dVS"/>
                             <constraint firstItem="GNc-S5-FVm" firstAttribute="trailing" secondItem="N5B-e0-HTC" secondAttribute="trailing" constant="117" id="bfb-lx-4QH"/>
-                            <constraint firstItem="Nrl-dt-D1G" firstAttribute="leading" secondItem="LXo-WR-1fL" secondAttribute="trailing" constant="51" id="gkL-RA-qpV"/>
+                            <constraint firstItem="e36-XE-pq6" firstAttribute="top" secondItem="N5B-e0-HTC" secondAttribute="bottom" constant="41" id="eEH-44-Pu2"/>
+                            <constraint firstItem="n1V-Cn-wva" firstAttribute="top" secondItem="hNd-u9-ome" secondAttribute="bottom" constant="109" id="ec4-Mp-xxr"/>
+                            <constraint firstItem="9os-6e-9vK" firstAttribute="top" secondItem="N5B-e0-HTC" secondAttribute="bottom" constant="41" id="fzt-vZ-Njy"/>
+                            <constraint firstItem="af6-oS-VT5" firstAttribute="top" secondItem="e5Y-at-2pY" secondAttribute="bottom" constant="21" id="gHj-hh-1W4"/>
+                            <constraint firstItem="NWZ-n8-c0N" firstAttribute="leading" secondItem="Spr-qr-bmQ" secondAttribute="trailing" constant="25" id="hQf-qt-8yn"/>
                             <constraint firstItem="N5B-e0-HTC" firstAttribute="top" secondItem="ZhL-Xt-8Dl" secondAttribute="bottom" constant="8" symbolic="YES" id="jHl-Q1-ja1"/>
+                            <constraint firstItem="af6-oS-VT5" firstAttribute="leading" secondItem="GNc-S5-FVm" secondAttribute="leading" constant="48" id="kg8-u4-gKc"/>
                             <constraint firstItem="GNc-S5-FVm" firstAttribute="trailing" secondItem="hNd-u9-ome" secondAttribute="trailing" constant="24" id="lfH-Ln-1O1"/>
                             <constraint firstItem="LXo-WR-1fL" firstAttribute="top" secondItem="hNd-u9-ome" secondAttribute="bottom" constant="113" id="m8j-cw-l9U"/>
-                            <constraint firstItem="Nrl-dt-D1G" firstAttribute="top" secondItem="hNd-u9-ome" secondAttribute="bottom" constant="108" id="o76-d0-W9d"/>
+                            <constraint firstItem="e5Y-at-2pY" firstAttribute="leading" secondItem="GNc-S5-FVm" secondAttribute="leading" constant="31" id="nq8-gE-ou9"/>
                             <constraint firstItem="ZhL-Xt-8Dl" firstAttribute="leading" secondItem="GNc-S5-FVm" secondAttribute="leading" constant="136" id="r1a-sN-5tf"/>
                             <constraint firstItem="GNc-S5-FVm" firstAttribute="trailing" secondItem="CSA-1r-b9A" secondAttribute="trailing" constant="76" id="sRf-9o-U0T"/>
                             <constraint firstItem="GNc-S5-FVm" firstAttribute="trailing" secondItem="ZhL-Xt-8Dl" secondAttribute="trailing" constant="136" id="wQq-T8-ZTg"/>
                             <constraint firstItem="LXo-WR-1fL" firstAttribute="leading" secondItem="GNc-S5-FVm" secondAttribute="leading" constant="41" id="wb8-lS-nwb"/>
+                            <constraint firstItem="9os-6e-9vK" firstAttribute="leading" secondItem="e36-XE-pq6" secondAttribute="trailing" constant="25" id="yeb-Jh-HSm"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ageBtn" destination="n1V-Cn-wva" id="JkQ-l5-1YA"/>
+                        <outlet property="balad" destination="e36-XE-pq6" id="gCK-qD-99L"/>
+                        <outlet property="hiphop" destination="9os-6e-9vK" id="1aT-YV-U6B"/>
+                        <outlet property="inde" destination="af6-oS-VT5" id="HW9-Yk-YSj"/>
+                        <outlet property="kpop" destination="e5Y-at-2pY" id="EvR-g3-enq"/>
                         <outlet property="label" destination="hNd-u9-ome" id="lt0-bg-g61"/>
+                        <outlet property="metal" destination="Spr-qr-bmQ" id="lbI-Hz-jPF"/>
+                        <outlet property="rnb" destination="NWZ-n8-c0N" id="JgB-oE-Vn3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZy-zv-1D1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2301.5999999999999" y="-2.2167487684729066"/>
         </scene>
+        <!--Tab BarVC-->
+        <scene sceneID="ti0-vl-sKe">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Ti5-po-5WU" customClass="TabBarVC" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z2a-Pk-uN8">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.40767883620000001" green="0.51503943019999998" blue="0.83712121210000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9P4-wI-eCy" kind="relationship" relationship="viewControllers" id="LpC-Fz-R4L"/>
+                        <segue destination="ihU-Tg-JGg" kind="relationship" relationship="viewControllers" id="Sbt-9C-MQ9"/>
+                        <segue destination="DNZ-j7-IEe" kind="relationship" relationship="viewControllers" id="lox-xB-DYM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QTm-Ix-3fI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-311" y="1547"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="heart_icon" width="25" height="22.5"/>
+        <image name="home_icon" width="25" height="25"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="logo.png" width="276" height="156"/>
+        <image name="mypage_icon" width="25" height="25"/>
         <image name="profile.png" width="150" height="150"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
