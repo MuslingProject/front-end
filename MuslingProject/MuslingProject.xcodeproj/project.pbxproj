@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99877493E5F93CC2078DE565 /* Pods_MuslingProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119F5E6F7820FF7598DFC8CD /* Pods_MuslingProject.framework */; };
 		F36A3DC029E5B45600F47A3E /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F36A3DBF29E5B45600F47A3E /* profile.png */; };
 		F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */; };
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
@@ -27,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		119F5E6F7820FF7598DFC8CD /* Pods_MuslingProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuslingProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		636636C21A4BF807463FEE9A /* Pods-MuslingProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslingProject.release.xcconfig"; path = "Target Support Files/Pods-MuslingProject/Pods-MuslingProject.release.xcconfig"; sourceTree = "<group>"; };
+		6CAD5DF9AEA12D4971564457 /* Pods-MuslingProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslingProject.debug.xcconfig"; path = "Target Support Files/Pods-MuslingProject/Pods-MuslingProject.debug.xcconfig"; sourceTree = "<group>"; };
 		F36A3DBF29E5B45600F47A3E /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../Downloads/profile.png; sourceTree = "<group>"; };
 		F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
@@ -53,18 +57,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99877493E5F93CC2078DE565 /* Pods_MuslingProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DB710B4D85E989447A105B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6CAD5DF9AEA12D4971564457 /* Pods-MuslingProject.debug.xcconfig */,
+				636636C21A4BF807463FEE9A /* Pods-MuslingProject.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7E40D0B251612DCC6CF03363 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				119F5E6F7820FF7598DFC8CD /* Pods_MuslingProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F3EAA52529E55B6600819F7A = {
 			isa = PBXGroup;
 			children = (
 				F3EAA54529E55D1100819F7A /* Resources */,
 				F3EAA53029E55B6600819F7A /* MuslingProject */,
 				F3EAA52F29E55B6600819F7A /* Products */,
+				5DB710B4D85E989447A105B2 /* Pods */,
+				7E40D0B251612DCC6CF03363 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,9 +140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3EAA54229E55B6700819F7A /* Build configuration list for PBXNativeTarget "MuslingProject" */;
 			buildPhases = (
+				453F3AADDA402FE38B5A4F3D /* [CP] Check Pods Manifest.lock */,
 				F3EAA52A29E55B6600819F7A /* Sources */,
 				F3EAA52B29E55B6600819F7A /* Frameworks */,
 				F3EAA52C29E55B6600819F7A /* Resources */,
+				5545D23A884B10DBEB626686 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +203,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		453F3AADDA402FE38B5A4F3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MuslingProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5545D23A884B10DBEB626686 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MuslingProject/Pods-MuslingProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MuslingProject/Pods-MuslingProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MuslingProject/Pods-MuslingProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F3EAA52A29E55B6600819F7A /* Sources */ = {
@@ -334,6 +403,7 @@
 		};
 		F3EAA54329E55B6700819F7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CAD5DF9AEA12D4971564457 /* Pods-MuslingProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -362,6 +432,7 @@
 		};
 		F3EAA54429E55B6700819F7A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 636636C21A4BF807463FEE9A /* Pods-MuslingProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
