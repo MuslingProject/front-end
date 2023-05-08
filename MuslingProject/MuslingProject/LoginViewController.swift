@@ -25,8 +25,6 @@ class LoginViewController: UIViewController {
             vcName?.modalPresentationStyle = .fullScreen
             vcName?.modalTransitionStyle = .crossDissolve
             self.present(vcName!, animated: true, completion: nil)
-            
-            
         }
     }
     

@@ -11,6 +11,9 @@
 		F36A3DC029E5B45600F47A3E /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F36A3DBF29E5B45600F47A3E /* profile.png */; };
 		F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */; };
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
+		F38B984E2A07F3BF00F8B868 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = F38B984D2A07F3BF00F8B868 /* list.png */; };
+		F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADDE002A010C91005650E2 /* WriteViewController.swift */; };
+		F3B067D62A08312500350C6A /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B067D52A08312500350C6A /* UITextField.swift */; };
 		F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2287429EC453B00FDED32 /* CSButton.swift */; };
 		F3C2288329EC507600FDED32 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288229EC507600FDED32 /* HomeViewController.swift */; };
 		F3C2288529EC508600FDED32 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288429EC508600FDED32 /* FavoriteViewController.swift */; };
@@ -34,6 +37,9 @@
 		F36A3DBF29E5B45600F47A3E /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../Downloads/profile.png; sourceTree = "<group>"; };
 		F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		F38B984D2A07F3BF00F8B868 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = ../../../Downloads/list.png; sourceTree = "<group>"; };
+		F3ADDE002A010C91005650E2 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		F3B067D52A08312500350C6A /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		F3C2287429EC453B00FDED32 /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
 		F3C2288229EC507600FDED32 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3C2288429EC508600FDED32 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +76,6 @@
 				6CAD5DF9AEA12D4971564457 /* Pods-MuslingProject.debug.xcconfig */,
 				636636C21A4BF807463FEE9A /* Pods-MuslingProject.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -119,6 +124,8 @@
 				F3C2288429EC508600FDED32 /* FavoriteViewController.swift */,
 				F3C2288629EC509000FDED32 /* MypageViewController.swift */,
 				F3C2288829EC51ED00FDED32 /* TabBarVC.swift */,
+				F3ADDE002A010C91005650E2 /* WriteViewController.swift */,
+				F3B067D52A08312500350C6A /* UITextField.swift */,
 			);
 			path = MuslingProject;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 		F3EAA54529E55D1100819F7A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F38B984D2A07F3BF00F8B868 /* list.png */,
 				F3C2288C29EC5A8100FDED32 /* top_icon.png */,
 				F3EAA54629E55D2100819F7A /* logo.png */,
 				F36A3DBF29E5B45600F47A3E /* profile.png */,
@@ -193,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38B984E2A07F3BF00F8B868 /* list.png in Resources */,
 				F3EAA54729E55D2100819F7A /* logo.png in Resources */,
 				F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */,
 				F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */,
@@ -257,7 +266,9 @@
 				F3C2288329EC507600FDED32 /* HomeViewController.swift in Sources */,
 				F3C2288529EC508600FDED32 /* FavoriteViewController.swift in Sources */,
 				F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */,
+				F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */,
 				F3EAA55529E59F8600819F7A /* SignUpViewController.swift in Sources */,
+				F3B067D62A08312500350C6A /* UITextField.swift in Sources */,
 				F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */,
 				F3C2288929EC51ED00FDED32 /* TabBarVC.swift in Sources */,
 				F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */,
