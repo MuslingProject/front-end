@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		99877493E5F93CC2078DE565 /* Pods_MuslingProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119F5E6F7820FF7598DFC8CD /* Pods_MuslingProject.framework */; };
+		F30F22202A0E8C2F005FDE36 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F221F2A0E8C2F005FDE36 /* UIColor.swift */; };
 		F36A3DC029E5B45600F47A3E /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F36A3DBF29E5B45600F47A3E /* profile.png */; };
 		F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */; };
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
@@ -20,9 +21,10 @@
 		F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288629EC509000FDED32 /* MypageViewController.swift */; };
 		F3C2288929EC51ED00FDED32 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288829EC51ED00FDED32 /* TabBarVC.swift */; };
 		F3C2288D29EC5A8100FDED32 /* top_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F3C2288C29EC5A8100FDED32 /* top_icon.png */; };
+		F3E568052A0E1642009ED042 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = F3E568042A0E1642009ED042 /* line.png */; };
+		F3E568072A0E17CF009ED042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3E568062A0E17CF009ED042 /* Main.storyboard */; };
 		F3EAA53229E55B6600819F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA53129E55B6600819F7A /* AppDelegate.swift */; };
 		F3EAA53429E55B6600819F7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA53329E55B6600819F7A /* SceneDelegate.swift */; };
-		F3EAA53929E55B6600819F7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EAA53729E55B6600819F7A /* Main.storyboard */; };
 		F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3EAA53A29E55B6700819F7A /* Assets.xcassets */; };
 		F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EAA53C29E55B6700819F7A /* LaunchScreen.storyboard */; };
 		F3EAA54729E55D2100819F7A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F3EAA54629E55D2100819F7A /* logo.png */; };
@@ -34,6 +36,7 @@
 		119F5E6F7820FF7598DFC8CD /* Pods_MuslingProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuslingProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		636636C21A4BF807463FEE9A /* Pods-MuslingProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslingProject.release.xcconfig"; path = "Target Support Files/Pods-MuslingProject/Pods-MuslingProject.release.xcconfig"; sourceTree = "<group>"; };
 		6CAD5DF9AEA12D4971564457 /* Pods-MuslingProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslingProject.debug.xcconfig"; path = "Target Support Files/Pods-MuslingProject/Pods-MuslingProject.debug.xcconfig"; sourceTree = "<group>"; };
+		F30F221F2A0E8C2F005FDE36 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F36A3DBF29E5B45600F47A3E /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../Downloads/profile.png; sourceTree = "<group>"; };
 		F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
@@ -46,10 +49,11 @@
 		F3C2288629EC509000FDED32 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		F3C2288829EC51ED00FDED32 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		F3C2288C29EC5A8100FDED32 /* top_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = top_icon.png; path = ../../../Downloads/top_icon.png; sourceTree = "<group>"; };
+		F3E568042A0E1642009ED042 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = ../../../Downloads/line.png; sourceTree = "<group>"; };
+		F3E568062A0E17CF009ED042 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		F3EAA52E29E55B6600819F7A /* MuslingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuslingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EAA53129E55B6600819F7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EAA53329E55B6600819F7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F3EAA53829E55B6600819F7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3EAA53A29E55B6700819F7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3EAA53D29E55B6700819F7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3EAA53F29E55B6700819F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,9 +113,9 @@
 		F3EAA53029E55B6600819F7A /* MuslingProject */ = {
 			isa = PBXGroup;
 			children = (
+				F3E568062A0E17CF009ED042 /* Main.storyboard */,
 				F3EAA53129E55B6600819F7A /* AppDelegate.swift */,
 				F3EAA53329E55B6600819F7A /* SceneDelegate.swift */,
-				F3EAA53729E55B6600819F7A /* Main.storyboard */,
 				F3EAA53A29E55B6700819F7A /* Assets.xcassets */,
 				F3EAA53C29E55B6700819F7A /* LaunchScreen.storyboard */,
 				F3EAA53F29E55B6700819F7A /* Info.plist */,
@@ -126,6 +130,7 @@
 				F3C2288829EC51ED00FDED32 /* TabBarVC.swift */,
 				F3ADDE002A010C91005650E2 /* WriteViewController.swift */,
 				F3B067D52A08312500350C6A /* UITextField.swift */,
+				F30F221F2A0E8C2F005FDE36 /* UIColor.swift */,
 			);
 			path = MuslingProject;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 		F3EAA54529E55D1100819F7A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F3E568042A0E1642009ED042 /* line.png */,
 				F38B984D2A07F3BF00F8B868 /* list.png */,
 				F3C2288C29EC5A8100FDED32 /* top_icon.png */,
 				F3EAA54629E55D2100819F7A /* logo.png */,
@@ -204,10 +210,11 @@
 				F38B984E2A07F3BF00F8B868 /* list.png in Resources */,
 				F3EAA54729E55D2100819F7A /* logo.png in Resources */,
 				F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */,
+				F3E568072A0E17CF009ED042 /* Main.storyboard in Resources */,
+				F3E568052A0E1642009ED042 /* line.png in Resources */,
 				F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */,
 				F36A3DC029E5B45600F47A3E /* profile.png in Resources */,
 				F3C2288D29EC5A8100FDED32 /* top_icon.png in Resources */,
-				F3EAA53929E55B6600819F7A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3EAA55329E5714200819F7A /* LoginViewController.swift in Sources */,
+				F30F22202A0E8C2F005FDE36 /* UIColor.swift in Sources */,
 				F3EAA53229E55B6600819F7A /* AppDelegate.swift in Sources */,
 				F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */,
 				F3C2288329EC507600FDED32 /* HomeViewController.swift in Sources */,
@@ -279,14 +287,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F3EAA53729E55B6600819F7A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F3EAA53829E55B6600819F7A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F3EAA53C29E55B6700819F7A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -348,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -402,7 +402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -423,11 +423,14 @@
 				DEVELOPMENT_TEAM = 8FBW424TX4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MuslingProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "뮤즐링: Musling";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,11 +455,14 @@
 				DEVELOPMENT_TEAM = 8FBW424TX4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MuslingProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "뮤즐링: Musling";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -15,16 +15,28 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        
+        // navigation bar 배경, 타이틀, item 색상 변경
+        self.navigationController?.navigationBar.scrollEdgeAppearance?.backgroundColor = UIColor.primary
+        self.navigationController?.navigationBar.scrollEdgeAppearance?.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.scrollEdgeAppearance?.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.tintColor = .white
+        
+        // navigation bar 그림자 효과
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.primary?.cgColor
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
+        self.navigationController?.navigationBar.layer.shadowRadius = 2
         dateFormat()
         noDiary()
     }
     
     func dateFormat() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "yyyy-MM-dd (E)"
         let current_date_string = formatter.string(from: Date())
-        dateLabel.text = current_date_string
+        dateLabel.text = "TODAY \(current_date_string)"
         dateLabel.font = UIFont.boldSystemFont(ofSize: 13)
         dateLabel.textColor = UIColor.darkGray
     }

@@ -26,6 +26,17 @@ class SelectViewController: UIViewController {
         self.present(vcName!, animated: true, completion: nil)
     }
     
+    @IBAction func selectKpop(_ sender: Any) {
+        if kpop.isSelected != true {
+            kpop.isSelected = true
+            kpop.backgroundColor = UIColor.systemGray4
+            kpop.tintColor = UIColor.white
+        } else {
+            kpop.isSelected = false
+            kpop.backgroundColor = UIColor.white
+        }
+    }
+    
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
     override func viewDidLoad() {
         super.viewDidLoad()

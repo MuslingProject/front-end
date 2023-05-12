@@ -19,29 +19,6 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        pickerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 220)
-//        pickerView.delegate = self
-//        pickerView.dataSource = self
-//
-//        // 피커뷰 툴바 추가
-//        let pickerToolbar: UIToolbar = UIToolbar()
-//        pickerToolbar.barStyle = .default
-//        pickerToolbar.isTranslucent = true // 툴바가 반투명인지 여부
-//        pickerToolbar.backgroundColor = .lightGray
-//        pickerToolbar.sizeToFit() // 서브뷰만큼 툴바 크기를 맞춤
-//
-//        // 피커뷰 툴바에 확인/취소 버튼 추가
-//        let btnDone = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(onPickDone))
-//        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-//        let btnCancel = UIBarButtonItem(title: "취소", style: .done, target: self, action: #selector(onPickCancel))
-//        // 버튼 추가
-//        pickerToolbar.setItems([btnCancel, space, btnDone], animated: true)
-//        // 사용자 클릭 이벤트 전달
-//        pickerToolbar.isUserInteractionEnabled = true
-//        // 피커 뷰 추가
-//        weatherField.inputView = pickerView
-//        // 피커뷰 툴바 추가
-//        weatherField.inputAccessoryView = pickerToolbar
         createPickerView(tagNo: 1)
         dismissPickerView()
         diaryTitle.underlined()
@@ -73,7 +50,7 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func dismissPickerView() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(doneBtn(_sender:)))
+        let button = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(doneBtn(_sender:)))
         toolBar.setItems([button], animated: true)
         toolBar.isUserInteractionEnabled = true
         weatherField.inputAccessoryView = toolBar
