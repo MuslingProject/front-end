@@ -16,12 +16,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // navigation bar 배경, 타이틀, item 색상 변경
-        self.navigationController?.navigationBar.scrollEdgeAppearance?.backgroundColor = UIColor.primary
-        self.navigationController?.navigationBar.scrollEdgeAppearance?.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.scrollEdgeAppearance?.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.tintColor = .white
-        
         // navigation bar 그림자 효과
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.primary?.cgColor
@@ -30,6 +24,20 @@ class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.layer.shadowRadius = 2
         dateFormat()
         noDiary()
+    }
+    
+    // navigation bar 배경, 타이틀, item 색상 변경
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .primary
+        appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        navigationController?.navigationBar.tintColor = .white
     }
     
     func dateFormat() {
