@@ -21,6 +21,7 @@
 		F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288629EC509000FDED32 /* MypageViewController.swift */; };
 		F3C2288929EC51ED00FDED32 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288829EC51ED00FDED32 /* TabBarVC.swift */; };
 		F3C2288D29EC5A8100FDED32 /* top_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F3C2288C29EC5A8100FDED32 /* top_icon.png */; };
+		F3E545352A1136CA00EF3C97 /* kuromi.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3E545342A1136CA00EF3C97 /* kuromi.jpeg */; };
 		F3E568052A0E1642009ED042 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = F3E568042A0E1642009ED042 /* line.png */; };
 		F3E568072A0E17CF009ED042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3E568062A0E17CF009ED042 /* Main.storyboard */; };
 		F3EAA53229E55B6600819F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA53129E55B6600819F7A /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 		F3C2288629EC509000FDED32 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		F3C2288829EC51ED00FDED32 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		F3C2288C29EC5A8100FDED32 /* top_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = top_icon.png; path = ../../../Downloads/top_icon.png; sourceTree = "<group>"; };
+		F3E545342A1136CA00EF3C97 /* kuromi.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = kuromi.jpeg; path = ../../../Downloads/kuromi.jpeg; sourceTree = "<group>"; };
 		F3E568042A0E1642009ED042 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line.png; path = ../../../Downloads/line.png; sourceTree = "<group>"; };
 		F3E568062A0E17CF009ED042 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		F3EAA52E29E55B6600819F7A /* MuslingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuslingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 		F3EAA54529E55D1100819F7A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F3E545342A1136CA00EF3C97 /* kuromi.jpeg */,
 				F3E568042A0E1642009ED042 /* line.png */,
 				F3C2288C29EC5A8100FDED32 /* top_icon.png */,
 				F38B984D2A07F3BF00F8B868 /* list.png */,
@@ -207,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E545352A1136CA00EF3C97 /* kuromi.jpeg in Resources */,
 				F38B984E2A07F3BF00F8B868 /* list.png in Resources */,
 				F3EAA54729E55D2100819F7A /* logo.png in Resources */,
 				F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */,

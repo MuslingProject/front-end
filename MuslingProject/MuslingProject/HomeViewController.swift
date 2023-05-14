@@ -15,13 +15,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // navigation bar 그림자 효과
-        self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.primary?.cgColor
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
-        self.navigationController?.navigationBar.layer.shadowRadius = 2
         dateFormat()
         noDiary()
     }
@@ -38,6 +31,13 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
         navigationController?.navigationBar.tintColor = .white
+        
+        // navigation bar 그림자 효과
+        navigationController?.navigationBar.layer.masksToBounds = false
+        navigationController?.navigationBar.layer.shadowColor = UIColor.primary?.cgColor
+        navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
+        navigationController?.navigationBar.layer.shadowRadius = 2
     }
     
     func dateFormat() {
