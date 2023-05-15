@@ -11,8 +11,6 @@ class FavoriteViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     // navigation bar 배경, 타이틀, item 색상 변경
