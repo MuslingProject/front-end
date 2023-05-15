@@ -10,8 +10,6 @@ import UIKit
 class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
-    var selectAge = ""
-
     
     @IBOutlet var ageBtn: UITextField!
     @IBOutlet var label: UILabel!

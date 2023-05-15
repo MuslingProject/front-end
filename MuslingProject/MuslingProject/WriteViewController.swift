@@ -15,7 +15,21 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet var diaryTitle: UITextField!
     @IBOutlet var weatherField: UITextField!
     
+    @IBAction func WriteBtn(_ sender: Any) {
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC")
+        vcName?.modalPresentationStyle = .fullScreen
+        vcName?.modalTransitionStyle = .crossDissolve
+        self.present(vcName!, animated: true, completion: nil)
+//        guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC") else { return }
+//        self.navigationController?.pushViewController(vcName, animated: true)
+    }
+    
     var pickerView = UIPickerView()
+    
+//    lazy var writeButton: UIBarButtonItem = {
+//        let button = UIBarButtonItem(title: "작성", style: .plain, target: self, action: #selector(writeDiary(_:)))
+//        return button
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +39,9 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         createPickerView(tagNo: 1)
         dismissPickerView()
-        diaryTitle.underlined()
+        
+        //self.writeButton.tintColor = UIColor.white
+        //self.navigationItem.rightBarButtonItem = self.writeButton
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -69,14 +85,9 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.view.endEditing(true)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        navigationController?.setNavigationBarHidden(true, animated: true)
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(true)
-//        navigationController?.setNavigationBarHidden(false, animated: true)
+//    @objc func writeDiary(_ sender: Any) {
+//        // 노래 추천 페이지로 이동 및 다이어리 저장
+//        self.performSegue(withIdentifier: "ResultVC", sender: self)
 //    }
 
 }
