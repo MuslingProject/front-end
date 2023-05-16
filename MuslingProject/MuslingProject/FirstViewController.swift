@@ -8,7 +8,7 @@
 import UIKit
 import GoogleSignIn
 
-class LoginViewController: UIViewController {
+class FirstViewController: UIViewController {
     
     // 구글 계정으로 로그인 선택했을 때
     @IBAction func ggLogin(_ sender: UIButton) {
@@ -30,7 +30,16 @@ class LoginViewController: UIViewController {
     
     // 일반 로그인 선택했을 때
     @IBAction func defaultLogin(_ sender: UIButton) {
-        // 회원 가입 화면으로 전환
+        //회원 가입 화면으로 전환
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
+        vcName?.modalPresentationStyle = .fullScreen
+        vcName?.modalTransitionStyle = .crossDissolve
+        self.present(vcName!, animated: true, completion: nil)
+    }
+    
+    // 회원가입
+    @IBAction func signUp(_ sender: Any) {
+        //회원 가입 화면으로 전환
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "SignUp")
         vcName?.modalPresentationStyle = .fullScreen
         vcName?.modalTransitionStyle = .crossDissolve
