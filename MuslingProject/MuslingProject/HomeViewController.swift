@@ -27,11 +27,11 @@ class HomeViewController: UIViewController {
         appearance.backgroundColor = .primary
         appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
+
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
         navigationController?.navigationBar.tintColor = .white
-        
+
         // navigation bar 그림자 효과
         navigationController?.navigationBar.layer.masksToBounds = false
         navigationController?.navigationBar.layer.shadowColor = UIColor.primary?.cgColor

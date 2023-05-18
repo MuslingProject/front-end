@@ -30,11 +30,10 @@ class FirstViewController: UIViewController {
     
     // 일반 로그인 선택했을 때
     @IBAction func defaultLogin(_ sender: UIButton) {
-        //회원 가입 화면으로 전환
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
-        vcName?.modalPresentationStyle = .fullScreen
-        vcName?.modalTransitionStyle = .crossDissolve
-        self.present(vcName!, animated: true, completion: nil)
+//        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
+//        vcName?.modalPresentationStyle = .fullScreen
+//        vcName?.modalTransitionStyle = .crossDissolve
+//        self.present(vcName!, animated: true, completion: nil)
     }
     
     // 회원가입
@@ -48,8 +47,9 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.tintColor = .secondary
 
-        // Do any additional setup after loading the view.
     }
 
 }

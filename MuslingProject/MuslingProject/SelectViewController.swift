@@ -12,7 +12,6 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
     
     @IBOutlet var ageBtn: UITextField!
-    @IBOutlet var label: UILabel!
     @IBOutlet var kpop: UIButton!
     @IBOutlet var balad: UIButton!
     @IBOutlet var hiphop: UIButton!
@@ -60,19 +59,25 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         createPickerView(tagNo: 2)
         dismissPickerView()
-        label.text = "당신의 취향에 맞게\n노래를 추천해 드릴게요 🎶"
         
+        kpop.tintColor = UIColor.darkGray
+        balad.tintColor = UIColor.darkGray
+        hiphop.tintColor = UIColor.darkGray
+        inde.tintColor = UIColor.darkGray
+        metal.tintColor = UIColor.darkGray
+        rnb.tintColor = UIColor.darkGray
     }
     
     // 버튼 선택했을 때
     func select(_ sender: UIButton?) {
         if sender?.isSelected != true {
             sender?.isSelected = true
-            sender?.backgroundColor = UIColor.systemGray5
+            sender?.backgroundColor = UIColor.primary
             sender?.tintColor = UIColor.white
         } else {
             sender?.isSelected = false
             sender?.backgroundColor = UIColor.white
+            sender?.tintColor = UIColor.darkGray
         }
     }
     

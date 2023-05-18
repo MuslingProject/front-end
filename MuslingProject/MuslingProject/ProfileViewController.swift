@@ -10,14 +10,6 @@ import UIKit
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var profileImg: UIImageView!
-    @IBOutlet var nameField: UITextField!
-    
-    @IBAction func nextBtn(_ sender: UIButton) {
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "SelectVC")
-        vcName?.modalPresentationStyle = .fullScreen
-        vcName?.modalTransitionStyle = .crossDissolve
-        self.present(vcName!, animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +23,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImg.layer.borderWidth = 1
         profileImg.clipsToBounds = true
         profileImg.layer.borderColor = UIColor.clear.cgColor
-
-        nameField.layer.cornerRadius = 20
-        nameField.backgroundColor = UIColor.white
-        nameField.layer.shadowOpacity = 0.2
-        nameField.layer.shadowRadius = 3
-        nameField.layer.shadowOffset = CGSize(width: 0, height: 0)
-        nameField.layer.shadowColor = UIColor.darkGray.cgColor
-        nameField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 13, height: 0))
-        nameField.leftViewMode = .always
     }
     
     @objc func selectImage(sender: UITapGestureRecognizer) {
