@@ -6,16 +6,24 @@
 //
 
 import UIKit
+import CoreLocation
+import Alamofire
 
 class HomeViewController: UIViewController {
     
     @IBOutlet var dateLabel: UILabel! // 날짜
     @IBOutlet var noneLabel: UILabel! // 작성되어 있지 않을 때 띄울 문구
     @IBOutlet var homeTitle: UINavigationItem!
+    @IBOutlet var weatherLabel: UILabel!
+    
+    var locationManager: CLLocationManager?
+    var currentLocation: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestAuthorization()
         dateFormat()
+        getWeather()
         noDiary()
     }
     
@@ -52,5 +60,52 @@ class HomeViewController: UIViewController {
     func noDiary() {
         noneLabel.text = "아직 오늘이 기록이 없어요\n일기를 작성해 주세요!"
     }
+    
+    func getWeather() {
+        let params: Parameters = [
+            "lat": LocationService.shared.latitude ?? 0,
+            "lon": LocationService.shared.longitude ?? 0
+        ]
+        
+        AF.request("http://54.180.220.34:8080/read/weather",
+                   method: .post,
+                   parameters: params,
+                   encoding: JSONEncoding.default,
+                   headers: nil)
+        .validate(statusCode: 200 ..< 299).responseData { response in
+            switch response.result {
+            case .success(let weatherData):
+                let weather = try? JSONDecoder().decode(Weather.self, from: weatherData)
+                self.weatherLabel.text = "현재 온도: \(weather!.temp) 날씨: \(weather!.main)"
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
 
+extension HomeViewController: CLLocationManagerDelegate {
+    private func requestAuthorization() {
+        if locationManager == nil {
+            locationManager = CLLocationManager()
+            // 정확도 검사
+            locationManager!.desiredAccuracy = kCLLocationAccuracyBest
+            
+            // 앱을 사용할 때 권한 요청
+            locationManager!.requestWhenInUseAuthorization()
+            locationManager!.delegate = self
+            locationManagerDidChangeAuthorization(locationManager!)
+        } else {
+            // 사용자의 위치가 바뀌고 있는지 확인하는 메소드
+            locationManager!.startMonitoringSignificantLocationChanges()
+        }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if manager.authorizationStatus == .authorizedWhenInUse {
+            currentLocation = locationManager!.location?.coordinate
+            LocationService.shared.longitude = currentLocation?.longitude
+            LocationService.shared.latitude = currentLocation?.latitude
+        }
+    }
 }

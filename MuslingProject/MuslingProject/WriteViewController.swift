@@ -20,8 +20,6 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         vcName?.modalPresentationStyle = .fullScreen
         vcName?.modalTransitionStyle = .crossDissolve
         self.present(vcName!, animated: true, completion: nil)
-//        guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC") else { return }
-//        self.navigationController?.pushViewController(vcName, animated: true)
     }
     
     var pickerView = UIPickerView()
@@ -42,6 +40,10 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         //self.writeButton.tintColor = UIColor.white
         //self.navigationItem.rightBarButtonItem = self.writeButton
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
