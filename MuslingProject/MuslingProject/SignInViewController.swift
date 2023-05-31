@@ -16,7 +16,6 @@ class SignInViewController: UIViewController {
     @IBAction func LoginBtn(_ sender: Any) {
         // 자동 로그인
         let id = idField.text
-        let pw = passField.text
         
         let dataSave = UserDefaults.standard
         dataSave.setValue(id, forKey: "user_id")

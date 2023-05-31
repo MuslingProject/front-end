@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 import GoogleSignIn
 
 class FirstViewController: UIViewController {
@@ -15,8 +13,8 @@ class FirstViewController: UIViewController {
     // 구글 계정으로 로그인 선택했을 때
     @IBAction func ggLogin(_ sender: UIButton) {
         // 구글 인증
-        guard let cliendID = FirebaseApp.app()?.options.clientID else { return }
-        _ = GIDConfiguration(clientID: cliendID)
+//        guard let cliendID = FirebaseApp.app()?.options.clientID else { return }
+//        _ = GIDConfiguration(clientID: cliendID)
 
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
             guard error == nil else { return }
@@ -61,7 +59,7 @@ class FirstViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .secondary
         
         // 자동 로그인
-        if let userId = UserDefaults.standard.string(forKey: "user_id") {
+        if UserDefaults.standard.string(forKey: "user_id") != nil {
             let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
             vcName?.modalPresentationStyle = .fullScreen
             vcName?.modalTransitionStyle = .crossDissolve
