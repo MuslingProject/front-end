@@ -46,7 +46,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
     
     lazy var doneButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(saveInfo(_:)))
+        let button = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveInfo(_:)))
         return button
     }()
     
