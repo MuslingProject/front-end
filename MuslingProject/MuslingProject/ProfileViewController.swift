@@ -10,6 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var profileImg: UIImageView!
+    @IBOutlet var nameLabel: HSUnderLineTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,4 +55,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.dismiss(animated: false)
     }
 
+    @IBAction func nextBtn(_ sender: Any) {
+        if nameLabel.text == "" {
+            let alert = UIAlertController(title: "닉네임을 입력해 주세요", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+            Member.shared.name = nameLabel.text
+        }
+    }
 }

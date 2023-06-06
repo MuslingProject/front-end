@@ -6,20 +6,36 @@
 //
 
 import UIKit
+import Alamofire
 
 class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
     
     @IBOutlet var ageBtn: UITextField!
-    @IBOutlet var kpop: UIButton!
-    @IBOutlet var balad: UIButton!
-    @IBOutlet var hiphop: UIButton!
-    @IBOutlet var inde: UIButton!
-    @IBOutlet var metal: UIButton!
-    @IBOutlet var rnb: UIButton!
+    @IBOutlet var dancePop: CSButton!
+    @IBOutlet var balad: CSButton!
+    @IBOutlet var hiphop: CSButton!
+    @IBOutlet var indie: CSButton!
+    @IBOutlet var metal: CSButton!
+    @IBOutlet var rnb: CSButton!
+    @IBOutlet var acoustic: CSButton!
     
     @IBAction func finishBtn(_ sender: UIButton) {
+        Member.shared.age = ageBtn.text
+        if ageBtn.text == "" {
+            let alert = UIAlertController(title: "연령대를 선택해 주세요", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+            signUp()
+            let dataSave = UserDefaults.standard
+            dataSave.setValue(Member.shared.user_id, forKey: "user_id")
+        }
+        
+        // UserDefaults에 저장
+        
         // 홈으로 이동
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
         vcName?.modalPresentationStyle = .fullScreen
@@ -28,7 +44,7 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func selectKpop(_ sender: Any) {
-        select(kpop)
+        select(dancePop)
     }
     
     @IBAction func selectBalad(_ sender: Any) {
@@ -40,7 +56,7 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func selectInde(_ sender: Any) {
-        select(inde)
+        select(indie)
     }
     
     @IBAction func selectRock(_ sender: Any) {
@@ -51,6 +67,10 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         select(rnb)
     }
     
+    @IBAction func selectAcoustic(_ sender: Any) {
+        select(acoustic)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,20 +79,13 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         createPickerView(tagNo: 2)
         dismissPickerView()
-        
-        kpop.tintColor = UIColor.darkGray
-        balad.tintColor = UIColor.darkGray
-        hiphop.tintColor = UIColor.darkGray
-        inde.tintColor = UIColor.darkGray
-        metal.tintColor = UIColor.darkGray
-        rnb.tintColor = UIColor.darkGray
     }
     
     // 버튼 선택했을 때
     func select(_ sender: UIButton?) {
         if sender?.isSelected != true {
             sender?.isSelected = true
-            sender?.backgroundColor = UIColor.primary
+            sender?.backgroundColor = UIColor.systemGray5
             sender?.tintColor = UIColor.white
         } else {
             sender?.isSelected = false
@@ -120,6 +133,30 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @objc func doneBtn(_sender: Any) {
         self.view.endEditing(true)
+    }
+    
+    func signUp() {
+        let params: Parameters = [
+            "user_id": Member.shared.user_id ?? "",
+            "pwd": Member.shared.pwd ?? "",
+            "name": Member.shared.name ?? "",
+            "age": Member.shared.age ?? ""
+        ]
+        
+        AF.request("http://54.180.220.34:8080/users/new-user",
+                   method: .post,
+                   parameters: params,
+                   encoding: JSONEncoding.default,
+                   headers: nil)
+        .validate(statusCode: 200 ..< 299).responseData { response in
+            switch response.result {
+            case .success(let data):
+                print(data)
+                print("회원가입 성공")
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 }

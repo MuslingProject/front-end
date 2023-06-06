@@ -18,6 +18,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet var inde: CSButton!
     @IBOutlet var metal: CSButton!
     @IBOutlet var rnb: CSButton!
+    @IBOutlet var acoustic: CSButton!
     
     @IBAction func selectKpop(_ sender: Any) {
         select(kpop)
@@ -41,6 +42,10 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     @IBAction func selectRnb(_ sender: Any) {
         select(rnb)
+    }
+    
+    @IBAction func selectAcoustic(_ sender: Any) {
+        select(acoustic)
     }
     
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]

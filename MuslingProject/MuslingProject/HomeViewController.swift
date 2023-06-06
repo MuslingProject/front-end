@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     @IBOutlet var dateLabel: UILabel! // 날짜
     @IBOutlet var noneLabel: UILabel! // 작성되어 있지 않을 때 띄울 문구
     @IBOutlet var homeTitle: UINavigationItem!
-    @IBOutlet var weatherLabel: UILabel!
     
     var locationManager: CLLocationManager?
     var currentLocation: CLLocationCoordinate2D?
@@ -22,7 +21,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestAuthorization()
-        dateFormat()
         getWeather()
         noDiary()
     }
@@ -48,15 +46,6 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.layer.shadowRadius = 2
     }
     
-    func dateFormat() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd (E)"
-        let current_date_string = formatter.string(from: Date())
-        dateLabel.text = "TODAY \(current_date_string)"
-        dateLabel.font = UIFont.boldSystemFont(ofSize: 13)
-        dateLabel.textColor = UIColor.darkGray
-    }
-    
     func noDiary() {
         noneLabel.text = "아직 오늘이 기록이 없어요\n일기를 작성해 주세요!"
     }
@@ -75,8 +64,14 @@ class HomeViewController: UIViewController {
         .validate(statusCode: 200 ..< 299).responseData { response in
             switch response.result {
             case .success(let weatherData):
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd (E)"
+                let current_date_string = formatter.string(from: Date())
                 let weather = try? JSONDecoder().decode(Weather.self, from: weatherData)
-                self.weatherLabel.text = "현재 온도: \(weather!.temp) 날씨: \(weather!.main)"
+                
+                self.dateLabel.text = "TODAY \(current_date_string) \(weather!.temp)º \(weather!.main)"
+                self.dateLabel.font = UIFont.boldSystemFont(ofSize: 13)
+                self.dateLabel.textColor = UIColor.darkGray
             case .failure(let error):
                 print(error)
             }
