@@ -7,17 +7,7 @@
 
 import UIKit
 
-struct Category {
-    let emotion: String
-    let emoji: String
-}
-
 extension Category {
-    static var data = [
-        Category(emotion: "기쁨/사랑", emoji: "🥰"),
-        Category(emotion: "이별/슬픔", emoji: "😢"),
-        Category(emotion: "스트레스/짜증", emoji: "😡"),
-        Category(emotion: "멘붕/불안", emoji: "🤯"),
-        Category(emotion: "우울", emoji: "🫠")
+    static var data = ["기쁨/사랑일 때 🥰", "이별/슬픔일 때 😢", "스트레스/짜증일 때 😡", "멘붕/불안일 때 🤯", "우울할 때 🫠"
     ]
 }

@@ -32,17 +32,24 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
+
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+
+        singleTapGestureRecognizer.isEnabled = true
+
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+
+        self.view.addGestureRecognizer(singleTapGestureRecognizer)
+        
         weatherField.delegate = self
         weatherField.tintColor = .clear // 커서 깜빡임 해결
         
         createPickerView(tagNo: 1)
         dismissPickerView()
-        
-        //self.writeButton.tintColor = UIColor.white
-        //self.navigationItem.rightBarButtonItem = self.writeButton
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    @objc func MyTapMethod(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
     

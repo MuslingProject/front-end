@@ -7,59 +7,106 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    @IBOutlet var background: UIView!
-    @IBOutlet var tableView: UITableView!
+class FavoriteViewController: UITableViewController {
     
     // 더미데이터 불러오기
     let categoryList = Category.data
-    let cellSpacingHeight: CGFloat = 1
+    let musics = Music.data
+    
+    
+    // 감정별 배열
+    var happy: [Music] = []
+    var sad: [Music] = []
+    var stress: [Music] = []
+    var unrest: [Music] = []
+    var depressed: [Music] = []
+
+    let cellSpacingHeight: CGFloat = 50
 
     
-    // Section당 Row의 수
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    // MARK: - Section
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return categoryList.count
     }
     
-    // Section의 수
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categoryList[section]
     }
     
     // 각 섹션 사이의 간격 설정
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CategoryListCell
-        let target = categoryList[indexPath.section]
+    // 헤더 글자 스타일 변경
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let myLabel = UILabel()
+        myLabel.frame = CGRect(x: 10, y: 16, width: 320, height: 35)
+        myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        myLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        myLabel.textColor = UIColor.darkGray
         
-        cell.emoji.text = target.emoji
-        cell.title.text = target.emotion
-        //cell.backgroundColor = UIColor.clear.withAlphaComponent(0)
+        let headerView = UIView()
+        headerView.addSubview(myLabel)
+        
+        return headerView
+    }
+    
+    // MARK: - Row Cell
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return happy.count
+        } else if section == 1 {
+            return sad.count
+        } else if section == 2 {
+            return stress.count
+        } else if section == 3 {
+            return unrest.count
+        } else if section == 4 {
+            return depressed.count
+        } else {
+            return 0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CategoryListCell
+        
+        if indexPath.section == 0 {
+            let target = happy[indexPath.row]
+            cell.title.text = target.title
+            cell.singer.text = target.singer
+        } else if indexPath.section == 1 {
+            let target = sad[indexPath.row]
+            cell.title.text = target.title
+            cell.singer.text = target.singer
+        } else if indexPath.section == 2 {
+            let target = stress[indexPath.row]
+            cell.title.text = target.title
+            cell.singer.text = target.singer
+        } else if indexPath.section == 3 {
+            let target = unrest[indexPath.row]
+            cell.title.text = target.title
+            cell.singer.text = target.singer
+        } else if indexPath.section == 4 {
+            let target = depressed[indexPath.row]
+            cell.title.text = target.title
+            cell.singer.text = target.singer
+        } else {
+            return UITableViewCell()
+        }
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // cell에 그림자
-//        tableView.layer.shadowColor = UIColor.black.cgColor
-//        tableView.layer.shadowOpacity = 0.3
-//        tableView.layer.shadowRadius = 5
-//        tableView.layer.shadowOffset = CGSize(width: 0, height: 10)
-//        tableView.layer.masksToBounds = true
-//
-          tableView.delegate = self
-          tableView.dataSource = self
-//        //tableView.backgroundColor = UIColor.clear.withAlphaComponent(0)
+        addMusic()
     }
     
     // navigation bar 배경, 타이틀, item 색상 변경
@@ -82,13 +129,34 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
         navigationController?.navigationBar.layer.shadowRadius = 2
     }
-
     
+    func addMusic() {
+        for music in musics {
+            switch music.emotion {
+            case "사랑/기쁨":
+                happy.append(music)
+                break
+            case "이별/슬픔":
+                sad.append(music)
+                break
+            case "스트레스/짜증":
+                stress.append(music)
+                break
+            case "멘붕/불안":
+                unrest.append(music)
+                break
+            case "우울":
+                depressed.append(music)
+                break
+            default:
+                break
+            }
+        }
+    }
 }
 
 // custom Cell
 class CategoryListCell: UITableViewCell {
-    @IBOutlet weak var emoji: UILabel!
-    @IBOutlet weak var title: UILabel!
-    
+    @IBOutlet var title: UILabel!
+    @IBOutlet var singer: UILabel!
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		99877493E5F93CC2078DE565 /* Pods_MuslingProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119F5E6F7820FF7598DFC8CD /* Pods_MuslingProject.framework */; };
 		F303F7452A2F094300FEE41E /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = F303F7442A2F094300FEE41E /* Genre.swift */; };
+		F303F7472A2F1A9800FEE41E /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = F303F7462A2F1A9800FEE41E /* Music.swift */; };
 		F30A73972A1CBDDD00CAF477 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A73962A1CBDDD00CAF477 /* Category.swift */; };
 		F30A73992A1CC17300CAF477 /* sad.png in Resources */ = {isa = PBXBuildFile; fileRef = F30A73982A1CC17300CAF477 /* sad.png */; };
 		F30A739B2A1CC17900CAF477 /* depressed.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F30A739A2A1CC17900CAF477 /* depressed.jpeg */; };
@@ -51,6 +52,7 @@
 		636636C21A4BF807463FEE9A /* Pods-MuslingProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslingProject.release.xcconfig"; path = "Target Support Files/Pods-MuslingProject/Pods-MuslingProject.release.xcconfig"; sourceTree = "<group>"; };
 		6CAD5DF9AEA12D4971564457 /* Pods-MuslingProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslingProject.debug.xcconfig"; path = "Target Support Files/Pods-MuslingProject/Pods-MuslingProject.debug.xcconfig"; sourceTree = "<group>"; };
 		F303F7442A2F094300FEE41E /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		F303F7462A2F1A9800FEE41E /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		F30A73962A1CBDDD00CAF477 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F30A73982A1CC17300CAF477 /* sad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sad.png; path = ../../../Downloads/sad.png; sourceTree = "<group>"; };
 		F30A739A2A1CC17900CAF477 /* depressed.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = depressed.jpeg; path = ../../../Downloads/depressed.jpeg; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				F3244B412A25810A006C7E9B /* WeatherModel.swift */,
 				F3F7D9A62A2C8CEC00D90B69 /* Member.swift */,
 				F303F7442A2F094300FEE41E /* Genre.swift */,
+				F303F7462A2F1A9800FEE41E /* Music.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				F3FCE3C72A12B19300E67903 /* ResultViewController.swift in Sources */,
 				F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */,
 				F30A73972A1CBDDD00CAF477 /* Category.swift in Sources */,
+				F303F7472A2F1A9800FEE41E /* Music.swift in Sources */,
 				F33135C72A2570F6008DF851 /* LocationService.swift in Sources */,
 				F3C2288329EC507600FDED32 /* HomeViewController.swift in Sources */,
 				F3C2288529EC508600FDED32 /* FavoriteViewController.swift in Sources */,
