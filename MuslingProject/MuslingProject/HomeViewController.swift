@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var dateLabel: UILabel! // 날짜
     @IBOutlet var noneLabel: UILabel! // 작성되어 있지 않을 때 띄울 문구
     @IBOutlet var homeTitle: UINavigationItem!
-    
+
     var locationManager: CLLocationManager?
     var currentLocation: CLLocationCoordinate2D?
     
