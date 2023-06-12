@@ -74,7 +74,7 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ageBtn.delegate = self
+        //ageBtn.delegate = self
         ageBtn.tintColor = .clear // 커서 깜빡임 해결
         
         createPickerView(tagNo: 2)
