@@ -29,7 +29,7 @@
 		F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288629EC509000FDED32 /* MypageViewController.swift */; };
 		F3C2288929EC51ED00FDED32 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288829EC51ED00FDED32 /* TabBarVC.swift */; };
 		F3C2A7AB2A25F0BC0001EDD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3C2A7AA2A25F0BC0001EDD6 /* GoogleService-Info.plist */; };
-		F3E568072A0E17CF009ED042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3E568062A0E17CF009ED042 /* Main.storyboard */; };
+		F3D06D162A36FBAF006B991E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3D06D152A36FBAF006B991E /* Main.storyboard */; };
 		F3EAA53229E55B6600819F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA53129E55B6600819F7A /* AppDelegate.swift */; };
 		F3EAA53429E55B6600819F7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA53329E55B6600819F7A /* SceneDelegate.swift */; };
 		F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3EAA53A29E55B6700819F7A /* Assets.xcassets */; };
@@ -67,7 +67,7 @@
 		F3C2288629EC509000FDED32 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		F3C2288829EC51ED00FDED32 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		F3C2A7AA2A25F0BC0001EDD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F3E568062A0E17CF009ED042 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F3D06D152A36FBAF006B991E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3EAA52E29E55B6600819F7A /* MuslingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuslingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EAA53129E55B6600819F7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EAA53329E55B6600819F7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 			children = (
 				F3C2A7B72A273BCB0001EDD6 /* UI */,
 				F3C2A7B62A273BB30001EDD6 /* model */,
-				F3E568062A0E17CF009ED042 /* Main.storyboard */,
+				F3D06D152A36FBAF006B991E /* Main.storyboard */,
 				F3EAA53129E55B6600819F7A /* AppDelegate.swift */,
 				F3EAA53329E55B6600819F7A /* SceneDelegate.swift */,
 				F3EAA53A29E55B6700819F7A /* Assets.xcassets */,
@@ -259,9 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3244AAD2A36E8C0002C19BB /* kuromi.jpeg in Resources */,
+				F3D06D162A36FBAF006B991E /* Main.storyboard in Resources */,
 				F3244AAE2A36E8C0002C19BB /* logo.png in Resources */,
 				F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */,
-				F3E568072A0E17CF009ED042 /* Main.storyboard in Resources */,
 				F3244AAF2A36E8C0002C19BB /* line.png in Resources */,
 				F3244AAB2A36E8C0002C19BB /* list.png in Resources */,
 				F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */,
