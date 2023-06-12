@@ -11,6 +11,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBOutlet var userProfile: UIImageView!
     @IBOutlet var selectAge: UITextField!
+    @IBOutlet var nameField: HSUnderLineTextField!
     
     @IBOutlet var dancePop: CSButton!
     @IBOutlet var balad: CSButton!
@@ -57,6 +58,10 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // textField 왼쪽 여백 추가
+        nameField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 2.0, height: 0.0))
+        nameField.leftViewMode = .always
         
         let selectImg = UITapGestureRecognizer(target: self, action: #selector(selectImage))
         userProfile.isUserInteractionEnabled = true

@@ -10,7 +10,7 @@ import UIKit
 class FavoriteViewController: UITableViewController {
     
     // 더미데이터 불러오기
-    let categoryList = Category.data
+    let categoryList = Category.emotion
     let musics = Music.data
     
     
@@ -96,6 +96,7 @@ class FavoriteViewController: UITableViewController {
             return UITableViewCell()
         }
         
+        cell.selectionStyle = .none
         return cell
     }
     

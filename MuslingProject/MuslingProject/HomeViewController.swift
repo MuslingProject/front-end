@@ -70,8 +70,6 @@ class HomeViewController: UIViewController {
                 let weather = try? JSONDecoder().decode(Weather.self, from: weatherData)
                 
                 self.dateLabel.text = "TODAY \(current_date_string) \(weather!.temp)º \(weather!.main)"
-                self.dateLabel.font = UIFont.boldSystemFont(ofSize: 13)
-                self.dateLabel.textColor = UIColor.darkGray
             case .failure(let error):
                 print(error)
             }
