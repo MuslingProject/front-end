@@ -15,12 +15,12 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet var diaryTitle: UITextField!
     @IBOutlet var weatherField: UITextField!
     
-    @IBAction func WriteBtn(_ sender: Any) {
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC")
-        vcName?.modalPresentationStyle = .fullScreen
-        vcName?.modalTransitionStyle = .crossDissolve
-        self.present(vcName!, animated: true, completion: nil)
-    }
+//    @IBAction func WriteBtn(_ sender: Any) {
+//        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC")
+//        vcName?.modalPresentationStyle = .fullScreen
+//        vcName?.modalTransitionStyle = .crossDissolve
+//        self.present(vcName!, animated: true, completion: nil)
+//    }
     
     var pickerView = UIPickerView()
     
@@ -95,8 +95,8 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
 //    @objc func writeDiary(_ sender: Any) {
-//        // 노래 추천 페이지로 이동 및 다이어리 저장
-//        self.performSegue(withIdentifier: "ResultVC", sender: self)
+//        // 다이어리 저장
+//
 //    }
 
 }

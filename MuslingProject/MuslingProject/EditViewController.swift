@@ -12,16 +12,16 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet var userProfile: UIImageView!
     @IBOutlet var selectAge: UITextField!
     
-    @IBOutlet var kpop: CSButton!
+    @IBOutlet var dancePop: CSButton!
     @IBOutlet var balad: CSButton!
     @IBOutlet var hiphop: CSButton!
-    @IBOutlet var inde: CSButton!
+    @IBOutlet var indie: CSButton!
     @IBOutlet var metal: CSButton!
     @IBOutlet var rnb: CSButton!
     @IBOutlet var acoustic: CSButton!
     
     @IBAction func selectKpop(_ sender: Any) {
-        select(kpop)
+        select(dancePop)
     }
     
     @IBAction func selectBalad(_ sender: Any) {
@@ -33,7 +33,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func selectInde(_ sender: Any) {
-        select(inde)
+        select(indie)
     }
     
     @IBAction func selectMetal(_ sender: Any) {
