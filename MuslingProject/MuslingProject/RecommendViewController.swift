@@ -11,6 +11,14 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var myTableView: UITableView!
     
+    @IBAction func closeBtn(_ sender: Any) {
+        // 홈으로 이동
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+        vcName?.modalPresentationStyle = .fullScreen
+        vcName?.modalTransitionStyle = .crossDissolve
+        self.present(vcName!, animated: true, completion: nil)
+    }
+    
     let emotion = EmotionMusic.data
     let weather = WeatherMusic.data
     

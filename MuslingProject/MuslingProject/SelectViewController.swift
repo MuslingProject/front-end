@@ -30,17 +30,19 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             present(alert, animated: true, completion: nil)
         } else {
             signUp()
+            
+            // 자동로그인 위해 UserDefaults에 저장
             let dataSave = UserDefaults.standard
             dataSave.setValue(Member.shared.user_id, forKey: "user_id")
+            
+            // 홈으로 이동
+            let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+            vcName?.modalPresentationStyle = .fullScreen
+            vcName?.modalTransitionStyle = .crossDissolve
+            self.present(vcName!, animated: true, completion: nil)
         }
         
-        // UserDefaults에 저장
         
-        // 홈으로 이동
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
-        vcName?.modalPresentationStyle = .fullScreen
-        vcName?.modalTransitionStyle = .crossDissolve
-        self.present(vcName!, animated: true, completion: nil)
     }
     
     @IBAction func selectKpop(_ sender: Any) {

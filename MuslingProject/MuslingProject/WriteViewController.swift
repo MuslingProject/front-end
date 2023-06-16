@@ -14,8 +14,9 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet var diaryTitle: UITextField!
     @IBOutlet var weatherField: UITextField!
+    @IBOutlet var textView: UITextView!
     
-//    @IBAction func WriteBtn(_ sender: Any) {
+    //    @IBAction func WriteBtn(_ sender: Any) {
 //        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC")
 //        vcName?.modalPresentationStyle = .fullScreen
 //        vcName?.modalTransitionStyle = .crossDissolve
@@ -44,6 +45,11 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         weatherField.delegate = self
         weatherField.tintColor = .clear // 커서 깜빡임 해결
+        
+        
+        textView.backgroundColor = UIColor.systemGray6
+        textView.layer.borderColor = UIColor.black.cgColor
+        
         
         createPickerView(tagNo: 1)
         dismissPickerView()

@@ -8,6 +8,6 @@
 import Foundation
 
 struct Weather: Codable {
-    let temp: Double
+    let temp: Int
     let icon, main: String
 }
