@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
     
     let weather = ["☀️ 맑았어요", "☁️ 흐렸어요", "🌧️ 비가 내렸어요", "🌨️ 눈이 내렸어요"]
     var selectWeather = ""
@@ -46,9 +46,18 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         weatherField.delegate = self
         weatherField.tintColor = .clear // 커서 깜빡임 해결
         
+        textView.layer.masksToBounds = true
+        textView.clipsToBounds = true
         
-        textView.backgroundColor = UIColor.systemGray6
-        textView.layer.borderColor = UIColor.black.cgColor
+        // textview에 delegate 상속
+        textView.delegate = self
+        
+        // 처음 화면이 로드되었을 때 플레이스 홀더처럼 보이게끔 만들어 주기
+        textView.text = "오늘 하루 어떤 일이 있으셨나요? 🙂"
+        textView.textColor = UIColor.lightGray
+
+        // 테두리 없애기
+        textView.layer.borderColor = UIColor.systemBackground.cgColor
         
         
         createPickerView(tagNo: 1)
@@ -94,6 +103,14 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         toolBar.setItems([space, button], animated: true)
         toolBar.isUserInteractionEnabled = true
         weatherField.inputAccessoryView = toolBar
+    }
+    
+    // 텍스트뷰에 입력이 시작되면 플레이스 홀더 지우고 폰트 색상 검정으롭 변경
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
     }
     
     @objc func doneBtn(_sender: Any) {

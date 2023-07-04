@@ -24,6 +24,7 @@
 		F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */; };
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
 		F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37651C22A138AB6002B4286 /* SignInViewController.swift */; };
+		F3965C612A4C16FB005797FD /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3965C602A4C16FB005797FD /* StatViewController.swift */; };
 		F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADDE002A010C91005650E2 /* WriteViewController.swift */; };
 		F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2287429EC453B00FDED32 /* CSButton.swift */; };
 		F3C2288329EC507600FDED32 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288229EC507600FDED32 /* HomeViewController.swift */; };
@@ -46,8 +47,10 @@
 
 /* Begin PBXFileReference section */
 		119F5E6F7820FF7598DFC8CD /* Pods_MuslingProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MuslingProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		310CD695D08A66EC134A6278 /* Pods-MuslingProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslingProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MuslingProject/Pods-MuslingProject.release.xcconfig"; sourceTree = "<group>"; };
 		636636C21A4BF807463FEE9A /* Pods-MuslingProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslingProject.release.xcconfig"; path = "Target Support Files/Pods-MuslingProject/Pods-MuslingProject.release.xcconfig"; sourceTree = "<group>"; };
 		6CAD5DF9AEA12D4971564457 /* Pods-MuslingProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslingProject.debug.xcconfig"; path = "Target Support Files/Pods-MuslingProject/Pods-MuslingProject.debug.xcconfig"; sourceTree = "<group>"; };
+		6E2A0E9C6A9AE000285C811E /* Pods-MuslingProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MuslingProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MuslingProject/Pods-MuslingProject.debug.xcconfig"; sourceTree = "<group>"; };
 		F303F7442A2F094300FEE41E /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		F303F7462A2F1A9800FEE41E /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		F30A73962A1CBDDD00CAF477 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		F37651C22A138AB6002B4286 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		F3965C602A4C16FB005797FD /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		F3ADDE002A010C91005650E2 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		F3C2287429EC453B00FDED32 /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
 		F3C2288229EC507600FDED32 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			children = (
 				6CAD5DF9AEA12D4971564457 /* Pods-MuslingProject.debug.xcconfig */,
 				636636C21A4BF807463FEE9A /* Pods-MuslingProject.release.xcconfig */,
+				6E2A0E9C6A9AE000285C811E /* Pods-MuslingProject.debug.xcconfig */,
+				310CD695D08A66EC134A6278 /* Pods-MuslingProject.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -183,6 +189,7 @@
 				F37651C22A138AB6002B4286 /* SignInViewController.swift */,
 				F3C2A7AA2A25F0BC0001EDD6 /* GoogleService-Info.plist */,
 				F339209A2A379331001F419E /* RecommendViewController.swift */,
+				F3965C602A4C16FB005797FD /* StatViewController.swift */,
 			);
 			path = MuslingProject;
 			sourceTree = "<group>";
@@ -217,8 +224,6 @@
 			dependencies = (
 			);
 			name = MuslingProject;
-			packageProductDependencies = (
-			);
 			productName = MuslingProject;
 			productReference = F3EAA52E29E55B6600819F7A /* MuslingProject.app */;
 			productType = "com.apple.product-type.application";
@@ -325,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3965C612A4C16FB005797FD /* StatViewController.swift in Sources */,
 				F3EAA55329E5714200819F7A /* FirstViewController.swift in Sources */,
 				F30F22202A0E8C2F005FDE36 /* UIColor.swift in Sources */,
 				F3EAA53229E55B6600819F7A /* AppDelegate.swift in Sources */,

@@ -65,11 +65,11 @@ class HomeViewController: UIViewController {
             switch response.result {
             case .success(let weatherData):
                 let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd (E)"
+                formatter.dateFormat = "yyyy년 MM월 dd일 (E)"
                 let current_date_string = formatter.string(from: Date())
                 let weather = try? JSONDecoder().decode(Weather.self, from: weatherData)
                 
-                self.dateLabel.text = "TODAY \(current_date_string) \(weather!.temp)º \(weather!.main)"
+                self.dateLabel.text = "\(current_date_string) \(weather!.temp)º \(weather!.main)"
             case .failure(let error):
                 print(error)
             }
