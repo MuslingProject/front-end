@@ -11,7 +11,7 @@ class StatViewController: UIViewController {
     
     let day1 = "2023-07-02"
     let day2 = "2023-07-03"
-    let day3 = "2023-07-04"
+    let day3 = "2023-07-30"
     
     let cal = Calendar.current
     
@@ -26,6 +26,38 @@ class StatViewController: UIViewController {
         return view
     }()
     
+    // 이모지 설명 레이블
+    lazy var emojiLabel: UILabel = {
+        let label = UILabel()
+        label.text = "🥰 사랑/기쁨\n😢 이별/슬픔\n🫠 우울\n🤯 멘붕/불안\n😡 스트레스/짜증"
+        label.numberOfLines = 5
+        
+        // 행간 조절
+        let attrStirng = NSMutableAttributedString(string: label.text!)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 3
+        attrStirng.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrStirng.length))
+        label.attributedText = attrStirng
+        
+        label.textColor = UIColor.darkGray
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        
+        return label
+    }()
+    
+    fileprivate func LabelConstraints() {
+        view.addSubview(emojiLabel)
+        
+        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let labelViewConstraints = [
+            emojiLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            emojiLabel.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 30),
+        ]
+        
+        NSLayoutConstraint.activate(labelViewConstraints)
+    }
+    
     var selectedDate: DateComponents? = nil
     
     override func viewDidLoad() {
@@ -36,6 +68,9 @@ class StatViewController: UIViewController {
         applyConstraints()
         setCalendar()
         reloadDateView(date: Date())
+        
+        // 달력 아래에 레이블 추가
+        LabelConstraints()
     }
     
     fileprivate func setCalendar() {
@@ -51,7 +86,7 @@ class StatViewController: UIViewController {
         let calendarViewConstraints = [
             calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor )
+            calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10)
         ]
         
         NSLayoutConstraint.activate(calendarViewConstraints)
@@ -114,7 +149,7 @@ extension StatViewController: UICalendarViewDelegate, UICalendarSelectionSingleD
             case "기쁨/사랑":
                 return .customView {
                     let label = UILabel()
-                    label.text = "😘"
+                    label.text = "🥰"
                     label.font = UIFont.systemFont(ofSize: 15)
                     label.textAlignment = .center
                     return label
