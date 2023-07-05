@@ -12,6 +12,8 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
     
+    let signUpURL = "http://54.180.220.34:8080/users/new-user"
+    
     @IBOutlet var ageBtn: UITextField!
     @IBOutlet var dancePop: CSButton!
     @IBOutlet var balad: CSButton!
@@ -29,7 +31,7 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
-            signUp()
+            signUp(userId: Member.shared.user_id, pwd: Member.shared.pwd, name: Member.shared.name, age: Member.shared.age, imgData: Member.shared.img)
             
             // 자동로그인 위해 UserDefaults에 저장
             let dataSave = UserDefaults.standard
@@ -137,26 +139,34 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.view.endEditing(true)
     }
     
-    func signUp() {
+    func signUp (userId: String, pwd: String, name: String, age: String, imgData: UIImage?) {
+        // 헤더 작성 (Content-type 지정)
+        let header: HTTPHeaders = [ "Content-Type" : "multipart/form-data" ]
+        
+        // 파라미터
         let params: Parameters = [
-            "user_id": Member.shared.user_id ?? "",
-            "pwd": Member.shared.pwd ?? "",
-            "name": Member.shared.name ?? "",
-            "age": Member.shared.age ?? ""
+            "user_id": userId,
+            "pwd": pwd,
+            "name": name,
+            "age": age
         ]
         
-        AF.request("http://54.180.220.34:8080/users/new-user",
-                   method: .post,
-                   parameters: params,
-                   encoding: JSONEncoding.default,
-                   headers: nil)
-        .validate(statusCode: 200 ..< 299).responseData { response in
+        AF.upload(multipartFormData: { MultipartFormData in
+            for (key, value) in params {
+            MultipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+        }
+            // 이미지 추가 (이미지가 비어 있을 경우 고려)
+            if let image = imgData?.pngData() {
+                MultipartFormData.append(image, withName: "image", fileName: "\(name).jpg", mimeType: "image/jpg")
+            }
+        }, to: signUpURL, usingThreshold: UInt64.init(), method: .post, headers: header).responseData { response in
             switch response.result {
             case .success(let data):
                 print(data)
-                print("회원가입 성공")
+                print("회원가입 성공!")
             case .failure(let error):
                 print(error)
+                print("회원가입 실패")
             }
         }
     }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
     
@@ -15,20 +16,17 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet var diaryTitle: UITextField!
     @IBOutlet var weatherField: UITextField!
     @IBOutlet var textView: UITextView!
-    
-    //    @IBAction func WriteBtn(_ sender: Any) {
-//        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC")
-//        vcName?.modalPresentationStyle = .fullScreen
-//        vcName?.modalTransitionStyle = .crossDissolve
-//        self.present(vcName!, animated: true, completion: nil)
-//    }
+    @IBOutlet var datePicker: UIDatePicker!
     
     var pickerView = UIPickerView()
     
-//    lazy var writeButton: UIBarButtonItem = {
-//        let button = UIBarButtonItem(title: "작성", style: .plain, target: self, action: #selector(writeDiary(_:)))
-//        return button
-//    }()
+    // 작성 navigation bar item
+    lazy var writeButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "작성", style: .plain, target: self, action: #selector(writeDiary(_:)))
+        
+        button.tintColor = UIColor.white
+        return button
+        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +40,8 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         singleTapGestureRecognizer.cancelsTouchesInView = false
 
         self.view.addGestureRecognizer(singleTapGestureRecognizer)
+        
+        self.navigationItem.rightBarButtonItem = writeButton
         
         weatherField.delegate = self
         weatherField.tintColor = .clear // 커서 깜빡임 해결
@@ -64,6 +64,45 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         dismissPickerView()
     }
     
+    @objc func writeDiary(_ sender: Any) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        // 다이어리 저장
+        let params: Parameters = [
+            //"userId": UserDefaults.standard.string(forKey: "user_id")!,
+            "userId": "2020111396@gmail.com",
+            "title": diaryTitle.text!,
+            "content": textView.text!,
+            "date": dateFormatter.string(from: datePicker.date),
+            "weather": weatherField.text!,
+            "musicTitle": "Spicy",
+            "musicSinger": "Aespa",
+            "musicImg": "www.aaa.com",
+            "mood_result": "사랑/기쁨"
+        ]
+        
+        print(params)
+        
+        AF.request("http://54.180.220.34:8080/create/diary",
+                   method: .post,
+                   parameters: params,
+                   encoding: JSONEncoding.default,
+                   headers: nil)
+        .validate(statusCode: 200 ..< 299).responseData { response in
+            switch response.result {
+            case .success(_):
+                print("일기 저장 완료!")
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        // 노래 추천 화면으로 이동
+    }
+        
     @objc func MyTapMethod(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
@@ -116,10 +155,5 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @objc func doneBtn(_sender: Any) {
         self.view.endEditing(true)
     }
-    
-//    @objc func writeDiary(_ sender: Any) {
-//        // 다이어리 저장
-//
-//    }
 
 }

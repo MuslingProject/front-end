@@ -674,14 +674,9 @@
                             <constraint firstItem="og1-3k-QoH" firstAttribute="bottom" secondItem="YE0-Le-Qx3" secondAttribute="bottom" id="jw8-ve-owZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="일기 작성하기" largeTitleDisplayMode="never" style="editor" id="TpS-lN-IQa">
-                        <barButtonItem key="rightBarButtonItem" title="작성" id="Qha-7j-Lwb">
-                            <connections>
-                                <segue destination="HDw-73-prT" kind="show" id="IiQ-d1-Zez"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="일기 작성하기" largeTitleDisplayMode="never" style="editor" id="TpS-lN-IQa"/>
                     <connections>
+                        <outlet property="datePicker" destination="8IF-uX-Phn" id="jaJ-Y2-Oi6"/>
                         <outlet property="diaryTitle" destination="bUC-WZ-twc" id="zJa-BA-9Cv"/>
                         <outlet property="textView" destination="iSN-Lu-qT3" id="WMo-F5-f8Z"/>
                         <outlet property="weatherField" destination="HcL-Em-wqN" id="CAb-0p-jBH"/>
@@ -1149,11 +1144,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5rW-vk-6bv">
-                                <rect key="frame" x="0.0" y="167.33333333333331" width="375" height="644.66666666666674"/>
+                                <rect key="frame" x="0.0" y="63" width="375" height="749"/>
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recommend" rowHeight="100" id="A3P-mb-4lL" customClass="RecommendCell" customModule="MuslingProject" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="38" width="335" height="100"/>
+                                        <rect key="frame" x="20" y="55.333332061767578" width="335" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A3P-mb-4lL" id="i03-pT-ivk">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
@@ -1336,7 +1331,7 @@
             </objects>
             <point key="canvasLocation" x="988" y="2133.9901477832514"/>
         </scene>
-        <!--통계 📊-->
+        <!--감정 달력 🗓️-->
         <scene sceneID="vkS-vh-A3Z">
             <objects>
                 <viewController id="L0t-Wp-M0V" customClass="StatViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -1375,7 +1370,7 @@
                             <constraint firstItem="9Un-3Z-TZY" firstAttribute="trailing" secondItem="MmW-1D-oiJ" secondAttribute="trailing" id="VD8-pw-ojg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="통계 📊" id="pV4-cm-eU1"/>
+                    <navigationItem key="navigationItem" title="감정 달력 🗓️" id="pV4-cm-eU1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUA-E3-qwF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

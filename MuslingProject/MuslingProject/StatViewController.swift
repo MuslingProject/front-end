@@ -17,7 +17,7 @@ class StatViewController: UIViewController {
     
     lazy var days = [ getStringToDate(strDate: day1) : "기쁨/사랑",  getStringToDate(strDate: day2) : "이별/슬픔", getStringToDate(strDate: day3) : "우울" ]
     
-    // 달력
+    // 달력 선언
     lazy var calendarView: UICalendarView = {
         let view = UICalendarView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -104,7 +104,7 @@ extension StatViewController: UICalendarViewDelegate, UICalendarSelectionSingleD
         reloadDateView(date: Calendar.current.date(from: dateComponents!))
     }
     
-    // UICalendarView
+    // 캘린더에 감정 라벨링
     func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
         
         let date = dateComponents.date!
@@ -131,6 +131,22 @@ extension StatViewController: UICalendarViewDelegate, UICalendarSelectionSingleD
                 return .customView {
                     let label = UILabel()
                     label.text = "🫠"
+                    label.font = UIFont.systemFont(ofSize: 15)
+                    label.textAlignment = .center
+                    return label
+                }
+            case "멘붕/불안":
+                return .customView {
+                    let label = UILabel()
+                    label.text = "🤯"
+                    label.font = UIFont.systemFont(ofSize: 15)
+                    label.textAlignment = .center
+                    return label
+                }
+            case "스트레스/짜증":
+                return .customView {
+                    let label = UILabel()
+                    label.text = "😡"
                     label.font = UIFont.systemFont(ofSize: 15)
                     label.textAlignment = .center
                     return label
