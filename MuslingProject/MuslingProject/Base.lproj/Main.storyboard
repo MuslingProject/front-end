@@ -1122,7 +1122,7 @@
                     <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="7hY-5U-fM8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="WSH-BW-D2H">
-                        <rect key="frame" x="0.0" y="50" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
@@ -1224,7 +1224,7 @@
                     <tabBarItem key="tabBarItem" title="찜" image="heart" catalog="system" id="sIM-Dy-Vym"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="77a-39-0J5">
-                        <rect key="frame" x="0.0" y="50" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
@@ -1318,7 +1318,7 @@
                     <tabBarItem key="tabBarItem" title="마이페이지" image="person" catalog="system" id="9Qd-0m-hxq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="p6U-TS-eLh">
-                        <rect key="frame" x="0.0" y="50" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
@@ -1343,10 +1343,10 @@
                                 <rect key="frame" x="0.0" y="154.33333333333331" width="375" height="574.66666666666674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIQ-KR-F5B">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1000" id="a9X-ZP-XDp"/>
+                                            <constraint firstAttribute="height" constant="900" id="b9o-4c-fFF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1371,6 +1371,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="감정 달력 🗓️" id="pV4-cm-eU1"/>
+                    <connections>
+                        <outlet property="scrollView" destination="wIQ-KR-F5B" id="XsS-np-vzA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUA-E3-qwF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

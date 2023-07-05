@@ -9,6 +9,8 @@ import UIKit
 
 class StatViewController: UIViewController {
     
+    @IBOutlet var scrollView: UIView!
+    
     let day1 = "2023-07-02"
     let day2 = "2023-07-03"
     let day3 = "2023-07-30"
@@ -26,33 +28,56 @@ class StatViewController: UIViewController {
         return view
     }()
     
+    // 감정 개수 타이틀
+    lazy var statTitle: UILabel = {
+        let label = UILabel()
+        label.text = "✍️ 이번 달 감정 통계"
+        label.textColor = .secondary
+        label.font = .systemFont(ofSize: 25, weight: .semibold)
+        
+        return label
+    }()
+    
+    fileprivate func TitleConstraints() {
+        view.addSubview(statTitle)
+        
+        statTitle.translatesAutoresizingMaskIntoConstraints = false
+        
+        let titleViewConstraints = [
+            statTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
+            statTitle.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 30),
+        ]
+        
+        NSLayoutConstraint.activate(titleViewConstraints)
+    }
+    
     // 이모지 설명 레이블
     lazy var emojiLabel: UILabel = {
         let label = UILabel()
-        label.text = "🥰 사랑/기쁨\n😢 이별/슬픔\n🫠 우울\n🤯 멘붕/불안\n😡 스트레스/짜증"
+        label.text = "🥰 기분 좋은 날이 14일 있었어요\n😢 슬픈 날이 3일 있었어요\n🫠 우울한 날이 5일 있었어요\n🤯 불안한 날이 2일 있었어요\n😡 짜증나는 날이 1일 있었어요"
         label.numberOfLines = 5
         
         // 행간 조절
         let attrStirng = NSMutableAttributedString(string: label.text!)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 3
+        paragraphStyle.lineSpacing = 10
         attrStirng.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrStirng.length))
         label.attributedText = attrStirng
         
         label.textColor = UIColor.darkGray
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .light)
         
         return label
     }()
     
     fileprivate func LabelConstraints() {
         view.addSubview(emojiLabel)
-        
+    
         emojiLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let labelViewConstraints = [
-            emojiLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            emojiLabel.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 30),
+            emojiLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
+            emojiLabel.topAnchor.constraint(equalTo: statTitle.bottomAnchor, constant: 15)
         ]
         
         NSLayoutConstraint.activate(labelViewConstraints)
@@ -69,6 +94,8 @@ class StatViewController: UIViewController {
         setCalendar()
         reloadDateView(date: Date())
         
+        TitleConstraints()
+        
         // 달력 아래에 레이블 추가
         LabelConstraints()
     }
@@ -84,9 +111,9 @@ class StatViewController: UIViewController {
         view.addSubview(calendarView)
         
         let calendarViewConstraints = [
-            calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10)
+            calendarView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            calendarView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            calendarView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10)
         ]
         
         NSLayoutConstraint.activate(calendarViewConstraints)
