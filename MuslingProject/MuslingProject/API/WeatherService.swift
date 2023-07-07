@@ -1,0 +1,57 @@
+//
+//  WeatherService.swift
+//  MuslingProject
+//
+//  Created by 이나경 on 2023/07/07.
+//
+
+import Foundation
+import Alamofire
+
+struct WeatherService {
+    static let shared = WeatherService()
+    
+    func getWeather(lat: Double, lon: Double, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        let url = APIConstants.weatherURL // 날씨 불러오기 url
+        let header: HTTPHeaders = [ "Content-Type" : "application/json" ]
+        let body: Parameters = [
+            "lat": lat,
+            "lon": lon
+        ]
+        
+        let dataRequest = AF.request(url, method: .post, parameters: body, encoding: URLEncoding.default, headers: header)
+        
+        dataRequest.responseData { (response) in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeWeatherData(status: statusCode, data: data))
+                
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    // statusCode와 decode 결과에 따라 NetworkResult 반환
+    private func judgeWeatherData(status: Int, data: Data) -> NetworkResult<Any> {
+        // 통신을 통해 전달받은 데이터를 decode
+        let decoder = JSONDecoder()
+        guard let decodedData = try? decoder.decode(GenericResponse<Weather>.self, from: data) else {
+            return .pathErr
+        }
+        // statusCode를 통해 통신 결과를 알 수 있음
+        switch status {
+        case 200:
+            return .success(decodedData.data!)
+        case 400..<500:
+            return .requestErr(decodedData.message)
+        case 500:
+            return .serverErr
+        default:
+            return .networkFail
+        }
+    }
+}

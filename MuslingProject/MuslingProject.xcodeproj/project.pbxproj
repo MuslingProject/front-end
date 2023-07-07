@@ -40,6 +40,10 @@
 		F3EAA55329E5714200819F7A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA55229E5714200819F7A /* FirstViewController.swift */; };
 		F3EAA55529E59F8600819F7A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA55429E59F8600819F7A /* SignUpViewController.swift */; };
 		F3EFB2212A57D684004ED092 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFB2202A57D684004ED092 /* APIConstants.swift */; };
+		F3EFB2262A57DBCB004ED092 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFB2252A57DBCB004ED092 /* NetworkResult.swift */; };
+		F3EFB2282A57DF49004ED092 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFB2272A57DF49004ED092 /* GenericResponse.swift */; };
+		F3EFB22A2A57E046004ED092 /* SignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFB2292A57E046004ED092 /* SignService.swift */; };
+		F3EFB22C2A57E94E004ED092 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFB22B2A57E94E004ED092 /* WeatherService.swift */; };
 		F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7D9A62A2C8CEC00D90B69 /* Member.swift */; };
 		F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCE3C22A1296BA00E67903 /* HSUnderLineTextField.swift */; };
 		F3FCE3C52A12A3D900E67903 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCE3C42A12A3D900E67903 /* EditViewController.swift */; };
@@ -86,6 +90,10 @@
 		F3EAA55229E5714200819F7A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F3EAA55429E59F8600819F7A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F3EFB2202A57D684004ED092 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		F3EFB2252A57DBCB004ED092 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		F3EFB2272A57DF49004ED092 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
+		F3EFB2292A57E046004ED092 /* SignService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignService.swift; sourceTree = "<group>"; };
+		F3EFB22B2A57E94E004ED092 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		F3F7D9A62A2C8CEC00D90B69 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		F3FCE3C22A1296BA00E67903 /* HSUnderLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSUnderLineTextField.swift; sourceTree = "<group>"; };
 		F3FCE3C42A12A3D900E67903 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +177,8 @@
 		F3EAA53029E55B6600819F7A /* MuslingProject */ = {
 			isa = PBXGroup;
 			children = (
+				F3EFB2232A57DAD1004ED092 /* sources */,
+				F3EFB2222A57DA32004ED092 /* API */,
 				F3C2A7B72A273BCB0001EDD6 /* UI */,
 				F3C2A7B62A273BB30001EDD6 /* model */,
 				F3D06D152A36FBAF006B991E /* Main.storyboard */,
@@ -177,22 +187,7 @@
 				F3EAA53A29E55B6700819F7A /* Assets.xcassets */,
 				F3EAA53C29E55B6700819F7A /* LaunchScreen.storyboard */,
 				F3EAA53F29E55B6700819F7A /* Info.plist */,
-				F3EAA55229E5714200819F7A /* FirstViewController.swift */,
-				F3EAA55429E59F8600819F7A /* SignUpViewController.swift */,
-				F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */,
-				F36A3DC329E5B89500F47A3E /* SelectViewController.swift */,
-				F3C2288229EC507600FDED32 /* HomeViewController.swift */,
-				F3C2288429EC508600FDED32 /* FavoriteViewController.swift */,
-				F3C2288629EC509000FDED32 /* MypageViewController.swift */,
-				F3C2288829EC51ED00FDED32 /* TabBarVC.swift */,
-				F3ADDE002A010C91005650E2 /* WriteViewController.swift */,
-				F3FCE3C42A12A3D900E67903 /* EditViewController.swift */,
-				F3FCE3C62A12B19300E67903 /* ResultViewController.swift */,
-				F37651C22A138AB6002B4286 /* SignInViewController.swift */,
 				F3C2A7AA2A25F0BC0001EDD6 /* GoogleService-Info.plist */,
-				F339209A2A379331001F419E /* RecommendViewController.swift */,
-				F3965C602A4C16FB005797FD /* StatViewController.swift */,
-				F3EFB2202A57D684004ED092 /* APIConstants.swift */,
 			);
 			path = MuslingProject;
 			sourceTree = "<group>";
@@ -207,6 +202,39 @@
 				F3244AA72A36E8BF002C19BB /* profile.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F3EFB2222A57DA32004ED092 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F3EFB2202A57D684004ED092 /* APIConstants.swift */,
+				F3EFB2252A57DBCB004ED092 /* NetworkResult.swift */,
+				F3EFB2272A57DF49004ED092 /* GenericResponse.swift */,
+				F3EFB2292A57E046004ED092 /* SignService.swift */,
+				F3EFB22B2A57E94E004ED092 /* WeatherService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F3EFB2232A57DAD1004ED092 /* sources */ = {
+			isa = PBXGroup;
+			children = (
+				F3EAA55229E5714200819F7A /* FirstViewController.swift */,
+				F3EAA55429E59F8600819F7A /* SignUpViewController.swift */,
+				F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */,
+				F36A3DC329E5B89500F47A3E /* SelectViewController.swift */,
+				F3C2288229EC507600FDED32 /* HomeViewController.swift */,
+				F3C2288429EC508600FDED32 /* FavoriteViewController.swift */,
+				F3C2288629EC509000FDED32 /* MypageViewController.swift */,
+				F3C2288829EC51ED00FDED32 /* TabBarVC.swift */,
+				F3ADDE002A010C91005650E2 /* WriteViewController.swift */,
+				F3FCE3C42A12A3D900E67903 /* EditViewController.swift */,
+				F3FCE3C62A12B19300E67903 /* ResultViewController.swift */,
+				F37651C22A138AB6002B4286 /* SignInViewController.swift */,
+				F339209A2A379331001F419E /* RecommendViewController.swift */,
+				F3965C602A4C16FB005797FD /* StatViewController.swift */,
+			);
+			path = sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,19 +375,23 @@
 				F3C2288529EC508600FDED32 /* FavoriteViewController.swift in Sources */,
 				F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */,
 				F3244B422A25810A006C7E9B /* WeatherModel.swift in Sources */,
+				F3EFB22C2A57E94E004ED092 /* WeatherService.swift in Sources */,
 				F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */,
 				F3FCE3C52A12A3D900E67903 /* EditViewController.swift in Sources */,
 				F3EAA55529E59F8600819F7A /* SignUpViewController.swift in Sources */,
 				F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */,
 				F3C2288929EC51ED00FDED32 /* TabBarVC.swift in Sources */,
 				F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */,
+				F3EFB2282A57DF49004ED092 /* GenericResponse.swift in Sources */,
 				F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */,
+				F3EFB22A2A57E046004ED092 /* SignService.swift in Sources */,
 				F33920992A3792A0001F419E /* Recommend.swift in Sources */,
 				F3EAA53429E55B6600819F7A /* SceneDelegate.swift in Sources */,
 				F3EFB2212A57D684004ED092 /* APIConstants.swift in Sources */,
 				F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */,
 				F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */,
 				F339209B2A379331001F419E /* RecommendViewController.swift in Sources */,
+				F3EFB2262A57DBCB004ED092 /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

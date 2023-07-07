@@ -14,14 +14,34 @@ class HomeViewController: UIViewController {
     @IBOutlet var dateLabel: UILabel! // 날짜
     @IBOutlet var noneLabel: UILabel! // 작성되어 있지 않을 때 띄울 문구
     @IBOutlet var homeTitle: UINavigationItem!
-
+    
     var locationManager: CLLocationManager?
     var currentLocation: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         requestAuthorization()
-        getWeather()
+        WeatherService.shared.getWeather(lat: LocationService.shared.latitude ?? 0, lon: LocationService.shared.longitude ?? 0) { response in
+            switch response {
+            case .success(let data):
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy년 MM월 dd일 (E)"
+                let current_date_string = formatter.string(from: Date())
+                
+                if let data = data as? Weather {
+                    self.dateLabel.text = "\(current_date_string) \(data.temp)º \(data.main)"
+                }
+                
+            case .pathErr:
+                print("결과 :: Path Err")
+            case .requestErr(let msg):
+                print(msg)
+            case .serverErr:
+                print("결과 :: Server Err")
+            case .networkFail:
+                print("결과 :: Network Fail")
+            }
+        }
         noDiary()
     }
     
@@ -33,11 +53,11 @@ class HomeViewController: UIViewController {
         appearance.backgroundColor = .primary
         appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-
+        
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
         navigationController?.navigationBar.tintColor = .white
-
+        
         // navigation bar 그림자 효과
         navigationController?.navigationBar.layer.masksToBounds = false
         navigationController?.navigationBar.layer.shadowColor = UIColor.primary?.cgColor
@@ -48,32 +68,6 @@ class HomeViewController: UIViewController {
     
     func noDiary() {
         noneLabel.text = "아직 오늘이 기록이 없어요\n일기를 작성해 주세요!"
-    }
-    
-    func getWeather() {
-        let params: Parameters = [
-            "lat": LocationService.shared.latitude ?? 0,
-            "lon": LocationService.shared.longitude ?? 0
-        ]
-        
-        AF.request(APIConstants.weatherURL,
-                   method: .post,
-                   parameters: params,
-                   encoding: JSONEncoding.default,
-                   headers: nil)
-        .validate(statusCode: 200 ..< 299).responseData { response in
-            switch response.result {
-            case .success(let weatherData):
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy년 MM월 dd일 (E)"
-                let current_date_string = formatter.string(from: Date())
-                let weather = try? JSONDecoder().decode(Weather.self, from: weatherData)
-                
-                self.dateLabel.text = "\(current_date_string) \(weather!.temp)º \(weather!.main)"
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
 }
 

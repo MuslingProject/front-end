@@ -27,7 +27,20 @@ class SignInViewController: UIViewController {
             let pwd = passField.text!
             
             // 로그인
-            signIn(user_id: id, pwd: pwd)
+            SignService.shared.signIn(user_id: id, pwd: pwd) { response in
+                switch response {
+                case .success(let msg):
+                    print(msg)
+                case .pathErr:
+                    print("결과 :: Path Err")
+                case .requestErr(let msg):
+                    print(msg)
+                case .serverErr:
+                    print("결과 :: Server Err")
+                case .networkFail:
+                    print("결과 :: Network Fail")
+                }
+            }
             
             // 자동 로그인을 위해 아이디 저장
             let dataSave = UserDefaults.standard
@@ -35,28 +48,6 @@ class SignInViewController: UIViewController {
             
             UserDefaults.standard.synchronize()
             
-        }
-    }
-    
-    func signIn(user_id: String, pwd: String) {
-        let params: Parameters = [
-            "user_id": user_id,
-            "pwd": pwd
-        ]
-        
-        AF.request(APIConstants.userSignInURL,
-                   method: .post,
-                   parameters: params,
-                   encoding: JSONEncoding.default,
-                   headers: nil)
-        .validate(statusCode: 200 ..< 299).responseData { response in
-            switch response.result {
-            case .success(let data):
-                print("로그인 성공")
-                print("반환: \(data)")
-            case .failure(let error):
-                print(error)
-            }
         }
     }
     

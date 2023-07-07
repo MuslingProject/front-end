@@ -5,10 +5,8 @@
 //  Created by 이나경 on 2023/07/07.
 //
 
-import Foundation
-
 struct APIConstants {
-    static let baseURL = "http://http://54.180.220.34:8080"
+    static let baseURL = "http://54.180.220.34:8080"
     
     // 회원가입 url
     static let userSignUpURL = baseURL + "/users/new-user"
