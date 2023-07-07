@@ -259,6 +259,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="마이페이지 👀" id="zxE-fc-Ndj"/>
                     <connections>
+                        <outlet property="nameLabel" destination="pXA-6L-m3k" id="NMX-Ty-4eH"/>
                         <outlet property="userProfile" destination="6bw-wG-VYI" id="NZV-Rl-ngF"/>
                     </connections>
                 </viewController>

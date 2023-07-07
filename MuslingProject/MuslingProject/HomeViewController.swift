@@ -56,7 +56,7 @@ class HomeViewController: UIViewController {
             "lon": LocationService.shared.longitude ?? 0
         ]
         
-        AF.request("http://54.180.220.34:8080/read/weather",
+        AF.request(APIConstants.weatherURL,
                    method: .post,
                    parameters: params,
                    encoding: JSONEncoding.default,

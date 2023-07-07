@@ -12,8 +12,6 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
     
-    let signUpURL = "http://54.180.220.34:8080/users/new-user"
-    
     @IBOutlet var ageBtn: UITextField!
     @IBOutlet var dancePop: CSButton!
     @IBOutlet var balad: CSButton!
@@ -32,10 +30,14 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             present(alert, animated: true, completion: nil)
         } else {
             signUp(userId: Member.shared.user_id, pwd: Member.shared.pwd, name: Member.shared.name, age: Member.shared.age, imgData: Member.shared.img)
+            saveGenre()
             
             // 자동로그인 위해 UserDefaults에 저장
             let dataSave = UserDefaults.standard
             dataSave.setValue(Member.shared.user_id, forKey: "user_id")
+            dataSave.setValue(Member.shared.name, forKey: "nickname")
+            
+            UserDefaults.standard.synchronize()
             
             // 홈으로 이동
             let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
@@ -49,30 +51,65 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func selectKpop(_ sender: Any) {
         select(dancePop)
+        if Genre.shared.dancePop != true {
+            Genre.shared.dancePop = true
+        } else {
+            Genre.shared.dancePop = false
+        }
     }
     
     @IBAction func selectBalad(_ sender: Any) {
         select(balad)
+        if Genre.shared.balad != true {
+            Genre.shared.balad = true
+        } else {
+            Genre.shared.balad = false
+        }
     }
     
     @IBAction func selectHiphop(_ sender: Any) {
         select(hiphop)
+        if Genre.shared.rapHiphop != true {
+            Genre.shared.rapHiphop = true
+        } else {
+            Genre.shared.rapHiphop = false
+        }
     }
     
     @IBAction func selectInde(_ sender: Any) {
         select(indie)
+        if Genre.shared.indie != true {
+            Genre.shared.indie = true
+        } else {
+            Genre.shared.indie = false
+        }
     }
     
     @IBAction func selectRock(_ sender: Any) {
         select(metal)
+        if Genre.shared.rockMetal != true {
+            Genre.shared.rockMetal = true
+        } else {
+            Genre.shared.rockMetal = false
+        }
     }
     
     @IBAction func selectRnb(_ sender: Any) {
         select(rnb)
+        if Genre.shared.rbSoul != true {
+            Genre.shared.rbSoul = true
+        } else {
+            Genre.shared.rbSoul = false
+        }
     }
     
     @IBAction func selectAcoustic(_ sender: Any) {
         select(acoustic)
+        if Genre.shared.forkAcoustic != true {
+            Genre.shared.forkAcoustic = true
+        } else {
+            Genre.shared.forkAcoustic = false
+        }
     }
     
     override func viewDidLoad() {
@@ -151,22 +188,54 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             "age": age
         ]
         
+        print("파라미터 : \(params)")
+        
         AF.upload(multipartFormData: { MultipartFormData in
             for (key, value) in params {
-            MultipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+            MultipartFormData.append("\(value)".data(using: .utf8, allowLossyConversion: false)!, withName: key)
+                print("추가: \(value)")
         }
             // 이미지 추가 (이미지가 비어 있을 경우 고려)
-            if let image = imgData?.pngData() {
-                MultipartFormData.append(image, withName: "image", fileName: "\(name).jpg", mimeType: "image/jpg")
+            if let image = imgData?.jpegData(compressionQuality: 1) {
+                MultipartFormData.append(image, withName: "img", fileName: "\(name).jpg", mimeType: "image/jpg")
             }
-        }, to: signUpURL, usingThreshold: UInt64.init(), method: .post, headers: header).responseData { response in
+        }, to: APIConstants.userSignUpURL, usingThreshold: UInt64.init(), method: .post, headers: header)
+        .validate(statusCode: 200..<299).responseData { response in
+            switch response.result {
+            case .success(_):
+                print("회원가입 성공!")
+            case .failure(let err):
+                print("실패: \(err)")
+            }
+        }
+    }
+    
+    func saveGenre() {
+        let params: Parameters = [
+            "memberId": Member.shared.user_id ?? "",
+            "indie": Genre.shared.indie ?? false,
+            "balad": Genre.shared.balad ?? false,
+            "rockMetal": Genre.shared.rockMetal ?? false,
+            "dancePop": Genre.shared.dancePop ?? false,
+            "rapHiphop": Genre.shared.rapHiphop ?? false,
+            "rbSoul": Genre.shared.rbSoul ?? false,
+            "forkAcoustic": Genre.shared.forkAcoustic ?? false
+        ]
+        
+        print(params)
+        
+        AF.request(APIConstants.genreURL,
+                   method: .post,
+                   parameters: params,
+                   encoding: JSONEncoding.default,
+                   headers: nil)
+        .validate(statusCode: 200 ..< 299).responseData { response in
             switch response.result {
             case .success(let data):
                 print(data)
-                print("회원가입 성공!")
+                print("선호 장르 저장 완료!")
             case .failure(let error):
                 print(error)
-                print("회원가입 실패")
             }
         }
     }

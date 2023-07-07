@@ -39,6 +39,7 @@
 		F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EAA53C29E55B6700819F7A /* LaunchScreen.storyboard */; };
 		F3EAA55329E5714200819F7A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA55229E5714200819F7A /* FirstViewController.swift */; };
 		F3EAA55529E59F8600819F7A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA55429E59F8600819F7A /* SignUpViewController.swift */; };
+		F3EFB2212A57D684004ED092 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFB2202A57D684004ED092 /* APIConstants.swift */; };
 		F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7D9A62A2C8CEC00D90B69 /* Member.swift */; };
 		F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCE3C22A1296BA00E67903 /* HSUnderLineTextField.swift */; };
 		F3FCE3C52A12A3D900E67903 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCE3C42A12A3D900E67903 /* EditViewController.swift */; };
@@ -84,6 +85,7 @@
 		F3EAA53F29E55B6700819F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3EAA55229E5714200819F7A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F3EAA55429E59F8600819F7A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F3EFB2202A57D684004ED092 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		F3F7D9A62A2C8CEC00D90B69 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		F3FCE3C22A1296BA00E67903 /* HSUnderLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSUnderLineTextField.swift; sourceTree = "<group>"; };
 		F3FCE3C42A12A3D900E67903 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				F3C2A7AA2A25F0BC0001EDD6 /* GoogleService-Info.plist */,
 				F339209A2A379331001F419E /* RecommendViewController.swift */,
 				F3965C602A4C16FB005797FD /* StatViewController.swift */,
+				F3EFB2202A57D684004ED092 /* APIConstants.swift */,
 			);
 			path = MuslingProject;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */,
 				F33920992A3792A0001F419E /* Recommend.swift in Sources */,
 				F3EAA53429E55B6600819F7A /* SceneDelegate.swift in Sources */,
+				F3EFB2212A57D684004ED092 /* APIConstants.swift in Sources */,
 				F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */,
 				F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */,
 				F339209B2A379331001F419E /* RecommendViewController.swift in Sources */,

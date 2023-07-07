@@ -10,11 +10,14 @@ import UIKit
 class MypageViewController: UIViewController {
 
     @IBOutlet var userProfile: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 이미지 원형으로 표시
+        // 닉네임
+        nameLabel.text = UserDefaults.standard.string(forKey: "nickname")
+        
         userProfile.layer.cornerRadius = userProfile.frame.height/2
         userProfile.layer.borderWidth = 1
         userProfile.clipsToBounds = true

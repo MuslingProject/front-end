@@ -52,7 +52,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.profileImg.image = info[.editedImage] as? UIImage
         
         // img 변수에 저장
-        Member.shared.img = profileImg.image
+        Member.shared.img = self.profileImg.image
         
         // 이미지 피커 컨트롤러 닫기
         picker.dismiss(animated: false)
