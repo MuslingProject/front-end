@@ -28,14 +28,15 @@ class HomeViewController: UIViewController {
                 formatter.dateFormat = "yyyy년 MM월 dd일 (E)"
                 let current_date_string = formatter.string(from: Date())
                 
-                if let data = data as? Weather {
+                if let data = data as? WeatherData {
+                    print(data)
                     self.dateLabel.text = "\(current_date_string) \(data.temp)º \(data.main)"
                 }
                 
             case .pathErr:
                 print("결과 :: Path Err")
-            case .requestErr(let msg):
-                print(msg)
+            case .requestErr:
+                print("결과 :: Request Err")
             case .serverErr:
                 print("결과 :: Server Err")
             case .networkFail:

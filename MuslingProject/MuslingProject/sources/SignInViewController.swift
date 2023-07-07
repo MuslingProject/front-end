@@ -33,8 +33,8 @@ class SignInViewController: UIViewController {
                     print(msg)
                 case .pathErr:
                     print("결과 :: Path Err")
-                case .requestErr(let msg):
-                    print(msg)
+                case .requestErr:
+                    print("결과 :: Request Err")
                 case .serverErr:
                     print("결과 :: Server Err")
                 case .networkFail:

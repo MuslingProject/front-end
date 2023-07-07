@@ -25,7 +25,7 @@ struct SignService {
         ]
         
         // 원하는 형식의 http request 생성
-        let dataRequest = AF.request(url, method: .post, parameters: body, encoding: URLEncoding.default, headers: header)
+        let dataRequest = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header)
         
         // 데이터 통신 시작
         dataRequest.responseData { (response) in
@@ -97,7 +97,7 @@ struct SignService {
         case 200:
             return .success("로그인 성공")
         case 400..<500:
-            return .requestErr("요청 오류")
+            return .requestErr
         case 500:
             return .serverErr
         default:
@@ -110,7 +110,7 @@ struct SignService {
         case 200:
             return .success("회원가입 성공")
         case 400..<500:
-            return .requestErr("요청 오류")
+            return .requestErr
         case 500:
             return .serverErr
         default:
