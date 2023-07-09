@@ -29,18 +29,18 @@ class HomeViewController: UIViewController {
                 let current_date_string = formatter.string(from: Date())
                 
                 if let data = data as? WeatherData {
-                    print(data)
+                    print("날씨 불러오기 결과 :: Success")
                     self.dateLabel.text = "\(current_date_string) \(data.temp)º \(data.main)"
                 }
                 
             case .pathErr:
-                print("결과 :: Path Err")
+                print("날씨 불러오기 결과 :: Path Err")
             case .requestErr:
-                print("결과 :: Request Err")
+                print("날씨 불러오기 결과 :: Request Err")
             case .serverErr:
-                print("결과 :: Server Err")
+                print("날씨 불러오기 결과 :: Server Err")
             case .networkFail:
-                print("결과 :: Network Fail")
+                print("날씨 불러오기 결과 :: Network Fail")
             }
         }
         noDiary()

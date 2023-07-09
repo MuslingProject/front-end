@@ -21,6 +21,7 @@
 		F33135C72A2570F6008DF851 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33135C62A2570F6008DF851 /* LocationService.swift */; };
 		F33920992A3792A0001F419E /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33920982A3792A0001F419E /* Recommend.swift */; };
 		F339209B2A379331001F419E /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F339209A2A379331001F419E /* RecommendViewController.swift */; };
+		F34FF9E22A59894B0025EC5B /* tokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34FF9E12A59894B0025EC5B /* tokenModel.swift */; };
 		F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */; };
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
 		F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37651C22A138AB6002B4286 /* SignInViewController.swift */; };
@@ -69,6 +70,7 @@
 		F33135C62A2570F6008DF851 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		F33920982A3792A0001F419E /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
 		F339209A2A379331001F419E /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		F34FF9E12A59894B0025EC5B /* tokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokenModel.swift; sourceTree = "<group>"; };
 		F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		F37651C22A138AB6002B4286 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				F303F7442A2F094300FEE41E /* Genre.swift */,
 				F303F7462A2F1A9800FEE41E /* Music.swift */,
 				F33920982A3792A0001F419E /* Recommend.swift */,
+				F34FF9E12A59894B0025EC5B /* tokenModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				F3EFB2212A57D684004ED092 /* APIConstants.swift in Sources */,
 				F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */,
 				F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */,
+				F34FF9E22A59894B0025EC5B /* tokenModel.swift in Sources */,
 				F339209B2A379331001F419E /* RecommendViewController.swift in Sources */,
 				F3EFB2262A57DBCB004ED092 /* NetworkResult.swift in Sources */,
 			);

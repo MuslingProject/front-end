@@ -20,35 +20,19 @@ struct WeatherService {
         ]
         
         let dataRequest = AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header)
-        
-        print("파라미터: \(params)")
-        
-        dataRequest.validate(statusCode: 200..<299).responseData { response in
+
+        dataRequest.responseData { (response) in
             switch response.result {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                print(data)
                 completion(judgeWeatherData(status: statusCode, data: data))
+
             case .failure(let err):
                 print(err)
                 completion(.networkFail)
             }
         }
-        
-//        dataRequest.responseData { (response) in
-//            switch response.result {
-//            case .success:
-//                guard let statusCode = response.response?.statusCode else { return }
-//                guard let data = response.value else { return }
-//                print(data)
-//                completion(judgeWeatherData(status: statusCode, data: data))
-//
-//            case .failure(let err):
-//                print(err)
-//                completion(.networkFail)
-//            }
-//        }
     }
     
     // statusCode와 decode 결과에 따라 NetworkResult 반환
@@ -59,7 +43,6 @@ struct WeatherService {
             WeatherData.self, from: data) else {
             return .pathErr
         }
-        print("반환 :: \(decodedData)")
         // statusCode를 통해 통신 결과를 알 수 있음
         switch status {
         case 200:

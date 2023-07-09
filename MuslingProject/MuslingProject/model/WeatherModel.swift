@@ -5,8 +5,6 @@
 //  Created by 이나경 on 2023/05/30.
 //
 
-import Foundation
-
 struct WeatherData: Codable {
     let temp: Int
     let icon, main: String
