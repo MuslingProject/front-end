@@ -31,8 +31,8 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
-            signUpAPI()
-            //signUp()
+            //signUpAPI()
+            signUp()
             //saveGenre()
         }
     }
@@ -165,26 +165,40 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.view.endEditing(true)
     }
     
+    func saveGenre() {
+        SignService.shared.saveGenre()
+        
+        // 홈으로 이동
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+        vcName?.modalPresentationStyle = .fullScreen
+        vcName?.modalTransitionStyle = .crossDissolve
+        self.present(vcName!, animated: true, completion: nil)
+        
+        // 자동로그인 위해 UserDefaults에 저장
+        let dataSave = UserDefaults.standard
+        dataSave.setValue(Member.shared.user_id, forKey: "user_id")
+        dataSave.setValue(Member.shared.name, forKey: "nickname")
+        
+        UserDefaults.standard.synchronize()
+    }
+    
     func signUpAPI() {
         // 회원가입
-        SignService.shared.signUp(userId: Member.shared.user_id, pwd: Member.shared.pwd, name: Member.shared.name, age: Member.shared.age) { response in
+        SignService.shared.signUp(userId: Member.shared.user_id, pwd: Member.shared.pwd, name: Member.shared.name, age: Member.shared.age, profileId: Member.shared.profileId ) { response in
             switch response {
             case .success(let key):
                 if let data = key as? TokenModel {
-                    print("토큰: \(data.userId)")
+                    switch data.status {
+                    case 200:
+                        print(data.message)
+                        self.signInAPI()
+                    case 400:
+                        print(data.message)
+                    default:
+                        print("기타 오류")
+                    }
                 }
-                // 홈으로 이동
-                let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
-                vcName?.modalPresentationStyle = .fullScreen
-                vcName?.modalTransitionStyle = .crossDissolve
-                self.present(vcName!, animated: true, completion: nil)
-                
-                // 자동로그인 위해 UserDefaults에 저장
-                let dataSave = UserDefaults.standard
-                dataSave.setValue(Member.shared.user_id, forKey: "user_id")
-                dataSave.setValue(Member.shared.name, forKey: "nickname")
-                
-                UserDefaults.standard.synchronize()
+
             case .pathErr:
                 print("회원가입 결과 :: decode 실패")
             case .requestErr:
@@ -197,37 +211,60 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+    func signInAPI() {
+        guard let id = Member.shared.user_id else { return }
+        guard let pwd = Member.shared.pwd else { return }
+        
+        // 로그인
+        SignService.shared.signIn(userId: id, pwd: pwd) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? TokenModel {
+                    let dataSave = UserDefaults.standard
+                    dataSave.setValue(data.data, forKey: "token")
+                    dataSave.synchronize()
+                    
+                    self.saveGenre()
+                }
+            case .requestErr:
+                print("로그인 결과 :: Request Err")
+            case .pathErr:
+                print("로그인 결과 :: decode 실패")
+            case .serverErr:
+                print("로그인 결과 :: Server Err")
+            case .networkFail:
+                print("로그인 결과 :: Network Err")
+            }
+        }
+    }
+    
     func signUp() {
         // 프로필 사진 저장
         let image = Member.shared.img
-        SignService.shared.saveImage(imgData: image)
-        signUpAPI()
-    }
-    
-    func saveGenre() {
-        let params: Parameters = [
-            "memberId": Member.shared.user_id ?? "",
-            "indie": Genre.shared.indie ?? false,
-            "balad": Genre.shared.balad ?? false,
-            "rockMetal": Genre.shared.rockMetal ?? false,
-            "dancePop": Genre.shared.dancePop ?? false,
-            "rapHiphop": Genre.shared.rapHiphop ?? false,
-            "rbSoul": Genre.shared.rbSoul ?? false,
-            "forkAcoustic": Genre.shared.forkAcoustic ?? false
-        ]
-        
-        AF.request(APIConstants.genreURL,
-                   method: .post,
-                   parameters: params,
-                   encoding: JSONEncoding.default,
-                   headers: nil)
-        .validate(statusCode: 200 ..< 299).responseData { response in
-            switch response.result {
+        SignService.shared.saveImage(imgData: image) { response in
+            switch response {
             case .success(let data):
-                print(data)
-                print("선호 장르 저장 완료!")
-            case .failure(let error):
-                print(error)
+                if let data = data as? ImageModel {
+                    switch data.status {
+                    case 200:
+                        print(data.message)
+                        self.signUpAPI()
+                        
+                        
+                    case 400:
+                        print(data.message)
+                    default:
+                        print("기타 오류")
+                    }
+                }
+            case .pathErr:
+                print("이미지 저장 결과 :: decode 실패")
+            case .requestErr:
+                print("이미지 저장 결과 :: Request Err")
+            case .serverErr:
+                print("이미지 저장 결과 :: Server Err")
+            case .networkFail:
+                print("이미지 저장 결과 :: Network Fail")
             }
         }
     }

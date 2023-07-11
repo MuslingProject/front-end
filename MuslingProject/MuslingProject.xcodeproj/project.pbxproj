@@ -14,6 +14,7 @@
 		F30F22202A0E8C2F005FDE36 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F221F2A0E8C2F005FDE36 /* UIColor.swift */; };
 		F31B14AC2A5D224000AE12E2 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */; };
 		F31B14AE2A5D299600AE12E2 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AD2A5D299600AE12E2 /* Diary.swift */; };
+		F31B14B02A5D544700AE12E2 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AF2A5D544700AE12E2 /* ImageModel.swift */; };
 		F3244AAB2A36E8C0002C19BB /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA62A36E8BF002C19BB /* list.png */; };
 		F3244AAC2A36E8C0002C19BB /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA72A36E8BF002C19BB /* profile.png */; };
 		F3244AAD2A36E8C0002C19BB /* kuromi.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA82A36E8BF002C19BB /* kuromi.jpeg */; };
@@ -65,6 +66,7 @@
 		F30F221F2A0E8C2F005FDE36 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		F31B14AD2A5D299600AE12E2 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		F31B14AF2A5D544700AE12E2 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		F3244AA62A36E8BF002C19BB /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		F3244AA72A36E8BF002C19BB /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		F3244AA82A36E8BF002C19BB /* kuromi.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kuromi.jpeg; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				F33920982A3792A0001F419E /* Recommend.swift */,
 				F34FF9E12A59894B0025EC5B /* tokenModel.swift */,
 				F31B14AD2A5D299600AE12E2 /* Diary.swift */,
+				F31B14AF2A5D544700AE12E2 /* ImageModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				F3EAA53229E55B6600819F7A /* AppDelegate.swift in Sources */,
 				F31B14AC2A5D224000AE12E2 /* DiaryListViewController.swift in Sources */,
 				F303F7452A2F094300FEE41E /* Genre.swift in Sources */,
+				F31B14B02A5D544700AE12E2 /* ImageModel.swift in Sources */,
 				F3FCE3C72A12B19300E67903 /* ResultViewController.swift in Sources */,
 				F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */,
 				F30A73972A1CBDDD00CAF477 /* Category.swift in Sources */,

@@ -595,7 +595,6 @@
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="chevron.right.circle" catalog="system"/>
                                             <connections>
-                                                <action selector="showDetail" destination="6m0-GW-4C1" eventType="touchUpInside" id="cDa-fg-toe"/>
                                                 <segue destination="wTl-E6-rbu" kind="show" id="2Ts-dS-CVX"/>
                                             </connections>
                                         </button>

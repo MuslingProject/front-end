@@ -27,10 +27,24 @@ class SignInViewController: UIViewController {
             let pwd = passField.text!
             
             // 로그인
-            SignService.shared.signIn(user_id: id, pwd: pwd) { response in
+            SignService.shared.signIn(userId: id, pwd: pwd) { response in
                 switch response {
-                case .success(let msg):
-                    print(msg)
+                case .success(let data):
+                    if let data = data as? TokenModel {
+                        print(data.message)
+                        switch data.message {
+                        case "로그인 성공":
+                            Member.shared.user_id = id
+                            self.goToMain() // 홈으로 이동
+                        case "가입되지 않은 아이디입니다.":
+                            print(data.message)
+                            // 알림창 띄우기
+                        case "아이디 또는 비밀번호가 맞지 않습니다.":
+                            print(data.message)
+                        default:
+                            print("default")
+                        }
+                    }
                 case .pathErr:
                     print("결과 :: Path Err")
                 case .requestErr:
@@ -54,6 +68,21 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    func goToMain() {
+        
+        // 홈으로 이동
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+        vcName?.modalPresentationStyle = .fullScreen
+        vcName?.modalTransitionStyle = .crossDissolve
+        self.present(vcName!, animated: true, completion: nil)
+        
+        // 자동로그인 위해 UserDefaults에 저장
+        let dataSave = UserDefaults.standard
+        dataSave.setValue(Member.shared.user_id, forKey: "user_id")
+        
+        UserDefaults.standard.synchronize()
     }
 
 }

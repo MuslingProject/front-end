@@ -8,5 +8,7 @@
 import Foundation
 
 struct TokenModel: Codable {
-    let userId: String
+    let status: Int
+    let message: String
+    let data: String
 }

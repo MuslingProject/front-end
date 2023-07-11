@@ -12,7 +12,7 @@ class DiaryListViewController: UITableViewController {
     // 더미데이터 불러오기
     let diaries = Diary.data
     
-    let cellSpacingHeight: CGFloat = 10
+    let cellSpacingHeight: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +42,29 @@ class DiaryListViewController: UITableViewController {
         for i in 0...diaries.count {
             if indexPath.section == i {
                 let target = diaries[i]
+                let emotion = target.emotion
+                
+                switch emotion {
+                case "사랑/기쁨":
+                    cell.emotion.text = "🥰 사랑/기쁨"
+                case "이별/슬픔":
+                    cell.emotion.text = "😢 이별/슬픔"
+                case "우울":
+                    cell.emotion.text = "🫠 우울"
+                case "멘붕/불안":
+                    cell.emotion.text = "🤯 멘붕/불안"
+                case "스트레스/짜증":
+                    cell.emotion.text = "😡 스트레스/짜증"
+                default:
+                    cell.emotion.text = ""
+                }
+                
                 cell.date.text = target.date
-                cell.emotion.text = target.emotion
                 cell.weather.text = target.weather
                 cell.title.text = target.title
                 cell.content.text = target.content
             }
         }
-        
         
         cell.selectionStyle = .none
         return cell
@@ -64,8 +79,5 @@ class DiaryCell: UITableViewCell {
     @IBOutlet var weather: UILabel!
     @IBOutlet var title: UILabel!
     @IBOutlet var content: UILabel!
-    @IBAction func showDetail(_ sender: Any) {
-        
-    }
 }
 

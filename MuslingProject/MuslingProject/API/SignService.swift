@@ -14,13 +14,13 @@ struct SignService {
     // 로그인 통신에 대한 함수 정의
     // closure을 함수의 파라미터로 받음
     // @escaping - 탈출 클로저
-    func signIn(user_id: String, pwd: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+    func signIn(userId: String, pwd: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         let url = APIConstants.userSignInURL // 로그인 url
         let header: HTTPHeaders = [
             "Content-Type": "application/json"
         ]
         let body: Parameters = [
-            "user_id": user_id,
+            "userId": userId,
             "pwd": pwd
         ]
         
@@ -32,12 +32,9 @@ struct SignService {
             // 통신 결과에 대한 분기 처리
             switch response.result {
             case .success:
-                guard let statusCode = response.response?.statusCode else {
-                    return
-                }
-                guard let data = response.value else {
-                    return
-                }
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                
                 // completion이란 클로저에게 전달할 데이터를 judgeSignInData 함수 통해 결정
                 completion(judgeSignInData(status: statusCode, data: data))
             case .failure(let err):
@@ -47,14 +44,15 @@ struct SignService {
         }
     }
     
-    func signUp(userId: String, pwd: String, name: String, age: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+    func signUp(userId: String, pwd: String, name: String, age: String, profileId: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         let url = APIConstants.userSignUpURL
         let header: HTTPHeaders = [ "Content-Type" : "application/json" ]
         let params: Parameters = [
             "userId": userId,
             "pwd": pwd,
             "name": name,
-            "age": age
+            "age": age,
+            "profileId": profileId
         ]
         
         let dataRequest = AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header)
@@ -74,7 +72,7 @@ struct SignService {
     }
     
     // 이미지 저장 함수
-    func saveImage(imgData: UIImage!) {
+    func saveImage(imgData: UIImage!, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         let header: HTTPHeaders = [ "Content-Type": "multipart/form-data" ]
         
         let dataRequest = AF.upload(multipartFormData: { multipartFormData in
@@ -84,18 +82,51 @@ struct SignService {
             } else { }
         }, to: APIConstants.imageSaveURL, method: .post, headers: header)
         
-        print("사진 저장 완료")
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                
+                completion(judgeSaveImage(status: statusCode, data: data))
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    // 장르 저장 함수
+    func saveGenre() {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
-//        dataRequest.responseData { response in
-//            switch response.result {
-//            case .success:
-//                guard let statusCode = response.response?.statusCode else { return }
-//                completion(judgeSaveImage(status: statusCode))
-//            case .failure(let err):
-//                print(err)
-//                completion(.networkFail)
-//            }
-//        }
+        print("저장돼 있는 토큰 :: \(token)")
+        
+        let header: HTTPHeaders = [ "X-AUTH-TOKEN" : token ]
+        let params: Parameters = [
+            "indie": Genre.shared.indie ?? false,
+            "balad": Genre.shared.balad ?? false,
+            "rockMetal": Genre.shared.rockMetal ?? false,
+            "dancePop": Genre.shared.dancePop ?? false,
+            "rapHiphop": Genre.shared.rapHiphop ?? false,
+            "rbSoul": Genre.shared.rbSoul ?? false,
+            "forkAcoustic": Genre.shared.forkAcoustic ?? false
+        ]
+        
+        AF.request(APIConstants.genreURL,
+                   method: .post,
+                   parameters: params,
+                   encoding: JSONEncoding.default,
+                   headers: header)
+        .validate(statusCode: 200 ..< 299).responseData { response in
+            switch response.result {
+            case .success(let data):
+                guard let decodedData = try? JSONDecoder().decode(TokenModel.self, from: data) else { return }
+                print(decodedData.message)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     // statusCode와 decode 결과에 따라 NetworkResult 반환
@@ -104,7 +135,6 @@ struct SignService {
         case 200:
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(TokenModel.self, from: data) else { return .pathErr }
-            print("로그인 :: Success")
             return .success(decodedData)
         case 400..<500:
             return .requestErr
@@ -121,7 +151,6 @@ struct SignService {
         case 200:
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(TokenModel.self, from: data) else { return .pathErr }
-            print("회원가입 :: Success")
             return .success(decodedData)
         case 400..<500:
             return .requestErr
@@ -132,18 +161,20 @@ struct SignService {
         }
     }
     
-//    private func judgeSaveImage(status: Int) -> NetworkResult<Any> {
-//        // 통신을 통해 전달받은 데이터를 decode
-//        switch status {
-//        case 200:
-//            print("이미지 저장 :: Success")
-//            return .success(status)
-//        case 400..<500:
-//            return .requestErr
-//        case 500:
-//            return .serverErr
-//        default:
-//            return .networkFail
-//        }
-//    }
+    private func judgeSaveImage(status: Int, data: Data) -> NetworkResult<Any> {
+        // 통신을 통해 전달받은 데이터를 decode
+        switch status {
+        case 200:
+            let decoder = JSONDecoder()
+            guard let decodedData = try? decoder.decode(ImageModel.self, from: data) else { return .pathErr }
+            Member.shared.profileId = String(decodedData.data)
+            return .success(decodedData)
+        case 400..<500:
+            return .requestErr
+        case 500:
+            return .serverErr
+        default:
+            return .networkFail
+        }
+    }
 }
