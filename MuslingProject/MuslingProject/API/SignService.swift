@@ -102,7 +102,10 @@ struct SignService {
     private func judgeSignInData(status: Int, data: Data) -> NetworkResult<Any> {
         switch status {
         case 200:
-            return .success("로그인 성공")
+            let decoder = JSONDecoder()
+            guard let decodedData = try? decoder.decode(TokenModel.self, from: data) else { return .pathErr }
+            print("로그인 :: Success")
+            return .success(decodedData)
         case 400..<500:
             return .requestErr
         case 500:

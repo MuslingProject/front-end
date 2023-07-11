@@ -29,7 +29,7 @@ class FavoriteViewController: UITableViewController {
         return categoryList.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String {
         return categoryList[section]
     }
     
