@@ -65,9 +65,23 @@ class DiaryListViewController: UITableViewController {
                 cell.content.text = target.content
             }
         }
-        
-        cell.selectionStyle = .none
         return cell
+    }
+    
+    // 데이터 전달
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "diarySegue" {
+            if let destination = segue.destination as? DiaryViewController {
+                if let selectedIndex =
+                    self.tableView.indexPathForSelectedRow {
+                    destination.diaryTitle = diaries[selectedIndex[0]].title
+                    destination.diaryDate = diaries[selectedIndex[0]].date
+                    destination.diaryContent = diaries[selectedIndex[0]].content
+                    destination.emotion = diaries[selectedIndex[0]].emotion
+                    destination.weather = diaries[selectedIndex[0]].weather
+                }
+            }
+        }
     }
 
 }
