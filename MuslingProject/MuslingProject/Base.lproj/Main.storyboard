@@ -594,9 +594,6 @@
                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="chevron.right.circle" catalog="system"/>
-                                            <connections>
-                                                <segue destination="wTl-E6-rbu" kind="show" id="2Ts-dS-CVX"/>
-                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDK-r5-1FN">
                                             <rect key="frame" x="288.66666666666669" y="13" width="32.333333333333314" height="12"/>
@@ -630,6 +627,7 @@
                                     <outlet property="emotion" destination="4hZ-Vl-mIi" id="bun-7p-5x5"/>
                                     <outlet property="title" destination="TMC-zO-fXS" id="fxH-Fd-lgJ"/>
                                     <outlet property="weather" destination="hGS-13-KFt" id="oP1-oh-YTl"/>
+                                    <segue destination="wTl-E6-rbu" kind="show" identifier="diarySegue" id="vwc-Af-Tva"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -640,17 +638,33 @@
             </objects>
             <point key="canvasLocation" x="4084" y="1426.8472906403942"/>
         </scene>
-        <!--일기 제목-->
+        <!--Diary View Controller-->
         <scene sceneID="l05-Sn-YQX">
             <objects>
-                <viewController id="wTl-E6-rbu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="diaryVC" id="wTl-E6-rbu" customClass="DiaryViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3mM-bt-svl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYg-qQ-qa0">
+                                <rect key="frame" x="165.66666666666666" y="132" width="43.666666666666657" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8Kt-fI-o2T"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zYg-qQ-qa0" firstAttribute="top" secondItem="8Kt-fI-o2T" secondAttribute="top" constant="38" id="1in-lB-LZN"/>
+                            <constraint firstItem="zYg-qQ-qa0" firstAttribute="centerX" secondItem="3mM-bt-svl" secondAttribute="centerX" id="va7-Mr-7SA"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="일기 제목" style="editor" id="09M-th-jj2"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" style="editor" id="09M-th-jj2"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="zYg-qQ-qa0" id="ybe-a7-rSL"/>
+                        <outlet property="navItem" destination="09M-th-jj2" id="6We-l1-dYl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y91-Vx-D1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

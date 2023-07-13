@@ -30,7 +30,9 @@ class HomeViewController: UIViewController {
                 
                 if let data = data as? WeatherData {
                     print("날씨 불러오기 결과 :: Success")
-                    self.dateLabel.text = "\(current_date_string) \(data.temp)º \(data.main)"
+                    
+                    guard let weatherText = weatherDescKo[data.weather] else { return }
+                    self.dateLabel.text = "\(current_date_string) \(data.temperature)º \(weatherText)"
                 }
                 
             case .pathErr:
