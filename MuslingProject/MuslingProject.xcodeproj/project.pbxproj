@@ -29,6 +29,7 @@
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
 		F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37651C22A138AB6002B4286 /* SignInViewController.swift */; };
 		F3965C612A4C16FB005797FD /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3965C602A4C16FB005797FD /* StatViewController.swift */; };
+		F3A3C77D2A5FD7FE00BF13DD /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */; };
 		F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADDE002A010C91005650E2 /* WriteViewController.swift */; };
 		F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2287429EC453B00FDED32 /* CSButton.swift */; };
 		F3C2288329EC507600FDED32 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288229EC507600FDED32 /* HomeViewController.swift */; };
@@ -81,6 +82,7 @@
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		F37651C22A138AB6002B4286 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		F3965C602A4C16FB005797FD /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
+		F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		F3ADDE002A010C91005650E2 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		F3C2287429EC453B00FDED32 /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
 		F3C2288229EC507600FDED32 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				F339209A2A379331001F419E /* RecommendViewController.swift */,
 				F3965C602A4C16FB005797FD /* StatViewController.swift */,
 				F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */,
+				F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */,
 			);
 			path = sources;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				F3EFB22A2A57E046004ED092 /* SignService.swift in Sources */,
 				F33920992A3792A0001F419E /* Recommend.swift in Sources */,
 				F3EAA53429E55B6600819F7A /* SceneDelegate.swift in Sources */,
+				F3A3C77D2A5FD7FE00BF13DD /* DiaryViewController.swift in Sources */,
 				F31B14AE2A5D299600AE12E2 /* Diary.swift in Sources */,
 				F3EFB2212A57D684004ED092 /* APIConstants.swift in Sources */,
 				F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */,

@@ -7,8 +7,13 @@
 
 import Foundation
 
-struct TokenModel: Codable {
+struct ResponseModel: Codable {
     let status: Int
     let message: String
     let data: String
+}
+
+struct GenreModel: Codable {
+    let status: Int
+    let message: String
 }

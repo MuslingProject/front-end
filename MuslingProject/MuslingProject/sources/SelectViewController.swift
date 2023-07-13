@@ -22,7 +22,6 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet var acoustic: CSButton!
     
     
-    
     @IBAction func finishBtn(_ sender: UIButton) {
         Member.shared.age = ageBtn.text
         if ageBtn.text == "" {
@@ -31,78 +30,84 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
-            //signUpAPI()
             signUp()
-            //saveGenre()
         }
     }
     
     
     @IBAction func selectKpop(_ sender: Any) {
         select(dancePop)
-        if Genre.shared.dancePop != true {
-            Genre.shared.dancePop = true
+        if Genre.shared.dancePop != 1 {
+            Genre.shared.dancePop = 1
         } else {
-            Genre.shared.dancePop = false
+            Genre.shared.dancePop = 0
         }
     }
     
     @IBAction func selectBalad(_ sender: Any) {
         select(balad)
-        if Genre.shared.balad != true {
-            Genre.shared.balad = true
+        if Genre.shared.balad != 1 {
+            Genre.shared.balad = 1
         } else {
-            Genre.shared.balad = false
+            Genre.shared.balad = 0
         }
     }
     
     @IBAction func selectHiphop(_ sender: Any) {
         select(hiphop)
-        if Genre.shared.rapHiphop != true {
-            Genre.shared.rapHiphop = true
+        if Genre.shared.rapHiphop != 1 {
+            Genre.shared.rapHiphop = 1
         } else {
-            Genre.shared.rapHiphop = false
+            Genre.shared.rapHiphop = 0
         }
     }
     
     @IBAction func selectInde(_ sender: Any) {
         select(indie)
-        if Genre.shared.indie != true {
-            Genre.shared.indie = true
+        if Genre.shared.indie != 1 {
+            Genre.shared.indie = 1
         } else {
-            Genre.shared.indie = false
+            Genre.shared.indie = 0
         }
     }
     
     @IBAction func selectRock(_ sender: Any) {
         select(metal)
-        if Genre.shared.rockMetal != true {
-            Genre.shared.rockMetal = true
+        if Genre.shared.rockMetal != 1 {
+            Genre.shared.rockMetal = 1
         } else {
-            Genre.shared.rockMetal = false
+            Genre.shared.rockMetal = 0
         }
     }
     
     @IBAction func selectRnb(_ sender: Any) {
         select(rnb)
-        if Genre.shared.rbSoul != true {
-            Genre.shared.rbSoul = true
+        if Genre.shared.rbSoul != 1 {
+            Genre.shared.rbSoul = 1
         } else {
-            Genre.shared.rbSoul = false
+            Genre.shared.rbSoul = 0
         }
     }
     
     @IBAction func selectAcoustic(_ sender: Any) {
         select(acoustic)
-        if Genre.shared.forkAcoustic != true {
-            Genre.shared.forkAcoustic = true
+        if Genre.shared.forkAcoustic != 1 {
+            Genre.shared.forkAcoustic = 1
         } else {
-            Genre.shared.forkAcoustic = false
+            Genre.shared.forkAcoustic = 0
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Genre.shared.balad = 0
+        Genre.shared.dancePop = 0
+        Genre.shared.forkAcoustic = 0
+        Genre.shared.indie = 0
+        Genre.shared.rapHiphop = 0
+        Genre.shared.rbSoul = 0
+        Genre.shared.rockMetal = 0
         
         //ageBtn.delegate = self
         ageBtn.tintColor = .clear // 커서 깜빡임 해결
@@ -166,28 +171,45 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func saveGenre() {
-        SignService.shared.saveGenre()
-        
-        // 홈으로 이동
-        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
-        vcName?.modalPresentationStyle = .fullScreen
-        vcName?.modalTransitionStyle = .crossDissolve
-        self.present(vcName!, animated: true, completion: nil)
-        
-        // 자동로그인 위해 UserDefaults에 저장
-        let dataSave = UserDefaults.standard
-        dataSave.setValue(Member.shared.user_id, forKey: "user_id")
-        dataSave.setValue(Member.shared.name, forKey: "nickname")
-        
-        UserDefaults.standard.synchronize()
+        let genre = Genre.shared
+        SignService.shared.saveGenre(indie: genre.indie, balad: genre.balad, rockMetal: genre.rockMetal, dancePop: genre.dancePop, rapHiphop: genre.rapHiphop, rbSoul: genre.rbSoul, forkAcoustic: genre.forkAcoustic) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? GenreModel {
+                    switch data.status {
+                    case 200:
+                        print(data.message)
+                        self.goToMain()
+                    case 400:
+                        print(data.message)
+                    default:
+                        print("장르 저장 :: Ect Err")
+                    }
+                }
+            case .requestErr:
+                print("장르 저장 :: Request Err")
+            case .pathErr:
+                print("장르 저장 :: Path Err")
+            case .serverErr:
+                print("장르 저장 :: Server Err")
+            case .networkFail:
+                print("장르 저장 :: Network Err")
+            }
+        }
     }
     
     func signUpAPI() {
+        guard let userId = Member.shared.user_id else { return }
+        guard let pwd = Member.shared.pwd else { return }
+        guard let name = Member.shared.name else { return }
+        guard let age = Member.shared.age else { return }
+        guard let profileId = Member.shared.profileId else { return }
+        
         // 회원가입
-        SignService.shared.signUp(userId: Member.shared.user_id, pwd: Member.shared.pwd, name: Member.shared.name, age: Member.shared.age, profileId: Member.shared.profileId ) { response in
+        SignService.shared.signUp(userId: userId, pwd: pwd, name: name, age: age, profileId: profileId ) { response in
             switch response {
             case .success(let key):
-                if let data = key as? TokenModel {
+                if let data = key as? ResponseModel {
                     switch data.status {
                     case 200:
                         print(data.message)
@@ -219,11 +241,13 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         SignService.shared.signIn(userId: id, pwd: pwd) { response in
             switch response {
             case .success(let data):
-                if let data = data as? TokenModel {
+                if let data = data as? ResponseModel {
+                    print("로그인 결과 :: \(data.message)")
                     let dataSave = UserDefaults.standard
                     dataSave.setValue(data.data, forKey: "token")
                     dataSave.synchronize()
                     
+                    // 장르 저장
                     self.saveGenre()
                 }
             case .requestErr:
@@ -248,9 +272,10 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     switch data.status {
                     case 200:
                         print(data.message)
+                        Member.shared.profileId = String(data.data)
+                        
+                        // 회원 가입
                         self.signUpAPI()
-                        
-                        
                     case 400:
                         print(data.message)
                     default:
@@ -267,6 +292,21 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 print("이미지 저장 결과 :: Network Fail")
             }
         }
+    }
+    
+    func goToMain() {
+        // 홈으로 이동
+        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+        vcName?.modalPresentationStyle = .fullScreen
+        vcName?.modalTransitionStyle = .crossDissolve
+        self.present(vcName!, animated: true, completion: nil)
+        
+        // 자동로그인 위해 UserDefaults에 저장
+        let dataSave = UserDefaults.standard
+        dataSave.setValue(Member.shared.user_id, forKey: "user_id")
+        dataSave.setValue(Member.shared.name, forKey: "nickname")
+        
+        UserDefaults.standard.synchronize()
     }
 
 }

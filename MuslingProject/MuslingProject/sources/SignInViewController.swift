@@ -30,19 +30,16 @@ class SignInViewController: UIViewController {
             SignService.shared.signIn(userId: id, pwd: pwd) { response in
                 switch response {
                 case .success(let data):
-                    if let data = data as? TokenModel {
+                    if let data = data as? ResponseModel {
                         print(data.message)
-                        switch data.message {
-                        case "로그인 성공":
+                        switch data.status {
+                        case 200:
                             Member.shared.user_id = id
                             self.goToMain() // 홈으로 이동
-                        case "가입되지 않은 아이디입니다.":
-                            print(data.message)
-                            // 알림창 띄우기
-                        case "아이디 또는 비밀번호가 맞지 않습니다.":
+                        case 400:
                             print(data.message)
                         default:
-                            print("default")
+                            print("기타 에러")
                         }
                     }
                 case .pathErr:
@@ -83,6 +80,10 @@ class SignInViewController: UIViewController {
         dataSave.setValue(Member.shared.user_id, forKey: "user_id")
         
         UserDefaults.standard.synchronize()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
 
 }

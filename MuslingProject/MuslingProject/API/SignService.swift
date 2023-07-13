@@ -36,7 +36,7 @@ struct SignService {
                 guard let data = response.value else { return }
                 
                 // completion이란 클로저에게 전달할 데이터를 judgeSignInData 함수 통해 결정
-                completion(judgeSignInData(status: statusCode, data: data))
+                completion(judgeSignData(status: statusCode, data: data))
             case .failure(let err):
                 print(err)
                 completion(.networkFail)
@@ -62,7 +62,7 @@ struct SignService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                completion(judgeSignUpData(status: statusCode, data: data))
+                completion(judgeSignData(status: statusCode, data: data))
 
             case .failure(let err):
                 print(err)
@@ -97,60 +97,46 @@ struct SignService {
     }
     
     // 장르 저장 함수
-    func saveGenre() {
+    func saveGenre(indie: Int, balad: Int, rockMetal: Int, dancePop: Int, rapHiphop: Int, rbSoul: Int, forkAcoustic: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
-        print("저장돼 있는 토큰 :: \(token)")
-        
-        let header: HTTPHeaders = [ "X-AUTH-TOKEN" : token ]
+        let header: HTTPHeaders = [ "Content-Type" : "application/json",
+                                    "X-AUTH-TOKEN" : token ]
         let params: Parameters = [
-            "indie": Genre.shared.indie ?? false,
-            "balad": Genre.shared.balad ?? false,
-            "rockMetal": Genre.shared.rockMetal ?? false,
-            "dancePop": Genre.shared.dancePop ?? false,
-            "rapHiphop": Genre.shared.rapHiphop ?? false,
-            "rbSoul": Genre.shared.rbSoul ?? false,
-            "forkAcoustic": Genre.shared.forkAcoustic ?? false
+            "indie": indie,
+            "balad": balad,
+            "rockMetal": rockMetal,
+            "dancePop": dancePop,
+            "rapHiphop": rapHiphop,
+            "rbSoul": rbSoul,
+            "forkAcoustic": forkAcoustic
         ]
         
-        AF.request(APIConstants.genreURL,
-                   method: .post,
-                   parameters: params,
-                   encoding: JSONEncoding.default,
-                   headers: header)
-        .validate(statusCode: 200 ..< 299).responseData { response in
+        let url = APIConstants.genreURL
+        
+        let dataRequest = AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header)
+        
+        dataRequest.responseData { response in
             switch response.result {
-            case .success(let data):
-                guard let decodedData = try? JSONDecoder().decode(TokenModel.self, from: data) else { return }
-                print(decodedData.message)
-            case .failure(let error):
-                print(error)
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeSaveGenre(status: statusCode, data: data))
+
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
             }
         }
+    
     }
     
     // statusCode와 decode 결과에 따라 NetworkResult 반환
-    private func judgeSignInData(status: Int, data: Data) -> NetworkResult<Any> {
+    private func judgeSignData(status: Int, data: Data) -> NetworkResult<Any> {
         switch status {
         case 200:
             let decoder = JSONDecoder()
-            guard let decodedData = try? decoder.decode(TokenModel.self, from: data) else { return .pathErr }
-            return .success(decodedData)
-        case 400..<500:
-            return .requestErr
-        case 500:
-            return .serverErr
-        default:
-            return .networkFail
-        }
-    }
-    
-    private func judgeSignUpData(status: Int, data: Data) -> NetworkResult<Any> {
-        // 통신을 통해 전달받은 데이터를 decode
-        switch status {
-        case 200:
-            let decoder = JSONDecoder()
-            guard let decodedData = try? decoder.decode(TokenModel.self, from: data) else { return .pathErr }
+            guard let decodedData = try? decoder.decode(ResponseModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
             return .requestErr
@@ -167,7 +153,22 @@ struct SignService {
         case 200:
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(ImageModel.self, from: data) else { return .pathErr }
-            Member.shared.profileId = String(decodedData.data)
+            return .success(decodedData)
+        case 400..<500:
+            return .requestErr
+        case 500:
+            return .serverErr
+        default:
+            return .networkFail
+        }
+    }
+    
+    private func judgeSaveGenre(status: Int, data: Data) -> NetworkResult<Any> {
+        // 통신을 통해 전달받은 데이터를 decode
+        switch status {
+        case 200:
+            let decoder = JSONDecoder()
+            guard let decodedData = try? decoder.decode(GenreModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
             return .requestErr

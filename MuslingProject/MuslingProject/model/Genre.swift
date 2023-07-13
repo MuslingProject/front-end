@@ -7,11 +7,11 @@
 
 class Genre {
     static var shared = Genre()
-    var indie: Bool!
-    var balad: Bool!
-    var rockMetal: Bool!
-    var dancePop: Bool!
-    var rapHiphop: Bool!
-    var rbSoul: Bool!
-    var forkAcoustic: Bool!
+    var indie: Int!
+    var balad: Int!
+    var rockMetal: Int!
+    var dancePop: Int!
+    var rapHiphop: Int!
+    var rbSoul: Int!
+    var forkAcoustic: Int!
 }

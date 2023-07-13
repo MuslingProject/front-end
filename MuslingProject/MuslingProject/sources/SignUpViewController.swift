@@ -37,4 +37,8 @@ class SignUpViewController: UIViewController {
             Member.shared.pwd = passField.text
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
 }
