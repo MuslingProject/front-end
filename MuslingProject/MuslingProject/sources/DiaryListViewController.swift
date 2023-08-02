@@ -76,8 +76,23 @@ class DiaryListViewController: UITableViewController {
                     self.tableView.indexPathForSelectedRow {
                     destination.diaryTitle = diaries[selectedIndex[0]].title
                     destination.diaryDate = diaries[selectedIndex[0]].date
-                    destination.diaryContent = diaries[selectedIndex[0]].content
-                    destination.emotion = diaries[selectedIndex[0]].emotion
+                    destination.content = diaries[selectedIndex[0]].content
+
+                    switch diaries[selectedIndex[0]].emotion {
+                    case "사랑/기쁨":
+                        destination.emotion = "🥰 기뻤어요"
+                    case "이별/슬픔":
+                        destination.emotion = "😢 슬펐어요"
+                    case "우울":
+                        destination.emotion = "🫠 우울했어요"
+                    case "멘붕/불안":
+                        destination.emotion = "🤯 불안했어요"
+                    case "스트레스/짜증":
+                        destination.emotion = "😡 짜증났어요"
+                    default:
+                        destination.emotion = ""
+                    }
+                    
                     destination.weather = diaries[selectedIndex[0]].weather
                 }
             }

@@ -13,6 +13,12 @@ struct Music {
     let emotion: String
 }
 
+struct RecMusic {
+    let title: String
+    let singer: String
+    let img: String
+}
+
 extension Music {
     static var data = [
         Music(title: "I AM", singer: "IVE (아이브)", emotion: "사랑/기쁨"),
@@ -26,5 +32,16 @@ extension Music {
         Music(title: "손오공", singer: "세븐틴 (SEVENTEEN)", emotion: "멘붕/불안"),
         Music(title: "Ditto", singer: "NewJeans", emotion: "우울"),
         Music(title: "Hype Boy", singer: "NewJeans", emotion: "우울")
+    ]
+}
+
+
+extension RecMusic {
+    static var data = [
+        RecMusic(title: "I AM", singer: "IVE (아이브)", img: "kuromi.jpeg"),
+        RecMusic(title: "Spicy", singer: "aespa", img: "kuromi.jpeg"),
+        RecMusic(title: "After Like", singer: "IVE (아이브)", img: "kuromi.jpeg"),
+        RecMusic(title: "UNFORGIVEN", singer: "LE SSERAFIM(르세라핌)", img: "kuromi.jpeg"),
+        RecMusic(title: "Teddy Bear", singer: "STAYC (스테이씨)", img: "kuromi.jpeg")
     ]
 }

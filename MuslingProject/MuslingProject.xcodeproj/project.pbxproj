@@ -21,6 +21,8 @@
 		F3244AAE2A36E8C0002C19BB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA92A36E8C0002C19BB /* logo.png */; };
 		F3244AAF2A36E8C0002C19BB /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AAA2A36E8C0002C19BB /* line.png */; };
 		F3244B422A25810A006C7E9B /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3244B412A25810A006C7E9B /* WeatherModel.swift */; };
+		F327EF632A615357002A8CA7 /* CSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327EF622A615357002A8CA7 /* CSLabel.swift */; };
+		F327EF652A615713002A8CA7 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327EF642A615713002A8CA7 /* PaddingLabel.swift */; };
 		F33135C72A2570F6008DF851 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33135C62A2570F6008DF851 /* LocationService.swift */; };
 		F33920992A3792A0001F419E /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33920982A3792A0001F419E /* Recommend.swift */; };
 		F339209B2A379331001F419E /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F339209A2A379331001F419E /* RecommendViewController.swift */; };
@@ -29,6 +31,8 @@
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
 		F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37651C22A138AB6002B4286 /* SignInViewController.swift */; };
 		F3965C612A4C16FB005797FD /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3965C602A4C16FB005797FD /* StatViewController.swift */; };
+		F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A062822A6E870000CE7085 /* MusicCell.swift */; };
+		F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A062832A6E870000CE7085 /* MusicCell.xib */; };
 		F3A3C77D2A5FD7FE00BF13DD /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */; };
 		F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADDE002A010C91005650E2 /* WriteViewController.swift */; };
 		F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2287429EC453B00FDED32 /* CSButton.swift */; };
@@ -74,6 +78,8 @@
 		F3244AA92A36E8C0002C19BB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F3244AAA2A36E8C0002C19BB /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		F3244B412A25810A006C7E9B /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		F327EF622A615357002A8CA7 /* CSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSLabel.swift; sourceTree = "<group>"; };
+		F327EF642A615713002A8CA7 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		F33135C62A2570F6008DF851 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		F33920982A3792A0001F419E /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
 		F339209A2A379331001F419E /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +88,8 @@
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		F37651C22A138AB6002B4286 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		F3965C602A4C16FB005797FD /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
+		F3A062822A6E870000CE7085 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
+		F3A062832A6E870000CE7085 /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
 		F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		F3ADDE002A010C91005650E2 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		F3C2287429EC453B00FDED32 /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
@@ -164,6 +172,8 @@
 				F3C2287429EC453B00FDED32 /* CSButton.swift */,
 				F30F221F2A0E8C2F005FDE36 /* UIColor.swift */,
 				F3FCE3C22A1296BA00E67903 /* HSUnderLineTextField.swift */,
+				F327EF622A615357002A8CA7 /* CSLabel.swift */,
+				F327EF642A615713002A8CA7 /* PaddingLabel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -248,6 +258,8 @@
 				F3965C602A4C16FB005797FD /* StatViewController.swift */,
 				F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */,
 				F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */,
+				F3A062822A6E870000CE7085 /* MusicCell.swift */,
+				F3A062832A6E870000CE7085 /* MusicCell.xib */,
 			);
 			path = sources;
 			sourceTree = "<group>";
@@ -320,6 +332,7 @@
 				F3244AAE2A36E8C0002C19BB /* logo.png in Resources */,
 				F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */,
 				F3244AAF2A36E8C0002C19BB /* line.png in Resources */,
+				F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */,
 				F3244AAB2A36E8C0002C19BB /* list.png in Resources */,
 				F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */,
 				F3C2A7AB2A25F0BC0001EDD6 /* GoogleService-Info.plist in Resources */,
@@ -390,6 +403,7 @@
 				F33135C72A2570F6008DF851 /* LocationService.swift in Sources */,
 				F3C2288329EC507600FDED32 /* HomeViewController.swift in Sources */,
 				F3C2288529EC508600FDED32 /* FavoriteViewController.swift in Sources */,
+				F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */,
 				F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */,
 				F3244B422A25810A006C7E9B /* WeatherModel.swift in Sources */,
 				F3EFB22C2A57E94E004ED092 /* WeatherService.swift in Sources */,
@@ -402,6 +416,8 @@
 				F3EFB2282A57DF49004ED092 /* GenericResponse.swift in Sources */,
 				F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */,
 				F3EFB22A2A57E046004ED092 /* SignService.swift in Sources */,
+				F327EF652A615713002A8CA7 /* PaddingLabel.swift in Sources */,
+				F327EF632A615357002A8CA7 /* CSLabel.swift in Sources */,
 				F33920992A3792A0001F419E /* Recommend.swift in Sources */,
 				F3EAA53429E55B6600819F7A /* SceneDelegate.swift in Sources */,
 				F3A3C77D2A5FD7FE00BF13DD /* DiaryViewController.swift in Sources */,
