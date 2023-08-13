@@ -40,7 +40,7 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         singleTapGestureRecognizer.cancelsTouchesInView = false
 
         self.view.addGestureRecognizer(singleTapGestureRecognizer)
-        
+    
         self.navigationItem.rightBarButtonItem = writeButton
         
         weatherField.delegate = self

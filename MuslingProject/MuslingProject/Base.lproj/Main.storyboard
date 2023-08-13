@@ -460,7 +460,7 @@
                             <constraint firstItem="WNC-p2-qGd" firstAttribute="top" secondItem="Oae-tm-ri0" secondAttribute="bottom" constant="24" id="yGs-xG-kJE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="내 정보 수정 ⚒️" largeTitleDisplayMode="never" style="editor" id="zEY-wR-XjM"/>
+                    <navigationItem key="navigationItem" title="내 정보 수정 ⚒️" largeTitleDisplayMode="never" id="zEY-wR-XjM"/>
                     <connections>
                         <outlet property="acoustic" destination="80p-rL-1Ai" id="cpl-tj-WXC"/>
                         <outlet property="balad" destination="GPd-64-cDb" id="dM6-Z0-mVz"/>
@@ -641,7 +641,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="나의 일기 목록" largeTitleDisplayMode="never" style="editor" id="HfD-6L-tej"/>
+                    <navigationItem key="navigationItem" title="나의 일기 목록" largeTitleDisplayMode="never" id="HfD-6L-tej"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RwF-QH-ggc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -805,7 +805,7 @@
                             <constraint firstItem="lcm-wq-1bA" firstAttribute="top" secondItem="OLG-aQ-z0V" secondAttribute="top" id="pvo-0p-end"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="다이어리" largeTitleDisplayMode="never" style="editor" id="VrY-Xs-aCo"/>
+                    <navigationItem key="navigationItem" title="다이어리" largeTitleDisplayMode="never" id="VrY-Xs-aCo"/>
                     <connections>
                         <outlet property="dateLabel" destination="tAt-ct-u8v" id="IqW-dd-A1N"/>
                         <outlet property="diaryContent" destination="34M-e8-vcG" id="E9m-S8-HFG"/>
@@ -935,7 +935,7 @@
                             <constraint firstItem="og1-3k-QoH" firstAttribute="bottom" secondItem="YE0-Le-Qx3" secondAttribute="bottom" id="jw8-ve-owZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="일기 작성하기" largeTitleDisplayMode="never" style="editor" id="TpS-lN-IQa"/>
+                    <navigationItem key="navigationItem" title="일기 작성하기" largeTitleDisplayMode="never" id="TpS-lN-IQa"/>
                     <connections>
                         <outlet property="datePicker" destination="8IF-uX-Phn" id="jaJ-Y2-Oi6"/>
                         <outlet property="diaryTitle" destination="bUC-WZ-twc" id="zJa-BA-9Cv"/>

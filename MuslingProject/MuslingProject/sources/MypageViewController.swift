@@ -74,6 +74,8 @@ class MypageViewController: UIViewController {
         navigationController?.navigationBar.layer.shadowOpacity = 0.8
         navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
         navigationController?.navigationBar.layer.shadowRadius = 2
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
     @objc func handleDataUpdate() {

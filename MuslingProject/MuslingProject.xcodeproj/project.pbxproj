@@ -58,7 +58,6 @@
 		F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7D9A62A2C8CEC00D90B69 /* Member.swift */; };
 		F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCE3C22A1296BA00E67903 /* HSUnderLineTextField.swift */; };
 		F3FCE3C52A12A3D900E67903 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCE3C42A12A3D900E67903 /* EditViewController.swift */; };
-		F3FCE3C72A12B19300E67903 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCE3C62A12B19300E67903 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,7 +118,6 @@
 		F3F7D9A62A2C8CEC00D90B69 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		F3FCE3C22A1296BA00E67903 /* HSUnderLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSUnderLineTextField.swift; sourceTree = "<group>"; };
 		F3FCE3C42A12A3D900E67903 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		F3FCE3C62A12B19300E67903 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +256,6 @@
 				F3C2288829EC51ED00FDED32 /* TabBarVC.swift */,
 				F3ADDE002A010C91005650E2 /* WriteViewController.swift */,
 				F3FCE3C42A12A3D900E67903 /* EditViewController.swift */,
-				F3FCE3C62A12B19300E67903 /* ResultViewController.swift */,
 				F37651C22A138AB6002B4286 /* SignInViewController.swift */,
 				F339209A2A379331001F419E /* RecommendViewController.swift */,
 				F3965C602A4C16FB005797FD /* StatViewController.swift */,
@@ -403,7 +400,6 @@
 				F31B14AC2A5D224000AE12E2 /* DiaryListViewController.swift in Sources */,
 				F303F7452A2F094300FEE41E /* Genre.swift in Sources */,
 				F31B14B02A5D544700AE12E2 /* ImageModel.swift in Sources */,
-				F3FCE3C72A12B19300E67903 /* ResultViewController.swift in Sources */,
 				F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */,
 				F30A73972A1CBDDD00CAF477 /* Category.swift in Sources */,
 				F303F7472A2F1A9800FEE41E /* Music.swift in Sources */,
