@@ -29,6 +29,8 @@
 		F34FF9E22A59894B0025EC5B /* tokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34FF9E12A59894B0025EC5B /* tokenModel.swift */; };
 		F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */; };
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
+		F3733D5B2A87D862008B9814 /* MypageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3733D5A2A87D862008B9814 /* MypageService.swift */; };
+		F3733D5D2A87F88D008B9814 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */; };
 		F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37651C22A138AB6002B4286 /* SignInViewController.swift */; };
 		F3965C612A4C16FB005797FD /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3965C602A4C16FB005797FD /* StatViewController.swift */; };
 		F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A062822A6E870000CE7085 /* MusicCell.swift */; };
@@ -86,6 +88,8 @@
 		F34FF9E12A59894B0025EC5B /* tokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokenModel.swift; sourceTree = "<group>"; };
 		F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		F3733D5A2A87D862008B9814 /* MypageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageService.swift; sourceTree = "<group>"; };
+		F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		F37651C22A138AB6002B4286 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		F3965C602A4C16FB005797FD /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		F3A062822A6E870000CE7085 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				F34FF9E12A59894B0025EC5B /* tokenModel.swift */,
 				F31B14AD2A5D299600AE12E2 /* Diary.swift */,
 				F31B14AF2A5D544700AE12E2 /* ImageModel.swift */,
+				F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				F3EFB2272A57DF49004ED092 /* GenericResponse.swift */,
 				F3EFB2292A57E046004ED092 /* SignService.swift */,
 				F3EFB22B2A57E94E004ED092 /* WeatherService.swift */,
+				F3733D5A2A87D862008B9814 /* MypageService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -391,6 +397,7 @@
 			files = (
 				F3965C612A4C16FB005797FD /* StatViewController.swift in Sources */,
 				F3EAA55329E5714200819F7A /* FirstViewController.swift in Sources */,
+				F3733D5B2A87D862008B9814 /* MypageService.swift in Sources */,
 				F30F22202A0E8C2F005FDE36 /* UIColor.swift in Sources */,
 				F3EAA53229E55B6600819F7A /* AppDelegate.swift in Sources */,
 				F31B14AC2A5D224000AE12E2 /* DiaryListViewController.swift in Sources */,
@@ -413,6 +420,7 @@
 				F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */,
 				F3C2288929EC51ED00FDED32 /* TabBarVC.swift in Sources */,
 				F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */,
+				F3733D5D2A87F88D008B9814 /* NotificationCenter.swift in Sources */,
 				F3EFB2282A57DF49004ED092 /* GenericResponse.swift in Sources */,
 				F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */,
 				F3EFB22A2A57E046004ED092 /* SignService.swift in Sources */,

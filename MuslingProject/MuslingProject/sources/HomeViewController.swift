@@ -12,6 +12,7 @@ import Alamofire
 class HomeViewController: UIViewController {
     
     @IBOutlet var dateLabel: UILabel! // 날짜
+    @IBOutlet var weatherLabel: UILabel! // 날싸
     @IBOutlet var noneLabel: UILabel! // 작성되어 있지 않을 때 띄울 문구
     @IBOutlet var homeTitle: UINavigationItem!
     
@@ -32,7 +33,8 @@ class HomeViewController: UIViewController {
                     print("날씨 불러오기 결과 :: Success")
                     
                     guard let weatherText = weatherDescKo[data.weather] else { return }
-                    self.dateLabel.text = "\(current_date_string) \(data.temperature)º \(weatherText)"
+                    self.dateLabel.text = "\(current_date_string) \(data.temperature)º"
+                    self.weatherLabel.text = weatherText
                 }
                 
             case .pathErr:

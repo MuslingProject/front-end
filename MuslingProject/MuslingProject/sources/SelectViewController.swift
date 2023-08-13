@@ -175,7 +175,7 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         SignService.shared.saveGenre(indie: genre.indie, balad: genre.balad, rockMetal: genre.rockMetal, dancePop: genre.dancePop, rapHiphop: genre.rapHiphop, rbSoul: genre.rbSoul, forkAcoustic: genre.forkAcoustic) { response in
             switch response {
             case .success(let data):
-                if let data = data as? GenreModel {
+                if let data = data as? NonDataModel {
                     switch data.status {
                     case 200:
                         print(data.message)
@@ -304,6 +304,7 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // 자동로그인 위해 UserDefaults에 저장
         let dataSave = UserDefaults.standard
         dataSave.setValue(Member.shared.user_id, forKey: "user_id")
+        dataSave.setValue(Member.shared.pwd, forKey: "pwd")
         dataSave.setValue(Member.shared.name, forKey: "nickname")
         
         UserDefaults.standard.synchronize()

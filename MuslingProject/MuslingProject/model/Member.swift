@@ -15,4 +15,5 @@ class Member {
     var age: String!
     var img: UIImage!
     var profileId: String!
+    var imgURL: URL!
 }

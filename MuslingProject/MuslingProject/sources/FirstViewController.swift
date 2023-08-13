@@ -36,7 +36,34 @@ class FirstViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .secondary
         
         // 자동 로그인
-        if UserDefaults.standard.string(forKey: "user_id") != nil {
+        let saveId = UserDefaults.standard.string(forKey: "user_id")
+        if saveId != nil {
+            // 토큰 갱신해 주기
+            guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
+            guard let pwd = UserDefaults.standard.string(forKey: "pwd") else { return }
+
+            SignService.shared.signIn(userId: userId, pwd: pwd) { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? ResponseModel {
+                        print("로그인 결과 :: \(data.message)")
+                        let dataSave = UserDefaults.standard
+                        // 새로 갱신된 token 저장
+                        dataSave.setValue(data.data, forKey: "token")
+                        dataSave.synchronize()
+                    }
+                case .requestErr:
+                    print("로그인 결과 :: Request Err")
+                case .pathErr:
+                    print("로그인 결과 :: decode 실패")
+                case .serverErr:
+                    print("로그인 결과 :: Server Err")
+                case .networkFail:
+                    print("로그인 결과 :: Network Err")
+                }
+            }
+            
+            // 홈 화면으로 넘어가기
             let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
             vcName?.modalPresentationStyle = .fullScreen
             vcName?.modalTransitionStyle = .crossDissolve

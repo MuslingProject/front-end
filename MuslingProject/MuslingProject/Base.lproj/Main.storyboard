@@ -209,21 +209,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kuromi.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="6bw-wG-VYI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6bw-wG-VYI">
                                 <rect key="frame" x="87.666666666666686" y="214.33333333333337" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="nu8-60-AMH"/>
                                     <constraint firstAttribute="height" constant="200" id="xxI-VT-0S6"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXA-6L-m3k">
-                                <rect key="frame" x="161.66666666666666" y="442.33333333333331" width="52" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXA-6L-m3k">
+                                <rect key="frame" x="178.33333333333334" y="434.33333333333331" width="18.333333333333343" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rZi-ft-4cV">
-                                <rect key="frame" x="18" y="564" width="339" height="63"/>
+                                <rect key="frame" x="18" y="556" width="339" height="63"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="OUa-O7-h5x">
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="1"/>
@@ -254,7 +254,7 @@
                             <constraint firstItem="pXA-6L-m3k" firstAttribute="centerX" secondItem="gsA-Kn-Hhr" secondAttribute="centerX" id="UdE-33-GLa"/>
                             <constraint firstItem="6bw-wG-VYI" firstAttribute="top" secondItem="MiF-UE-oV1" secondAttribute="top" constant="60" id="b1x-HK-1Os"/>
                             <constraint firstItem="rZi-ft-4cV" firstAttribute="top" secondItem="pXA-6L-m3k" secondAttribute="bottom" constant="97.670000000000002" id="gm2-c3-brV"/>
-                            <constraint firstItem="pXA-6L-m3k" firstAttribute="top" secondItem="6bw-wG-VYI" secondAttribute="bottom" constant="28" id="yb2-aI-kMz"/>
+                            <constraint firstItem="pXA-6L-m3k" firstAttribute="top" secondItem="6bw-wG-VYI" secondAttribute="bottom" constant="20" id="yb2-aI-kMz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="마이페이지 👀" id="zxE-fc-Ndj"/>
@@ -275,7 +275,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kuromi.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="fQh-nk-Ffi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fQh-nk-Ffi">
                                 <rect key="frame" x="142.66666666666666" y="148" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="3X0-kd-tVu"/>
@@ -487,7 +487,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJ4-Zl-1ff" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="136" y="434" width="103" height="41"/>
+                                <rect key="frame" x="136" y="426" width="103" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="103" id="R3R-X3-iby"/>
                                     <constraint firstAttribute="height" constant="41" id="k0r-8A-LVZ"/>
@@ -502,15 +502,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ob-9k-uBF">
-                                <rect key="frame" x="172.33333333333334" y="361" width="30.333333333333343" height="17"/>
+                                <rect key="frame" x="172.33333333333334" y="353" width="30.333333333333343" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1T-vq-hsE">
-                                <rect key="frame" x="180.66666666666666" y="179" width="14" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="180" y="179" width="15" height="19.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-zQ-mLp">
+                                <rect key="frame" x="181.33333333333334" y="203.33333333333334" width="12.333333333333343" height="15.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -520,8 +526,10 @@
                             <constraint firstItem="D1T-vq-hsE" firstAttribute="centerX" secondItem="lKH-6x-Atc" secondAttribute="centerX" id="Fxw-3Y-JLk"/>
                             <constraint firstItem="tJ4-Zl-1ff" firstAttribute="centerX" secondItem="lKH-6x-Atc" secondAttribute="centerX" id="OAU-s1-svG"/>
                             <constraint firstItem="D1T-vq-hsE" firstAttribute="top" secondItem="qnq-qL-zvH" secondAttribute="top" constant="24.670000000000002" id="Poh-2u-cB9"/>
-                            <constraint firstItem="6ob-9k-uBF" firstAttribute="top" secondItem="D1T-vq-hsE" secondAttribute="bottom" constant="164" id="PpN-fs-a9k"/>
+                            <constraint firstItem="VEi-zQ-mLp" firstAttribute="centerX" secondItem="lKH-6x-Atc" secondAttribute="centerX" id="UMB-7C-YA4"/>
                             <constraint firstItem="tJ4-Zl-1ff" firstAttribute="top" secondItem="6ob-9k-uBF" secondAttribute="bottom" constant="56" id="YLi-8s-q5z"/>
+                            <constraint firstItem="6ob-9k-uBF" firstAttribute="top" secondItem="VEi-zQ-mLp" secondAttribute="bottom" constant="134" id="ZjN-KT-pug"/>
+                            <constraint firstItem="VEi-zQ-mLp" firstAttribute="top" secondItem="D1T-vq-hsE" secondAttribute="bottom" constant="5" id="jPC-II-D1a"/>
                             <constraint firstItem="6ob-9k-uBF" firstAttribute="centerX" secondItem="lKH-6x-Atc" secondAttribute="centerX" id="rNg-7B-yUa"/>
                         </constraints>
                     </view>
@@ -537,6 +545,7 @@
                         <outlet property="dateLabel" destination="D1T-vq-hsE" id="adR-ws-tfF"/>
                         <outlet property="homeTitle" destination="4Lf-s3-sEG" id="yDB-Kk-1eJ"/>
                         <outlet property="noneLabel" destination="6ob-9k-uBF" id="CP1-Cg-vD7"/>
+                        <outlet property="weatherLabel" destination="VEi-zQ-mLp" id="fZU-CI-TT5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMD-US-VYF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -650,10 +659,10 @@
                                 <rect key="frame" x="0.0" y="94" width="375" height="635"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ii2-hu-yJh">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="500.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="491.66666666666669"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34M-e8-vcG" customClass="PaddingLabel" customModule="MuslingProject" customModuleProvider="target">
-                                                <rect key="frame" x="14" y="77" width="347" height="18"/>
+                                                <rect key="frame" x="14" y="68" width="347" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -673,19 +682,19 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAt-ct-u8v">
-                                                <rect key="frame" x="168" y="39" width="39" height="18"/>
+                                                <rect key="frame" x="168" y="30" width="39" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <color key="textColor" name="secondary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이날의 나는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFz-vN-3L0">
-                                                <rect key="frame" x="14" y="145" width="65" height="17"/>
+                                                <rect key="frame" x="14" y="136" width="65" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEN-Vk-iKx" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
-                                                <rect key="frame" x="89" y="135" width="82" height="36"/>
+                                                <rect key="frame" x="89" y="126" width="82" height="36"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                                 </accessibility>
@@ -699,13 +708,13 @@
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이날의 날씨는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaq-Nx-86g">
-                                                <rect key="frame" x="14" y="194" width="77" height="17"/>
+                                                <rect key="frame" x="14" y="185" width="77" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71Z-2g-NbC" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
-                                                <rect key="frame" x="101" y="184" width="85" height="36"/>
+                                                <rect key="frame" x="101" y="175" width="85" height="36"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                                 </accessibility>
@@ -719,13 +728,13 @@
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추천받았던 노래들 🎶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdz-nz-jrx">
-                                                <rect key="frame" x="14" y="277" width="164.66666666666666" height="23"/>
+                                                <rect key="frame" x="14" y="268" width="164.66666666666666" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RQm-GM-jne">
-                                                <rect key="frame" x="14" y="312.66666666666669" width="347" height="88"/>
+                                                <rect key="frame" x="14" y="303.66666666666669" width="347" height="88"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="88" id="mbx-eS-Wyk"/>
@@ -771,7 +780,7 @@
                                             <constraint firstItem="RQm-GM-jne" firstAttribute="leading" secondItem="Ii2-hu-yJh" secondAttribute="leading" constant="14" id="ste-gu-bPU"/>
                                             <constraint firstItem="VFz-vN-3L0" firstAttribute="leading" secondItem="Ii2-hu-yJh" secondAttribute="leading" constant="14" id="vQj-2J-lKG"/>
                                             <constraint firstItem="Fdz-nz-jrx" firstAttribute="leading" secondItem="Ii2-hu-yJh" secondAttribute="leading" constant="14" id="z5b-Jt-9It"/>
-                                            <constraint firstItem="tAt-ct-u8v" firstAttribute="top" secondItem="Ii2-hu-yJh" secondAttribute="top" constant="39" id="zQ2-QZ-ybA"/>
+                                            <constraint firstItem="tAt-ct-u8v" firstAttribute="top" secondItem="Ii2-hu-yJh" secondAttribute="top" constant="30" id="zQ2-QZ-ybA"/>
                                             <constraint firstAttribute="trailing" secondItem="71Z-2g-NbC" secondAttribute="trailing" constant="189" id="zYv-At-oxK"/>
                                         </constraints>
                                     </view>
@@ -1390,7 +1399,7 @@
         <!--결과 화면-->
         <scene sceneID="OQS-kj-fWx">
             <objects>
-                <viewController title="결과 화면" id="HDw-73-prT" customClass="RecommendViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecommendVC" title="결과 화면" id="HDw-73-prT" customClass="RecommendViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lrR-mf-T1N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1406,8 +1415,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ndC-ky-5NA">
-                                                    <rect key="frame" x="290" y="33" width="25" height="36"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ndC-ky-5NA">
+                                                    <rect key="frame" x="290" y="31" width="25" height="39"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="8WZ-22-Fca"/>
                                                         <constraint firstAttribute="height" constant="25" id="UVo-5x-WfJ"/>
@@ -1437,6 +1446,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="heartIcon" destination="ndC-ky-5NA" id="6A5-qB-ilf"/>
                                             <outlet property="singer" destination="ptA-cM-SZw" id="bEu-0c-O7k"/>
                                             <outlet property="title" destination="uj0-9D-WPt" id="UZO-Y7-NHO"/>
                                         </connections>
@@ -1566,7 +1576,7 @@
         <!--마이페이지-->
         <scene sceneID="hlh-hh-pBu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zgE-4C-1kE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MypageVC" automaticallyAdjustsScrollViewInsets="NO" id="zgE-4C-1kE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="마이페이지" image="person" catalog="system" id="9Qd-0m-hxq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="p6U-TS-eLh">
@@ -1658,7 +1668,6 @@
         <image name="chevron.right.circle" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>
-        <image name="kuromi.jpeg" width="736" height="713"/>
         <image name="line.png" width="360" height="1"/>
         <image name="list.png" width="25" height="17"/>
         <image name="logo.png" width="276" height="156"/>

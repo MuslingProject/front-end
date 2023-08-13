@@ -50,6 +50,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
+    var isModify = false
     
     lazy var doneButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveInfo(_:)))
@@ -59,6 +60,45 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if Member.shared.imgURL != nil {
+            userProfile.loadImage(from: Member.shared.imgURL)
+            // 이미지 원형으로 표시
+            userProfile.layer.cornerRadius = self.userProfile.frame.height/2
+            userProfile.layer.borderWidth = 1
+            userProfile.clipsToBounds = true
+            userProfile.layer.borderColor = UIColor.clear.cgColor
+        } else {
+            // 서버에서 불러오기
+            MypageService.shared.getMypage() { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? MypageModel {
+                        print("회원 정보 불러오기 결과 :: Success")
+                        
+                        // 프로필 사진
+                        if let imageUrl = URL(string: data.data.profile.imageUrl) {
+                            Member.shared.imgURL = imageUrl
+                            self.userProfile.loadImage(from: imageUrl)
+                        }
+                        // 이미지 원형으로 표시
+                        self.userProfile.layer.cornerRadius = self.userProfile.frame.height/2
+                        self.userProfile.layer.borderWidth = 1
+                        self.userProfile.clipsToBounds = true
+                        self.userProfile.layer.borderColor = UIColor.clear.cgColor
+                    }
+                case .pathErr:
+                    print("회원 정보 불러오기 결과 :: Path Err")
+                case .requestErr:
+                    print("회원 정보 불러오기 결과 :: Request Err")
+                case .serverErr:
+                    print("회원 정보 불러오기 결과 :: Server Err")
+                case .networkFail:
+                    print("회원 정보 불러오기 결과 :: Network Fail")
+                }
+            }
+        }
+        
+        
         // textField 왼쪽 여백 추가
         nameField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 2.0, height: 0.0))
         nameField.leftViewMode = .always
@@ -66,12 +106,6 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let selectImg = UITapGestureRecognizer(target: self, action: #selector(selectImage))
         userProfile.isUserInteractionEnabled = true
         userProfile.addGestureRecognizer(selectImg)
-
-        // 이미지 원형으로 표시
-        userProfile.layer.cornerRadius = userProfile.frame.height/2
-        userProfile.layer.borderWidth = 1
-        userProfile.clipsToBounds = true
-        userProfile.layer.borderColor = UIColor.clear.cgColor
         
         selectAge.delegate = self
         selectAge.tintColor = .clear // 커서 깜빡임 해결
@@ -119,6 +153,9 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 선택한 이미지를 미리보기에 표시
         self.userProfile.image = info[.editedImage] as? UIImage
+        Member.shared.img = self.userProfile.image
+        // 이미지 변경했다는 bool 변수 True로 변경
+        isModify = true
         
         // 이미지 피커 컨트롤러 닫기
         picker.dismiss(animated: false)
@@ -166,8 +203,49 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @objc func saveInfo(_ sender: Any) {
-        // 마이페이지로 이동
-        self.navigationController?.popViewController(animated: true)
+        // 이미지 저장
+        if isModify {
+            MypageService.shared.modifyImage(imgData: Member.shared.img) { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? NonDataModel {
+                        print("프로필 사진 수정 결과 :: \(data.message)")
+                    }
+                    // 마이페이지로 이동
+                    NotificationCenter.default.post(name: .dataUpdated, object: nil)
+                    self.navigationController?.popViewController(animated: true)
+                case .pathErr:
+                    print("프로필 사진 수정 결과 :: Path Err")
+                case .requestErr:
+                    print("프로필 사진 수정 결과 :: Request Err")
+                case .serverErr:
+                    print("프로필 사진 수정 결과 :: Server Err")
+                case .networkFail:
+                    print("프로필 사진 수정 결과 :: Network Fail")
+                }
+            }
+        }
+        if nameField.text != "" {
+            guard let newName = nameField.text else { return }
+            MypageService.shared.modifyName(nickname: newName) { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? NonDataModel {
+                        print("닉네임 수정 결과 :: \(data.message)")
+                    }
+                    // 마이페이지로 이동
+                    NotificationCenter.default.post(name: .dataUpdated, object: nil)
+                    self.navigationController?.popViewController(animated: true)
+                case .pathErr:
+                    print("닉네임 수정 결과 :: Path Err")
+                case .requestErr:
+                    print("닉네임 수정 결과 :: Request Err")
+                case .serverErr:
+                    print("닉네임 수정 결과 :: Server Err")
+                case .networkFail:
+                    print("닉네임 수정 결과 :: Network Fail")
+                }
+            }
+        }
     }
-
 }

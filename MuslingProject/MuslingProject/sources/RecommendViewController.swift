@@ -68,10 +68,12 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
             let target = emotion[indexPath.row]
             cell.title.text = target.title
             cell.singer.text = target.singer
+            cell.heartIcon.image = UIImage(systemName: "heart")
         } else if indexPath.section == 1 {
             let target = weather[indexPath.row]
             cell.title.text = target.title
             cell.singer.text = target.singer
+            cell.heartIcon.image = UIImage(systemName: "heart")
         } else {
             return UITableViewCell()
         }
@@ -85,12 +87,32 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
 
         myTableView.dataSource = self
         myTableView.delegate = self
+        
+        // 뒤로가기 버튼 숨기기
+        navigationItem.hidesBackButton = true
     }
-
 }
 
 // custom Cell
 class RecommendCell: UITableViewCell {
     @IBOutlet var title: UILabel!
     @IBOutlet var singer: UILabel!
+    @IBOutlet var heartIcon: UIImageView!
+    
+    override func awakeFromNib() {
+            super.awakeFromNib()
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickHeartIcon))
+            heartIcon.addGestureRecognizer(tapGesture)
+            heartIcon.isUserInteractionEnabled = true
+        }
+    
+    // 이미지 뷰를 클릭하면 호출되는 함수
+    @objc func clickHeartIcon() {
+        if heartIcon.image == UIImage(systemName: "heart") {
+            heartIcon.image = UIImage(systemName: "heart.fill")
+        } else {
+            heartIcon.image = UIImage(systemName: "heart")
+        }
+    }
 }

@@ -23,7 +23,7 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     // 작성 navigation bar item
     lazy var writeButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "작성", style: .plain, target: self, action: #selector(writeDiary(_:)))
-        
+
         button.tintColor = UIColor.white
         return button
         }()
@@ -85,22 +85,25 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         print(params)
         
-        AF.request("http://54.180.220.34:8080/create/diary",
-                   method: .post,
-                   parameters: params,
-                   encoding: JSONEncoding.default,
-                   headers: nil)
-        .validate(statusCode: 200 ..< 299).responseData { response in
-            switch response.result {
-            case .success(_):
-                print("일기 저장 완료!")
-
-            case .failure(let error):
-                print(error)
-            }
-        }
+        // 서버와 통신
+//        AF.request("http://54.180.220.34:8080/create/diary",
+//                   method: .post,
+//                   parameters: params,
+//                   encoding: JSONEncoding.default,
+//                   headers: nil)
+//        .validate(statusCode: 200 ..< 299).responseData { response in
+//            switch response.result {
+//            case .success(_):
+//                print("일기 저장 완료!")
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
         // 노래 추천 화면으로 이동
+        guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "RecommendVC") else { return }
+        self.navigationController?.pushViewController(vcName, animated: true)
     }
         
     @objc func MyTapMethod(sender: UITapGestureRecognizer) {

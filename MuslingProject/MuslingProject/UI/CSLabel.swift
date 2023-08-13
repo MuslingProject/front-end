@@ -12,7 +12,6 @@ class CSLabel: UILabel {
         super.init(coder: aDecoder)!
         
         // 스토리보드 방식으로 버튼을 정의했을 때 적용
-        self.layer.masksToBounds = false
         self.layer.cornerRadius = 20
         self.layer.borderColor = UIColor.darkGray.cgColor
         self.backgroundColor = UIColor.white

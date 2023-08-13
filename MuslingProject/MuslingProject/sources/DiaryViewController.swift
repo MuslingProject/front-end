@@ -30,13 +30,16 @@ class DiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // navigation bar title 설정
         navItem.title = diaryTitle
         
+        // 일기 위의 문구
         let date = StringToDate(strDate: diaryDate, format: "yyyy-MM-dd")
         let stringDate = DateToString(date: date!, format: "📖 yyyy년 MM월 dd일의 기록")
         
         dateLabel.text = stringDate
         
+        // 일기 내용 행간 설정
         let attrString = NSMutableAttributedString(string: content)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 4
@@ -45,7 +48,7 @@ class DiaryViewController: UIViewController {
         
         diaryContent.backgroundColor = UIColor.white
         
-        diaryContent.layer.cornerRadius = 20
+        diaryContent.layer.cornerRadius = 15
         diaryContent.layer.borderColor = UIColor.darkGray.cgColor
         
         diaryContent.layer.shadowOpacity = 0.2

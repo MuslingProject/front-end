@@ -34,7 +34,12 @@ class SignInViewController: UIViewController {
                         print(data.message)
                         switch data.status {
                         case 200:
-                            Member.shared.user_id = id
+                            // 자동 로그인을 위해 아이디, pwd 저장, token 저장
+                            let dataSave = UserDefaults.standard
+                            dataSave.setValue(id, forKey: "user_id")
+                            dataSave.setValue(pwd, forKey: "pwd")
+                            dataSave.setValue(data.data, forKey: "token")
+                            UserDefaults.standard.synchronize()
                             self.goToMain() // 홈으로 이동
                         case 400:
                             print(data.message)
@@ -53,33 +58,19 @@ class SignInViewController: UIViewController {
                 }
             }
             
-            // 자동 로그인을 위해 아이디 저장
-            let dataSave = UserDefaults.standard
-            dataSave.setValue(id, forKey: "user_id")
-            
-            UserDefaults.standard.synchronize()
-            
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     func goToMain() {
-        
         // 홈으로 이동
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
         vcName?.modalPresentationStyle = .fullScreen
         vcName?.modalTransitionStyle = .crossDissolve
         self.present(vcName!, animated: true, completion: nil)
-        
-        // 자동로그인 위해 UserDefaults에 저장
-        let dataSave = UserDefaults.standard
-        dataSave.setValue(Member.shared.user_id, forKey: "user_id")
-        
-        UserDefaults.standard.synchronize()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){

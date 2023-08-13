@@ -18,4 +18,12 @@ struct APIConstants {
     static let genreURL = baseURL + "/create/genre"
     // 날씨 불러오기 url
     static let weatherURL = baseURL + "/read/weather"
+    // 회원 정보 조회 url
+    static let mypageURL = baseURL + "/mypage"
+    // 프로필 사진 수정 url
+    static let modifyImageURL = baseURL + "/mypage/image"
+    // 닉네임 수정 url
+    static let modifyNameURL = baseURL + "/mypage/nickname"
+    // 장르 수정 url
+    static let modifyGenreURL = baseURL + "/mypage/genre"
 }

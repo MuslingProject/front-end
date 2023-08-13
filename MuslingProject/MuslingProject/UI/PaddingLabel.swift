@@ -24,6 +24,7 @@ class PaddingLabel: UILabel {
     }
     
     override var bounds: CGRect {
-            didSet { preferredMaxLayoutWidth = bounds.width - (leftInset + rightInset) }
-        }
+        didSet { preferredMaxLayoutWidth = bounds.width - (leftInset + rightInset) }
+    }
+    
 }

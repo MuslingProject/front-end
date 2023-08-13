@@ -13,7 +13,23 @@ struct ResponseModel: Codable {
     let data: String
 }
 
-struct GenreModel: Codable {
+struct NonDataModel: Codable {
     let status: Int
     let message: String
+}
+
+struct MypageModel: Codable {
+    let status: Int
+    let message: String
+    let data: MyData
+}
+
+struct MyData: Codable {
+    let name: String
+    let profile: ProfileData
+}
+
+struct ProfileData: Codable {
+    let profileId: Int
+    let imageUrl: String
 }

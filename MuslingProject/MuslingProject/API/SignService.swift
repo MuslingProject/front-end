@@ -168,7 +168,7 @@ struct SignService {
         switch status {
         case 200:
             let decoder = JSONDecoder()
-            guard let decodedData = try? decoder.decode(GenreModel.self, from: data) else { return .pathErr }
+            guard let decodedData = try? decoder.decode(NonDataModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
             return .requestErr
