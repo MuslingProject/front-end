@@ -180,8 +180,6 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     case 200:
                         print(data.message)
                         self.goToMain()
-                    case 400:
-                        print(data.message)
                     default:
                         print("장르 저장 :: Ect Err")
                     }
@@ -206,14 +204,19 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         guard let profileId = Member.shared.profileId else { return }
         
         // 회원가입
-        SignService.shared.signUp(userId: userId, pwd: pwd, name: name, age: age, profileId: profileId ) { response in
+        SignService.shared.signUp(userId: userId, pwd: pwd, name: name, age: age, profileId: profileId) { response in
             switch response {
             case .success(let key):
                 if let data = key as? ResponseModel {
                     switch data.status {
                     case 200:
                         print(data.message)
-                        self.signInAPI()
+                        print(pwd)
+                        if pwd.isEmpty == false {
+                            self.signInAPI()
+                        } else {
+                            self.ggSignInAPI()
+                        }
                     case 400:
                         print(data.message)
                     default:
@@ -239,6 +242,32 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         // 로그인
         SignService.shared.signIn(userId: id, pwd: pwd) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? ResponseModel {
+                    print("로그인 결과 :: \(data.message)")
+                    let dataSave = UserDefaults.standard
+                    dataSave.setValue(data.data, forKey: "token")
+                    dataSave.synchronize()
+                    
+                    // 장르 저장
+                    self.saveGenre()
+                }
+            case .requestErr:
+                print("로그인 결과 :: Request Err")
+            case .pathErr:
+                print("로그인 결과 :: decode 실패")
+            case .serverErr:
+                print("로그인 결과 :: Server Err")
+            case .networkFail:
+                print("로그인 결과 :: Network Err")
+            }
+        }
+    }
+    
+    func ggSignInAPI() {
+        guard let id = Member.shared.user_id else { return }
+        SignService.shared.ggSignIn(userId: id) { response in
             switch response {
             case .success(let data):
                 if let data = data as? ResponseModel {
@@ -304,6 +333,7 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // 자동로그인 위해 UserDefaults에 저장
         let dataSave = UserDefaults.standard
         dataSave.setValue(Member.shared.user_id, forKey: "user_id")
+        // 비밀번호는 있을 경우에 저장
         dataSave.setValue(Member.shared.pwd, forKey: "pwd")
         dataSave.setValue(Member.shared.name, forKey: "nickname")
         

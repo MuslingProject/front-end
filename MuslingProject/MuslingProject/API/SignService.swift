@@ -14,6 +14,8 @@ struct SignService {
     // 로그인 통신에 대한 함수 정의
     // closure을 함수의 파라미터로 받음
     // @escaping - 탈출 클로저
+    
+    // 일반 로그인
     func signIn(userId: String, pwd: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         let url = APIConstants.userSignInURL // 로그인 url
         let header: HTTPHeaders = [
@@ -36,6 +38,33 @@ struct SignService {
                 guard let data = response.value else { return }
                 
                 // completion이란 클로저에게 전달할 데이터를 judgeSignInData 함수 통해 결정
+                completion(judgeSignData(status: statusCode, data: data))
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    // 구글 로그인용
+    func ggSignIn(userId: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        let url = APIConstants.userSignInURL
+        let header: HTTPHeaders = [
+            "Content-Type": "application/json"
+        ]
+        
+        let body: Parameters = [
+            "userId": userId
+        ]
+        
+        let dataRequest = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                
                 completion(judgeSignData(status: statusCode, data: data))
             case .failure(let err):
                 print(err)
@@ -99,6 +128,7 @@ struct SignService {
     // 장르 저장 함수
     func saveGenre(indie: Int, balad: Int, rockMetal: Int, dancePop: Int, rapHiphop: Int, rbSoul: Int, forkAcoustic: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        print("장르 저장 토큰 :: \(token)")
         
         let header: HTTPHeaders = [ "Content-Type" : "application/json",
                                     "X-AUTH-TOKEN" : token ]
@@ -111,6 +141,8 @@ struct SignService {
             "rbSoul": rbSoul,
             "forkAcoustic": forkAcoustic
         ]
+        
+        print("장르 파라미터 :: \(params)")
         
         let url = APIConstants.genreURL
         
