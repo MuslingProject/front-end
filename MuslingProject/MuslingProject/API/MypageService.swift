@@ -88,6 +88,40 @@ struct MypageService {
         }
     }
     
+    // 선호 장르 수정
+    func modifyGenre(indie: Int, balad: Int, rockMetal: Int, dancePop: Int, rapHiphop: Int, rbSoul: Int, forkAcoustic: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let header: HTTPHeaders = [ "Content-Type" : "application/json",
+                                    "X-AUTH-TOKEN" : token ]
+        let params: Parameters = [
+            "indie": indie,
+            "balad": balad,
+            "rockMetal": rockMetal,
+            "dancePop": dancePop,
+            "rapHiphop": rapHiphop,
+            "rbSoul": rbSoul,
+            "forkAcoustic": forkAcoustic
+        ]
+        
+        print(params)
+        
+        let dataRequest = AF.request(APIConstants.modifyGenreURL, method: .patch, parameters: params, encoding: JSONEncoding.default, headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeModify(status: statusCode, data: data))
+                
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
     private func judgeGetMypage(status: Int, data: Data) -> NetworkResult<Any> {
         switch status {
         case 200:

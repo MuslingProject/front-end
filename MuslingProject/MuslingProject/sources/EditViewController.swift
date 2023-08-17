@@ -23,34 +23,77 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func selectKpop(_ sender: Any) {
         select(dancePop)
+        if Genre.shared.dancePop != 1 {
+            Genre.shared.dancePop = 1
+        } else {
+            Genre.shared.dancePop = 0
+        }
+        isGenreModify = true
     }
     
     @IBAction func selectBalad(_ sender: Any) {
         select(balad)
+        if Genre.shared.balad != 1 {
+            Genre.shared.balad = 1
+        } else {
+            Genre.shared.balad = 0
+        }
+        isGenreModify = true
     }
     
     @IBAction func selectHiphop(_ sender: Any) {
         select(hiphop)
+        if Genre.shared.rapHiphop != 1 {
+            Genre.shared.rapHiphop = 1
+        } else {
+            Genre.shared.rapHiphop = 0
+        }
+        isGenreModify = true
     }
     
     @IBAction func selectInde(_ sender: Any) {
         select(indie)
+        if Genre.shared.indie != 1 {
+            Genre.shared.indie = 1
+        } else {
+            Genre.shared.indie = 0
+        }
+        isGenreModify = true
     }
     
     @IBAction func selectMetal(_ sender: Any) {
         select(metal)
+        if Genre.shared.rockMetal != 1 {
+            Genre.shared.rockMetal = 1
+        } else {
+            Genre.shared.rockMetal = 0
+        }
+        isGenreModify = true
     }
         
     @IBAction func selectRnb(_ sender: Any) {
         select(rnb)
+        if Genre.shared.rbSoul != 1 {
+            Genre.shared.rbSoul = 1
+        } else {
+            Genre.shared.rbSoul = 0
+        }
+        isGenreModify = true
     }
     
     @IBAction func selectAcoustic(_ sender: Any) {
         select(acoustic)
+        if Genre.shared.forkAcoustic != 1 {
+            Genre.shared.forkAcoustic = 1
+        } else {
+            Genre.shared.forkAcoustic = 0
+        }
+        isGenreModify = true
     }
     
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
-    var isModify = false
+    var isImgModify = false
+    var isGenreModify = false
     
     lazy var doneButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveInfo(_:)))
@@ -59,6 +102,14 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Genre.shared.balad = 0
+        Genre.shared.dancePop = 0
+        Genre.shared.forkAcoustic = 0
+        Genre.shared.indie = 0
+        Genre.shared.rapHiphop = 0
+        Genre.shared.rbSoul = 0
+        Genre.shared.rockMetal = 0
         
         if Member.shared.imgURL != nil {
             userProfile.loadImage(from: Member.shared.imgURL)
@@ -155,7 +206,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.userProfile.image = info[.editedImage] as? UIImage
         Member.shared.img = self.userProfile.image
         // 이미지 변경했다는 bool 변수 True로 변경
-        isModify = true
+        isImgModify = true
         
         // 이미지 피커 컨트롤러 닫기
         picker.dismiss(animated: false)
@@ -203,8 +254,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @objc func saveInfo(_ sender: Any) {
-        // 이미지 저장
-        if isModify {
+        // 이미지 수정
+        if isImgModify {
             MypageService.shared.modifyImage(imgData: Member.shared.img) { response in
                 switch response {
                 case .success(let data):
@@ -225,6 +276,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 }
             }
         }
+        
+        // 닉네임 수정
         if nameField.text != "" {
             guard let newName = nameField.text else { return }
             MypageService.shared.modifyName(nickname: newName) { response in
@@ -247,6 +300,31 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 }
             }
         }
+        
+        // 장르 수정
+        if isGenreModify {
+            let genre = Genre.shared
+            MypageService.shared.modifyGenre(indie: genre.indie, balad: genre.balad, rockMetal: genre.rockMetal, dancePop: genre.dancePop, rapHiphop: genre.rapHiphop, rbSoul: genre.rbSoul, forkAcoustic: genre.forkAcoustic) { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? NonDataModel {
+                        print("선호 장르 수정 결과 :: \(data.message)")
+                    }
+                    // 마이페이지로 이동하기
+                    NotificationCenter.default.post(name: .dataUpdated, object: nil)
+                    self.navigationController?.popViewController(animated: true)
+                case .pathErr:
+                    print("선호 장르 수정 결과 :: Path Err")
+                case .requestErr:
+                    print("선호 장르 수정 결과 :: Request Err")
+                case .serverErr:
+                    print("선호 장르 수정 결과 :: Server Err")
+                case .networkFail:
+                    print("선호 장르 수정 결과 :: Network Fail")
+                }
+            }
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
