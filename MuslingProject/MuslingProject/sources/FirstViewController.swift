@@ -10,6 +10,8 @@ import GoogleSignIn
 
 class FirstViewController: UIViewController {
     
+    weak var sv: UIView!
+    
     // 구글 계정으로 로그인 선택했을 때
     @IBAction func ggLogin(_ sender: UIButton) {
         // 구글 로그인
@@ -37,6 +39,7 @@ class FirstViewController: UIViewController {
         
         // 구글 자동 로그인
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+            self.sv = UIViewController.displaySpinner(onView: self.view)
             if user != nil && error == nil {
                 // 토큰 갱신해 주기
                 guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
@@ -50,6 +53,8 @@ class FirstViewController: UIViewController {
                             // 새로 갱신된 token 저장
                             dataSave.setValue(data.data, forKey: "token")
                             dataSave.synchronize()
+                            
+                            self.sv.removeFromSuperview()
                             
                             // 홈 화면으로 넘어가기
                             let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
@@ -73,6 +78,7 @@ class FirstViewController: UIViewController {
         // 자동 로그인
         let saveId = UserDefaults.standard.string(forKey: "user_id")
         if saveId?.isEmpty == false {
+            self.sv = UIViewController.displaySpinner(onView: self.view)
             // 토큰 갱신해 주기
             guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
             guard let pwd = UserDefaults.standard.string(forKey: "pwd") else { return }
@@ -86,6 +92,8 @@ class FirstViewController: UIViewController {
                         // 새로 갱신된 token 저장
                         dataSave.setValue(data.data, forKey: "token")
                         dataSave.synchronize()
+                        
+                        self.sv.removeFromSuperview()
                         
                         // 홈 화면으로 넘어가기
                         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")

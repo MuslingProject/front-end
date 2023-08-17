@@ -275,7 +275,6 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
                     case 200:
                         print(data.message)
                         Member.shared.profileId = String(data.data)
-                        
                         // 회원 가입
                         self.signUpAPI()
                     case 400:
