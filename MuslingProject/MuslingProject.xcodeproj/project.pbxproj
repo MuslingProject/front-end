@@ -16,7 +16,6 @@
 		F31B14AE2A5D299600AE12E2 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AD2A5D299600AE12E2 /* Diary.swift */; };
 		F31B14B02A5D544700AE12E2 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AF2A5D544700AE12E2 /* ImageModel.swift */; };
 		F3244AAB2A36E8C0002C19BB /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA62A36E8BF002C19BB /* list.png */; };
-		F3244AAC2A36E8C0002C19BB /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA72A36E8BF002C19BB /* profile.png */; };
 		F3244AAD2A36E8C0002C19BB /* kuromi.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA82A36E8BF002C19BB /* kuromi.jpeg */; };
 		F3244AAE2A36E8C0002C19BB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA92A36E8C0002C19BB /* logo.png */; };
 		F3244AAF2A36E8C0002C19BB /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AAA2A36E8C0002C19BB /* line.png */; };
@@ -33,6 +32,7 @@
 		F3733D5D2A87F88D008B9814 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */; };
 		F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37651C22A138AB6002B4286 /* SignInViewController.swift */; };
 		F386B0122A8DF7AB000A5835 /* ExtensionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */; };
+		F386B0142A8E080D000A5835 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F386B0132A8E080D000A5835 /* profile.png */; };
 		F3965C612A4C16FB005797FD /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3965C602A4C16FB005797FD /* StatViewController.swift */; };
 		F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A062822A6E870000CE7085 /* MusicCell.swift */; };
 		F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A062832A6E870000CE7085 /* MusicCell.xib */; };
@@ -75,7 +75,6 @@
 		F31B14AD2A5D299600AE12E2 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		F31B14AF2A5D544700AE12E2 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		F3244AA62A36E8BF002C19BB /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
-		F3244AA72A36E8BF002C19BB /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		F3244AA82A36E8BF002C19BB /* kuromi.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kuromi.jpeg; sourceTree = "<group>"; };
 		F3244AA92A36E8C0002C19BB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F3244AAA2A36E8C0002C19BB /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		F37651C22A138AB6002B4286 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionVC.swift; sourceTree = "<group>"; };
+		F386B0132A8E080D000A5835 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../Downloads/profile.png; sourceTree = "<group>"; };
 		F3965C602A4C16FB005797FD /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		F3A062822A6E870000CE7085 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		F3A062832A6E870000CE7085 /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 				F3244AAA2A36E8C0002C19BB /* line.png */,
 				F3244AA62A36E8BF002C19BB /* list.png */,
 				F3244AA92A36E8C0002C19BB /* logo.png */,
-				F3244AA72A36E8BF002C19BB /* profile.png */,
+				F386B0132A8E080D000A5835 /* profile.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -336,13 +336,13 @@
 				F3244AAD2A36E8C0002C19BB /* kuromi.jpeg in Resources */,
 				F3D06D162A36FBAF006B991E /* Main.storyboard in Resources */,
 				F3244AAE2A36E8C0002C19BB /* logo.png in Resources */,
+				F386B0142A8E080D000A5835 /* profile.png in Resources */,
 				F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */,
 				F3244AAF2A36E8C0002C19BB /* line.png in Resources */,
 				F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */,
 				F3244AAB2A36E8C0002C19BB /* list.png in Resources */,
 				F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */,
 				F3C2A7AB2A25F0BC0001EDD6 /* GoogleService-Info.plist in Resources */,
-				F3244AAC2A36E8C0002C19BB /* profile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

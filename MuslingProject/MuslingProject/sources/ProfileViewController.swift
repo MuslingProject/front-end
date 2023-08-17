@@ -12,6 +12,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var profileImg: UIImageView!
     @IBOutlet var nameLabel: HSUnderLineTextField!
     
+    var isSelect = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,9 +58,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         // 이미지 피커 컨트롤러 닫기
         picker.dismiss(animated: false)
+        
+        isSelect = true
     }
 
     @IBAction func nextBtn(_ sender: Any) {
+        if isSelect == false {
+            Member.shared.img = UIImage(named: "profile.png")
+        }
         if nameLabel.text == "" {
             let alert = UIAlertController(title: "닉네임을 입력해 주세요", message: nil, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "확인", style: .default)
