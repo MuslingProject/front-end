@@ -46,33 +46,6 @@ struct SignService {
         }
     }
     
-    // 구글 로그인용
-    func ggSignIn(userId: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
-        let url = APIConstants.userSignInURL
-        let header: HTTPHeaders = [
-            "Content-Type": "application/json"
-        ]
-        
-        let body: Parameters = [
-            "userId": userId
-        ]
-        
-        let dataRequest = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header)
-        
-        dataRequest.responseData { response in
-            switch response.result {
-            case .success:
-                guard let statusCode = response.response?.statusCode else { return }
-                guard let data = response.value else { return }
-                
-                completion(judgeSignData(status: statusCode, data: data))
-            case .failure(let err):
-                print(err)
-                completion(.networkFail)
-            }
-        }
-    }
-    
     func signUp(userId: String, pwd: String, name: String, age: String, profileId: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         let url = APIConstants.userSignUpURL
         let header: HTTPHeaders = [ "Content-Type" : "application/json" ]

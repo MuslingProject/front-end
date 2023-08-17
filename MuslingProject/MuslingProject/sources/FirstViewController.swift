@@ -40,7 +40,8 @@ class FirstViewController: UIViewController {
             if user != nil && error == nil {
                 // 토큰 갱신해 주기
                 guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
-                SignService.shared.ggSignIn(userId: userId) { response in
+                guard let pwd = UserDefaults.standard.string(forKey: "pwd") else { return }
+                        SignService.shared.signIn(userId: userId, pwd: pwd) { response in
                     switch response {
                     case .success(let data):
                         if let data = data as? ResponseModel {
