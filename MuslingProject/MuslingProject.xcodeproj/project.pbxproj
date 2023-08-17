@@ -32,6 +32,7 @@
 		F3733D5B2A87D862008B9814 /* MypageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3733D5A2A87D862008B9814 /* MypageService.swift */; };
 		F3733D5D2A87F88D008B9814 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */; };
 		F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37651C22A138AB6002B4286 /* SignInViewController.swift */; };
+		F386B0122A8DF7AB000A5835 /* ExtensionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */; };
 		F3965C612A4C16FB005797FD /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3965C602A4C16FB005797FD /* StatViewController.swift */; };
 		F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A062822A6E870000CE7085 /* MusicCell.swift */; };
 		F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A062832A6E870000CE7085 /* MusicCell.xib */; };
@@ -90,6 +91,7 @@
 		F3733D5A2A87D862008B9814 /* MypageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageService.swift; sourceTree = "<group>"; };
 		F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		F37651C22A138AB6002B4286 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionVC.swift; sourceTree = "<group>"; };
 		F3965C602A4C16FB005797FD /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		F3A062822A6E870000CE7085 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		F3A062832A6E870000CE7085 /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */,
 				F3A062822A6E870000CE7085 /* MusicCell.swift */,
 				F3A062832A6E870000CE7085 /* MusicCell.xib */,
+				F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */,
 			);
 			path = sources;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */,
 				F34FF9E22A59894B0025EC5B /* tokenModel.swift in Sources */,
 				F339209B2A379331001F419E /* RecommendViewController.swift in Sources */,
+				F386B0122A8DF7AB000A5835 /* ExtensionVC.swift in Sources */,
 				F3EFB2262A57DBCB004ED092 /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

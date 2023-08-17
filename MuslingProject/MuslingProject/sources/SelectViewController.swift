@@ -8,9 +8,11 @@
 import UIKit
 import Alamofire
 
-class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
+    
+    weak var sv: UIView!
     
     @IBOutlet var ageBtn: UITextField!
     @IBOutlet var dancePop: CSButton!
@@ -20,7 +22,6 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet var metal: CSButton!
     @IBOutlet var rnb: CSButton!
     @IBOutlet var acoustic: CSButton!
-    
     
     @IBAction func finishBtn(_ sender: UIButton) {
         Member.shared.age = ageBtn.text
@@ -179,6 +180,7 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     switch data.status {
                     case 200:
                         print(data.message)
+                        self.sv.removeFromSuperview()
                         self.goToMain()
                     default:
                         print("장르 저장 :: Ect Err")
@@ -262,6 +264,7 @@ class SelectViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func signUp() {
+        sv = UIViewController.displaySpinner(onView: self.view)
         // 프로필 사진 저장
         let image = Member.shared.img
         SignService.shared.saveImage(imgData: image) { response in
