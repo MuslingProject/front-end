@@ -30,7 +30,7 @@ struct SignService {
         let dataRequest = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header)
         
         // 데이터 통신 시작
-        dataRequest.responseData { (response) in
+        dataRequest.responseData { response in
             // 통신 결과에 대한 분기 처리
             switch response.result {
             case .success:
@@ -59,13 +59,36 @@ struct SignService {
         
         let dataRequest = AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header)
 
-        dataRequest.responseData { (response) in
+        dataRequest.responseData { response in
             switch response.result {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
                 completion(judgeSignData(status: statusCode, data: data))
 
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    // 회원 탈퇴 함수
+    func signOut(userId: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        let url = APIConstants.userSignOutURL
+        let header: HTTPHeaders = [ "Content-Type" : "application/json" ]
+        let params: Parameters = [
+            "userId": userId
+        ]
+        
+        let dataRequest = AF.request(url, method: .delete, parameters: params, encoding: JSONEncoding.default, headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeSaveGenre(status: statusCode, data: data))
             case .failure(let err):
                 print(err)
                 completion(.networkFail)
@@ -101,7 +124,6 @@ struct SignService {
     // 장르 저장 함수
     func saveGenre(indie: Int, balad: Int, rockMetal: Int, dancePop: Int, rapHiphop: Int, rbSoul: Int, forkAcoustic: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
-        print("장르 저장 토큰 :: \(token)")
         
         let header: HTTPHeaders = [ "Content-Type" : "application/json",
                                     "X-AUTH-TOKEN" : token ]

@@ -8,9 +8,53 @@
 import UIKit
 
 class MypageViewController: UIViewController {
+    
+    weak var sv: UIView!
 
     @IBOutlet var userProfile: UIImageView!
     @IBOutlet var nameLabel: UILabel!
+    
+    @IBAction func signOut(_ sender: Any) {
+        let alert = UIAlertController(title: "뮤즐링을 탈퇴하시겠습니까?", message: "탈퇴 시 모든 정보가 사라집니다", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "탈퇴", style: .default) { _ in
+            // 회원 탙퇴 api 실행
+            self.sv = UIViewController.displaySpinner(onView: self.view)
+            guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
+            SignService.shared.signOut(userId: userId) { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? NonDataModel {
+                        print("회원 탈퇴 결과 :: \(data.message)")
+                        self.sv.removeFromSuperview()
+                        
+                        // 홈 화면으로 넘어가기
+                        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "FirstVC")
+                        vcName?.modalPresentationStyle = .fullScreen
+                        vcName?.modalTransitionStyle = .crossDissolve
+                        self.present(vcName!, animated: true, completion: nil)
+                    }
+                case .pathErr:
+                    print("회원 탈퇴 결과 :: Path Err")
+                    self.sv.removeFromSuperview()
+                case .requestErr:
+                    print("회원 탈퇴 결과 :: Request Err")
+                    self.sv.removeFromSuperview()
+                case .serverErr:
+                    print("회원 탈퇴 결과 :: Server Err")
+                    self.sv.removeFromSuperview()
+                case .networkFail:
+                    print("회원 탈퇴 결과 :: Network Fail")
+                    self.sv.removeFromSuperview()
+                }
+            }
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(alertAction)
+        alert.addAction(cancle)
+        
+        alertAction.setValue(UIColor.red, forKey: "titleTextColor")
+        self.present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

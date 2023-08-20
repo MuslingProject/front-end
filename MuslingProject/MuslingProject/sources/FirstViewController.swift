@@ -39,8 +39,8 @@ class FirstViewController: UIViewController {
         
         // 구글 자동 로그인
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-            self.sv = UIViewController.displaySpinner(onView: self.view)
             if user != nil && error == nil {
+                self.sv = UIViewController.displaySpinner(onView: self.view)
                 // 토큰 갱신해 주기
                 guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
                 guard let pwd = UserDefaults.standard.string(forKey: "pwd") else { return }
@@ -54,22 +54,26 @@ class FirstViewController: UIViewController {
                             dataSave.setValue(data.data, forKey: "token")
                             dataSave.synchronize()
                             
-                            self.sv.removeFromSuperview()
-                            
                             // 홈 화면으로 넘어가기
                             let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
                             vcName?.modalPresentationStyle = .fullScreen
                             vcName?.modalTransitionStyle = .crossDissolve
                             self.present(vcName!, animated: true, completion: nil)
+                            
+                            self.sv.removeFromSuperview()
                         }
                     case .requestErr:
                         print("로그인 결과 :: Request Err")
+                        self.sv.removeFromSuperview()
                     case .pathErr:
                         print("로그인 결과 :: decode 실패")
+                        self.sv.removeFromSuperview()
                     case .serverErr:
                         print("로그인 결과 :: Server Err")
+                        self.sv.removeFromSuperview()
                     case .networkFail:
                         print("로그인 결과 :: Network Err")
+                        self.sv.removeFromSuperview()
                     }
                 }
             }
@@ -93,22 +97,26 @@ class FirstViewController: UIViewController {
                         dataSave.setValue(data.data, forKey: "token")
                         dataSave.synchronize()
                         
-                        self.sv.removeFromSuperview()
-                        
                         // 홈 화면으로 넘어가기
                         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
                         vcName?.modalPresentationStyle = .fullScreen
                         vcName?.modalTransitionStyle = .crossDissolve
                         self.present(vcName!, animated: true, completion: nil)
+                        
+                        self.sv.removeFromSuperview()
                     }
                 case .requestErr:
                     print("로그인 결과 :: Request Err")
+                    self.sv.removeFromSuperview()
                 case .pathErr:
                     print("로그인 결과 :: decode 실패")
+                    self.sv.removeFromSuperview()
                 case .serverErr:
                     print("로그인 결과 :: Server Err")
+                    self.sv.removeFromSuperview()
                 case .networkFail:
                     print("로그인 결과 :: Network Err")
+                    self.sv.removeFromSuperview()
                 }
             }
         }

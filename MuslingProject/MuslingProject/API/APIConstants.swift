@@ -14,8 +14,10 @@ struct APIConstants {
     static let imageSaveURL = baseURL + "/users/new-user/profile"
     // 로그인 url
     static let userSignInURL = baseURL + "/users/login"
+    // 회원 탈퇴 url
+    static let userSignOutURL = baseURL + "/users/unregister"
     // 장르 저장 url
-    static let genreURL = baseURL + "/create/genre"
+    static let genreURL = baseURL + "/genre/create"
     // 날씨 불러오기 url
     static let weatherURL = baseURL + "/read/weather"
     // 회원 정보 조회 url
