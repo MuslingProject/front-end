@@ -10,9 +10,11 @@ import UIKit
 class MypageViewController: UIViewController {
     
     weak var sv: UIView!
-
+    var genre = ""
+    
     @IBOutlet var userProfile: UIImageView!
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var genreLabel: UILabel!
     
     @IBAction func signOut(_ sender: Any) {
         let alert = UIAlertController(title: "뮤즐링을 탈퇴하시겠습니까?", message: "탈퇴 시 모든 정보가 사라집니다", preferredStyle: .alert)
@@ -88,6 +90,34 @@ class MypageViewController: UIViewController {
             }
         }
         
+        MypageService.shared.showGenre() { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? GenreModel {
+                    print("장르 불러오기 결과 :: \(data.message)")
+                    
+                    let mirror = Mirror(reflecting: data.data)
+                    
+                    for case let (label?, value) in mirror.children {
+                        if value as! Int == 1 {
+                            guard let genreName = GenreDescKo[label] else { return }
+                            self.genre += "\(genreName) "
+                        }
+                    }
+                    // 장르 Label
+                    self.genreLabel.text = self.genre
+                }
+            case .pathErr:
+                print("회원 정보 불러오기 결과 :: Path Err")
+            case .requestErr:
+                print("회원 정보 불러오기 결과 :: Request Err")
+            case .serverErr:
+                print("회원 정보 불러오기 결과 :: Server Err")
+            case .networkFail:
+                print("회원 정보 불러오기 결과 :: Network Fail")
+            }
+        }
+        
         userProfile.layer.cornerRadius = userProfile.frame.height/2
         userProfile.layer.borderWidth = 1
         userProfile.clipsToBounds = true
@@ -135,6 +165,36 @@ class MypageViewController: UIViewController {
                         self.userProfile.loadImage(from: imageUrl)
                         Member.shared.imgURL = imageUrl
                     }
+                }
+            case .pathErr:
+                print("회원 정보 불러오기 결과 :: Path Err")
+            case .requestErr:
+                print("회원 정보 불러오기 결과 :: Request Err")
+            case .serverErr:
+                print("회원 정보 불러오기 결과 :: Server Err")
+            case .networkFail:
+                print("회원 정보 불러오기 결과 :: Network Fail")
+            }
+        }
+        
+        MypageService.shared.showGenre() { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? GenreModel {
+                    print("장르 불러오기 결과 :: \(data.message)")
+                    
+                    let mirror = Mirror(reflecting: data.data)
+                    
+                    // 장르 변수 초기화
+                    self.genre = ""
+                    for case let (label?, value) in mirror.children {
+                        if value as! Int == 1 {
+                            guard let genreName = GenreDescKo[label] else { return }
+                            self.genre += "\(genreName) "
+                        }
+                    }
+                    // 장르 Label
+                    self.genreLabel.text = self.genre
                 }
             case .pathErr:
                 print("회원 정보 불러오기 결과 :: Path Err")

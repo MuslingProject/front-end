@@ -33,3 +33,19 @@ struct ProfileData: Codable {
     let profileId: Int
     let imageUrl: String
 }
+
+struct MyGenre: Codable {
+    let indie: Int
+    let balad: Int
+    let rockMetal: Int
+    let dancePop: Int
+    let rapHiphop: Int
+    let rbSoul: Int
+    let forkAcoustic: Int
+}
+
+struct GenreModel: Codable {
+    let status: Int
+    let message: String
+    let data: MyGenre
+}

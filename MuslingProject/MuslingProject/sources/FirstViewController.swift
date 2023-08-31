@@ -113,10 +113,20 @@ class FirstViewController: UIViewController {
                     self.sv.removeFromSuperview()
                 case .serverErr:
                     print("로그인 결과 :: Server Err")
-                    self.sv.removeFromSuperview()
+                    let alert = UIAlertController(title: "서버 오류", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+                        self.sv.removeFromSuperview()
+                    }
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
                 case .networkFail:
                     print("로그인 결과 :: Network Err")
-                    self.sv.removeFromSuperview()
+                    let alert = UIAlertController(title: "네트워크 오류", message: "네트워크가 원활한 환경에서\n다시 시도해 주세요", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+                        self.sv.removeFromSuperview()
+                    }
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }

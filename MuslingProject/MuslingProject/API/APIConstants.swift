@@ -28,4 +28,6 @@ struct APIConstants {
     static let modifyNameURL = baseURL + "/mypage/nickname"
     // 장르 수정 url
     static let modifyGenreURL = baseURL + "/mypage/genre"
+    // 장르 조회 url
+    static let showGenreURL = baseURL + "/genre"
 }
