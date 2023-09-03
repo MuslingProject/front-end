@@ -263,7 +263,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         print("프로필 사진 수정 결과 :: \(data.message)")
                     }
                     // 마이페이지로 이동
-                    NotificationCenter.default.post(name: .dataUpdated, object: nil)
+                    NotificationCenter.default.post(name: .profileUpdated, object: nil)
                     self.navigationController?.popViewController(animated: true)
                 case .pathErr:
                     print("프로필 사진 수정 결과 :: Path Err")
@@ -287,7 +287,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         print("닉네임 수정 결과 :: \(data.message)")
                     }
                     // 마이페이지로 이동
-                    NotificationCenter.default.post(name: .dataUpdated, object: nil)
+                    NotificationCenter.default.post(name: .profileUpdated, object: nil)
                     self.navigationController?.popViewController(animated: true)
                 case .pathErr:
                     print("닉네임 수정 결과 :: Path Err")
@@ -311,7 +311,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         print("선호 장르 수정 결과 :: \(data.message)")
                     }
                     // 마이페이지로 이동하기
-                    NotificationCenter.default.post(name: .dataUpdated, object: nil)
+                    NotificationCenter.default.post(name: .genreUpdated, object: nil)
                     self.navigationController?.popViewController(animated: true)
                 case .pathErr:
                     print("선호 장르 수정 결과 :: Path Err")

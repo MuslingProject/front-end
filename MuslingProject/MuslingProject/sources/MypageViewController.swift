@@ -62,8 +62,9 @@ class MypageViewController: UIViewController {
         super.viewDidLoad()
         
         // 옵저버 등록
-        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdate), name: .dataUpdated, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProfileUpdate), name: .profileUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleGenreUpdate), name: .genreUpdated, object: nil)
+
         MypageService.shared.getMypage() { response in
             switch response {
             case .success(let data):
@@ -152,7 +153,7 @@ class MypageViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
     }
     
-    @objc func handleDataUpdate() {
+    @objc func handleProfileUpdate() {
         MypageService.shared.getMypage() { response in
             switch response {
             case .success(let data):
@@ -176,7 +177,9 @@ class MypageViewController: UIViewController {
                 print("회원 정보 불러오기 결과 :: Network Fail")
             }
         }
-        
+    }
+    
+    @objc func handleGenreUpdate() {
         MypageService.shared.showGenre() { response in
             switch response {
             case .success(let data):

@@ -54,7 +54,6 @@ struct MypageService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                
                 completion(judgeModify(status: statusCode, data: data))
             case .failure(let err):
                 print(err)

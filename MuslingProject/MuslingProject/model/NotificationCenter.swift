@@ -8,5 +8,6 @@
 import Foundation
 
 extension Notification.Name {
-    static let dataUpdated = Notification.Name("dataUpdated")
+    static let profileUpdated = Notification.Name("profileUpdated")
+    static let genreUpdated = Notification.Name("genreUpdated")
 }
