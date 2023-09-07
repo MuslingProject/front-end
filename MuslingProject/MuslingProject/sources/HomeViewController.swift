@@ -56,8 +56,24 @@ class HomeViewController: UIViewController {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .primary
-        appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        if let customFont = UIFont(name: "Pretendard-Bold", size: 26) {
+            appearance.largeTitleTextAttributes = [
+                .font: customFont,
+                .foregroundColor: UIColor.white
+            ]
+        } else {
+            print("폰트를 로드할 수 없습니다.")
+        }
+        
+        if let customFont2 = UIFont(name: "Pretendard-Bold", size: 15) {
+            appearance.titleTextAttributes = [
+                .font: customFont2,
+                .foregroundColor: UIColor.white
+            ]
+        } else {
+            print("폰트를 로드할 수 없습니다.")
+        }
         
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance

@@ -20,16 +20,33 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var pickerView = UIPickerView()
     
+    
     // 작성 navigation bar item
-    lazy var writeButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "작성", style: .plain, target: self, action: #selector(writeDiary(_:)))
-
-        button.tintColor = UIColor.white
-        return button
-        }()
+//    lazy var writeButton: UIBarButtonItem = {
+//        let button = UIBarButtonItem(title: "작성", style: .plain, target: self, action: #selector(writeDiary(_:)))
+//
+//        button.tintColor = UIColor.white
+//        return button
+//        }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 커스텀 폰트
+        let customFont = UIFont(name: "Pretendard-SemiBold", size: 16)
+        
+        // NSAttributedString을 사용하여 폰트 속성 설정
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: customFont as Any,
+            .foregroundColor: UIColor.white // 원하는 텍스트 색상으로 설정
+        ]
+        
+        // UIBarButtonItem 생성 및 타이틀 설정
+        let barButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(writeDiary(_:)))
+        barButtonItem.title = "작성" // 타이틀 설정
+        barButtonItem.setTitleTextAttributes(attributes, for: .normal) // NSAttributedString 설정
+        
+        navigationItem.rightBarButtonItem = barButtonItem
         
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
 
@@ -40,8 +57,6 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         singleTapGestureRecognizer.cancelsTouchesInView = false
 
         self.view.addGestureRecognizer(singleTapGestureRecognizer)
-    
-        self.navigationItem.rightBarButtonItem = writeButton
         
         weatherField.delegate = self
         weatherField.tintColor = .clear // 커서 깜빡임 해결

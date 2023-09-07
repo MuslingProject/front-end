@@ -35,7 +35,25 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.tintColor = .secondary
+        // Navigation Bar Title 폰트 설정
+        let navigationBarAppearance = UINavigationBarAppearance()
+        
+        if let customFont = UIFont(name: "Pretendard-Bold", size: 26) {
+            navigationBarAppearance.largeTitleTextAttributes = [
+                .font: customFont,
+                .foregroundColor: UIColor.secondary!
+            ]
+        } else {
+            print("폰트를 로드할 수 없습니다.")
+        }
+
+        // 현재 UIViewController의 Navigation Controller 가져오기
+        if let navigationController = self.navigationController {
+            // 현재 UIViewController의 Navigation Bar Appearance 설정
+            //navigationController.navigationBar.tintColor = .secondary
+            navigationController.navigationBar.standardAppearance = navigationBarAppearance
+            navigationController.navigationBar.scrollEdgeAppearance = nil
+        }
         
         // 구글 자동 로그인
         GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
@@ -107,10 +125,20 @@ class FirstViewController: UIViewController {
                     }
                 case .requestErr:
                     print("로그인 결과 :: Request Err")
-                    self.sv.removeFromSuperview()
+                    let alert = UIAlertController(title: "오류 발생", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+                        self.sv.removeFromSuperview()
+                    }
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
                 case .pathErr:
                     print("로그인 결과 :: decode 실패")
-                    self.sv.removeFromSuperview()
+                    let alert = UIAlertController(title: "오류 발생", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+                        self.sv.removeFromSuperview()
+                    }
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
                 case .serverErr:
                     print("로그인 결과 :: Server Err")
                     let alert = UIAlertController(title: "서버 오류", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)

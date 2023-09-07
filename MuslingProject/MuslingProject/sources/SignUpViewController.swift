@@ -14,9 +14,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet var idField: HSUnderLineTextField!
     @IBOutlet var passField: HSUnderLineTextField!
     @IBOutlet var repassField: HSUnderLineTextField!
+    @IBOutlet var signUpLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        signUpLabel.attributedText = NSMutableAttributedString(string: signUpLabel.text!, attributes: [NSAttributedString.Key.kern: -0.7])
     }
 
     @IBAction func nextBtn(_ sender: Any) {

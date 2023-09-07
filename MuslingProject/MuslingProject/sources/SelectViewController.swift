@@ -23,6 +23,8 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet var rnb: CSButton!
     @IBOutlet var acoustic: CSButton!
     
+    @IBOutlet var label1: UILabel!
+    
     @IBAction func finishBtn(_ sender: UIButton) {
         Member.shared.age = ageBtn.text
         if ageBtn.text == "" {
@@ -115,6 +117,8 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
         
         createPickerView(tagNo: 2)
         dismissPickerView()
+        
+        label1.attributedText = NSMutableAttributedString(string: label1.text!, attributes: [NSAttributedString.Key.kern: -0.7])
     }
     
     // 버튼 선택했을 때

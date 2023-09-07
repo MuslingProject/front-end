@@ -9,6 +9,17 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Bold.otf">
+            <string>Pretendard-Bold</string>
+        </array>
+        <array key="Pretendard-Light.otf">
+            <string>Pretendard-Light</string>
+        </array>
+        <array key="Pretendard-Medium.otf">
+            <string>Pretendard-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--로그인 화면-->
         <scene sceneID="tne-QT-ifu">
@@ -25,6 +36,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="구글 계정으로 로그인">
+                                    <fontDescription key="titleFontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                     <color key="baseBackgroundColor" systemColor="systemGray4Color"/>
                                 </buttonConfiguration>
@@ -45,6 +57,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="일반 로그인">
+                                    <fontDescription key="titleFontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="0.4196078479" green="0.49411764740000003" blue="0.63921570780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -94,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJz-ZH-9W2">
-                                <rect key="frame" x="34" y="427" width="306" height="41"/>
+                                <rect key="frame" x="34" y="425.66666666666669" width="306" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="3RK-0w-Upk"/>
                                 </constraints>
@@ -108,16 +121,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뮤즐링 이용이 처음이신가요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqy-eU-MuK">
-                                <rect key="frame" x="85" y="526" width="138" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <rect key="frame" x="85.000000000000014" y="524.66666666666663" width="136.33333333333337" height="14"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZz-AX-Pup">
-                                <rect key="frame" x="223" y="519" width="69" height="30"/>
+                                <rect key="frame" x="221.33333333333334" y="517.66666666666663" width="69.000000000000028" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="회원가입">
-                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="13"/>
+                                    <fontDescription key="titleFontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="13"/>
                                     <color key="baseForegroundColor" name="secondary"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -125,7 +138,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uSP-ic-naq" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="110" y="366" width="230" height="32"/>
+                                <rect key="frame" x="110" y="364.66666666666669" width="230" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="3tg-tN-grz"/>
                                 </constraints>
@@ -141,19 +154,19 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0e-Bc-QnC">
-                                <rect key="frame" x="34" y="317" width="39" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <rect key="frame" x="34" y="315.66666666666669" width="39" height="18"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" red="0.12866950760000001" green="0.12866950760000001" blue="0.12866950760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJP-Tg-ta1">
-                                <rect key="frame" x="34" y="377" width="52" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <rect key="frame" x="34" y="375.66666666666669" width="52" height="18"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" red="0.12866950760000001" green="0.12866950760000001" blue="0.12866950760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7y-Ic-LKL" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="110" y="304" width="230" height="32"/>
+                                <rect key="frame" x="110" y="302.66666666666669" width="230" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="FUx-q1-Joy"/>
                                 </constraints>
@@ -210,20 +223,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="6bw-wG-VYI">
-                                <rect key="frame" x="112.66666666666669" y="204.33333333333337" width="150" height="150"/>
+                                <rect key="frame" x="112.66666666666669" y="203" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="nu8-60-AMH"/>
                                     <constraint firstAttribute="height" constant="150" id="xxI-VT-0S6"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXA-6L-m3k">
-                                <rect key="frame" x="179.33333333333334" y="374.33333333333331" width="16.666666666666657" height="21.666666666666686"/>
+                                <rect key="frame" x="179.33333333333334" y="373" width="16.666666666666657" height="21.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rZi-ft-4cV">
-                                <rect key="frame" x="18" y="576.66666666666663" width="339" height="107.66666666666663"/>
+                                <rect key="frame" x="18" y="575.33333333333337" width="339" height="107.66666666666663"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="OUa-O7-h5x">
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="1"/>
@@ -258,13 +271,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="나의 선호 장르는..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYO-hq-GXk">
-                                <rect key="frame" x="22.999999999999993" y="434.33333333333331" width="105.33333333333331" height="17"/>
+                                <rect key="frame" x="22.999999999999993" y="433" width="105.33333333333331" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" name="secondary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybC-dC-tSk">
-                                <rect key="frame" x="23" y="458.66666666666669" width="334" height="18"/>
+                                <rect key="frame" x="23" y="457.33333333333331" width="334" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" red="0.12866950760000001" green="0.12866950760000001" blue="0.12866950760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -519,7 +532,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJ4-Zl-1ff" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="136" y="426" width="103" height="41"/>
+                                <rect key="frame" x="136" y="424.66666666666669" width="103" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="103" id="R3R-X3-iby"/>
                                     <constraint firstAttribute="height" constant="41" id="k0r-8A-LVZ"/>
@@ -534,20 +547,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ob-9k-uBF">
-                                <rect key="frame" x="172.33333333333334" y="353" width="30.333333333333343" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <rect key="frame" x="173" y="351.66666666666669" width="29.333333333333343" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1T-vq-hsE">
-                                <rect key="frame" x="180" y="179" width="15" height="19.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <rect key="frame" x="180.66666666666666" y="177.66666666666666" width="14" height="19.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="16"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-zQ-mLp">
-                                <rect key="frame" x="181.33333333333334" y="203.33333333333334" width="12.333333333333343" height="15.666666666666657"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                <rect key="frame" x="182" y="202" width="11" height="15.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="13"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -988,35 +1001,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앞으로 사용할 아이디와 비밀번호를 입력해 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3H-qM-NMi">
-                                <rect key="frame" x="16" y="154.33333333333334" width="308" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="16" y="153" width="308" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D0-fY-pnE">
-                                <rect key="frame" x="29" y="333.33333333333331" width="39" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <rect key="frame" x="29" y="332" width="39" height="18"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" name="secondary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxe-7q-a4z">
-                                <rect key="frame" x="29" y="393.33333333333331" width="52" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <rect key="frame" x="29" y="392" width="52" height="18"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" name="secondary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="재입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uK-0O-7nc">
-                                <rect key="frame" x="29" y="452.33333333333331" width="39" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <rect key="frame" x="29" y="451" width="39" height="18"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" name="secondary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lud-b8-GXl">
-                                <rect key="frame" x="136" y="535" width="103" height="36"/>
+                                <rect key="frame" x="136" y="537.66666666666663" width="103" height="33.333333333333371"/>
                                 <color key="tintColor" red="0.4196078479" green="0.49411764740000003" blue="0.63921570780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="다음으로 &gt;">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                     <color key="baseForegroundColor" name="secondary"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -1025,7 +1038,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BKe-ES-zYZ" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="109" y="389.33333333333331" width="230" height="24"/>
+                                <rect key="frame" x="109" y="388" width="230" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="5ce-Wc-mB8"/>
                                     <constraint firstAttribute="height" constant="24" id="SU7-e0-fEm"/>
@@ -1042,7 +1055,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9B-x8-x9m" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="109" y="449.33333333333331" width="230" height="24"/>
+                                <rect key="frame" x="109" y="448" width="230" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="0jD-Jr-NYh"/>
                                     <constraint firstAttribute="width" constant="230" id="lXw-go-03e"/>
@@ -1059,7 +1072,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wB0-jK-bgl" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="109" y="330" width="230" height="24"/>
+                                <rect key="frame" x="109" y="328.66666666666669" width="230" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="99d-Fz-mRa"/>
                                     <constraint firstAttribute="height" constant="24" id="qFY-oz-3hQ"/>
@@ -1104,6 +1117,7 @@
                         <outlet property="idField" destination="wB0-jK-bgl" id="XjU-r1-Oah"/>
                         <outlet property="passField" destination="BKe-ES-zYZ" id="MiY-ra-iGZ"/>
                         <outlet property="repassField" destination="Y9B-x8-x9m" id="3yo-Ho-5Qx"/>
+                        <outlet property="signUpLabel" destination="A3H-qM-NMi" id="vhg-me-XAl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uiU-fP-kqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1119,16 +1133,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY5-rh-z31">
-                                <rect key="frame" x="37" y="432" width="41.666666666666657" height="19.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <rect key="frame" x="37" y="430.66666666666669" width="41.666666666666657" height="19.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
                                 <color key="textColor" name="secondary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5c2-cD-feG">
-                                <rect key="frame" x="136" y="535" width="103" height="36"/>
+                                <rect key="frame" x="136" y="537.66666666666663" width="103" height="33.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="다음으로 &gt;">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                     <color key="baseForegroundColor" name="secondary"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -1137,14 +1151,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="sBe-Re-aUg">
-                                <rect key="frame" x="112.66666666666669" y="240" width="150" height="150"/>
+                                <rect key="frame" x="112.66666666666669" y="238.66666666666663" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Ozj-bt-0St"/>
                                     <constraint firstAttribute="height" constant="150" id="PUQ-lk-LLQ"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iab-mu-y47" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="97.666666666666686" y="430" width="235" height="25"/>
+                                <rect key="frame" x="97.666666666666686" y="428.66666666666669" width="235" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="454-x3-1Dr"/>
                                     <constraint firstAttribute="width" constant="235" id="LUs-Bd-iwy"/>
@@ -1194,34 +1208,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="연령대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXo-WR-1fL">
-                                <rect key="frame" x="69" y="224.33333333333334" width="39" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <rect key="frame" x="69" y="223" width="39" height="18"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" red="0.12866950760000001" green="0.12866950760000001" blue="0.12866950760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 시절 노래로 추천받기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dly-yy-Fkb">
-                                <rect key="frame" x="69" y="278" width="161" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <rect key="frame" x="69" y="276.66666666666669" width="161" height="18"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" red="0.12866950760000001" green="0.12866950760000001" blue="0.12866950760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선호하는 장르" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhL-Xt-8Dl">
-                                <rect key="frame" x="136" y="393" width="103" height="23"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                <rect key="frame" x="136" y="391.66666666666669" width="103" height="23"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="19"/>
                                 <color key="textColor" red="0.4196078479" green="0.49411764740000003" blue="0.63921570780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여러 개 선택할 수 있어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5B-e0-HTC">
-                                <rect key="frame" x="117" y="424" width="141" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="117" y="422.66666666666669" width="141" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXL-UT-iru">
-                                <rect key="frame" x="113" y="641" width="149" height="35.666666666666629"/>
+                                <rect key="frame" x="113" y="639.66666666666663" width="149" height="33.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="다 완성했어요 ✨">
-                                    <fontDescription key="titleFontDescription" type="system" weight="black" pointSize="18"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
                                     <color key="baseForegroundColor" red="0.4196078479" green="0.49411764740000003" blue="0.63921570780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -1229,21 +1243,21 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DwG-cr-myR">
-                                <rect key="frame" x="253" y="272.33333333333331" width="51" height="31"/>
+                                <rect key="frame" x="253" y="271" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선택하면 나의 추억의 노래 위주로 추천해 드려요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEG-D9-cIf">
-                                <rect key="frame" x="64.333333333333329" y="312.33333333333331" width="246.66666666666669" height="15.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <rect key="frame" x="65.666666666666686" y="311" width="244" height="15.666666666666686"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="선택하세요" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8u-iO-68L">
-                                <rect key="frame" x="235.66666666666663" y="226" width="65" height="19.666666666666657"/>
+                                <rect key="frame" x="235.66666666666663" y="224.66666666666666" width="65" height="19.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="zNO-TN-Wf3">
-                                <rect key="frame" x="22.666666666666657" y="526" width="330" height="40"/>
+                                <rect key="frame" x="22.666666666666657" y="524.66666666666663" width="330" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y61-dK-ioH" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="40"/>
@@ -1296,7 +1310,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TdG-Xs-vQF">
-                                <rect key="frame" x="55" y="466" width="265" height="40"/>
+                                <rect key="frame" x="55" y="464.66666666666669" width="265" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-at-2pY" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="40"/>
@@ -1378,6 +1392,7 @@
                         <outlet property="dancePop" destination="e5Y-at-2pY" id="aN6-pt-EVp"/>
                         <outlet property="hiphop" destination="9os-6e-9vK" id="iDk-gj-Ek7"/>
                         <outlet property="indie" destination="af6-oS-VT5" id="p8j-ub-pIt"/>
+                        <outlet property="label1" destination="NEG-D9-cIf" id="eoV-sy-sgd"/>
                         <outlet property="metal" destination="Spr-qr-bmQ" id="4AR-cY-NaQ"/>
                         <outlet property="rnb" destination="NWZ-n8-c0N" id="AN7-uI-b3P"/>
                     </connections>
@@ -1394,7 +1409,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z2a-Pk-uN8">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" name="secondary"/>
                     </tabBar>
                     <connections>
@@ -1417,6 +1432,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="WSH-BW-D2H">
                         <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="28"/>
+                        </textAttributes>
                         <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1520,6 +1538,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="77a-39-0J5">
                         <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
+                        </textAttributes>
                         <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1590,9 +1611,10 @@
                 <navigationController storyboardIdentifier="FirstVC" title="첫 화면" automaticallyAdjustsScrollViewInsets="NO" id="EMM-yW-G9z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Qya-ml-jey">
-                        <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="103"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="28"/>
                             <color key="textColor" name="secondary"/>
                         </textAttributes>
                     </navigationBar>
@@ -1614,6 +1636,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="p6U-TS-eLh">
                         <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="28"/>
+                        </textAttributes>
                         <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1634,7 +1659,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Un-3Z-TZY">
-                                <rect key="frame" x="0.0" y="154.33333333333331" width="375" height="574.66666666666674"/>
+                                <rect key="frame" x="0.0" y="153" width="375" height="576"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIQ-KR-F5B">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
@@ -1682,6 +1707,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gtl-E0-MZa">
                         <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="28"/>
+                        </textAttributes>
                         <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
