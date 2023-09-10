@@ -137,7 +137,7 @@ class MypageViewController: UIViewController {
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .primary
         
-        if let customFont = UIFont(name: "Pretendard-Bold", size: 26) {
+        if let customFont = UIFont(name: "Pretendard-Bold", size: 24) {
             appearance.largeTitleTextAttributes = [
                 .font: customFont,
                 .foregroundColor: UIColor.white

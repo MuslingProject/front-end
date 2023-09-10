@@ -25,6 +25,7 @@
 		F33135C72A2570F6008DF851 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33135C62A2570F6008DF851 /* LocationService.swift */; };
 		F33920992A3792A0001F419E /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33920982A3792A0001F419E /* Recommend.swift */; };
 		F339209B2A379331001F419E /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F339209A2A379331001F419E /* RecommendViewController.swift */; };
+		F33C98AB2AADB8D000759E8A /* music-back.png in Resources */ = {isa = PBXBuildFile; fileRef = F33C98AA2AADB8D000759E8A /* music-back.png */; };
 		F34FF9E22A59894B0025EC5B /* tokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34FF9E12A59894B0025EC5B /* tokenModel.swift */; };
 		F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */; };
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
@@ -90,6 +91,7 @@
 		F33135C62A2570F6008DF851 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		F33920982A3792A0001F419E /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
 		F339209A2A379331001F419E /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		F33C98AA2AADB8D000759E8A /* music-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music-back.png"; sourceTree = "<group>"; };
 		F34FF9E12A59894B0025EC5B /* tokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokenModel.swift; sourceTree = "<group>"; };
 		F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				F3244AA82A36E8BF002C19BB /* kuromi.jpeg */,
 				F3244AAA2A36E8C0002C19BB /* line.png */,
 				F3244AA62A36E8BF002C19BB /* list.png */,
+				F33C98AA2AADB8D000759E8A /* music-back.png */,
 				F3244AA92A36E8C0002C19BB /* logo.png */,
 				F386B0132A8E080D000A5835 /* profile.png */,
 			);
@@ -359,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F33C98AB2AADB8D000759E8A /* music-back.png in Resources */,
 				F3244AAD2A36E8C0002C19BB /* kuromi.jpeg in Resources */,
 				F3AC07B82AA9DC5A002114B2 /* Pretendard-Bold.otf in Resources */,
 				F3D06D162A36FBAF006B991E /* Main.storyboard in Resources */,

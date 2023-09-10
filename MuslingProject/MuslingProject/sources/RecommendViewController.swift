@@ -88,6 +88,22 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         myTableView.dataSource = self
         myTableView.delegate = self
         
+        // 커스텀 폰트
+        let customFont = UIFont(name: "Pretendard-SemiBold", size: 16)
+        
+        // NSAttributedString을 사용하여 폰트 속성 설정
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: customFont as Any,
+            .foregroundColor: UIColor.white // 원하는 텍스트 색상으로 설정
+        ]
+        
+        // UIBarButtonItem 생성 및 타이틀 설정
+        let barButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(closeBtn(_:)))
+        barButtonItem.title = "닫기" // 타이틀 설정
+        barButtonItem.setTitleTextAttributes(attributes, for: .normal) // NSAttributedString 설정
+        
+        navigationItem.rightBarButtonItem = barButtonItem
+        
         // 뒤로가기 버튼 숨기기
         navigationItem.hidesBackButton = true
     }

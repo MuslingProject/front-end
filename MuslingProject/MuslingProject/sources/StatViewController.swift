@@ -33,7 +33,16 @@ class StatViewController: UIViewController {
         let label = UILabel()
         label.text = "✍️ 이번 달 감정 통계"
         label.textColor = .secondary
-        label.font = .systemFont(ofSize: 25, weight: .semibold)
+        label.font = UIFont(name: "Pretendard-Bold", size: 22)
+        
+        // NSAttributedString을 사용하여 자간 속성 설정
+        let attributedString = NSMutableAttributedString(string: label.text ?? "")
+            
+        // 원하는 자간 값을 설정합니다. 양수 값은 자간을 늘리고, 음수 값은 자간을 줄입니다.
+        let letterSpacing: CGFloat = -0.7 // 원하는 자간 값으로 변경
+        attributedString.addAttribute(.kern, value: letterSpacing, range: NSRange(location: 0, length: attributedString.length))
+            
+        label.attributedText = attributedString
         
         return label
     }()
@@ -142,7 +151,7 @@ class StatViewController: UIViewController {
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .primary
         
-        if let customFont = UIFont(name: "Pretendard-Bold", size: 26) {
+        if let customFont = UIFont(name: "Pretendard-Bold", size: 24) {
             appearance.largeTitleTextAttributes = [
                 .font: customFont,
                 .foregroundColor: UIColor.white

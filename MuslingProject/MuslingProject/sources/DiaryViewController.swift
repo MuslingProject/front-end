@@ -56,6 +56,9 @@ class DiaryViewController: UIViewController {
         diaryContent.layer.shadowOffset = CGSize(width: 0, height: 0)
         diaryContent.layer.shadowColor = UIColor.darkGray.cgColor
         
+        // 내용 자간 설정
+        diaryContent.attributedText = NSMutableAttributedString(string: diaryContent.text!, attributes: [NSAttributedString.Key.kern: -0.3])
+        
         
         emotionLabel.setTitle(emotion, for: .normal)
         weatherLabel.setTitle(weather, for: .normal)
