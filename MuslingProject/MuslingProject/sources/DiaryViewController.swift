@@ -42,8 +42,17 @@ class DiaryViewController: UIViewController {
         // 일기 내용 행간 설정
         let attrString = NSMutableAttributedString(string: content)
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 4
-        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+        let letterSpacing: CGFloat = -0.3
+        let lineSpacing: CGFloat = 4
+        
+        // paragraphyStyle에 자간과 행간 설정
+        paragraphStyle.lineSpacing = lineSpacing
+        attrString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attrString.length))
+        
+        // 자간 설정
+        attrString.addAttribute(.kern, value: letterSpacing, range: NSRange(location: 0, length: attrString.length))
+        
+        // label에 NSAttributedString 설정
         diaryContent.attributedText = attrString
         
         diaryContent.backgroundColor = UIColor.white
@@ -55,9 +64,6 @@ class DiaryViewController: UIViewController {
         diaryContent.layer.shadowRadius = 2
         diaryContent.layer.shadowOffset = CGSize(width: 0, height: 0)
         diaryContent.layer.shadowColor = UIColor.darkGray.cgColor
-        
-        // 내용 자간 설정
-        diaryContent.attributedText = NSMutableAttributedString(string: diaryContent.text!, attributes: [NSAttributedString.Key.kern: -0.3])
         
         
         emotionLabel.setTitle(emotion, for: .normal)
