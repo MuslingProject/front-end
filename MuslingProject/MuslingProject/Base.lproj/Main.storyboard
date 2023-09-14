@@ -248,7 +248,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="339" height="1"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQ0-Cb-LmW">
-                                        <rect key="frame" x="0.0" y="16" width="339" height="31"/>
+                                        <rect key="frame" x="0.0" y="16" width="339" height="30.999999999999993"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="내 정보 수정하기">
@@ -791,7 +791,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SRG-dP-djQ">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="musicCollection" id="SRG-dP-djQ">
                                                         <rect key="frame" x="0.0" y="8.6666666666666661" width="128" height="71"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1006,7 +1006,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5rW-vk-6bv">
-                                <rect key="frame" x="0.0" y="63" width="375" height="749"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="762"/>
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recommend" rowHeight="100" id="A3P-mb-4lL" customClass="RecommendCell" customModule="MuslingProject" customModuleProvider="target">
@@ -1024,30 +1024,40 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uj0-9D-WPt">
-                                                    <rect key="frame" x="24.999999999999996" y="31" width="42.666666666666657" height="20"/>
+                                                    <rect key="frame" x="105" y="31" width="42.666666666666657" height="20"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptA-cM-SZw">
-                                                    <rect key="frame" x="25" y="54" width="32" height="15.666666666666671"/>
+                                                    <rect key="frame" x="105" y="54" width="32" height="15.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nnM-yt-KV9">
+                                                    <rect key="frame" x="12" y="11" width="78" height="78"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="78" id="3hO-Zl-x2C"/>
+                                                        <constraint firstAttribute="height" constant="78" id="baG-OO-Jsr"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="uj0-9D-WPt" firstAttribute="top" secondItem="i03-pT-ivk" secondAttribute="topMargin" constant="20" id="7NI-gX-gLd"/>
                                                 <constraint firstItem="ptA-cM-SZw" firstAttribute="top" secondItem="uj0-9D-WPt" secondAttribute="bottom" constant="3" id="EG9-j6-IhF"/>
-                                                <constraint firstItem="ptA-cM-SZw" firstAttribute="leading" secondItem="i03-pT-ivk" secondAttribute="leadingMargin" constant="5" id="Mmx-VR-Uru"/>
-                                                <constraint firstItem="uj0-9D-WPt" firstAttribute="leading" secondItem="i03-pT-ivk" secondAttribute="leadingMargin" constant="5" id="OHJ-9L-iaD"/>
+                                                <constraint firstItem="uj0-9D-WPt" firstAttribute="leading" secondItem="nnM-yt-KV9" secondAttribute="trailing" constant="15" id="Nl3-2f-NUr"/>
+                                                <constraint firstItem="ptA-cM-SZw" firstAttribute="leading" secondItem="nnM-yt-KV9" secondAttribute="trailing" constant="15" id="PE6-xa-2Ja"/>
+                                                <constraint firstItem="nnM-yt-KV9" firstAttribute="leading" secondItem="i03-pT-ivk" secondAttribute="leading" constant="12" id="ZSW-pQ-p48"/>
                                                 <constraint firstAttribute="trailing" secondItem="ndC-ky-5NA" secondAttribute="trailing" constant="20" id="b4m-Ek-Wfr"/>
                                                 <constraint firstItem="ndC-ky-5NA" firstAttribute="top" secondItem="i03-pT-ivk" secondAttribute="top" constant="31" id="d0X-9o-09F"/>
+                                                <constraint firstItem="nnM-yt-KV9" firstAttribute="top" secondItem="i03-pT-ivk" secondAttribute="top" constant="11" id="xcx-g2-r9s"/>
                                                 <constraint firstAttribute="bottom" secondItem="ndC-ky-5NA" secondAttribute="bottom" constant="30" id="zkb-7h-xMv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="heartIcon" destination="ndC-ky-5NA" id="6A5-qB-ilf"/>
+                                            <outlet property="img" destination="nnM-yt-KV9" id="9cq-mE-6ya"/>
                                             <outlet property="singer" destination="ptA-cM-SZw" id="bEu-0c-O7k"/>
                                             <outlet property="title" destination="uj0-9D-WPt" id="UZO-Y7-NHO"/>
                                         </connections>
@@ -1059,7 +1069,7 @@
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5rW-vk-6bv" firstAttribute="trailing" secondItem="3Wa-K7-B4u" secondAttribute="trailing" id="4a9-bx-cQ1"/>
-                            <constraint firstItem="5rW-vk-6bv" firstAttribute="top" secondItem="3Wa-K7-B4u" secondAttribute="top" constant="13" id="8mf-ew-99S"/>
+                            <constraint firstItem="5rW-vk-6bv" firstAttribute="top" secondItem="3Wa-K7-B4u" secondAttribute="top" id="8mf-ew-99S"/>
                             <constraint firstItem="5rW-vk-6bv" firstAttribute="leading" secondItem="3Wa-K7-B4u" secondAttribute="leading" id="Uej-oc-sFP"/>
                             <constraint firstAttribute="bottom" secondItem="5rW-vk-6bv" secondAttribute="bottom" id="aku-6J-bvm"/>
                         </constraints>
@@ -1534,11 +1544,11 @@
             </objects>
             <point key="canvasLocation" x="988" y="1428"/>
         </scene>
-        <!--찜-->
+        <!--좋아요-->
         <scene sceneID="HSa-4H-hKZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hj6-Ll-Xvi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="찜" image="heart" catalog="system" id="sIM-Dy-Vym"/>
+                    <tabBarItem key="tabBarItem" title="좋아요" image="heart" catalog="system" id="sIM-Dy-Vym"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="77a-39-0J5">
                         <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
@@ -1703,11 +1713,11 @@
             </objects>
             <point key="canvasLocation" x="1748" y="2865.5172413793107"/>
         </scene>
-        <!--통계-->
+        <!--감정달력-->
         <scene sceneID="uf3-fY-HmZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dxa-2Z-zfp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="통계" image="calendar" catalog="system" id="XAa-B3-cQP"/>
+                    <tabBarItem key="tabBarItem" title="감정달력" image="calendar" catalog="system" id="XAa-B3-cQP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gtl-E0-MZa">
                         <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>

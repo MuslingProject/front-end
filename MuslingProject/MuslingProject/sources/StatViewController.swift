@@ -11,20 +11,24 @@ class StatViewController: UIViewController {
     
     @IBOutlet var scrollView: UIView!
     
-    let day1 = "2023-07-02"
-    let day2 = "2023-07-03"
-    let day3 = "2023-07-30"
-    
+    let day1 = "2023-09-02"
+    let day2 = "2023-09-03"
+    let day3 = "2023-09-07"
+    let day4 = "2023-09-12"
+    let day5 = "2023-09-15"
+
     let cal = Calendar.current
     
-    lazy var days = [ getStringToDate(strDate: day1) : "기쁨/사랑",  getStringToDate(strDate: day2) : "이별/슬픔", getStringToDate(strDate: day3) : "우울" ]
+    lazy var days = [getStringToDate(strDate: day1): "기쁨/사랑",  getStringToDate(strDate: day2): "이별/슬픔", getStringToDate(strDate: day3): "우울", getStringToDate(strDate: day4): "스트레스/짜증", getStringToDate(strDate: day5): "멘붕/불안"]
     
     // 달력 선언
     lazy var calendarView: UICalendarView = {
         let view = UICalendarView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.wantsDateDecorations = true
-        
+        //view.isUserInteractionEnabled = false // 캘린더 뷰 터치 막기
+        view.tintColor = UIColor.secondary!
+
         return view
     }()
     
@@ -34,29 +38,29 @@ class StatViewController: UIViewController {
         label.text = "✍️ 이번 달 감정 통계"
         label.textColor = .secondary
         label.font = UIFont(name: "Pretendard-Bold", size: 22)
-        
+
         // NSAttributedString을 사용하여 자간 속성 설정
         let attributedString = NSMutableAttributedString(string: label.text ?? "")
-            
+
         // 원하는 자간 값을 설정합니다. 양수 값은 자간을 늘리고, 음수 값은 자간을 줄입니다.
         let letterSpacing: CGFloat = -0.7 // 원하는 자간 값으로 변경
         attributedString.addAttribute(.kern, value: letterSpacing, range: NSRange(location: 0, length: attributedString.length))
-            
+
         label.attributedText = attributedString
-        
+
         return label
     }()
     
     fileprivate func TitleConstraints() {
         view.addSubview(statTitle)
-        
+
         statTitle.translatesAutoresizingMaskIntoConstraints = false
-        
+
         let titleViewConstraints = [
             statTitle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
             statTitle.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 30),
         ]
-        
+
         NSLayoutConstraint.activate(titleViewConstraints)
     }
     
@@ -71,24 +75,25 @@ class StatViewController: UIViewController {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 10
         attrStirng.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrStirng.length))
+        attrStirng.addAttribute(NSAttributedString.Key.kern, value: -0.3, range: NSMakeRange(0, attrStirng.length))
         label.attributedText = attrStirng
         
         label.textColor = UIColor.darkGray
-        label.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        label.font = UIFont(name: "Pretendard-SemiBold", size: 14)
         
         return label
     }()
     
     fileprivate func LabelConstraints() {
         view.addSubview(emojiLabel)
-    
+
         emojiLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+
         let labelViewConstraints = [
             emojiLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
             emojiLabel.topAnchor.constraint(equalTo: statTitle.bottomAnchor, constant: 15)
         ]
-        
+
         NSLayoutConstraint.activate(labelViewConstraints)
     }
     
@@ -107,11 +112,12 @@ class StatViewController: UIViewController {
         
         // 달력 아래에 레이블 추가
         LabelConstraints()
+
     }
     
     fileprivate func setCalendar() {
         calendarView.delegate = self
-        
+
         let dateSelection = UICalendarSelectionSingleDate(delegate: self)
         calendarView.selectionBehavior = dateSelection
     }

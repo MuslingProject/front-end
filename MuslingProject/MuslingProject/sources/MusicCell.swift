@@ -17,7 +17,7 @@ class MusicCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        configureRoundedCorners()
+        //configureRoundedCorners()
         roundImg()
     }
     

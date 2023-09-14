@@ -22,7 +22,7 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     let emotion = EmotionMusic.data
     let weather = WeatherMusic.data
     
-    let category = ["기쁨/사랑일 때 🥰", "날씨가 흐림일 때 ☁️"]
+    let category = ["일기에서 기쁨/사랑의 감정이 느껴져요 🥰", "날씨가 흐릴 땐 이런 노래 어때요? ☁️"]
     
     let cellSpacingHeight: CGFloat = 50
     
@@ -39,17 +39,17 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-       let myLabel = UILabel()
-       myLabel.frame = CGRect(x: 10, y: 16, width: 320, height: 35)
-       myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
-       myLabel.font = UIFont.boldSystemFont(ofSize: 15)
-       myLabel.textColor = UIColor.darkGray
-       
-       let headerView = UIView()
-       headerView.addSubview(myLabel)
-       
-       return headerView
-   }
+        let myLabel = UILabel()
+        myLabel.frame = CGRect(x: 10, y: 16, width: 320, height: 35)
+        myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        myLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        myLabel.textColor = UIColor.darkGray
+        
+        let headerView = UIView()
+        headerView.addSubview(myLabel)
+        
+        return headerView
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
@@ -69,11 +69,19 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.title.text = target.title
             cell.singer.text = target.singer
             cell.heartIcon.image = UIImage(systemName: "heart")
+            // 앨범 커버
+            if let imageUrl = URL(string: target.img) {
+                cell.img.loadImage(from: imageUrl)
+            }
         } else if indexPath.section == 1 {
             let target = weather[indexPath.row]
             cell.title.text = target.title
             cell.singer.text = target.singer
             cell.heartIcon.image = UIImage(systemName: "heart")
+            // 앨범 커버
+            if let imageUrl = URL(string: target.img) {
+                cell.img.loadImage(from: imageUrl)
+            }
         } else {
             return UITableViewCell()
         }
@@ -81,10 +89,10 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.selectionStyle = .none
         return cell
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         myTableView.dataSource = self
         myTableView.delegate = self
         
@@ -111,17 +119,21 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
 
 // custom Cell
 class RecommendCell: UITableViewCell {
+    @IBOutlet var img: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var singer: UILabel!
     @IBOutlet var heartIcon: UIImageView!
     
     override func awakeFromNib() {
-            super.awakeFromNib()
-            
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickHeartIcon))
-            heartIcon.addGestureRecognizer(tapGesture)
-            heartIcon.isUserInteractionEnabled = true
-        }
+        super.awakeFromNib()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(clickHeartIcon))
+        heartIcon.addGestureRecognizer(tapGesture)
+        heartIcon.isUserInteractionEnabled = true
+        
+        img.layer.cornerRadius = 5
+        img.layer.masksToBounds = true
+    }
     
     // 이미지 뷰를 클릭하면 호출되는 함수
     @objc func clickHeartIcon() {
