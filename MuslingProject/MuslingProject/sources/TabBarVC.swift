@@ -11,47 +11,36 @@ class TabBarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        // 선택했을 때 색상
-        self.tabBar.tintColor = UIColor(red: 123/255.0, green: 144/255.0, blue: 177/255.0, alpha: 1.0)
-        
-        
-        // 탭 바 스타일 초기화
+        // 탭 바 스타일 설정
         if #available(iOS 13.0, *) {
             let appearance = UITabBarAppearance()
+            
+            //  폰트 및 자간 설정
+            if let customFont = UIFont(name: "Pretendard-Medium", size: 14) {
+                appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
+                    .font: customFont,
+                    .kern: -0.6
+                ]
+                appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
+                    .font: customFont,
+                    .kern: -0.6
+                ]
+            } else {
+                print("폰트를 로드할 수 없습니다.")
+            }
+            
+            self.tabBar.standardAppearance = appearance
+            self.tabBar.scrollEdgeAppearance = appearance
 
-            // 여기에서 원하는 탭 바 스타일 설정
-            // 선택되지 않은 상태의 폰트 및 자간 설정
-            let normalFont = UIFont(name: "Pretendard-Medium", size: 13)
-            let normalSpacing: CGFloat = -0.6
-            
-            let normalAttributes: [NSAttributedString.Key: Any] = [
-                .font: normalFont as Any,
-                .kern: normalSpacing
-            ]
-            
-            appearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttributes
-            
-            // 선택된 상태의 폰트 및 자간 설정
-            let selectedFont = UIFont(name: "Pretendard-Regular", size: 13)
-            let selectedSpacing: CGFloat = -0.6
-
-            let selectedAttributes: [NSAttributedString.Key: Any] = [
-                .font: selectedFont as Any,
-                .kern: selectedSpacing
-            ]
-
-            appearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedAttributes
-            
-            appearance.backgroundColor = UIColor.white
-            
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-            UITabBar.appearance().standardAppearance = appearance
+        } else {
+            tabBar.barTintColor = .white
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
     }
 
 }

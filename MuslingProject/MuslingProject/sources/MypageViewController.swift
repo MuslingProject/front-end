@@ -29,6 +29,8 @@ class MypageViewController: UIViewController {
                         print("회원 탈퇴 결과 :: \(data.message)")
                         self.sv.removeFromSuperview()
                         
+                        UserDefaults.standard.setValue("", forKey: "user_id")
+                        
                         // 홈 화면으로 넘어가기
                         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "FirstVC")
                         vcName?.modalPresentationStyle = .fullScreen

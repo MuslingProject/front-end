@@ -19,8 +19,17 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         self.present(vcName!, animated: true, completion: nil)
     }
     
-    let emotion = EmotionMusic.data
-    let weather = WeatherMusic.data
+    var emotion = EmotionMusic.data
+    var weather = WeatherMusic.data
+    
+    // 재추천 버튼
+    @IBAction func reRecommnd(_ sender: Any) {
+        emotion = EmotionMusic.reData
+        weather = WeatherMusic.reData
+        
+        // 데이터 새로고침
+        myTableView.reloadData()
+    }
     
     let category = ["일기에서 기쁨/사랑의 감정이 느껴져요 🥰", "날씨가 흐릴 땐 이런 노래 어때요? ☁️"]
     
@@ -95,6 +104,8 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         
         myTableView.dataSource = self
         myTableView.delegate = self
+        
+        myTableView.isScrollEnabled = false
         
         // 커스텀 폰트
         let customFont = UIFont(name: "Pretendard-SemiBold", size: 16)
