@@ -1575,12 +1575,11 @@
                     <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="7hY-5U-fM8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="WSH-BW-D2H">
-                        <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="103"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="28"/>
                         </textAttributes>
-                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -86,7 +86,7 @@ class HomeViewController: UIViewController {
         
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .darkGray
         
         // navigation bar 그림자 효과
         navigationController?.navigationBar.layer.masksToBounds = false
