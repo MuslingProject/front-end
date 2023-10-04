@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EMM-yW-G9z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ti5-po-5WU">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -585,12 +585,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="오늘의 기록 ✍️" largeTitleDisplayMode="always" id="4Lf-s3-sEG">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="list.png" id="tOT-n7-5XK">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="OLB-14-Yg4" kind="show" id="6ct-Yc-YMM"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="diary" image="list.bullet" catalog="system" id="tOT-n7-5XK">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="OLB-14-Yg4" kind="show" id="6ct-Yc-YMM"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="calendar" image="calendar" catalog="system" id="4a7-f1-kvH">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="1NQ-P3-bpq" kind="show" id="Xma-zc-kMf"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="D1T-vq-hsE" id="adR-ws-tfF"/>
@@ -731,14 +739,14 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaN-qq-3rW">
-                                                                    <rect key="frame" x="105" y="31" width="42.666666666666657" height="20"/>
-                                                                    <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="17"/>
+                                                                    <rect key="frame" x="105" y="31" width="34.333333333333343" height="17"/>
+                                                                    <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5De-ih-GlE">
-                                                                    <rect key="frame" x="105" y="54" width="32" height="15.666666666666671"/>
-                                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
+                                                                    <rect key="frame" x="105" y="51" width="29.666666666666657" height="14"/>
+                                                                    <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="12"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -1659,6 +1667,22 @@
             </objects>
             <point key="canvasLocation" x="1748" y="718.9655172413793"/>
         </scene>
+        <!--감정 달력 🗓️-->
+        <scene sceneID="67h-Qm-OTD">
+            <objects>
+                <viewController id="1NQ-P3-bpq" customClass="StatViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2WA-hf-eW0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6hc-oW-NkH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="감정 달력 🗓️" style="editor" id="Rd7-LQ-miq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zYR-C4-3Si" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5705" y="1428"/>
+        </scene>
         <!--첫 화면-->
         <scene sceneID="IIx-s9-HGJ">
             <objects>
@@ -1704,59 +1728,107 @@
             </objects>
             <point key="canvasLocation" x="988" y="2133.9901477832514"/>
         </scene>
-        <!--감정 달력 🗓️-->
-        <scene sceneID="vkS-vh-A3Z">
+        <!--감정 통계 📊-->
+        <scene sceneID="ian-HJ-Nt5">
             <objects>
-                <viewController id="L0t-Wp-M0V" customClass="StatViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="A17-Zs-lCE">
+                <viewController id="ePr-vL-Fyw" customClass="ChartViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yaC-wx-Pda">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Un-3Z-TZY">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxC-Ev-iiB">
                                 <rect key="frame" x="0.0" y="153" width="375" height="576"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIQ-KR-F5B">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5C-Rc-AbL">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="552.33333333333337"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2U2-Zv-84h" customClass="BarChartView" customModule="Charts">
+                                                <rect key="frame" x="18" y="69" width="338" height="340"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="340" id="gg8-oC-2oP"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👀 한 달 간의 감정 그래프를 보여드릴게요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5Z-2u-MYk">
+                                                <rect key="frame" x="18" y="30" width="327.33333333333331" height="24"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
+                                                <color key="textColor" name="secondary"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                        <real key="value" value="-0.69999999999999996"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔎 감정들을 이만큼 느끼셨었네요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZe-fw-DaQ">
+                                                <rect key="frame" x="18" y="457.33333333333337" width="261.66666666666669" height="24"/>
+                                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
+                                                <color key="textColor" name="secondary"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                        <real key="value" value="-0.69999999999999996"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEF-cD-8Ro">
+                                                <rect key="frame" x="18" y="501.33333333333337" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="900" id="b9o-4c-fFF"/>
+                                            <constraint firstItem="2U2-Zv-84h" firstAttribute="leading" secondItem="N5C-Rc-AbL" secondAttribute="leading" constant="18" id="2vF-pw-eo3"/>
+                                            <constraint firstItem="f5Z-2u-MYk" firstAttribute="leading" secondItem="N5C-Rc-AbL" secondAttribute="leading" constant="18" id="EI5-wF-GCa"/>
+                                            <constraint firstAttribute="bottom" secondItem="VEF-cD-8Ro" secondAttribute="bottom" constant="30" id="JqU-aW-aMf"/>
+                                            <constraint firstItem="iZe-fw-DaQ" firstAttribute="leading" secondItem="N5C-Rc-AbL" secondAttribute="leading" constant="18" id="RFR-gf-gkC"/>
+                                            <constraint firstAttribute="trailing" secondItem="2U2-Zv-84h" secondAttribute="trailing" constant="19" id="VoV-1W-RkF"/>
+                                            <constraint firstItem="f5Z-2u-MYk" firstAttribute="top" secondItem="N5C-Rc-AbL" secondAttribute="top" constant="30" id="ZTa-On-J8N"/>
+                                            <constraint firstItem="2U2-Zv-84h" firstAttribute="top" secondItem="f5Z-2u-MYk" secondAttribute="bottom" constant="15" id="cet-U3-uhX"/>
+                                            <constraint firstItem="iZe-fw-DaQ" firstAttribute="top" secondItem="2U2-Zv-84h" secondAttribute="bottom" constant="48.329999999999998" id="fMp-dD-7Fi"/>
+                                            <constraint firstItem="VEF-cD-8Ro" firstAttribute="leading" secondItem="N5C-Rc-AbL" secondAttribute="leading" constant="18" id="mDF-UZ-Z8x"/>
+                                            <constraint firstItem="VEF-cD-8Ro" firstAttribute="top" secondItem="iZe-fw-DaQ" secondAttribute="bottom" constant="20" id="sGZ-7A-xY5"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="wIQ-KR-F5B" firstAttribute="trailing" secondItem="TDy-AX-pWP" secondAttribute="trailing" id="3T8-ap-Mkw"/>
-                                    <constraint firstItem="wIQ-KR-F5B" firstAttribute="width" secondItem="M92-2H-gDv" secondAttribute="width" id="A8W-Lu-fgA"/>
-                                    <constraint firstItem="wIQ-KR-F5B" firstAttribute="leading" secondItem="TDy-AX-pWP" secondAttribute="leading" id="Z84-g0-sRn"/>
-                                    <constraint firstItem="wIQ-KR-F5B" firstAttribute="bottom" secondItem="TDy-AX-pWP" secondAttribute="bottom" id="gBc-a0-oV5"/>
-                                    <constraint firstItem="wIQ-KR-F5B" firstAttribute="top" secondItem="TDy-AX-pWP" secondAttribute="top" id="jjn-lJ-XSi"/>
+                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="leading" secondItem="d0P-n7-CRm" secondAttribute="leading" id="COz-cZ-k2b"/>
+                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="trailing" secondItem="d0P-n7-CRm" secondAttribute="trailing" id="TgC-3X-918"/>
+                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="bottom" secondItem="d0P-n7-CRm" secondAttribute="bottom" id="XBU-J8-agk"/>
+                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="bottom" secondItem="Dju-2S-Upx" secondAttribute="bottom" priority="250" id="ago-7F-fAs"/>
+                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="width" secondItem="Dju-2S-Upx" secondAttribute="width" id="xEv-DM-1xe"/>
+                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="top" secondItem="d0P-n7-CRm" secondAttribute="top" id="zbg-z3-x1C"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="TDy-AX-pWP"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="M92-2H-gDv"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="d0P-n7-CRm"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Dju-2S-Upx"/>
                             </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="MmW-1D-oiJ"/>
+                        <viewLayoutGuide key="safeArea" id="AIQ-IY-A2e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9Un-3Z-TZY" firstAttribute="top" secondItem="MmW-1D-oiJ" secondAttribute="top" id="FZT-BB-C7D"/>
-                            <constraint firstItem="9Un-3Z-TZY" firstAttribute="bottom" secondItem="MmW-1D-oiJ" secondAttribute="bottom" id="MpO-ge-bZ8"/>
-                            <constraint firstItem="9Un-3Z-TZY" firstAttribute="leading" secondItem="MmW-1D-oiJ" secondAttribute="leading" id="Mwr-zb-Wsh"/>
-                            <constraint firstItem="9Un-3Z-TZY" firstAttribute="trailing" secondItem="MmW-1D-oiJ" secondAttribute="trailing" id="VD8-pw-ojg"/>
+                            <constraint firstItem="LxC-Ev-iiB" firstAttribute="top" secondItem="AIQ-IY-A2e" secondAttribute="top" id="Ji9-TX-DfX"/>
+                            <constraint firstItem="LxC-Ev-iiB" firstAttribute="trailing" secondItem="AIQ-IY-A2e" secondAttribute="trailing" id="ehx-ny-dLr"/>
+                            <constraint firstItem="LxC-Ev-iiB" firstAttribute="leading" secondItem="AIQ-IY-A2e" secondAttribute="leading" id="t6A-h8-A6y"/>
+                            <constraint firstItem="LxC-Ev-iiB" firstAttribute="bottom" secondItem="AIQ-IY-A2e" secondAttribute="bottom" id="zxS-1V-mgN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="감정 달력 🗓️" id="pV4-cm-eU1"/>
+                    <navigationItem key="navigationItem" title="감정 통계 📊" id="oDb-QK-tRY"/>
                     <connections>
-                        <outlet property="scrollView" destination="wIQ-KR-F5B" id="XsS-np-vzA"/>
+                        <outlet property="chart" destination="2U2-Zv-84h" id="ZLv-M2-lxN"/>
+                        <outlet property="emotionScript" destination="VEF-cD-8Ro" id="S2s-a6-P0X"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dUA-E3-qwF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2To-gl-Tv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1748" y="2865.5172413793107"/>
+            <point key="canvasLocation" x="1804" y="2865.5172413793107"/>
         </scene>
-        <!--감정달력-->
+        <!--감정통계-->
         <scene sceneID="uf3-fY-HmZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dxa-2Z-zfp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="감정달력" image="calendar" catalog="system" id="XAa-B3-cQP"/>
+                    <tabBarItem key="tabBarItem" title="감정통계" image="chart.bar" catalog="system" id="XAa-B3-cQP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gtl-E0-MZa">
                         <rect key="frame" x="0.0" y="50" width="375" height="104.33333333333334"/>
@@ -1768,7 +1840,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="L0t-Wp-M0V" kind="relationship" relationship="rootViewController" id="1av-DP-jOy"/>
+                        <segue destination="ePr-vL-Fyw" kind="relationship" relationship="rootViewController" id="OfZ-9n-tnh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xoo-cY-rKf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1779,11 +1851,12 @@
     <color key="tintColor" name="primary"/>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="chart.bar" catalog="system" width="128" height="89"/>
         <image name="chevron.right.circle" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="line.png" width="360" height="1"/>
-        <image name="list.png" width="25" height="17"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="logo.png" width="276" height="156"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="profile.png" width="150" height="150"/>

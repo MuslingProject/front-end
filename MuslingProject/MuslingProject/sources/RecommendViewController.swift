@@ -31,7 +31,7 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         myTableView.reloadData()
     }
     
-    let category = ["일기에서 기쁨/사랑의 감정이 느껴져요 🥰", "날씨가 흐릴 땐 이런 노래 어때요? ☁️"]
+    let category = ["현재 기쁨/사랑의 감정이시군요? 🥰", "날씨가 흐리거나 비올 땐 이런 노래 어때요? ☁️"]
     
     let cellSpacingHeight: CGFloat = 50
     
@@ -51,7 +51,12 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         let myLabel = UILabel()
         myLabel.frame = CGRect(x: 10, y: 16, width: 320, height: 35)
         myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
-        myLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        let attributedText = NSAttributedString(string: myLabel.text ?? "", attributes: [
+            NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 15)!,
+            NSAttributedString.Key.kern: -0.7
+        ])
+        myLabel.attributedText = attributedText
+        myLabel.font = UIFont(name: "Pretendard-Medium", size: 16)
         myLabel.textColor = UIColor.darkGray
         
         let headerView = UIView()

@@ -17,19 +17,19 @@ class TabBarVC: UITabBarController {
             let appearance = UITabBarAppearance()
             
             //  폰트 및 자간 설정
-            if let customFont = UIFont(name: "Pretendard-Medium", size: 14) {
+            if let customFont = UIFont(name: "Pretendard-Medium", size: 13) {
                 appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
                     .font: customFont,
-                    .kern: -0.6
+                    .kern: -0.6,
                 ]
                 appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
                     .font: customFont,
-                    .kern: -0.6
+                    .kern: -0.6,
                 ]
             } else {
                 print("폰트를 로드할 수 없습니다.")
             }
-            
+            appearance.backgroundColor = .white
             self.tabBar.standardAppearance = appearance
             self.tabBar.scrollEdgeAppearance = appearance
 
