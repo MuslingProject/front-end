@@ -9,6 +9,8 @@ import UIKit
 
 class FavoriteViewController: UITableViewController {
     
+    @IBOutlet var favoriteTable: UITableView!
+    
     // 더미데이터 불러오기
     let categoryList = Category.emotion
     let musics = Music.data
@@ -106,6 +108,12 @@ class FavoriteViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 배경 이미지 뷰를 생성하고 추가
+        let backgroundImage = UIImageView(image: UIImage(named: "backImg.png"))
+        backgroundImage.contentMode = .scaleAspectFill // 이미지 크기 조절 옵션 (필요에 따라 변경)
+        backgroundImage.frame = favoriteTable.bounds // 이미지 뷰를 화면 크기에 맞게 설정
+        favoriteTable.backgroundView = backgroundImage
         
         addMusic()
     }

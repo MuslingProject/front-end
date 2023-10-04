@@ -37,7 +37,6 @@
 		F3733D5D2A87F88D008B9814 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */; };
 		F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37651C22A138AB6002B4286 /* SignInViewController.swift */; };
 		F386B0122A8DF7AB000A5835 /* ExtensionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */; };
-		F386B0142A8E080D000A5835 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F386B0132A8E080D000A5835 /* profile.png */; };
 		F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A062822A6E870000CE7085 /* MusicCell.swift */; };
 		F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A062832A6E870000CE7085 /* MusicCell.xib */; };
 		F3A3C77D2A5FD7FE00BF13DD /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */; };
@@ -47,6 +46,8 @@
 		F3AC07BA2AA9DC5A002114B2 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3AC07B62AA9DC5A002114B2 /* Pretendard-Regular.otf */; };
 		F3AC07BC2AA9E20E002114B2 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3AC07BB2AA9E20E002114B2 /* Pretendard-Light.otf */; };
 		F3AC07BE2AAA0182002114B2 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3AC07BD2AAA0182002114B2 /* Pretendard-SemiBold.otf */; };
+		F3AD172E2ACD8E6200F10D7B /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F3AD172D2ACD8E6200F10D7B /* profile.png */; };
+		F3AD17302ACD8E8100F10D7B /* backImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3AD172F2ACD8E8100F10D7B /* backImg.png */; };
 		F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADDE002A010C91005650E2 /* WriteViewController.swift */; };
 		F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2287429EC453B00FDED32 /* CSButton.swift */; };
 		F3C2288329EC507600FDED32 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288229EC507600FDED32 /* HomeViewController.swift */; };
@@ -106,7 +107,6 @@
 		F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		F37651C22A138AB6002B4286 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionVC.swift; sourceTree = "<group>"; };
-		F386B0132A8E080D000A5835 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../Downloads/profile.png; sourceTree = "<group>"; };
 		F3A062822A6E870000CE7085 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		F3A062832A6E870000CE7085 /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
 		F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +116,8 @@
 		F3AC07B62AA9DC5A002114B2 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		F3AC07BB2AA9E20E002114B2 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		F3AC07BD2AAA0182002114B2 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		F3AD172D2ACD8E6200F10D7B /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../../Downloads/profile.png; sourceTree = "<group>"; };
+		F3AD172F2ACD8E8100F10D7B /* backImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg.png; sourceTree = "<group>"; };
 		F3ADDE002A010C91005650E2 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		F3C2287429EC453B00FDED32 /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
 		F3C2288229EC507600FDED32 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +188,7 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		F3C2A7B62A273BB30001EDD6 /* model */ = {
+		F3C2A7B62A273BB30001EDD6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F30A73962A1CBDDD00CAF477 /* Category.swift */,
@@ -201,10 +203,10 @@
 				F31B14AF2A5D544700AE12E2 /* ImageModel.swift */,
 				F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		F3C2A7B72A273BCB0001EDD6 /* UI */ = {
+		F3C2A7B72A273BCB0001EDD6 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
 				F3C2287429EC453B00FDED32 /* CSButton.swift */,
@@ -215,13 +217,12 @@
 				F350A13D2ABB2D7700203688 /* CustomTable.swift */,
 				F338727E2AC357DD00EC80EC /* UILabel.swift */,
 			);
-			path = UI;
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		F3EAA52529E55B6600819F7A = {
 			isa = PBXGroup;
 			children = (
-				F3EAA54529E55D1100819F7A /* Resources */,
 				F3EAA53029E55B6600819F7A /* MuslingProject */,
 				F3EAA52F29E55B6600819F7A /* Products */,
 				5DB710B4D85E989447A105B2 /* Pods */,
@@ -240,11 +241,12 @@
 		F3EAA53029E55B6600819F7A /* MuslingProject */ = {
 			isa = PBXGroup;
 			children = (
+				F3EAA54529E55D1100819F7A /* Resources */,
 				F3AC07B22AA9DC2D002114B2 /* Font */,
-				F3EFB2232A57DAD1004ED092 /* sources */,
+				F3EFB2232A57DAD1004ED092 /* Sources */,
 				F3EFB2222A57DA32004ED092 /* API */,
-				F3C2A7B72A273BCB0001EDD6 /* UI */,
-				F3C2A7B62A273BB30001EDD6 /* model */,
+				F3C2A7B72A273BCB0001EDD6 /* Custom */,
+				F3C2A7B62A273BB30001EDD6 /* Model */,
 				F3D06D152A36FBAF006B991E /* Main.storyboard */,
 				F3EAA53129E55B6600819F7A /* AppDelegate.swift */,
 				F3EAA53329E55B6600819F7A /* SceneDelegate.swift */,
@@ -264,7 +266,8 @@
 				F3244AA62A36E8BF002C19BB /* list.png */,
 				F33C98AA2AADB8D000759E8A /* music-back.png */,
 				F3244AA92A36E8C0002C19BB /* logo.png */,
-				F386B0132A8E080D000A5835 /* profile.png */,
+				F3AD172F2ACD8E8100F10D7B /* backImg.png */,
+				F3AD172D2ACD8E6200F10D7B /* profile.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -282,7 +285,7 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		F3EFB2232A57DAD1004ED092 /* sources */ = {
+		F3EFB2232A57DAD1004ED092 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				F3EAA55229E5714200819F7A /* FirstViewController.swift */,
@@ -305,7 +308,7 @@
 				F338727A2AC3281300EC80EC /* StatViewController.swift */,
 				F338727C2AC3383300EC80EC /* ChartViewController.swift */,
 			);
-			path = sources;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,12 +381,13 @@
 				F3AC07BE2AAA0182002114B2 /* Pretendard-SemiBold.otf in Resources */,
 				F3AC07B92AA9DC5A002114B2 /* Pretendard-Medium.otf in Resources */,
 				F3244AAE2A36E8C0002C19BB /* logo.png in Resources */,
-				F386B0142A8E080D000A5835 /* profile.png in Resources */,
 				F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */,
+				F3AD17302ACD8E8100F10D7B /* backImg.png in Resources */,
 				F3244AAF2A36E8C0002C19BB /* line.png in Resources */,
 				F3AC07BC2AA9E20E002114B2 /* Pretendard-Light.otf in Resources */,
 				F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */,
 				F3244AAB2A36E8C0002C19BB /* list.png in Resources */,
+				F3AD172E2ACD8E6200F10D7B /* profile.png in Resources */,
 				F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */,
 				F3AC07BA2AA9DC5A002114B2 /* Pretendard-Regular.otf in Resources */,
 				F3C2A7AB2A25F0BC0001EDD6 /* GoogleService-Info.plist in Resources */,

@@ -1621,7 +1621,6 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="SlD-Ue-Wy0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="lbd-iJ-5ga" customClass="CategoryListCell" customModule="MuslingProject" customModuleProvider="target">
                                 <rect key="frame" x="20" y="38" width="335" height="100"/>
@@ -1662,6 +1661,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="좋아요한 노래 🎶" id="Cj8-IM-5gR"/>
+                    <connections>
+                        <outlet property="favoriteTable" destination="SlD-Ue-Wy0" id="Wdj-eY-7s5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGW-JO-aDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1737,7 +1739,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxC-Ev-iiB">
-                                <rect key="frame" x="0.0" y="153" width="375" height="576"/>
+                                <rect key="frame" x="0.0" y="151.66666666666669" width="375" height="577.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5C-Rc-AbL">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="552.33333333333337"/>
@@ -1750,7 +1752,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👀 한 달 간의 감정 그래프를 보여드릴게요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5Z-2u-MYk">
-                                                <rect key="frame" x="18" y="30" width="327.33333333333331" height="24"/>
+                                                <rect key="frame" x="18" y="30" width="333.33333333333331" height="24"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
                                                 <color key="textColor" name="secondary"/>
                                                 <nil key="highlightedColor"/>
@@ -1761,7 +1763,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔎 감정들을 이만큼 느끼셨었네요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZe-fw-DaQ">
-                                                <rect key="frame" x="18" y="457.33333333333337" width="261.66666666666669" height="24"/>
+                                                <rect key="frame" x="18" y="457.33333333333337" width="264.66666666666669" height="24"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
                                                 <color key="textColor" name="secondary"/>
                                                 <nil key="highlightedColor"/>
@@ -1778,7 +1780,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="2U2-Zv-84h" firstAttribute="leading" secondItem="N5C-Rc-AbL" secondAttribute="leading" constant="18" id="2vF-pw-eo3"/>
                                             <constraint firstItem="f5Z-2u-MYk" firstAttribute="leading" secondItem="N5C-Rc-AbL" secondAttribute="leading" constant="18" id="EI5-wF-GCa"/>
@@ -1793,6 +1795,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="N5C-Rc-AbL" firstAttribute="leading" secondItem="d0P-n7-CRm" secondAttribute="leading" id="COz-cZ-k2b"/>
                                     <constraint firstItem="N5C-Rc-AbL" firstAttribute="trailing" secondItem="d0P-n7-CRm" secondAttribute="trailing" id="TgC-3X-918"/>
