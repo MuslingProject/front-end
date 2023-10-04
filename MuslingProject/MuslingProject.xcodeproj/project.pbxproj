@@ -23,11 +23,7 @@
 		F327EF632A615357002A8CA7 /* CSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327EF622A615357002A8CA7 /* CSLabel.swift */; };
 		F327EF652A615713002A8CA7 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F327EF642A615713002A8CA7 /* PaddingLabel.swift */; };
 		F33135C72A2570F6008DF851 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33135C62A2570F6008DF851 /* LocationService.swift */; };
-		F338727B2AC3281300EC80EC /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F338727A2AC3281300EC80EC /* StatViewController.swift */; };
-		F338727D2AC3383300EC80EC /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F338727C2AC3383300EC80EC /* ChartViewController.swift */; };
 		F338727F2AC357DD00EC80EC /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F338727E2AC357DD00EC80EC /* UILabel.swift */; };
-		F33920992A3792A0001F419E /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33920982A3792A0001F419E /* Recommend.swift */; };
-		F339209B2A379331001F419E /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F339209A2A379331001F419E /* RecommendViewController.swift */; };
 		F33C98AB2AADB8D000759E8A /* music-back.png in Resources */ = {isa = PBXBuildFile; fileRef = F33C98AA2AADB8D000759E8A /* music-back.png */; };
 		F34FF9E22A59894B0025EC5B /* tokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34FF9E12A59894B0025EC5B /* tokenModel.swift */; };
 		F350A13E2ABB2D7700203688 /* CustomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A13D2ABB2D7700203688 /* CustomTable.swift */; };
@@ -48,12 +44,16 @@
 		F3AC07BE2AAA0182002114B2 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3AC07BD2AAA0182002114B2 /* Pretendard-SemiBold.otf */; };
 		F3AD172E2ACD8E6200F10D7B /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F3AD172D2ACD8E6200F10D7B /* profile.png */; };
 		F3AD17302ACD8E8100F10D7B /* backImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3AD172F2ACD8E8100F10D7B /* backImg.png */; };
+		F3AD17322ACD996800F10D7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD17312ACD996800F10D7B /* HomeViewController.swift */; };
+		F3AD17342ACD999300F10D7B /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD17332ACD999300F10D7B /* FavoriteViewController.swift */; };
+		F3AD17362ACD99A800F10D7B /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD17352ACD99A800F10D7B /* ChartViewController.swift */; };
+		F3AD17382ACD99C000F10D7B /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD17372ACD99C000F10D7B /* StatViewController.swift */; };
+		F3AD173A2ACD99D100F10D7B /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD17392ACD99D100F10D7B /* RecommendViewController.swift */; };
+		F3AD173E2ACD9A0100F10D7B /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD173D2ACD9A0100F10D7B /* TabBarVC.swift */; };
+		F3AD17402ACD9A2C00F10D7B /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD173F2ACD9A2C00F10D7B /* Recommend.swift */; };
 		F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADDE002A010C91005650E2 /* WriteViewController.swift */; };
 		F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2287429EC453B00FDED32 /* CSButton.swift */; };
-		F3C2288329EC507600FDED32 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288229EC507600FDED32 /* HomeViewController.swift */; };
-		F3C2288529EC508600FDED32 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288429EC508600FDED32 /* FavoriteViewController.swift */; };
 		F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288629EC509000FDED32 /* MypageViewController.swift */; };
-		F3C2288929EC51ED00FDED32 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288829EC51ED00FDED32 /* TabBarVC.swift */; };
 		F3C2A7AB2A25F0BC0001EDD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3C2A7AA2A25F0BC0001EDD6 /* GoogleService-Info.plist */; };
 		F3D06D162A36FBAF006B991E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3D06D152A36FBAF006B991E /* Main.storyboard */; };
 		F3EAA53229E55B6600819F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA53129E55B6600819F7A /* AppDelegate.swift */; };
@@ -93,11 +93,7 @@
 		F327EF622A615357002A8CA7 /* CSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSLabel.swift; sourceTree = "<group>"; };
 		F327EF642A615713002A8CA7 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		F33135C62A2570F6008DF851 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		F338727A2AC3281300EC80EC /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
-		F338727C2AC3383300EC80EC /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		F338727E2AC357DD00EC80EC /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		F33920982A3792A0001F419E /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
-		F339209A2A379331001F419E /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		F33C98AA2AADB8D000759E8A /* music-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music-back.png"; sourceTree = "<group>"; };
 		F34FF9E12A59894B0025EC5B /* tokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokenModel.swift; sourceTree = "<group>"; };
 		F350A13D2ABB2D7700203688 /* CustomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTable.swift; sourceTree = "<group>"; };
@@ -118,12 +114,16 @@
 		F3AC07BD2AAA0182002114B2 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		F3AD172D2ACD8E6200F10D7B /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../../Downloads/profile.png; sourceTree = "<group>"; };
 		F3AD172F2ACD8E8100F10D7B /* backImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg.png; sourceTree = "<group>"; };
+		F3AD17312ACD996800F10D7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F3AD17332ACD999300F10D7B /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		F3AD17352ACD99A800F10D7B /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		F3AD17372ACD99C000F10D7B /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
+		F3AD17392ACD99D100F10D7B /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		F3AD173D2ACD9A0100F10D7B /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		F3AD173F2ACD9A2C00F10D7B /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
 		F3ADDE002A010C91005650E2 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		F3C2287429EC453B00FDED32 /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
-		F3C2288229EC507600FDED32 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		F3C2288429EC508600FDED32 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		F3C2288629EC509000FDED32 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
-		F3C2288829EC51ED00FDED32 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		F3C2A7AA2A25F0BC0001EDD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3D06D152A36FBAF006B991E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3EAA52E29E55B6600819F7A /* MuslingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuslingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,11 +197,11 @@
 				F3F7D9A62A2C8CEC00D90B69 /* Member.swift */,
 				F303F7442A2F094300FEE41E /* Genre.swift */,
 				F303F7462A2F1A9800FEE41E /* Music.swift */,
-				F33920982A3792A0001F419E /* Recommend.swift */,
 				F34FF9E12A59894B0025EC5B /* tokenModel.swift */,
 				F31B14AD2A5D299600AE12E2 /* Diary.swift */,
 				F31B14AF2A5D544700AE12E2 /* ImageModel.swift */,
 				F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */,
+				F3AD173F2ACD9A2C00F10D7B /* Recommend.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,21 +292,21 @@
 				F3EAA55429E59F8600819F7A /* SignUpViewController.swift */,
 				F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */,
 				F36A3DC329E5B89500F47A3E /* SelectViewController.swift */,
-				F3C2288229EC507600FDED32 /* HomeViewController.swift */,
-				F3C2288429EC508600FDED32 /* FavoriteViewController.swift */,
 				F3C2288629EC509000FDED32 /* MypageViewController.swift */,
-				F3C2288829EC51ED00FDED32 /* TabBarVC.swift */,
 				F3ADDE002A010C91005650E2 /* WriteViewController.swift */,
 				F3FCE3C42A12A3D900E67903 /* EditViewController.swift */,
 				F37651C22A138AB6002B4286 /* SignInViewController.swift */,
-				F339209A2A379331001F419E /* RecommendViewController.swift */,
 				F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */,
 				F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */,
 				F3A062822A6E870000CE7085 /* MusicCell.swift */,
 				F3A062832A6E870000CE7085 /* MusicCell.xib */,
 				F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */,
-				F338727A2AC3281300EC80EC /* StatViewController.swift */,
-				F338727C2AC3383300EC80EC /* ChartViewController.swift */,
+				F3AD17312ACD996800F10D7B /* HomeViewController.swift */,
+				F3AD17332ACD999300F10D7B /* FavoriteViewController.swift */,
+				F3AD17352ACD99A800F10D7B /* ChartViewController.swift */,
+				F3AD17372ACD99C000F10D7B /* StatViewController.swift */,
+				F3AD17392ACD99D100F10D7B /* RecommendViewController.swift */,
+				F3AD173D2ACD9A0100F10D7B /* TabBarVC.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -451,12 +451,12 @@
 				F31B14AC2A5D224000AE12E2 /* DiaryListViewController.swift in Sources */,
 				F303F7452A2F094300FEE41E /* Genre.swift in Sources */,
 				F31B14B02A5D544700AE12E2 /* ImageModel.swift in Sources */,
+				F3AD17322ACD996800F10D7B /* HomeViewController.swift in Sources */,
 				F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */,
 				F30A73972A1CBDDD00CAF477 /* Category.swift in Sources */,
 				F303F7472A2F1A9800FEE41E /* Music.swift in Sources */,
 				F33135C72A2570F6008DF851 /* LocationService.swift in Sources */,
-				F3C2288329EC507600FDED32 /* HomeViewController.swift in Sources */,
-				F3C2288529EC508600FDED32 /* FavoriteViewController.swift in Sources */,
+				F3AD17402ACD9A2C00F10D7B /* Recommend.swift in Sources */,
 				F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */,
 				F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */,
 				F3244B422A25810A006C7E9B /* WeatherModel.swift in Sources */,
@@ -464,27 +464,27 @@
 				F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */,
 				F3FCE3C52A12A3D900E67903 /* EditViewController.swift in Sources */,
 				F3EAA55529E59F8600819F7A /* SignUpViewController.swift in Sources */,
-				F338727D2AC3383300EC80EC /* ChartViewController.swift in Sources */,
 				F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */,
-				F3C2288929EC51ED00FDED32 /* TabBarVC.swift in Sources */,
+				F3AD173A2ACD99D100F10D7B /* RecommendViewController.swift in Sources */,
+				F3AD17362ACD99A800F10D7B /* ChartViewController.swift in Sources */,
+				F3AD17382ACD99C000F10D7B /* StatViewController.swift in Sources */,
+				F3AD17342ACD999300F10D7B /* FavoriteViewController.swift in Sources */,
 				F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */,
 				F3733D5D2A87F88D008B9814 /* NotificationCenter.swift in Sources */,
 				F3EFB2282A57DF49004ED092 /* GenericResponse.swift in Sources */,
 				F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */,
 				F3EFB22A2A57E046004ED092 /* SignService.swift in Sources */,
 				F327EF652A615713002A8CA7 /* PaddingLabel.swift in Sources */,
+				F3AD173E2ACD9A0100F10D7B /* TabBarVC.swift in Sources */,
 				F327EF632A615357002A8CA7 /* CSLabel.swift in Sources */,
-				F33920992A3792A0001F419E /* Recommend.swift in Sources */,
 				F3EAA53429E55B6600819F7A /* SceneDelegate.swift in Sources */,
 				F3A3C77D2A5FD7FE00BF13DD /* DiaryViewController.swift in Sources */,
 				F31B14AE2A5D299600AE12E2 /* Diary.swift in Sources */,
 				F3EFB2212A57D684004ED092 /* APIConstants.swift in Sources */,
 				F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */,
 				F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */,
-				F338727B2AC3281300EC80EC /* StatViewController.swift in Sources */,
 				F34FF9E22A59894B0025EC5B /* tokenModel.swift in Sources */,
 				F338727F2AC357DD00EC80EC /* UILabel.swift in Sources */,
-				F339209B2A379331001F419E /* RecommendViewController.swift in Sources */,
 				F386B0122A8DF7AB000A5835 /* ExtensionVC.swift in Sources */,
 				F3EFB2262A57DBCB004ED092 /* NetworkResult.swift in Sources */,
 				F350A13E2ABB2D7700203688 /* CustomTable.swift in Sources */,
