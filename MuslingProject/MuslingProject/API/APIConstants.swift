@@ -10,24 +10,20 @@ struct APIConstants {
     
     // 회원가입 url
     static let userSignUpURL = baseURL + "/users/new-user"
-    // 프로필 사진 저장 url
-    static let imageSaveURL = baseURL + "/users/new-user/profile"
     // 로그인 url
     static let userSignInURL = baseURL + "/users/login"
+    // 로그아웃 url
+    static let userSignOutURL = baseURL + "/users/logout"
     // 회원 탈퇴 url
-    static let userSignOutURL = baseURL + "/users/unregister"
-    // 장르 저장 url
-    static let genreURL = baseURL + "/genre/create"
+    static let unregisterURL = baseURL + "/users/unregister"
+    // 장르 url
+    static let genreURL = baseURL + "/genre"
     // 날씨 불러오기 url
     static let weatherURL = baseURL + "/read/weather"
     // 회원 정보 조회 url
-    static let mypageURL = baseURL + "/mypage"
+    static let mypageURL = baseURL + "/users"
     // 프로필 사진 수정 url
-    static let modifyImageURL = baseURL + "/mypage/image"
+    static let modifyImageURL = baseURL + "/users/profile"
     // 닉네임 수정 url
-    static let modifyNameURL = baseURL + "/mypage/nickname"
-    // 장르 수정 url
-    static let modifyGenreURL = baseURL + "/mypage/genre"
-    // 장르 조회 url
-    static let showGenreURL = baseURL + "/genre"
+    static let modifyNameURL = baseURL + "/users/name"
 }

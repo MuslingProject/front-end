@@ -22,7 +22,7 @@ struct SignService {
             "Content-Type": "application/json"
         ]
         let body: Parameters = [
-            "userId": userId,
+            "email": userId,
             "pwd": pwd
         ]
         
@@ -46,49 +46,54 @@ struct SignService {
         }
     }
     
-    func signUp(userId: String, pwd: String, name: String, age: String, profileId: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
-        let url = APIConstants.userSignUpURL
-        let header: HTTPHeaders = [ "Content-Type" : "application/json" ]
-        let params: Parameters = [
-            "userId": userId,
-            "pwd": pwd,
-            "name": name,
-            "age": age,
-            "profileId": profileId
-        ]
-        
-        let dataRequest = AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header)
-
-        dataRequest.responseData { response in
-            switch response.result {
-            case .success:
-                guard let statusCode = response.response?.statusCode else { return }
-                guard let data = response.value else { return }
-                completion(judgeSignData(status: statusCode, data: data))
-
-            case .failure(let err):
-                print(err)
-                completion(.networkFail)
-            }
-        }
-    }
+//    func signUp(userId: String, pwd: String, name: String, age: String, profileId: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+//        let url = APIConstants.userSignUpURL
+//        let header: HTTPHeaders = [ "Content-Type" : "application/json" ]
+//        let params: Parameters = [
+//            "userId": userId,
+//            "pwd": pwd,
+//            "name": name,
+//            "age": age,
+//            "profileId": profileId
+//        ]
+//
+//        let dataRequest = AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header)
+//
+//        dataRequest.responseData { response in
+//            switch response.result {
+//            case .success:
+//                guard let statusCode = response.response?.statusCode else { return }
+//                guard let data = response.value else { return }
+//                completion(judgeSignData(status: statusCode, data: data))
+//
+//            case .failure(let err):
+//                print(err)
+//                completion(.networkFail)
+//            }
+//        }
+//    }
     
-    // 회원 탈퇴 함수
-    func signOut(userId: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
-        let url = APIConstants.userSignOutURL
-        let header: HTTPHeaders = [ "Content-Type" : "application/json" ]
-        let params: Parameters = [
-            "userId": userId
-        ]
+    func signUp(member: Member, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        let header: HTTPHeaders = [ "Content-Type": "multipart/form-data" ]
         
-        let dataRequest = AF.request(url, method: .delete, parameters: params, encoding: JSONEncoding.default, headers: header)
+        let dataRequest = AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(Data(member.user_id.utf8), withName: "email")
+            multipartFormData.append(Data(member.pwd.utf8), withName: "pwd")
+            multipartFormData.append(Data(member.name.utf8), withName: "name")
+            multipartFormData.append(Data(member.age.utf8), withName: "age")
+            // 이미지 추가 (이미지가 비어 있을 경우 고려)
+            if let image = member.img.jpegData(compressionQuality: 0.7) {
+                multipartFormData.append(image, withName: "file", fileName: "\(image).jpg", mimeType: "image/jpeg")
+            }
+        }, to: APIConstants.userSignUpURL, method: .post, headers: header)
         
         dataRequest.responseData { response in
             switch response.result {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                completion(judgeSaveGenre(status: statusCode, data: data))
+                
+                completion(judgeSignData(status: statusCode, data: data))
             case .failure(let err):
                 print(err)
                 completion(.networkFail)
@@ -97,23 +102,43 @@ struct SignService {
     }
     
     // 이미지 저장 함수
-    func saveImage(imgData: UIImage!, completion: @escaping (NetworkResult<Any>) -> (Void)) {
-        let header: HTTPHeaders = [ "Content-Type": "multipart/form-data" ]
+//    func saveImage(imgData: UIImage!, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+//        let header: HTTPHeaders = [ "Content-Type": "multipart/form-data" ]
+//
+//        let dataRequest = AF.upload(multipartFormData: { multipartFormData in
+//            // 이미지 추가 (이미지가 비어 있을 경우 고려)
+//            if let image = imgData.jpegData(compressionQuality: 0.7) {
+//                multipartFormData.append(image, withName: "image", fileName: "\(image).jpg", mimeType: "image/jpeg")
+//            } else { }
+//        }, to: APIConstants.imageSaveURL, method: .post, headers: header)
+//
+//        dataRequest.responseData { response in
+//            switch response.result {
+//            case .success:
+//                guard let statusCode = response.response?.statusCode else { return }
+//                guard let data = response.value else { return }
+//
+//                completion(judgeSaveImage(status: statusCode, data: data))
+//            case .failure(let err):
+//                print(err)
+//                completion(.networkFail)
+//            }
+//        }
+//    }
+    
+    // 회원 탈퇴 함수
+    func register(userId: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        let baseURL = APIConstants.unregisterURL
+        let deleteURL = baseURL + "/\(userId)"
         
-        let dataRequest = AF.upload(multipartFormData: { multipartFormData in
-            // 이미지 추가 (이미지가 비어 있을 경우 고려)
-            if let image = imgData.jpegData(compressionQuality: 0.7) {
-                multipartFormData.append(image, withName: "image", fileName: "\(image).jpg", mimeType: "image/jpeg")
-            } else { }
-        }, to: APIConstants.imageSaveURL, method: .post, headers: header)
+        let dataRequest = AF.request(deleteURL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil)
         
         dataRequest.responseData { response in
             switch response.result {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                
-                completion(judgeSaveImage(status: statusCode, data: data))
+                completion(judgeRegisterData(status: statusCode, data: data))
             case .failure(let err):
                 print(err)
                 completion(.networkFail)
@@ -122,7 +147,7 @@ struct SignService {
     }
     
     // 장르 저장 함수
-    func saveGenre(indie: Int, balad: Int, rockMetal: Int, dancePop: Int, rapHiphop: Int, rbSoul: Int, forkAcoustic: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+    func saveGenre(indie: Bool, balad: Bool, rockMetal: Bool, dancePop: Bool, rapHiphop: Bool, rbSoul: Bool, forkAcoustic: Bool, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
         let header: HTTPHeaders = [ "Content-Type" : "application/json",
@@ -163,7 +188,7 @@ struct SignService {
         switch status {
         case 200:
             let decoder = JSONDecoder()
-            guard let decodedData = try? decoder.decode(ResponseModel.self, from: data) else { return .pathErr }
+            guard let decodedData = try? decoder.decode(DataModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
             return .requestErr
@@ -174,12 +199,11 @@ struct SignService {
         }
     }
     
-    private func judgeSaveImage(status: Int, data: Data) -> NetworkResult<Any> {
-        // 통신을 통해 전달받은 데이터를 decode
+    private func judgeRegisterData(status: Int, data: Data) -> NetworkResult<Any> {
         switch status {
         case 200:
             let decoder = JSONDecoder()
-            guard let decodedData = try? decoder.decode(ImageModel.self, from: data) else { return .pathErr }
+            guard let decodedData = try? decoder.decode(DataModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
             return .requestErr
@@ -195,7 +219,7 @@ struct SignService {
         switch status {
         case 200:
             let decoder = JSONDecoder()
-            guard let decodedData = try? decoder.decode(NonDataModel.self, from: data) else { return .pathErr }
+            guard let decodedData = try? decoder.decode(GenreModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
             return .requestErr

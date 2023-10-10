@@ -11,13 +11,13 @@ import Alamofire
 struct MypageService {
     static let shared = MypageService()
     
-    // 마이페이지 관련 통신 함수 정의    
+    // 마이페이지 관련 통신 함수 정의
     // 회원 정보 조회
     func getMypage(completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
         let header: HTTPHeaders = [ "Content-Type" : "application/json",
-                                   "X-AUTH-TOKEN" : token ]
+                                    "X-AUTH-TOKEN" : token ]
         
         let dataRequest = AF.request(APIConstants.mypageURL, method: .get, headers: header)
         
@@ -27,7 +27,7 @@ struct MypageService {
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
                 completion(judgeGetMypage(status: statusCode, data: data))
-
+                
             case .failure(let err):
                 print(err)
                 completion(.networkFail)
@@ -54,7 +54,7 @@ struct MypageService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                completion(judgeModify(status: statusCode, data: data))
+                completion(judgeImageModify(status: statusCode, data: data))
             case .failure(let err):
                 print(err)
                 completion(.networkFail)
@@ -78,8 +78,8 @@ struct MypageService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                completion(judgeModify(status: statusCode, data: data))
-
+                completion(judgeNameModify(status: statusCode, data: data))
+                
             case .failure(let err):
                 print(err)
                 completion(.networkFail)
@@ -88,7 +88,7 @@ struct MypageService {
     }
     
     // 선호 장르 수정
-    func modifyGenre(indie: Int, balad: Int, rockMetal: Int, dancePop: Int, rapHiphop: Int, rbSoul: Int, forkAcoustic: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+    func modifyGenre(indie: Bool, balad: Bool, rockMetal: Bool, dancePop: Bool, rapHiphop: Bool, rbSoul: Bool, forkAcoustic: Bool, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
         let header: HTTPHeaders = [ "Content-Type" : "application/json",
@@ -103,14 +103,14 @@ struct MypageService {
             "forkAcoustic": forkAcoustic
         ]
         
-        let dataRequest = AF.request(APIConstants.modifyGenreURL, method: .patch, parameters: params, encoding: JSONEncoding.default, headers: header)
+        let dataRequest = AF.request(APIConstants.genreURL, method: .patch, parameters: params, encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { response in
             switch response.result {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                completion(judgeModify(status: statusCode, data: data))
+                completion(judgeGenreData(status: statusCode, data: data))
                 
             case .failure(let err):
                 print(err)
@@ -125,21 +125,21 @@ struct MypageService {
         
         let header: HTTPHeaders = [ "X-AUTH-TOKEN" : token ]
         
-        let dataRequest = AF.request(APIConstants.showGenreURL, method: .get, encoding: JSONEncoding.default, headers: header)
+        let dataRequest = AF.request(APIConstants.genreURL, method: .get, encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { response in
             switch response.result {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                completion(judgeGetGenre(status: statusCode, data: data))
+                completion(judgeGenreData(status: statusCode, data: data))
                 
             case .failure(let err):
                 print(err)
                 completion(.networkFail)
             }
         }
-
+        
     }
     
     private func judgeGetMypage(status: Int, data: Data) -> NetworkResult<Any> {
@@ -157,7 +157,7 @@ struct MypageService {
         }
     }
     
-    private func judgeGetGenre(status: Int, data: Data) -> NetworkResult<Any> {
+    private func judgeGenreData(status: Int, data: Data) -> NetworkResult<Any> {
         switch status {
         case 200:
             let decoder = JSONDecoder()
@@ -172,8 +172,22 @@ struct MypageService {
         }
     }
     
-    private func judgeModify(status: Int, data: Data) -> NetworkResult<Any> {
-        // 통신을 통해 전달받은 데이터를 decode
+    private func judgeNameModify(status: Int, data: Data) -> NetworkResult<Any> {
+        switch status {
+        case 200:
+            let decoder = JSONDecoder()
+            guard let decodedData = try? decoder.decode(NameModifyModel.self, from: data) else { return .pathErr }
+            return .success(decodedData)
+        case 400..<500:
+            return .requestErr
+        case 500:
+            return .serverErr
+        default:
+            return .networkFail
+        }
+    }
+    
+    private func judgeImageModify(status: Int, data: Data) -> NetworkResult<Any> {
         switch status {
         case 200:
             let decoder = JSONDecoder()

@@ -14,7 +14,6 @@
 		F30F22202A0E8C2F005FDE36 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F221F2A0E8C2F005FDE36 /* UIColor.swift */; };
 		F31B14AC2A5D224000AE12E2 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */; };
 		F31B14AE2A5D299600AE12E2 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AD2A5D299600AE12E2 /* Diary.swift */; };
-		F31B14B02A5D544700AE12E2 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AF2A5D544700AE12E2 /* ImageModel.swift */; };
 		F3244AAB2A36E8C0002C19BB /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA62A36E8BF002C19BB /* list.png */; };
 		F3244AAD2A36E8C0002C19BB /* kuromi.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA82A36E8BF002C19BB /* kuromi.jpeg */; };
 		F3244AAE2A36E8C0002C19BB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA92A36E8C0002C19BB /* logo.png */; };
@@ -25,7 +24,7 @@
 		F33135C72A2570F6008DF851 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33135C62A2570F6008DF851 /* LocationService.swift */; };
 		F338727F2AC357DD00EC80EC /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F338727E2AC357DD00EC80EC /* UILabel.swift */; };
 		F33C98AB2AADB8D000759E8A /* music-back.png in Resources */ = {isa = PBXBuildFile; fileRef = F33C98AA2AADB8D000759E8A /* music-back.png */; };
-		F34FF9E22A59894B0025EC5B /* tokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34FF9E12A59894B0025EC5B /* tokenModel.swift */; };
+		F34FF9E22A59894B0025EC5B /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34FF9E12A59894B0025EC5B /* ResponseModel.swift */; };
 		F350A13E2ABB2D7700203688 /* CustomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A13D2ABB2D7700203688 /* CustomTable.swift */; };
 		F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */; };
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
@@ -84,7 +83,6 @@
 		F30F221F2A0E8C2F005FDE36 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		F31B14AD2A5D299600AE12E2 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
-		F31B14AF2A5D544700AE12E2 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		F3244AA62A36E8BF002C19BB /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		F3244AA82A36E8BF002C19BB /* kuromi.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kuromi.jpeg; sourceTree = "<group>"; };
 		F3244AA92A36E8C0002C19BB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -95,7 +93,7 @@
 		F33135C62A2570F6008DF851 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		F338727E2AC357DD00EC80EC /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		F33C98AA2AADB8D000759E8A /* music-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music-back.png"; sourceTree = "<group>"; };
-		F34FF9E12A59894B0025EC5B /* tokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tokenModel.swift; sourceTree = "<group>"; };
+		F34FF9E12A59894B0025EC5B /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		F350A13D2ABB2D7700203688 /* CustomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTable.swift; sourceTree = "<group>"; };
 		F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
@@ -197,9 +195,8 @@
 				F3F7D9A62A2C8CEC00D90B69 /* Member.swift */,
 				F303F7442A2F094300FEE41E /* Genre.swift */,
 				F303F7462A2F1A9800FEE41E /* Music.swift */,
-				F34FF9E12A59894B0025EC5B /* tokenModel.swift */,
+				F34FF9E12A59894B0025EC5B /* ResponseModel.swift */,
 				F31B14AD2A5D299600AE12E2 /* Diary.swift */,
-				F31B14AF2A5D544700AE12E2 /* ImageModel.swift */,
 				F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */,
 				F3AD173F2ACD9A2C00F10D7B /* Recommend.swift */,
 			);
@@ -450,7 +447,6 @@
 				F3EAA53229E55B6600819F7A /* AppDelegate.swift in Sources */,
 				F31B14AC2A5D224000AE12E2 /* DiaryListViewController.swift in Sources */,
 				F303F7452A2F094300FEE41E /* Genre.swift in Sources */,
-				F31B14B02A5D544700AE12E2 /* ImageModel.swift in Sources */,
 				F3AD17322ACD996800F10D7B /* HomeViewController.swift in Sources */,
 				F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */,
 				F30A73972A1CBDDD00CAF477 /* Category.swift in Sources */,
@@ -483,7 +479,7 @@
 				F3EFB2212A57D684004ED092 /* APIConstants.swift in Sources */,
 				F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */,
 				F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */,
-				F34FF9E22A59894B0025EC5B /* tokenModel.swift in Sources */,
+				F34FF9E22A59894B0025EC5B /* ResponseModel.swift in Sources */,
 				F338727F2AC357DD00EC80EC /* UILabel.swift in Sources */,
 				F386B0122A8DF7AB000A5835 /* ExtensionVC.swift in Sources */,
 				F3EFB2262A57DBCB004ED092 /* NetworkResult.swift in Sources */,

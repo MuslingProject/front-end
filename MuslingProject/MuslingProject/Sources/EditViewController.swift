@@ -23,70 +23,70 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBAction func selectKpop(_ sender: Any) {
         select(dancePop)
-        if Genre.shared.dancePop != 1 {
-            Genre.shared.dancePop = 1
+        if Genre.shared.dancePop != true {
+            Genre.shared.dancePop = true
         } else {
-            Genre.shared.dancePop = 0
+            Genre.shared.dancePop = false
         }
         isGenreModify = true
     }
     
     @IBAction func selectBalad(_ sender: Any) {
         select(balad)
-        if Genre.shared.balad != 1 {
-            Genre.shared.balad = 1
+        if Genre.shared.balad != true {
+            Genre.shared.balad = true
         } else {
-            Genre.shared.balad = 0
+            Genre.shared.balad = false
         }
         isGenreModify = true
     }
     
     @IBAction func selectHiphop(_ sender: Any) {
         select(hiphop)
-        if Genre.shared.rapHiphop != 1 {
-            Genre.shared.rapHiphop = 1
+        if Genre.shared.rapHiphop != true {
+            Genre.shared.rapHiphop = true
         } else {
-            Genre.shared.rapHiphop = 0
+            Genre.shared.rapHiphop = false
         }
         isGenreModify = true
     }
     
     @IBAction func selectInde(_ sender: Any) {
         select(indie)
-        if Genre.shared.indie != 1 {
-            Genre.shared.indie = 1
+        if Genre.shared.indie != true {
+            Genre.shared.indie = true
         } else {
-            Genre.shared.indie = 0
+            Genre.shared.indie = false
         }
         isGenreModify = true
     }
     
     @IBAction func selectMetal(_ sender: Any) {
         select(metal)
-        if Genre.shared.rockMetal != 1 {
-            Genre.shared.rockMetal = 1
+        if Genre.shared.rockMetal != true {
+            Genre.shared.rockMetal = true
         } else {
-            Genre.shared.rockMetal = 0
+            Genre.shared.rockMetal = false
         }
         isGenreModify = true
     }
         
     @IBAction func selectRnb(_ sender: Any) {
         select(rnb)
-        if Genre.shared.rbSoul != 1 {
-            Genre.shared.rbSoul = 1
+        if Genre.shared.rbSoul != true {
+            Genre.shared.rbSoul = true
         } else {
-            Genre.shared.rbSoul = 0
+            Genre.shared.rbSoul = false
         }
         isGenreModify = true
     }
     
     @IBAction func selectAcoustic(_ sender: Any) {
         select(acoustic)
-        if Genre.shared.forkAcoustic != 1 {
-            Genre.shared.forkAcoustic = 1
+        if Genre.shared.forkAcoustic != true {
+            Genre.shared.forkAcoustic = true
         } else {
-            Genre.shared.forkAcoustic = 0
+            Genre.shared.forkAcoustic = false
         }
         isGenreModify = true
     }
@@ -114,13 +114,13 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         navigationItem.rightBarButtonItem = barButtonItem
         
-        Genre.shared.balad = 0
-        Genre.shared.dancePop = 0
-        Genre.shared.forkAcoustic = 0
-        Genre.shared.indie = 0
-        Genre.shared.rapHiphop = 0
-        Genre.shared.rbSoul = 0
-        Genre.shared.rockMetal = 0
+        Genre.shared.balad = false
+        Genre.shared.dancePop = false
+        Genre.shared.forkAcoustic = false
+        Genre.shared.indie = false
+        Genre.shared.rapHiphop = false
+        Genre.shared.rbSoul = false
+        Genre.shared.rockMetal = false
         
         if Member.shared.imgURL != nil {
             userProfile.loadImage(from: Member.shared.imgURL)
@@ -138,7 +138,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         print("회원 정보 불러오기 결과 :: Success")
                         
                         // 프로필 사진
-                        if let imageUrl = URL(string: data.data.profile.imageUrl) {
+                        if let imageUrl = URL(string: data.data.profileImageUrl) {
                             Member.shared.imgURL = imageUrl
                             self.userProfile.loadImage(from: imageUrl)
                         }
@@ -291,8 +291,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             MypageService.shared.modifyName(nickname: newName) { response in
                 switch response {
                 case .success(let data):
-                    if let data = data as? NonDataModel {
-                        print("닉네임 수정 결과 :: \(data.message)")
+                    if let data = data as? NameModifyModel {
+                        print("닉네임 수정 결과 :: \(data.result)")
                     }
                     // 마이페이지로 이동
                     NotificationCenter.default.post(name: .profileUpdated, object: nil)
@@ -315,8 +315,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             MypageService.shared.modifyGenre(indie: genre.indie, balad: genre.balad, rockMetal: genre.rockMetal, dancePop: genre.dancePop, rapHiphop: genre.rapHiphop, rbSoul: genre.rbSoul, forkAcoustic: genre.forkAcoustic) { response in
                 switch response {
                 case .success(let data):
-                    if let data = data as? NonDataModel {
-                        print("선호 장르 수정 결과 :: \(data.message)")
+                    if let data = data as? GenreModel {
+                        print("선호 장르 수정 결과 :: \(data.result)")
                     }
                     // 마이페이지로 이동하기
                     NotificationCenter.default.post(name: .genreUpdated, object: nil)

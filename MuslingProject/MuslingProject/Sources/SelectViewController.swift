@@ -33,84 +33,84 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
-            signUp()
+            signInAPI()
         }
     }
     
     
     @IBAction func selectKpop(_ sender: Any) {
         select(dancePop)
-        if Genre.shared.dancePop != 1 {
-            Genre.shared.dancePop = 1
+        if Genre.shared.dancePop != true {
+            Genre.shared.dancePop = true
         } else {
-            Genre.shared.dancePop = 0
+            Genre.shared.dancePop = false
         }
     }
     
     @IBAction func selectBalad(_ sender: Any) {
         select(balad)
-        if Genre.shared.balad != 1 {
-            Genre.shared.balad = 1
+        if Genre.shared.balad != true {
+            Genre.shared.balad = true
         } else {
-            Genre.shared.balad = 0
+            Genre.shared.balad = false
         }
     }
     
     @IBAction func selectHiphop(_ sender: Any) {
         select(hiphop)
-        if Genre.shared.rapHiphop != 1 {
-            Genre.shared.rapHiphop = 1
+        if Genre.shared.rapHiphop != true {
+            Genre.shared.rapHiphop = true
         } else {
-            Genre.shared.rapHiphop = 0
+            Genre.shared.rapHiphop = false
         }
     }
     
     @IBAction func selectInde(_ sender: Any) {
         select(indie)
-        if Genre.shared.indie != 1 {
-            Genre.shared.indie = 1
+        if Genre.shared.indie != true {
+            Genre.shared.indie = true
         } else {
-            Genre.shared.indie = 0
+            Genre.shared.indie = false
         }
     }
     
     @IBAction func selectRock(_ sender: Any) {
         select(metal)
-        if Genre.shared.rockMetal != 1 {
-            Genre.shared.rockMetal = 1
+        if Genre.shared.rockMetal != true {
+            Genre.shared.rockMetal = true
         } else {
-            Genre.shared.rockMetal = 0
+            Genre.shared.rockMetal = false
         }
     }
     
     @IBAction func selectRnb(_ sender: Any) {
         select(rnb)
-        if Genre.shared.rbSoul != 1 {
-            Genre.shared.rbSoul = 1
+        if Genre.shared.rbSoul != true {
+            Genre.shared.rbSoul = true
         } else {
-            Genre.shared.rbSoul = 0
+            Genre.shared.rbSoul = false
         }
     }
     
     @IBAction func selectAcoustic(_ sender: Any) {
         select(acoustic)
-        if Genre.shared.forkAcoustic != 1 {
-            Genre.shared.forkAcoustic = 1
+        if Genre.shared.forkAcoustic != true {
+            Genre.shared.forkAcoustic = true
         } else {
-            Genre.shared.forkAcoustic = 0
+            Genre.shared.forkAcoustic = false
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Genre.shared.balad = 0
-        Genre.shared.dancePop = 0
-        Genre.shared.forkAcoustic = 0
-        Genre.shared.indie = 0
-        Genre.shared.rapHiphop = 0
-        Genre.shared.rbSoul = 0
-        Genre.shared.rockMetal = 0
+        Genre.shared.balad = false
+        Genre.shared.dancePop = false
+        Genre.shared.forkAcoustic = false
+        Genre.shared.indie = false
+        Genre.shared.rapHiphop = false
+        Genre.shared.rbSoul = false
+        Genre.shared.rockMetal = false
         
         //ageBtn.delegate = self
         ageBtn.tintColor = .clear // 커서 깜빡임 해결
@@ -180,10 +180,10 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
         SignService.shared.saveGenre(indie: genre.indie, balad: genre.balad, rockMetal: genre.rockMetal, dancePop: genre.dancePop, rapHiphop: genre.rapHiphop, rbSoul: genre.rbSoul, forkAcoustic: genre.forkAcoustic) { response in
             switch response {
             case .success(let data):
-                if let data = data as? NonDataModel {
-                    switch data.status {
-                    case 200:
-                        print(data.message)
+                if let data = data as? GenreModel {
+                    switch data.httpStatus {
+                    case "OK":
+                        print(data.result)
                         self.sv.removeFromSuperview()
                         self.goToMain()
                     default:
@@ -202,27 +202,20 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
         }
     }
     
-    func signUpAPI() {
-        guard let userId = Member.shared.user_id else { return }
-        guard let pwd = Member.shared.pwd else { return }
-        guard let name = Member.shared.name else { return }
-        guard let age = Member.shared.age else { return }
-        guard let profileId = Member.shared.profileId else { return }
+    func signUpAPI() {        
+        print(Member.shared)
         
         // 회원가입
-        SignService.shared.signUp(userId: userId, pwd: pwd, name: name, age: age, profileId: profileId) { response in
+        SignService.shared.signUp(member: Member.shared) { response in
             switch response {
             case .success(let key):
-                if let data = key as? ResponseModel {
-                    switch data.status {
-                    case 200:
-                        print(data.message)
-                        print(pwd)
+                if let data = key as? DataModel {
+                    switch data.httpStatus {
+                    case "OK":
+                        print(data.result)
                         self.signInAPI()
-                    case 400:
-                        print(data.message)
                     default:
-                        print("기타 오류")
+                        print(data.result)
                     }
                 }
 
@@ -242,12 +235,14 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
         guard let id = Member.shared.user_id else { return }
         guard let pwd = Member.shared.pwd else { return }
         
+        sv = UIViewController.displaySpinner(onView: self.view)
+        
         // 로그인
         SignService.shared.signIn(userId: id, pwd: pwd) { response in
             switch response {
             case .success(let data):
-                if let data = data as? ResponseModel {
-                    print("로그인 결과 :: \(data.message)")
+                if let data = data as? DataModel {
+                    print("로그인 결과 :: \(data.result)")
                     let dataSave = UserDefaults.standard
                     dataSave.setValue(data.data, forKey: "token")
                     dataSave.synchronize()
@@ -267,37 +262,37 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
         }
     }
     
-    func signUp() {
-        sv = UIViewController.displaySpinner(onView: self.view)
-        // 프로필 사진 저장
-        let image = Member.shared.img
-        SignService.shared.saveImage(imgData: image) { response in
-            switch response {
-            case .success(let data):
-                if let data = data as? ImageModel {
-                    switch data.status {
-                    case 200:
-                        print(data.message)
-                        Member.shared.profileId = String(data.data)
-                        // 회원 가입
-                        self.signUpAPI()
-                    case 400:
-                        print(data.message)
-                    default:
-                        print("기타 오류")
-                    }
-                }
-            case .pathErr:
-                print("이미지 저장 결과 :: decode 실패")
-            case .requestErr:
-                print("이미지 저장 결과 :: Request Err")
-            case .serverErr:
-                print("이미지 저장 결과 :: Server Err")
-            case .networkFail:
-                print("이미지 저장 결과 :: Network Fail")
-            }
-        }
-    }
+//    func signUp() {
+//        sv = UIViewController.displaySpinner(onView: self.view)
+//        // 프로필 사진 저장
+//        let image = Member.shared.img
+//        SignService.shared.saveImage(imgData: image) { response in
+//            switch response {
+//            case .success(let data):
+//                if let data = data as? ImageModel {
+//                    switch data.status {
+//                    case 200:
+//                        print(data.message)
+//                        Member.shared.profileId = String(data.data)
+//                        // 회원 가입
+//                        self.signUpAPI()
+//                    case 400:
+//                        print(data.message)
+//                    default:
+//                        print("기타 오류")
+//                    }
+//                }
+//            case .pathErr:
+//                print("이미지 저장 결과 :: decode 실패")
+//            case .requestErr:
+//                print("이미지 저장 결과 :: Request Err")
+//            case .serverErr:
+//                print("이미지 저장 결과 :: Server Err")
+//            case .networkFail:
+//                print("이미지 저장 결과 :: Network Fail")
+//            }
+//        }
+//    }
     
     func goToMain() {
         // 홈으로 이동

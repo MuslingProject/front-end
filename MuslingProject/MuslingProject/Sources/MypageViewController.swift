@@ -22,11 +22,11 @@ class MypageViewController: UIViewController {
             // 회원 탙퇴 api 실행
             self.sv = UIViewController.displaySpinner(onView: self.view)
             guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
-            SignService.shared.signOut(userId: userId) { response in
+            SignService.shared.register(userId: userId) { response in
                 switch response {
                 case .success(let data):
-                    if let data = data as? NonDataModel {
-                        print("회원 탈퇴 결과 :: \(data.message)")
+                    if let data = data as? DataModel {
+                        print("회원 탈퇴 결과 :: \(data.result)")
                         self.sv.removeFromSuperview()
                         
                         UserDefaults.standard.setValue("", forKey: "user_id")
@@ -71,13 +71,13 @@ class MypageViewController: UIViewController {
             switch response {
             case .success(let data):
                 if let data = data as? MypageModel {
-                    print("회원 정보 불러오기 결과 :: \(data.message)")
+                    print("회원 정보 불러오기 결과 :: \(data.result)")
                     
                     // 닉네임
                     self.nameLabel.text = data.data.name
                     
                     // 프로필 사진
-                    if let imageUrl = URL(string: data.data.profile.imageUrl) {
+                    if let imageUrl = URL(string: data.data.profileImageUrl) {
                         self.userProfile.loadImage(from: imageUrl)
                         Member.shared.imgURL = imageUrl
                     }
@@ -97,7 +97,7 @@ class MypageViewController: UIViewController {
             switch response {
             case .success(let data):
                 if let data = data as? GenreModel {
-                    print("장르 불러오기 결과 :: \(data.message)")
+                    print("장르 불러오기 결과 :: \(data.result)")
                     
                     let mirror = Mirror(reflecting: data.data)
                     
@@ -176,11 +176,11 @@ class MypageViewController: UIViewController {
             switch response {
             case .success(let data):
                 if let data = data as? MypageModel {
-                    print("회원 정보 불러오기 결과 :: \(data.message)")
+                    print("회원 정보 불러오기 결과 :: \(data.result)")
                     // 닉네임
                     self.nameLabel.text = data.data.name
                     // 프로필 사진
-                    if let imageUrl = URL(string: data.data.profile.imageUrl) {
+                    if let imageUrl = URL(string: data.data.profileImageUrl) {
                         self.userProfile.loadImage(from: imageUrl)
                         Member.shared.imgURL = imageUrl
                     }
@@ -202,7 +202,7 @@ class MypageViewController: UIViewController {
             switch response {
             case .success(let data):
                 if let data = data as? GenreModel {
-                    print("장르 불러오기 결과 :: \(data.message)")
+                    print("장르 불러오기 결과 :: \(data.result)")
                     
                     let mirror = Mirror(reflecting: data.data)
                     

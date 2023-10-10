@@ -65,8 +65,8 @@ class FirstViewController: UIViewController {
                         SignService.shared.signIn(userId: userId, pwd: pwd) { response in
                     switch response {
                     case .success(let data):
-                        if let data = data as? ResponseModel {
-                            print("로그인 결과 :: \(data.message)")
+                        if let data = data as? DataModel {
+                            print("로그인 결과 :: \(data.result)")
                             let dataSave = UserDefaults.standard
                             // 새로 갱신된 token 저장
                             dataSave.setValue(data.data, forKey: "token")
@@ -108,8 +108,8 @@ class FirstViewController: UIViewController {
             SignService.shared.signIn(userId: userId, pwd: pwd) { response in
                 switch response {
                 case .success(let data):
-                    if let data = data as? ResponseModel {
-                        print("로그인 결과 :: \(data.message)")
+                    if let data = data as? DataModel {
+                        print("로그인 결과 :: \(data.result)")
                         let dataSave = UserDefaults.standard
                         // 새로 갱신된 token 저장
                         dataSave.setValue(data.data, forKey: "token")

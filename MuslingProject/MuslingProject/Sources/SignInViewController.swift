@@ -30,10 +30,10 @@ class SignInViewController: UIViewController {
             SignService.shared.signIn(userId: id, pwd: pwd) { response in
                 switch response {
                 case .success(let data):
-                    if let data = data as? ResponseModel {
-                        print(data.message)
-                        switch data.status {
-                        case 200:
+                    if let data = data as? DataModel {
+                        print(data.result)
+                        switch data.httpStatus {
+                        case "OK":
                             // 자동 로그인을 위해 아이디, pwd 저장, token 저장
                             let dataSave = UserDefaults.standard
                             dataSave.setValue(id, forKey: "user_id")
@@ -41,10 +41,8 @@ class SignInViewController: UIViewController {
                             dataSave.setValue(data.data, forKey: "token")
                             UserDefaults.standard.synchronize()
                             self.goToMain() // 홈으로 이동
-                        case 400:
-                            print(data.message)
                         default:
-                            print("기타 에러")
+                            print(data.result)
                         }
                     }
                 case .pathErr:
