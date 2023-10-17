@@ -26,9 +26,11 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
     
     @IBAction func selectRec(_ sender: Any) {
         if recommend.isOn {
-            Member.shared.ageRec = false
-        } else {
             Member.shared.ageRec = true
+            print(Member.shared.ageRec)
+        } else {
+            Member.shared.ageRec = false
+            print(Member.shared.ageRec)
         }
     }
     
@@ -42,6 +44,7 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
+            print(Member.shared.ageRec)
             signUpAPI()
         }
     }
@@ -271,38 +274,6 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
             }
         }
     }
-    
-//    func signUp() {
-//        sv = UIViewController.displaySpinner(onView: self.view)
-//        // 프로필 사진 저장
-//        let image = Member.shared.img
-//        SignService.shared.saveImage(imgData: image) { response in
-//            switch response {
-//            case .success(let data):
-//                if let data = data as? ImageModel {
-//                    switch data.status {
-//                    case 200:
-//                        print(data.message)
-//                        Member.shared.profileId = String(data.data)
-//                        // 회원 가입
-//                        self.signUpAPI()
-//                    case 400:
-//                        print(data.message)
-//                    default:
-//                        print("기타 오류")
-//                    }
-//                }
-//            case .pathErr:
-//                print("이미지 저장 결과 :: decode 실패")
-//            case .requestErr:
-//                print("이미지 저장 결과 :: Request Err")
-//            case .serverErr:
-//                print("이미지 저장 결과 :: Server Err")
-//            case .networkFail:
-//                print("이미지 저장 결과 :: Network Fail")
-//            }
-//        }
-//    }
     
     func goToMain() {
         // 홈으로 이동

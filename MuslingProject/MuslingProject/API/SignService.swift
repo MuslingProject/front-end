@@ -132,6 +132,8 @@ struct SignService {
         let baseURL = APIConstants.unregisterURL
         let deleteURL = baseURL + "/\(userId)"
         
+        print(deleteURL)
+        
         let dataRequest = AF.request(deleteURL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil)
         
         dataRequest.responseData { response in

@@ -15,7 +15,7 @@ struct APIConstants {
     // 로그아웃 url
     static let userSignOutURL = baseURL + "/users/logout"
     // 회원 탈퇴 url
-    static let unregisterURL = baseURL + "/users/unregister"
+    static let unregisterURL = baseURL + "/users"
     // 장르 url
     static let genreURL = baseURL + "/genre"
     // 날씨 불러오기 url
