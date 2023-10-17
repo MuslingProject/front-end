@@ -14,6 +14,7 @@ class Member {
     var name: String!
     var age: String!
     var img: UIImage!
+    var ageRec: Bool!
     var profileId: String!
     var imgURL: URL!
 }

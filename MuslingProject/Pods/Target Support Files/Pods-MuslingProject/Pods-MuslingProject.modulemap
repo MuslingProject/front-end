@@ -1,0 +1,6 @@
+framework module Pods_MuslingProject {
+  umbrella header "Pods-MuslingProject-umbrella.h"
+
+  export *
+  module * { export * }
+}

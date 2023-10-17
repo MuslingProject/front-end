@@ -22,6 +22,15 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet var metal: CSButton!
     @IBOutlet var rnb: CSButton!
     @IBOutlet var acoustic: CSButton!
+    @IBOutlet var recommend: UISwitch!
+    
+    @IBAction func selectRec(_ sender: Any) {
+        if recommend.isOn {
+            Member.shared.ageRec = false
+        } else {
+            Member.shared.ageRec = true
+        }
+    }
     
     @IBOutlet var label1: UILabel!
     
@@ -33,7 +42,7 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
-            signInAPI()
+            signUpAPI()
         }
     }
     
@@ -103,6 +112,8 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Member.shared.ageRec = true
         
         Genre.shared.balad = false
         Genre.shared.dancePop = false
@@ -218,7 +229,6 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
                         print(data.result)
                     }
                 }
-
             case .pathErr:
                 print("회원가입 결과 :: decode 실패")
             case .requestErr:

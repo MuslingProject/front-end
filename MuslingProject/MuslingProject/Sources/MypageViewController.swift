@@ -102,7 +102,7 @@ class MypageViewController: UIViewController {
                     let mirror = Mirror(reflecting: data.data)
                     
                     for case let (label?, value) in mirror.children {
-                        if value as! Int == 1 {
+                        if value as! Bool == true {
                             guard let genreName = GenreDescKo[label] else { return }
                             self.genre += "\(genreName) "
                         }

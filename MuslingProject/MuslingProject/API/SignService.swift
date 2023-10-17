@@ -81,6 +81,7 @@ struct SignService {
             multipartFormData.append(Data(member.pwd.utf8), withName: "pwd")
             multipartFormData.append(Data(member.name.utf8), withName: "name")
             multipartFormData.append(Data(member.age.utf8), withName: "age")
+            multipartFormData.append(Data(member.ageRec.description.utf8), withName: "ageRecommendation")
             // 이미지 추가 (이미지가 비어 있을 경우 고려)
             if let image = member.img.jpegData(compressionQuality: 0.7) {
                 multipartFormData.append(image, withName: "file", fileName: "\(image).jpg", mimeType: "image/jpeg")
