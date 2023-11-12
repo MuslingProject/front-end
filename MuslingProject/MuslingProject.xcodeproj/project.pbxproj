@@ -12,9 +12,14 @@
 		F303F7472A2F1A9800FEE41E /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = F303F7462A2F1A9800FEE41E /* Music.swift */; };
 		F30A73972A1CBDDD00CAF477 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A73962A1CBDDD00CAF477 /* Category.swift */; };
 		F30F22202A0E8C2F005FDE36 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F221F2A0E8C2F005FDE36 /* UIColor.swift */; };
+		F30F9AC22ADEE92600507422 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30F9ABD2ADEE92600507422 /* Pretendard-Regular.otf */; };
+		F30F9AC32ADEE92600507422 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30F9ABE2ADEE92600507422 /* Pretendard-Bold.otf */; };
+		F30F9AC42ADEE92600507422 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30F9ABF2ADEE92600507422 /* Pretendard-Medium.otf */; };
+		F30F9AC52ADEE92600507422 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30F9AC02ADEE92600507422 /* Pretendard-Light.otf */; };
+		F30F9AC62ADEE92600507422 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30F9AC12ADEE92600507422 /* Pretendard-SemiBold.otf */; };
+		F30F9AC82ADEF07F00507422 /* AllEmotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F9AC72ADEF07F00507422 /* AllEmotionViewController.swift */; };
 		F31B14AC2A5D224000AE12E2 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */; };
 		F31B14AE2A5D299600AE12E2 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AD2A5D299600AE12E2 /* Diary.swift */; };
-		F3244AAB2A36E8C0002C19BB /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA62A36E8BF002C19BB /* list.png */; };
 		F3244AAD2A36E8C0002C19BB /* kuromi.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA82A36E8BF002C19BB /* kuromi.jpeg */; };
 		F3244AAE2A36E8C0002C19BB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA92A36E8C0002C19BB /* logo.png */; };
 		F3244AAF2A36E8C0002C19BB /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AAA2A36E8C0002C19BB /* line.png */; };
@@ -31,16 +36,11 @@
 		F3733D5B2A87D862008B9814 /* MypageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3733D5A2A87D862008B9814 /* MypageService.swift */; };
 		F3733D5D2A87F88D008B9814 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */; };
 		F37651C32A138AB6002B4286 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37651C22A138AB6002B4286 /* SignInViewController.swift */; };
+		F3778B2F2AFBC8C200611AA3 /* DiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3778B2E2AFBC8C200611AA3 /* DiaryService.swift */; };
 		F386B0122A8DF7AB000A5835 /* ExtensionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */; };
 		F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A062822A6E870000CE7085 /* MusicCell.swift */; };
 		F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A062832A6E870000CE7085 /* MusicCell.xib */; };
 		F3A3C77D2A5FD7FE00BF13DD /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */; };
-		F3AC07B72AA9DC5A002114B2 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3AC07B32AA9DC59002114B2 /* Pretendard-ExtraLight.otf */; };
-		F3AC07B82AA9DC5A002114B2 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3AC07B42AA9DC59002114B2 /* Pretendard-Bold.otf */; };
-		F3AC07B92AA9DC5A002114B2 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3AC07B52AA9DC59002114B2 /* Pretendard-Medium.otf */; };
-		F3AC07BA2AA9DC5A002114B2 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3AC07B62AA9DC5A002114B2 /* Pretendard-Regular.otf */; };
-		F3AC07BC2AA9E20E002114B2 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3AC07BB2AA9E20E002114B2 /* Pretendard-Light.otf */; };
-		F3AC07BE2AAA0182002114B2 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3AC07BD2AAA0182002114B2 /* Pretendard-SemiBold.otf */; };
 		F3AD172E2ACD8E6200F10D7B /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F3AD172D2ACD8E6200F10D7B /* profile.png */; };
 		F3AD17302ACD8E8100F10D7B /* backImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3AD172F2ACD8E8100F10D7B /* backImg.png */; };
 		F3AD17322ACD996800F10D7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD17312ACD996800F10D7B /* HomeViewController.swift */; };
@@ -49,12 +49,12 @@
 		F3AD17382ACD99C000F10D7B /* StatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD17372ACD99C000F10D7B /* StatViewController.swift */; };
 		F3AD173A2ACD99D100F10D7B /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD17392ACD99D100F10D7B /* RecommendViewController.swift */; };
 		F3AD173E2ACD9A0100F10D7B /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD173D2ACD9A0100F10D7B /* TabBarVC.swift */; };
-		F3AD17402ACD9A2C00F10D7B /* Recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD173F2ACD9A2C00F10D7B /* Recommend.swift */; };
 		F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ADDE002A010C91005650E2 /* WriteViewController.swift */; };
 		F3C2287529EC453B00FDED32 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2287429EC453B00FDED32 /* CSButton.swift */; };
 		F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2288629EC509000FDED32 /* MypageViewController.swift */; };
 		F3C2A7AB2A25F0BC0001EDD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3C2A7AA2A25F0BC0001EDD6 /* GoogleService-Info.plist */; };
 		F3D06D162A36FBAF006B991E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3D06D152A36FBAF006B991E /* Main.storyboard */; };
+		F3D1A5362AFE289700E403BB /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3D1A5352AFE289700E403BB /* Pretendard-ExtraBold.otf */; };
 		F3EAA53229E55B6600819F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA53129E55B6600819F7A /* AppDelegate.swift */; };
 		F3EAA53429E55B6600819F7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EAA53329E55B6600819F7A /* SceneDelegate.swift */; };
 		F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3EAA53A29E55B6700819F7A /* Assets.xcassets */; };
@@ -81,9 +81,14 @@
 		F303F7462A2F1A9800FEE41E /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		F30A73962A1CBDDD00CAF477 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F30F221F2A0E8C2F005FDE36 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		F30F9ABD2ADEE92600507422 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.otf"; path = "../../../../Downloads/Pretendard-1.3.6/public/static/Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		F30F9ABE2ADEE92600507422 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Bold.otf"; path = "../../../../Downloads/Pretendard-1.3.6/public/static/Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		F30F9ABF2ADEE92600507422 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Medium.otf"; path = "../../../../Downloads/Pretendard-1.3.6/public/static/Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		F30F9AC02ADEE92600507422 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Light.otf"; path = "../../../../Downloads/Pretendard-1.3.6/public/static/Pretendard-Light.otf"; sourceTree = "<group>"; };
+		F30F9AC12ADEE92600507422 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../Downloads/Pretendard-1.3.6/public/static/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		F30F9AC72ADEF07F00507422 /* AllEmotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEmotionViewController.swift; sourceTree = "<group>"; };
 		F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		F31B14AD2A5D299600AE12E2 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
-		F3244AA62A36E8BF002C19BB /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		F3244AA82A36E8BF002C19BB /* kuromi.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kuromi.jpeg; sourceTree = "<group>"; };
 		F3244AA92A36E8C0002C19BB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F3244AAA2A36E8C0002C19BB /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
@@ -100,16 +105,11 @@
 		F3733D5A2A87D862008B9814 /* MypageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageService.swift; sourceTree = "<group>"; };
 		F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		F37651C22A138AB6002B4286 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		F3778B2E2AFBC8C200611AA3 /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
 		F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionVC.swift; sourceTree = "<group>"; };
 		F3A062822A6E870000CE7085 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		F3A062832A6E870000CE7085 /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
 		F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
-		F3AC07B32AA9DC59002114B2 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
-		F3AC07B42AA9DC59002114B2 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
-		F3AC07B52AA9DC59002114B2 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
-		F3AC07B62AA9DC5A002114B2 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
-		F3AC07BB2AA9E20E002114B2 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
-		F3AC07BD2AAA0182002114B2 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		F3AD172D2ACD8E6200F10D7B /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../../Downloads/profile.png; sourceTree = "<group>"; };
 		F3AD172F2ACD8E8100F10D7B /* backImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg.png; sourceTree = "<group>"; };
 		F3AD17312ACD996800F10D7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -118,12 +118,12 @@
 		F3AD17372ACD99C000F10D7B /* StatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatViewController.swift; sourceTree = "<group>"; };
 		F3AD17392ACD99D100F10D7B /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		F3AD173D2ACD9A0100F10D7B /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
-		F3AD173F2ACD9A2C00F10D7B /* Recommend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommend.swift; sourceTree = "<group>"; };
 		F3ADDE002A010C91005650E2 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		F3C2287429EC453B00FDED32 /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
 		F3C2288629EC509000FDED32 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		F3C2A7AA2A25F0BC0001EDD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3D06D152A36FBAF006B991E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F3D1A5352AFE289700E403BB /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		F3EAA52E29E55B6600819F7A /* MuslingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuslingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EAA53129E55B6600819F7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EAA53329E55B6600819F7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,12 +176,12 @@
 		F3AC07B22AA9DC2D002114B2 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				F3AC07B42AA9DC59002114B2 /* Pretendard-Bold.otf */,
-				F3AC07BD2AAA0182002114B2 /* Pretendard-SemiBold.otf */,
-				F3AC07BB2AA9E20E002114B2 /* Pretendard-Light.otf */,
-				F3AC07B32AA9DC59002114B2 /* Pretendard-ExtraLight.otf */,
-				F3AC07B52AA9DC59002114B2 /* Pretendard-Medium.otf */,
-				F3AC07B62AA9DC5A002114B2 /* Pretendard-Regular.otf */,
+				F3D1A5352AFE289700E403BB /* Pretendard-ExtraBold.otf */,
+				F30F9ABE2ADEE92600507422 /* Pretendard-Bold.otf */,
+				F30F9AC02ADEE92600507422 /* Pretendard-Light.otf */,
+				F30F9ABF2ADEE92600507422 /* Pretendard-Medium.otf */,
+				F30F9ABD2ADEE92600507422 /* Pretendard-Regular.otf */,
+				F30F9AC12ADEE92600507422 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -194,11 +194,10 @@
 				F3244B412A25810A006C7E9B /* WeatherModel.swift */,
 				F3F7D9A62A2C8CEC00D90B69 /* Member.swift */,
 				F303F7442A2F094300FEE41E /* Genre.swift */,
-				F303F7462A2F1A9800FEE41E /* Music.swift */,
 				F34FF9E12A59894B0025EC5B /* ResponseModel.swift */,
 				F31B14AD2A5D299600AE12E2 /* Diary.swift */,
 				F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */,
-				F3AD173F2ACD9A2C00F10D7B /* Recommend.swift */,
+				F303F7462A2F1A9800FEE41E /* Music.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,7 +259,6 @@
 			children = (
 				F3244AA82A36E8BF002C19BB /* kuromi.jpeg */,
 				F3244AAA2A36E8C0002C19BB /* line.png */,
-				F3244AA62A36E8BF002C19BB /* list.png */,
 				F33C98AA2AADB8D000759E8A /* music-back.png */,
 				F3244AA92A36E8C0002C19BB /* logo.png */,
 				F3AD172F2ACD8E8100F10D7B /* backImg.png */,
@@ -278,6 +276,7 @@
 				F3EFB2292A57E046004ED092 /* SignService.swift */,
 				F3EFB22B2A57E94E004ED092 /* WeatherService.swift */,
 				F3733D5A2A87D862008B9814 /* MypageService.swift */,
+				F3778B2E2AFBC8C200611AA3 /* DiaryService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -304,6 +303,7 @@
 				F3AD17372ACD99C000F10D7B /* StatViewController.swift */,
 				F3AD17392ACD99D100F10D7B /* RecommendViewController.swift */,
 				F3AD173D2ACD9A0100F10D7B /* TabBarVC.swift */,
+				F30F9AC72ADEF07F00507422 /* AllEmotionViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -373,22 +373,21 @@
 			files = (
 				F33C98AB2AADB8D000759E8A /* music-back.png in Resources */,
 				F3244AAD2A36E8C0002C19BB /* kuromi.jpeg in Resources */,
-				F3AC07B82AA9DC5A002114B2 /* Pretendard-Bold.otf in Resources */,
+				F3D1A5362AFE289700E403BB /* Pretendard-ExtraBold.otf in Resources */,
 				F3D06D162A36FBAF006B991E /* Main.storyboard in Resources */,
-				F3AC07BE2AAA0182002114B2 /* Pretendard-SemiBold.otf in Resources */,
-				F3AC07B92AA9DC5A002114B2 /* Pretendard-Medium.otf in Resources */,
 				F3244AAE2A36E8C0002C19BB /* logo.png in Resources */,
+				F30F9AC22ADEE92600507422 /* Pretendard-Regular.otf in Resources */,
 				F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */,
 				F3AD17302ACD8E8100F10D7B /* backImg.png in Resources */,
 				F3244AAF2A36E8C0002C19BB /* line.png in Resources */,
-				F3AC07BC2AA9E20E002114B2 /* Pretendard-Light.otf in Resources */,
 				F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */,
-				F3244AAB2A36E8C0002C19BB /* list.png in Resources */,
+				F30F9AC52ADEE92600507422 /* Pretendard-Light.otf in Resources */,
+				F30F9AC32ADEE92600507422 /* Pretendard-Bold.otf in Resources */,
+				F30F9AC42ADEE92600507422 /* Pretendard-Medium.otf in Resources */,
 				F3AD172E2ACD8E6200F10D7B /* profile.png in Resources */,
 				F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */,
-				F3AC07BA2AA9DC5A002114B2 /* Pretendard-Regular.otf in Resources */,
 				F3C2A7AB2A25F0BC0001EDD6 /* GoogleService-Info.plist in Resources */,
-				F3AC07B72AA9DC5A002114B2 /* Pretendard-ExtraLight.otf in Resources */,
+				F30F9AC62ADEE92600507422 /* Pretendard-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,10 +448,10 @@
 				F303F7452A2F094300FEE41E /* Genre.swift in Sources */,
 				F3AD17322ACD996800F10D7B /* HomeViewController.swift in Sources */,
 				F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */,
+				F3778B2F2AFBC8C200611AA3 /* DiaryService.swift in Sources */,
 				F30A73972A1CBDDD00CAF477 /* Category.swift in Sources */,
 				F303F7472A2F1A9800FEE41E /* Music.swift in Sources */,
 				F33135C72A2570F6008DF851 /* LocationService.swift in Sources */,
-				F3AD17402ACD9A2C00F10D7B /* Recommend.swift in Sources */,
 				F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */,
 				F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */,
 				F3244B422A25810A006C7E9B /* WeatherModel.swift in Sources */,
@@ -473,6 +472,7 @@
 				F327EF652A615713002A8CA7 /* PaddingLabel.swift in Sources */,
 				F3AD173E2ACD9A0100F10D7B /* TabBarVC.swift in Sources */,
 				F327EF632A615357002A8CA7 /* CSLabel.swift in Sources */,
+				F30F9AC82ADEF07F00507422 /* AllEmotionViewController.swift in Sources */,
 				F3EAA53429E55B6600819F7A /* SceneDelegate.swift in Sources */,
 				F3A3C77D2A5FD7FE00BF13DD /* DiaryViewController.swift in Sources */,
 				F31B14AE2A5D299600AE12E2 /* Diary.swift in Sources */,

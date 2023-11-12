@@ -8,40 +8,28 @@
 import Foundation
 
 struct Music {
-    let title: String
+    let songTitle: String
+    let coverImagePath: String
     let singer: String
-    let emotion: String
-}
-
-struct RecMusic {
-    let title: String
-    let singer: String
-    let img: String
+    let emotion: String?
+    let weather: String?
 }
 
 extension Music {
     static var data = [
-        Music(title: "I AM", singer: "IVE (아이브)", emotion: "사랑/기쁨"),
-        Music(title: "Spicy", singer: "aespa", emotion: "사랑/기쁨"),
-        Music(title: "After Like", singer: "IVE (아이브)", emotion: "사랑/기쁨"),
-        Music(title: "퀸카(Queencard)", singer: "(여자)아이들", emotion: "이별/슬픔"),
-        Music(title: "UNFORGIVEN", singer: "LE SSERAFIM(르세라핌)", emotion: "스트레스/짜증"),
-        Music(title: "Cupid", singer: "FIFTY FIFTY", emotion: "스트레스/짜증"),
-        Music(title: "Teddy Bear", singer: "STAYC (스테이씨)", emotion: "스트레스/짜증"),
-        Music(title: "꽃", singer: "지수(JISOO)", emotion: "멘붕/불안"),
-        Music(title: "손오공", singer: "세븐틴 (SEVENTEEN)", emotion: "멘붕/불안"),
-        Music(title: "Ditto", singer: "NewJeans", emotion: "우울"),
-        Music(title: "Hype Boy", singer: "NewJeans", emotion: "우울")
-    ]
-}
-
-
-extension RecMusic {
-    static var data = [
-        RecMusic(title: "I AM", singer: "IVE (아이브)", img: "kuromi.jpeg"),
-        RecMusic(title: "Spicy", singer: "aespa", img: "kuromi.jpeg"),
-        RecMusic(title: "After Like", singer: "IVE (아이브)", img: "kuromi.jpeg"),
-        RecMusic(title: "UNFORGIVEN", singer: "LE SSERAFIM(르세라핌)", img: "kuromi.jpeg"),
-        RecMusic(title: "Teddy Bear", singer: "STAYC (스테이씨)", img: "kuromi.jpeg")
+        Music(songTitle: "DOOL", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203921/20392185.jpg?version=20211013005610.0", singer: "미노이(meenoi)", emotion: "사랑/기쁨", weather: nil),
+        Music(songTitle: "DOOL2", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203921/20392185.jpg?version=20211013005610.0", singer: "미노이(meenoi)", emotion: "사랑/기쁨", weather: nil),
+        Music(songTitle: "My Dear", coverImagePath: "https://image.bugsm.co.kr/album/images/200/200545/20054544.jpg?version=20190515004930.0", singer: "Red Velvet (레드벨벳)", emotion: "이별/슬픔", weather: nil),
+        Music(songTitle: "My Dear2", coverImagePath: "https://image.bugsm.co.kr/album/images/200/200545/20054544.jpg?version=20190515004930.0", singer: "Red Velvet (레드벨벳)", emotion: "이별/슬픔", weather: nil),
+        Music(songTitle: "BETELGEUSE", coverImagePath: "https://image.bugsm.co.kr/album/images/200/166101/16610139.jpg?version=20230306150744.0", singer: "Yuuri", emotion: "우울", weather: nil),
+        Music(songTitle: "BETELGEUSE2", coverImagePath: "https://image.bugsm.co.kr/album/images/200/166101/16610139.jpg?version=20230306150744.0", singer: "Yuuri", emotion: "우울", weather: nil),
+        Music(songTitle: "BETELGEUSE3", coverImagePath: "https://image.bugsm.co.kr/album/images/200/166101/16610139.jpg?version=20230306150744.0", singer: "Yuuri", emotion: "멘붕/불안", weather: nil),
+        Music(songTitle: "BETELGEUSE4", coverImagePath: "https://image.bugsm.co.kr/album/images/200/166101/16610139.jpg?version=20230306150744.0", singer: "Yuuri", emotion: "스트레스/짜증", weather: nil),
+        Music(songTitle: "BETELGEUSE5", coverImagePath: "https://image.bugsm.co.kr/album/images/200/166101/16610139.jpg?version=20230306150744.0", singer: "Yuuri", emotion: "스트레스/짜증", weather: nil),
+        Music(songTitle: "비도 오고 그래서 (Feat. 신용재)", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201049/20104917.jpg?version=20211216040901.0", singer: "헤이즈(Heize)", emotion: nil,  weather: "비/흐림"),
+        Music(songTitle: "비도 오고 그래서 (Feat. 신용재)2", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201049/20104917.jpg?version=20211216040901.0", singer: "헤이즈(Heize)", emotion: nil,  weather: "화창한 날"),
+        Music(songTitle: "비도 오고 그래서 (Feat. 신용재)3", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201049/20104917.jpg?version=20211216040901.0", singer: "헤이즈(Heize)", emotion: nil,  weather: "화창한 날"),
+        Music(songTitle: "Min (미는 남자)", coverImagePath: "https://image.bugsm.co.kr/album/images/200/40796/4079641.jpg?version=20220916063541.0", singer: "검정치마", emotion: nil, weather: "눈오는 날"),
+        Music(songTitle: "EVERYTHING", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201002/20100228.jpg?version=20210428040321.0", singer: "검정치마", emotion: nil, weather: "비/흐림")
     ]
 }

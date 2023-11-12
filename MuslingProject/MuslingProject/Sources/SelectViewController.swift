@@ -27,14 +27,14 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
     @IBAction func selectRec(_ sender: Any) {
         if recommend.isOn {
             Member.shared.ageRec = true
-            print(Member.shared.ageRec)
         } else {
             Member.shared.ageRec = false
-            print(Member.shared.ageRec)
         }
     }
     
     @IBOutlet var label1: UILabel!
+    @IBOutlet var genreLabel: UILabel!
+    @IBOutlet var finish: UIButton!
     
     @IBAction func finishBtn(_ sender: UIButton) {
         Member.shared.age = ageBtn.text
@@ -44,7 +44,7 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
-            print(Member.shared.ageRec)
+            sv = UIViewController.displaySpinner(onView: self.view)
             signUpAPI()
         }
     }
@@ -133,6 +133,10 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
         dismissPickerView()
         
         label1.attributedText = NSMutableAttributedString(string: label1.text!, attributes: [NSAttributedString.Key.kern: -0.7])
+        
+        genreLabel.attributedText = NSAttributedString(string: "선호하는 장르", attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 19)!])
+        
+        finish.setAttributedTitle(NSAttributedString(string: "완료", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 15)!, NSAttributedString.Key.kern: -0.5]), for: .normal)
     }
     
     // 버튼 선택했을 때
@@ -216,9 +220,8 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
         }
     }
     
-    func signUpAPI() {        
-        print(Member.shared)
-        
+    func signUpAPI() {
+        sv = UIViewController.displaySpinner(onView: self.view)
         // 회원가입
         SignService.shared.signUp(member: Member.shared) { response in
             switch response {
@@ -247,8 +250,6 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
     func signInAPI() {
         guard let id = Member.shared.user_id else { return }
         guard let pwd = Member.shared.pwd else { return }
-        
-        sv = UIViewController.displaySpinner(onView: self.view)
         
         // 로그인
         SignService.shared.signIn(userId: id, pwd: pwd) { response in

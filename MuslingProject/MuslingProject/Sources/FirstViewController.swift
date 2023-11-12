@@ -8,9 +8,24 @@
 import UIKit
 import GoogleSignIn
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UIScrollViewDelegate {
     
     weak var sv: UIView!
+    @IBOutlet var ggBtn: UIButton!
+    @IBOutlet var normalBtn: UIButton!
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var signup: UILabel!
+    
+    // 스크롤 뷰 데이터
+    var images = [ "📝", "🤔", "🎵" ]
+    var titles = [ "일상 기록 작성", "감정 분석", "감정 기반 음악 추천" ]
+    var scripts = [ "일상 속 기억하고 싶은\n순간들을 기록으로 남겨 보세요", "기록에 담긴 나의 솔직한\n감정을 인공지능이 파악해 줘요", "파악된 감정을 바탕으로\n뮤즐링이 어울리는 음악들을 추천해 드릴게요" ]
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let value = scrollView.contentOffset.x/scrollView.frame.size.width
+        setPageControlSelectedPage(currentPage: Int(round(value)))
+    }
     
     // 구글 계정으로 로그인 선택했을 때
     @IBAction func ggLogin(_ sender: UIButton) {
@@ -35,13 +50,35 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        signup.attributedText = NSAttributedString(string: "회원가입", attributes: [NSAttributedString.Key.kern: -0.77, NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 13)!])
+        
+        let ggAttributedTitle = NSAttributedString(string: "구글 계정으로 로그인", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 16)!, NSAttributedString.Key.kern: -0.7])
+        ggBtn.setAttributedTitle(ggAttributedTitle, for: .normal)
+
+        let normalAttributedTitle = NSAttributedString(string: "일반 로그인", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 16)!, NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.foregroundColor: UIColor.white])
+        normalBtn.setAttributedTitle(normalAttributedTitle, for: .normal)
+        
+        // 스크롤뷰 설정
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.delegate = self
+        
+        // 스크롤뷰
+        addContentScrollView()
+        setPageControl()
+        
+        // 회원가입 클릭 시 페이지 이동
+        let goSignUp = UITapGestureRecognizer(target: self, action: #selector(goToSignUp))
+        signup.isUserInteractionEnabled = true
+        signup.addGestureRecognizer(goSignUp)
+
         // Navigation Bar Title 폰트 설정
         let navigationBarAppearance = UINavigationBarAppearance()
         
         if let customFont = UIFont(name: "Pretendard-Bold", size: 26) {
             navigationBarAppearance.largeTitleTextAttributes = [
                 .font: customFont,
-                .foregroundColor: UIColor.secondary!
+                .foregroundColor: UIColor.blue01!,
+                .kern: -1
             ]
         } else {
             print("폰트를 로드할 수 없습니다.")
@@ -50,7 +87,7 @@ class FirstViewController: UIViewController {
         // 현재 UIViewController의 Navigation Controller 가져오기
         if let navigationController = self.navigationController {
             // 현재 UIViewController의 Navigation Bar Appearance 설정
-            //navigationController.navigationBar.tintColor = .secondary
+            navigationController.navigationBar.tintColor = .blue01
             navigationController.navigationBar.standardAppearance = navigationBarAppearance
             navigationController.navigationBar.scrollEdgeAppearance = nil
         }
@@ -98,67 +135,136 @@ class FirstViewController: UIViewController {
         }
         
         // 자동 로그인
-        let saveId = UserDefaults.standard.string(forKey: "user_id")
-        if saveId?.isEmpty == false {
-            self.sv = UIViewController.displaySpinner(onView: self.view)
-            // 토큰 갱신해 주기
-            guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
-            guard let pwd = UserDefaults.standard.string(forKey: "pwd") else { return }
+//        let saveId = UserDefaults.standard.string(forKey: "user_id")
+//        if saveId?.isEmpty == false {
+//            self.sv = UIViewController.displaySpinner(onView: self.view)
+//            // 토큰 갱신해 주기
+//            guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
+//            guard let pwd = UserDefaults.standard.string(forKey: "pwd") else { return }
+//
+//            SignService.shared.signIn(userId: userId, pwd: pwd) { response in
+//                switch response {
+//                case .success(let data):
+//                    if let data = data as? DataModel {
+//                        print("로그인 결과 :: \(data.result)")
+//                        let dataSave = UserDefaults.standard
+//                        // 새로 갱신된 token 저장
+//                        dataSave.setValue(data.data, forKey: "token")
+//                        dataSave.synchronize()
+//                        
+//                        // 홈 화면으로 넘어가기
+//                        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+//                        vcName?.modalPresentationStyle = .fullScreen
+//                        vcName?.modalTransitionStyle = .crossDissolve
+//                        self.present(vcName!, animated: true, completion: nil)
+//                        
+//                        self.sv.removeFromSuperview()
+//                    }
+//                case .requestErr:
+//                    print("로그인 결과 :: Request Err")
+//                    let alert = UIAlertController(title: "오류 발생", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+//                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+//                        self.sv.removeFromSuperview()
+//                    }
+//                    alert.addAction(ok)
+//                    self.present(alert, animated: true, completion: nil)
+//                case .pathErr:
+//                    print("로그인 결과 :: decode 실패")
+//                    let alert = UIAlertController(title: "오류 발생", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+//                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+//                        self.sv.removeFromSuperview()
+//                    }
+//                    alert.addAction(ok)
+//                    self.present(alert, animated: true, completion: nil)
+//                case .serverErr:
+//                    print("로그인 결과 :: Server Err")
+//                    let alert = UIAlertController(title: "서버 오류", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+//                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+//                        self.sv.removeFromSuperview()
+//                    }
+//                    alert.addAction(ok)
+//                    self.present(alert, animated: true, completion: nil)
+//                case .networkFail:
+//                    print("로그인 결과 :: Network Err")
+//                    let alert = UIAlertController(title: "네트워크 오류", message: "네트워크가 원활한 환경에서\n다시 시도해 주세요", preferredStyle: .alert)
+//                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+//                        self.sv.removeFromSuperview()
+//                    }
+//                    alert.addAction(ok)
+//                    self.present(alert, animated: true, completion: nil)
+//                }
+//            }
+//        }
 
-            SignService.shared.signIn(userId: userId, pwd: pwd) { response in
-                switch response {
-                case .success(let data):
-                    if let data = data as? DataModel {
-                        print("로그인 결과 :: \(data.result)")
-                        let dataSave = UserDefaults.standard
-                        // 새로 갱신된 token 저장
-                        dataSave.setValue(data.data, forKey: "token")
-                        dataSave.synchronize()
-                        
-                        // 홈 화면으로 넘어가기
-                        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
-                        vcName?.modalPresentationStyle = .fullScreen
-                        vcName?.modalTransitionStyle = .crossDissolve
-                        self.present(vcName!, animated: true, completion: nil)
-                        
-                        self.sv.removeFromSuperview()
-                    }
-                case .requestErr:
-                    print("로그인 결과 :: Request Err")
-                    let alert = UIAlertController(title: "오류 발생", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
-                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
-                        self.sv.removeFromSuperview()
-                    }
-                    alert.addAction(ok)
-                    self.present(alert, animated: true, completion: nil)
-                case .pathErr:
-                    print("로그인 결과 :: decode 실패")
-                    let alert = UIAlertController(title: "오류 발생", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
-                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
-                        self.sv.removeFromSuperview()
-                    }
-                    alert.addAction(ok)
-                    self.present(alert, animated: true, completion: nil)
-                case .serverErr:
-                    print("로그인 결과 :: Server Err")
-                    let alert = UIAlertController(title: "서버 오류", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
-                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
-                        self.sv.removeFromSuperview()
-                    }
-                    alert.addAction(ok)
-                    self.present(alert, animated: true, completion: nil)
-                case .networkFail:
-                    print("로그인 결과 :: Network Err")
-                    let alert = UIAlertController(title: "네트워크 오류", message: "네트워크가 원활한 환경에서\n다시 시도해 주세요", preferredStyle: .alert)
-                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
-                        self.sv.removeFromSuperview()
-                    }
-                    alert.addAction(ok)
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
+    }
+    
+    @objc func goToSignUp() {
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "SignUp") else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    private func addContentScrollView() {
+        var contentX: CGFloat = 0.0 // 컨텐츠의 x 좌표를 초기화합니다.
+        
+        for i in 0..<images.count {
+            // 이미지와 레이블을 담을 컨테이너 뷰 생성
+            let containerView = UIView()
+            
+            // titleLabel과 scriptLabel을 생성하고 컨테이너 뷰에 추가
+            let imageLabel = UILabel()
+            let titleLabel = UILabel()
+            let scriptLabel = UILabel()
+            
+            imageLabel.text = images[i]
+            titleLabel.text = titles[i]
+            scriptLabel.text = scripts[i]
+            
+            imageLabel.frame = CGRect(x: containerView.bounds.width/2, y: 110, width: scrollView.bounds.width, height: 96)
+            imageLabel.font = UIFont(name: "Pretendard-Bold", size: 80)
+            imageLabel.textAlignment = .center
+            imageLabel.text = images[i]
+            
+            
+            titleLabel.frame = CGRect(x: containerView.bounds.width/2, y: 0, width: scrollView.bounds.width, height: 30)
+            titleLabel.textColor = .blue01
+            titleLabel.font = UIFont(name: "Pretendard-Bold", size: 24)
+            titleLabel.attributedText = NSMutableAttributedString(string: titles[i], attributes: [NSAttributedString.Key.kern: -1.2])
+            titleLabel.textAlignment = .center
+            
+            scriptLabel.frame = CGRect(x: containerView.bounds.width/2, y: 30, width: scrollView.bounds.width, height: 70)
+            scriptLabel.textColor = .text02
+            scriptLabel.font = UIFont(name: "Pretendard-Medium", size: 14)
+            scriptLabel.numberOfLines = 0
+            scriptLabel.lineBreakMode = .byWordWrapping
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineHeightMultiple = 1.1
+            
+            scriptLabel.attributedText = NSMutableAttributedString(string: scripts[i], attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.paragraphStyle: paragraphStyle])
+            
+            scriptLabel.textAlignment = .center
+            
+            containerView.addSubview(imageLabel)
+            containerView.addSubview(titleLabel)
+            containerView.addSubview(scriptLabel)
+            
+            // 컨테이너 뷰를 스크롤 뷰에 추가
+            containerView.frame = CGRect(x: contentX, y: 0, width: scrollView.bounds.width, height: scrollView.bounds.height)
+            scrollView.addSubview(containerView)
+            
+            contentX += scrollView.bounds.width // x 좌표를 증가시켜 다음 컨텐츠 위치를 지정합니다.
         }
-
+        
+        // 스크롤뷰의 contentSize 설정
+        scrollView.contentSize.width = scrollView.frame.width * CGFloat(images.count)
+    }
+    
+    private func setPageControl() {
+        pageControl.numberOfPages = images.count
+    }
+    
+    private func setPageControlSelectedPage(currentPage:Int) {
+        pageControl.currentPage = currentPage
     }
     
     override func viewWillDisappear(_ animated: Bool) {

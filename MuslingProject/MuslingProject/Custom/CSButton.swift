@@ -25,5 +25,9 @@ class CSButton: UIButton {
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.layer.shadowColor = UIColor.darkGray.cgColor
         
+        let attributedTitle = NSAttributedString(string: self.titleLabel?.text ?? "", attributes: [NSAttributedString.Key.kern: -0.5, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!])
+        
+        self.setAttributedTitle(attributedTitle, for: .normal)
+        
     }
 }

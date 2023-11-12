@@ -10,8 +10,12 @@ import Alamofire
 
 class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
     
-    let weather = ["☀️ 맑았어요", "☁️ 흐렸어요", "🌧️ 비가 내렸어요", "🌨️ 눈이 내렸어요"]
+    let weather = Category.weather
     var selectWeather = ""
+    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var weatherLabel: UILabel!
     
     @IBOutlet var diaryTitle: UITextField!
     @IBOutlet var weatherField: UITextField!
@@ -20,33 +24,28 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var pickerView = UIPickerView()
     
-    
-    // 작성 navigation bar item
-//    lazy var writeButton: UIBarButtonItem = {
-//        let button = UIBarButtonItem(title: "작성", style: .plain, target: self, action: #selector(writeDiary(_:)))
-//
-//        button.tintColor = UIColor.white
-//        return button
-//        }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        titleLabel.attributedText = NSAttributedString(string: "제목", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -0.5])
+        dateLabel.attributedText = NSAttributedString(string: "날짜", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -0.5])
+        weatherLabel.attributedText = NSAttributedString(string: "날씨", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -0.5])
+        
         // 커스텀 폰트
-        let customFont = UIFont(name: "Pretendard-SemiBold", size: 16)
+        let customFont = UIFont(name: "Pretendard-Medium", size: 16)
         
         // NSAttributedString을 사용하여 폰트 속성 설정
         let attributes: [NSAttributedString.Key: Any] = [
             .font: customFont as Any,
-            .foregroundColor: UIColor.white // 원하는 텍스트 색상으로 설정
+            .foregroundColor: UIColor.blue01!, // 원하는 텍스트 색상으로 설정
+            .kern: -0.4
         ]
         
         // UIBarButtonItem 생성 및 타이틀 설정
-        let barButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(writeDiary(_:)))
-        barButtonItem.title = "작성" // 타이틀 설정
+        let barButtonItem = UIBarButtonItem(title: "작성", style: .plain, target: self, action: #selector(writeDiary(_:)))
         barButtonItem.setTitleTextAttributes(attributes, for: .normal) // NSAttributedString 설정
-        
         navigationItem.rightBarButtonItem = barButtonItem
+
         
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
 
@@ -58,8 +57,12 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
         self.view.addGestureRecognizer(singleTapGestureRecognizer)
         
+        diaryTitle.attributedText = NSAttributedString(string: diaryTitle.text!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 15)!, NSAttributedString.Key.kern: -0.5])
+        diaryTitle.attributedPlaceholder  = NSAttributedString(string: "제목을 입력하세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 15)!, NSAttributedString.Key.kern: -0.5])
+        
         weatherField.delegate = self
         weatherField.tintColor = .clear // 커서 깜빡임 해결
+        weatherField.attributedPlaceholder = NSAttributedString(string: "선택하세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 15)!, NSAttributedString.Key.kern: -0.5])
         
         textView.layer.masksToBounds = true
         textView.clipsToBounds = true
@@ -69,11 +72,11 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         // 처음 화면이 로드되었을 때 플레이스 홀더처럼 보이게끔 만들어 주기
         textView.text = "오늘 하루 어떤 일이 있으셨나요? 🙂"
+        textView.attributedText = NSAttributedString(string: textView.text!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 16)!, NSAttributedString.Key.kern: -0.5])
         textView.textColor = UIColor.lightGray
 
         // 테두리 없애기
         textView.layer.borderColor = UIColor.systemBackground.cgColor
-        
         
         createPickerView(tagNo: 1)
         dismissPickerView()
@@ -84,41 +87,38 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        // 다이어리 저장
-        let params: Parameters = [
-            //"userId": UserDefaults.standard.string(forKey: "user_id")!,
-            "userId": "2020111396@gmail.com",
-            "title": diaryTitle.text!,
-            "content": textView.text!,
-            "date": dateFormatter.string(from: datePicker.date),
-            "weather": weatherField.text!,
-            "musicTitle": "Spicy",
-            "musicSinger": "Aespa",
-            "musicImg": "www.aaa.com",
-            "mood_result": "사랑/기쁨"
-        ]
+        guard let title = diaryTitle.text else { return }
+        let date = dateFormatter.string(from: datePicker.date)
+        var weather = ""
+        switch weatherField.text {
+        case "☀️ 맑음": weather = "화창한 날"
+        case "🌧️ 비/흐림": weather = "비/흐림"
+        case "🌨️ 눈": weather = "눈오는 날"
+        default: weather = "화창한 날"
+        }
+        guard let content = textView.text else { return }
         
-        print(params)
-        
-        // 서버와 통신
-//        AF.request("http://54.180.220.34:8080/create/diary",
-//                   method: .post,
-//                   parameters: params,
-//                   encoding: JSONEncoding.default,
-//                   headers: nil)
-//        .validate(statusCode: 200 ..< 299).responseData { response in
-//            switch response.result {
-//            case .success(_):
-//                print("일기 저장 완료!")
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-        
-        // 노래 추천 화면으로 이동
-        guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "RecommendVC") else { return }
-        self.navigationController?.pushViewController(vcName, animated: true)
+        DiaryService.shared.saveDiary(title: title, date: date, weather: weather, content: content) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? DiaryResponseModel {
+                    print("기록 저장 결과 :: \(data.result)")
+                    
+                    // 노래 추천 화면으로 이동
+                    guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "RecommendVC") as? RecommendViewController else { return }
+                    vcName.recommendData = data.recommentdations
+                    self.navigationController?.pushViewController(vcName, animated: true)
+                }
+            case .pathErr:
+                print("기록 저장 결과 :: Path Err")
+            case .networkFail:
+                print("기록 저장 결과 :: Network Err")
+            case .requestErr:
+                print("기록 저장 결과 :: Request Err")
+            case .serverErr:
+                print("기록 저장 결과 :: Server Err")
+            }
+        }
     }
         
     @objc func MyTapMethod(sender: UITapGestureRecognizer) {
@@ -144,6 +144,7 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         weatherField.text = weather[row]
+        weatherField.attributedText = NSAttributedString(string: weather[row], attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 15)!, NSAttributedString.Key.kern: -0.5])
     }
     
     func createPickerView(tagNo: Int) {

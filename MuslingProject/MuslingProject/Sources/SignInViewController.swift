@@ -12,6 +12,8 @@ class SignInViewController: UIViewController {
     
     @IBOutlet var idField: HSUnderLineTextField!
     @IBOutlet var passField: HSUnderLineTextField!
+    @IBOutlet var signUpBtn: UIButton!
+    @IBOutlet var login: UIButton!
     
     // 로그인 버튼 클릭
     @IBAction func LoginBtn(_ sender: Any) {
@@ -61,6 +63,9 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        signUpBtn.setAttributedTitle(NSAttributedString(string: "회원가입", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 14)!, NSAttributedString.Key.kern: -0.5]), for: .normal)
+        login.setAttributedTitle(NSAttributedString(string: "로그인", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 15)!, NSAttributedString.Key.kern: -0.5]), for: .normal)
     }
     
     func goToMain() {

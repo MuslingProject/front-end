@@ -26,4 +26,6 @@ struct APIConstants {
     static let modifyImageURL = baseURL + "/users/profile"
     // 닉네임 수정 url
     static let modifyNameURL = baseURL + "/users/name"
+    // 일기 저장
+    static let saveDiaryURL = baseURL + "/diaries"
 }

@@ -9,65 +9,39 @@ import UIKit
 
 class DiaryViewController: UIViewController {
     
-    @IBOutlet weak var navItem: UINavigationItem!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var diaryContent: UILabel!
-    @IBOutlet weak var emotionLabel: UIButton!
-    @IBOutlet weak var weatherLabel: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var emotionLabel: UILabel!
+    @IBOutlet var weatherLabel: UILabel!
+    @IBOutlet var contentLabel: UILabel!
+    @IBOutlet var musicLabel: UILabel!
     
     @IBOutlet var musicCollectionView: UICollectionView!
     
-    var diaryTitle: String!
     var diaryDate: String!
+    var diaryTitle: String!
     var content: String!
     var emotion: String!
     var weather: String!
     
     // 더미데이터 불러오기
     let diaries = Diary.data
-    let musics = RecMusic.data
+    let musics = Music.data
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // navigation bar title 설정
-        navItem.title = diaryTitle
-        
         // 일기 위의 문구
         let date = StringToDate(strDate: diaryDate, format: "yyyy-MM-dd")
-        let stringDate = DateToString(date: date!, format: "📖 yyyy년 MM월 dd일의 기록")
+        let stringDate = DateToString(date: date!, format: "✏️ yyyy년 MM월 dd일의 기록")
         
-        dateLabel.text = stringDate
+        dateLabel.attributedText = NSAttributedString(string: stringDate, attributes: [NSAttributedString.Key.kern: -1.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 20)!])
+        titleLabel.attributedText = NSAttributedString(string: diaryTitle, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 16)!, NSAttributedString.Key.kern: -1])
+        emotionLabel.attributedText = NSAttributedString(string: emotion, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 12)!, NSAttributedString.Key.kern: -0.8])
+        weatherLabel.attributedText = NSAttributedString(string: weather, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 12)!, NSAttributedString.Key.kern: -0.8])
+        contentLabel.attributedText = NSAttributedString(string: content, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.98])
+        musicLabel.attributedText = NSAttributedString(string: "👀 이런 노래들을 추천받았어요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.98])
         
-        // 일기 내용 행간 설정
-        let attrString = NSMutableAttributedString(string: content)
-        let paragraphStyle = NSMutableParagraphStyle()
-        let letterSpacing: CGFloat = -0.3
-        let lineSpacing: CGFloat = 4
-        
-        // paragraphyStyle에 자간과 행간 설정
-        paragraphStyle.lineSpacing = lineSpacing
-        attrString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attrString.length))
-        
-        // 자간 설정
-        attrString.addAttribute(.kern, value: letterSpacing, range: NSRange(location: 0, length: attrString.length))
-        
-        // label에 NSAttributedString 설정
-        diaryContent.attributedText = attrString
-        
-        diaryContent.backgroundColor = UIColor.white
-        
-        diaryContent.layer.cornerRadius = 15
-        diaryContent.layer.borderColor = UIColor.darkGray.cgColor
-        
-        diaryContent.layer.shadowOpacity = 0.2
-        diaryContent.layer.shadowRadius = 2
-        diaryContent.layer.shadowOffset = CGSize(width: 0, height: 0)
-        diaryContent.layer.shadowColor = UIColor.darkGray.cgColor
-        
-        
-        emotionLabel.setTitle(emotion, for: .normal)
-        weatherLabel.setTitle(weather, for: .normal)
         
         musicCollectionView.dataSource = self
         musicCollectionView.delegate = self
@@ -103,10 +77,10 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
     // 컬렉션 뷰 셀 설정
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = musicCollectionView.dequeueReusableCell(withReuseIdentifier: MusicCell.cellId, for: indexPath) as! MusicCell
-        cell.img.image = UIImage(named: musics[indexPath.row].img)
-        cell.title.text = musics[indexPath.row].title
-        cell.singer.text = musics[indexPath.row].singer
-        
+//        cell.img.image = UIImage(named: musics[indexPath.row].img)
+//        cell.title.text = musics[indexPath.row].title
+//        cell.singer.text = musics[indexPath.row].singer
+//        
         return cell
     }
     

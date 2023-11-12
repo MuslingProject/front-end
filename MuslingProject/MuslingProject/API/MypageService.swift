@@ -45,7 +45,7 @@ struct MypageService {
         let dataRequest = AF.upload(multipartFormData: { multipartFormData in
             // 이미지 추가 (이미지가 비어 있을 경우 고려)
             if let image = imgData.jpegData(compressionQuality: 0.7) {
-                multipartFormData.append(image, withName: "image", fileName: "\(image).jpg", mimeType: "image/jpeg")
+                multipartFormData.append(image, withName: "file", fileName: "\(image).jpg", mimeType: "image/jpeg")
             } else { }
         }, to: APIConstants.modifyImageURL, method: .patch, headers: header)
         
@@ -66,12 +66,14 @@ struct MypageService {
     func modifyName(nickname: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
-        let header: HTTPHeaders = [ "Content-Type": "text/plain",
+        let header: HTTPHeaders = [ "Content-Type": "application/json",
                                     "X-AUTH-TOKEN": token ]
         
-        let encoding = PlainStringEncoding(body: nickname)
+        let params: Parameters = [
+            "name": nickname
+        ]
         
-        let dataRequest = AF.request(APIConstants.modifyNameURL, method: .patch, parameters: nil, encoding: encoding, headers: header)
+        let dataRequest = AF.request(APIConstants.modifyNameURL, method: .patch, parameters: params, encoding: JSONEncoding.default, headers: header)
         
         dataRequest.responseData { response in
             switch response.result {

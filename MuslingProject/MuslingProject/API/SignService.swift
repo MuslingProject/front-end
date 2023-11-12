@@ -165,8 +165,6 @@ struct SignService {
             "forkAcoustic": forkAcoustic
         ]
         
-        print("장르 파라미터 :: \(params)")
-        
         let url = APIConstants.genreURL
         
         let dataRequest = AF.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: header)
@@ -183,7 +181,6 @@ struct SignService {
                 completion(.networkFail)
             }
         }
-    
     }
     
     // statusCode와 decode 결과에 따라 NetworkResult 반환

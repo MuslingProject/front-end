@@ -11,6 +11,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBOutlet var profileImg: UIImageView!
     @IBOutlet var nameLabel: HSUnderLineTextField!
+    @IBOutlet var name: UILabel!
+    @IBOutlet var nextBtn: UIButton!
     
     var isSelect = false
     
@@ -26,6 +28,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImg.layer.borderWidth = 1
         profileImg.clipsToBounds = true
         profileImg.layer.borderColor = UIColor.clear.cgColor
+        
+        name.attributedText = NSAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.kern: -0.5, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 15)!])
+        
+        nextBtn.setAttributedTitle(NSAttributedString(string: "다음", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 15)!, NSAttributedString.Key.kern: -0.5]), for: .normal)
     }
     
     @objc func selectImage(sender: UITapGestureRecognizer) {
@@ -73,6 +79,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             present(alert, animated: true, completion: nil)
         } else {
             Member.shared.name = nameLabel.text
+            UserDefaults.standard.setValue(nameLabel.text, forKey: "user_name")
+            
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "SelectVC") else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

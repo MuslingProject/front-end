@@ -58,3 +58,26 @@ struct GenreModel: Codable {
     let httpStatus: String
     let data: MyGenre
 }
+
+struct DiaryResponseModel: Codable {
+    let result: String
+    let httpStatus: String
+    let data: DiaryModel
+    let recommentdations: [RecMusicModel]
+}
+
+struct DiaryModel: Codable {
+    let title: String
+    let date: String
+    let weather: String
+    let content: String
+    let mood: String
+}
+
+struct RecMusicModel: Codable {
+    let songTitle: String
+    let coverImagePath: String
+    let singer: String
+    let emotion: String
+    let weather: String
+}

@@ -15,11 +15,20 @@ class SignUpViewController: UIViewController {
     @IBOutlet var passField: HSUnderLineTextField!
     @IBOutlet var repassField: HSUnderLineTextField!
     @IBOutlet var signUpLabel: UILabel!
+    @IBOutlet var idLabel: UILabel!
+    @IBOutlet var rePwdLabel: UILabel!
+    @IBOutlet var pwdLabel: UILabel!
+    @IBOutlet var nextBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         signUpLabel.attributedText = NSMutableAttributedString(string: signUpLabel.text!, attributes: [NSAttributedString.Key.kern: -0.7])
+        idLabel.attributedText = NSMutableAttributedString(string: idLabel.text!, attributes: [NSAttributedString.Key.kern: -0.5, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 15)!])
+        pwdLabel.attributedText = NSMutableAttributedString(string: pwdLabel.text!, attributes: [NSAttributedString.Key.kern: -0.5, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 15)!])
+        rePwdLabel.attributedText = NSMutableAttributedString(string: rePwdLabel.text!, attributes: [NSAttributedString.Key.kern: -0.5, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 15)!])
+        nextBtn.setAttributedTitle(NSAttributedString(string: "다음", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 15)!, NSAttributedString.Key.kern: -0.5]), for: .normal)
+        
     }
 
     @IBAction func nextBtn(_ sender: Any) {
@@ -38,6 +47,9 @@ class SignUpViewController: UIViewController {
         } else {
             Member.shared.user_id = idField.text
             Member.shared.pwd = passField.text
+            
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "ProfileVC") else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

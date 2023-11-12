@@ -19,19 +19,20 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         self.present(vcName!, animated: true, completion: nil)
     }
     
-    var emotion = EmotionMusic.data
-    var weather = WeatherMusic.data
+    var recommendData: [RecMusicModel] = []
+    var category: [String] = []
+//    var emotion = EmotionMusic.data
+//    var weather = WeatherMusic.data
+    
     
     // 재추천 버튼
     @IBAction func reRecommnd(_ sender: Any) {
-        emotion = EmotionMusic.reData
-        weather = WeatherMusic.reData
+//        emotion = EmotionMusic.reData
+//        weather = WeatherMusic.reData
         
         // 데이터 새로고침
         myTableView.reloadData()
     }
-    
-    let category = ["현재 기쁨/사랑의 감정이시군요? 🥰", "날씨가 흐리거나 비올 땐 이런 노래 어때요? ☁️"]
     
     let cellSpacingHeight: CGFloat = 50
     
@@ -66,39 +67,41 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return emotion.count
-        } else if section == 1 {
-            return weather.count
-        } else {
-            return 0
-        }
+//        if section == 0 {
+//            return emotion.count
+//        } else if section == 1 {
+//            return weather.count
+//        } else {
+//            return 0
+//        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recommend", for: indexPath) as! RecommendCell
         
-        if indexPath.section == 0 {
-            let target = emotion[indexPath.row]
-            cell.title.text = target.title
-            cell.singer.text = target.singer
-            cell.heartIcon.image = UIImage(systemName: "heart")
-            // 앨범 커버
-            if let imageUrl = URL(string: target.img) {
-                cell.img.loadImage(from: imageUrl)
-            }
-        } else if indexPath.section == 1 {
-            let target = weather[indexPath.row]
-            cell.title.text = target.title
-            cell.singer.text = target.singer
-            cell.heartIcon.image = UIImage(systemName: "heart")
-            // 앨범 커버
-            if let imageUrl = URL(string: target.img) {
-                cell.img.loadImage(from: imageUrl)
-            }
-        } else {
-            return UITableViewCell()
-        }
+//        if indexPath.section == 0 {
+//            let target = emotion[indexPath.row]
+//            cell.title.text = target.title
+//            cell.singer.text = target.singer
+//            cell.heartIcon.image = UIImage(systemName: "heart")
+//            // 앨범 커버
+//            if let imageUrl = URL(string: target.img) {
+//                cell.img.loadImage(from: imageUrl)
+//            }
+//        } else if indexPath.section == 1 {
+//            let target = weather[indexPath.row]
+//            cell.title.text = target.title
+//            cell.singer.text = target.singer
+//            cell.heartIcon.image = UIImage(systemName: "heart")
+//            // 앨범 커버
+//            if let imageUrl = URL(string: target.img) {
+//                cell.img.loadImage(from: imageUrl)
+//            }
+//        } else {
+//            return UITableViewCell()
+//        }
         
         cell.selectionStyle = .none
         return cell
@@ -111,6 +114,8 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         myTableView.delegate = self
         
         myTableView.isScrollEnabled = false
+        
+        category = ["현재 기쁨/사랑의 감정이시군요? 🥰", "날씨가 흐리거나 비올 땐 이런 노래 어때요? ☁️"]
         
         // 커스텀 폰트
         let customFont = UIFont(name: "Pretendard-SemiBold", size: 16)

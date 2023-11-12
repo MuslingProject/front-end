@@ -14,7 +14,6 @@ class TabBarVC: UITabBarController {
         
         if let items = self.tabBar.items {
             for item in items {
-                print(item)
                 if let _ = item.title {
                     let attributes: [NSAttributedString.Key: Any] = [
                         .font: UIFont(name: "Pretendard-Medium", size: 12)!
