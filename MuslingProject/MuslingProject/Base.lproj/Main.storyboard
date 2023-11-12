@@ -155,7 +155,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJz-ZH-9W2">
-                                <rect key="frame" x="34" y="425.66666666666669" width="306" height="46"/>
+                                <rect key="frame" x="34" y="441.66666666666669" width="306" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="3RK-0w-Upk"/>
                                 </constraints>
@@ -222,12 +222,23 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일상을 기록하고 음악을 추천받아 보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82o-gD-VKn">
+                                <rect key="frame" x="16" y="153" width="219.66666666666666" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DzB-1i-Mpf"/>
                         <color key="backgroundColor" name="backGray"/>
                         <constraints>
                             <constraint firstItem="uSP-ic-naq" firstAttribute="top" secondItem="f7y-Ic-LKL" secondAttribute="bottom" constant="30" id="3rn-eh-a3g"/>
-                            <constraint firstItem="bJz-ZH-9W2" firstAttribute="top" secondItem="uSP-ic-naq" secondAttribute="bottom" constant="29" id="FG3-ml-ltw"/>
+                            <constraint firstItem="bJz-ZH-9W2" firstAttribute="top" secondItem="uSP-ic-naq" secondAttribute="bottom" constant="45" id="FG3-ml-ltw"/>
                             <constraint firstItem="DzB-1i-Mpf" firstAttribute="trailing" secondItem="f7y-Ic-LKL" secondAttribute="trailing" constant="35" id="KFq-GB-Xzr"/>
                             <constraint firstItem="L0e-Bc-QnC" firstAttribute="leading" secondItem="DzB-1i-Mpf" secondAttribute="leading" constant="34" id="L7B-ld-GyK"/>
                             <constraint firstItem="bJz-ZH-9W2" firstAttribute="leading" secondItem="DzB-1i-Mpf" secondAttribute="leading" constant="34" id="WbD-Na-Yz3"/>
@@ -238,6 +249,8 @@
                             <constraint firstItem="qJP-Tg-ta1" firstAttribute="leading" secondItem="DzB-1i-Mpf" secondAttribute="leading" constant="34" id="gu7-zH-x7F"/>
                             <constraint firstItem="DzB-1i-Mpf" firstAttribute="trailing" secondItem="bJz-ZH-9W2" secondAttribute="trailing" constant="35" id="n7H-rw-vTr"/>
                             <constraint firstItem="uSP-ic-naq" firstAttribute="leading" secondItem="qJP-Tg-ta1" secondAttribute="trailing" constant="24" id="nrd-0E-aZe"/>
+                            <constraint firstItem="82o-gD-VKn" firstAttribute="leading" secondItem="DzB-1i-Mpf" secondAttribute="leading" constant="16" id="ycY-Au-UrE"/>
+                            <constraint firstItem="82o-gD-VKn" firstAttribute="top" secondItem="DzB-1i-Mpf" secondAttribute="top" id="zFP-Xa-SkP"/>
                             <constraint firstItem="qJP-Tg-ta1" firstAttribute="top" secondItem="L0e-Bc-QnC" secondAttribute="bottom" constant="42" id="zf3-3a-WG4"/>
                         </constraints>
                     </view>
