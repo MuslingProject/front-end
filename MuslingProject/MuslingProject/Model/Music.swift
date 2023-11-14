@@ -32,4 +32,13 @@ extension Music {
         Music(songTitle: "Min (미는 남자)", coverImagePath: "https://image.bugsm.co.kr/album/images/200/40796/4079641.jpg?version=20220916063541.0", singer: "검정치마", emotion: nil, weather: "눈오는 날"),
         Music(songTitle: "EVERYTHING", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201002/20100228.jpg?version=20210428040321.0", singer: "검정치마", emotion: nil, weather: "비/흐림")
     ]
+    
+    static var recommend = [
+        Music(songTitle: "DOOL", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203921/20392185.jpg?version=20211013005610.0", singer: "미노이(meenoi)", emotion: "사랑/기쁨", weather: nil),
+        Music(songTitle: "DOOL2", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203921/20392185.jpg?version=20211013005610.0", singer: "미노이(meenoi)", emotion: "사랑/기쁨", weather: nil),
+        Music(songTitle: "DOOL3", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203921/20392185.jpg?version=20211013005610.0", singer: "미노이(meenoi)", emotion: "사랑/기쁨", weather: nil),
+        Music(songTitle: "비도 오고 그래서 (Feat. 신용재)", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201049/20104917.jpg?version=20211216040901.0", singer: "헤이즈(Heize)", emotion: nil,  weather: "비/흐림"),
+        Music(songTitle: "비도 오고 그래서2 (Feat. 신용재)", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201049/20104917.jpg?version=20211216040901.0", singer: "헤이즈(Heize)", emotion: nil,  weather: "비/흐림"),
+        Music(songTitle: "비도 오고 그래서3(Feat. 신용재)", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201049/20104917.jpg?version=20211216040901.0", singer: "헤이즈(Heize)", emotion: nil,  weather: "비/흐림")
+    ]
 }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,30 +36,30 @@
                             <constraint firstAttribute="height" constant="55" id="iYz-Bg-DrY"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ7-a0-UM0">
-                        <rect key="frame" x="78" y="21" width="35.333333333333343" height="20"/>
-                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="14"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ7-a0-UM0">
+                        <rect key="frame" x="78" y="25.666666666666668" width="32" height="15.333333333333332"/>
+                        <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="13"/>
+                        <color key="textColor" name="Text01"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tt-YH-wEp">
-                        <rect key="frame" x="78" y="46" width="27" height="14"/>
+                        <rect key="frame" x="78" y="43" width="27" height="13"/>
                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="11"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="Text01"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="dZ7-a0-UM0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="25.670000000000002" id="8Et-yX-hRu"/>
+                <constraint firstAttribute="bottom" secondItem="0tt-YH-wEp" secondAttribute="bottom" constant="26" id="BgJ-FL-lxg"/>
                 <constraint firstItem="0tt-YH-wEp" firstAttribute="leading" secondItem="r3F-F8-css" secondAttribute="trailing" constant="11" id="CEM-qV-Mnf"/>
                 <constraint firstAttribute="bottom" secondItem="kqA-VQ-iyR" secondAttribute="bottom" id="HHe-aV-fNP"/>
-                <constraint firstAttribute="bottom" secondItem="0tt-YH-wEp" secondAttribute="bottom" constant="22" id="LhV-LJ-rS9"/>
                 <constraint firstItem="kqA-VQ-iyR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="REc-pc-aYe"/>
                 <constraint firstItem="kqA-VQ-iyR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Sdt-jP-w2m"/>
-                <constraint firstItem="0tt-YH-wEp" firstAttribute="top" secondItem="dZ7-a0-UM0" secondAttribute="bottom" constant="5" id="WRg-0k-eAP"/>
+                <constraint firstItem="0tt-YH-wEp" firstAttribute="top" secondItem="dZ7-a0-UM0" secondAttribute="bottom" constant="2" id="WRg-0k-eAP"/>
                 <constraint firstAttribute="trailing" secondItem="kqA-VQ-iyR" secondAttribute="trailing" id="Xkr-dS-MPO"/>
-                <constraint firstItem="dZ7-a0-UM0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="21" id="e9b-P3-5fd"/>
                 <constraint firstItem="r3F-F8-css" firstAttribute="centerY" secondItem="kqA-VQ-iyR" secondAttribute="centerY" id="iHE-lr-Q85"/>
                 <constraint firstItem="dZ7-a0-UM0" firstAttribute="leading" secondItem="r3F-F8-css" secondAttribute="trailing" constant="11" id="jDg-FG-nNg"/>
                 <constraint firstItem="r3F-F8-css" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="n5C-3q-udE"/>
@@ -75,5 +76,8 @@
     </objects>
     <resources>
         <image name="music-back.png" width="248" height="71"/>
+        <namedColor name="Text01">
+            <color red="0.11999999731779099" green="0.11999999731779099" blue="0.11999999731779099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

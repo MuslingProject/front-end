@@ -16,7 +16,8 @@ class TabBarVC: UITabBarController {
             for item in items {
                 if let _ = item.title {
                     let attributes: [NSAttributedString.Key: Any] = [
-                        .font: UIFont(name: "Pretendard-Medium", size: 12)!
+                        .font: UIFont(name: "Pretendard-Medium", size: 12)!,
+                        .kern: -0.6
                     ]
                     item.setTitleTextAttributes(attributes, for: .normal)
                     item.setTitleTextAttributes(attributes, for: .selected)

@@ -24,6 +24,11 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var pickerView = UIPickerView()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +37,7 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         weatherLabel.attributedText = NSAttributedString(string: "날씨", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -0.5])
         
         // 커스텀 폰트
-        let customFont = UIFont(name: "Pretendard-Medium", size: 16)
+        let customFont = UIFont(name: "Pretendard-SemiBold", size: 16)
         
         // NSAttributedString을 사용하여 폰트 속성 설정
         let attributes: [NSAttributedString.Key: Any] = [
@@ -83,42 +88,52 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @objc func writeDiary(_ sender: Any) {
+        // 테스트용 코드
+        guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "RecommendVC") as? RecommendViewController else { return }
+        //vcName.recommendData = data.recommendations
+        vcName.recommendData = DiaryResponseModel.data.recommendations
+        vcName.responseData = DiaryResponseModel.data
+        //vcName.recommendData = DiaryResponseModel.data.recommendations
+        self.navigationController?.pushViewController(vcName, animated: true)
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        guard let title = diaryTitle.text else { return }
-        let date = dateFormatter.string(from: datePicker.date)
-        var weather = ""
-        switch weatherField.text {
-        case "☀️ 맑음": weather = "화창한 날"
-        case "🌧️ 비/흐림": weather = "비/흐림"
-        case "🌨️ 눈": weather = "눈오는 날"
-        default: weather = "화창한 날"
-        }
-        guard let content = textView.text else { return }
-        
-        DiaryService.shared.saveDiary(title: title, date: date, weather: weather, content: content) { response in
-            switch response {
-            case .success(let data):
-                if let data = data as? DiaryResponseModel {
-                    print("기록 저장 결과 :: \(data.result)")
-                    
-                    // 노래 추천 화면으로 이동
-                    guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "RecommendVC") as? RecommendViewController else { return }
-                    vcName.recommendData = data.recommentdations
-                    self.navigationController?.pushViewController(vcName, animated: true)
-                }
-            case .pathErr:
-                print("기록 저장 결과 :: Path Err")
-            case .networkFail:
-                print("기록 저장 결과 :: Network Err")
-            case .requestErr:
-                print("기록 저장 결과 :: Request Err")
-            case .serverErr:
-                print("기록 저장 결과 :: Server Err")
-            }
-        }
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        
+//        guard let title = diaryTitle.text else { return }
+//        let date = dateFormatter.string(from: datePicker.date)
+//        var weather = ""
+//        switch weatherField.text {
+//        case "☀️ 맑음": weather = "화창한 날"
+//        case "🌧️ 비/흐림": weather = "비/흐림"
+//        case "🌨️ 눈": weather = "눈오는 날"
+//        default: weather = "화창한 날"
+//        }
+//        guard let content = textView.text else { return }
+//        
+//        DiaryService.shared.saveDiary(title: title, date: date, weather: weather, content: content) { response in
+//            switch response {
+//            case .success(let data):
+//                if let data = data as? DiaryResponseModel {
+//                    print("기록 저장 결과 :: \(data.result)")
+//                    
+//                    // 노래 추천 화면으로 이동
+//                    guard let vcName = self.storyboard?.instantiateViewController(withIdentifier: "RecommendVC") as? RecommendViewController else { return }
+//                    //vcName.recommendData = data.recommendations
+//                    vcName.recommendData = DiaryResponseModel.data.recommendations
+//                    vcName.responseData = DiaryResponseModel.data
+//                    //vcName.recommendData = DiaryResponseModel.data.recommendations
+//                    self.navigationController?.pushViewController(vcName, animated: true)
+//                }
+//            case .pathErr:
+//                print("기록 저장 결과 :: Path Err")
+//            case .networkFail:
+//                print("기록 저장 결과 :: Network Err")
+//            case .requestErr:
+//                print("기록 저장 결과 :: Request Err")
+//            case .serverErr:
+//                print("기록 저장 결과 :: Server Err")
+//            }
+//        }
     }
         
     @objc func MyTapMethod(sender: UITapGestureRecognizer) {

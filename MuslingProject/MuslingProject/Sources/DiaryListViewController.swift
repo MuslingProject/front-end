@@ -84,7 +84,7 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
         let date = diaryDates[indexPath.section]
         
         if let diary = groupedDiaries[date]?[indexPath.row] {
-            cell.title.attributedText = NSAttributedString(string: diary.title, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 13)!, NSAttributedString.Key.kern: -0.6])
+            cell.title.attributedText = NSAttributedString(string: diary.title, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.7])
             
             var emotionStr: String = ""
             
@@ -103,7 +103,7 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
                 emotionStr = ""
             }
             
-            cell.emotion.attributedText = NSAttributedString(string: emotionStr, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 11)!, NSAttributedString.Key.kern: -0.6])
+            cell.emotion.attributedText = NSAttributedString(string: emotionStr, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.6])
         }
         cell.selectionStyle = .none
         

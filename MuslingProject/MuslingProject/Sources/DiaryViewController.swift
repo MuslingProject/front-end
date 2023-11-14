@@ -26,20 +26,22 @@ class DiaryViewController: UIViewController {
     
     // 더미데이터 불러오기
     let diaries = Diary.data
-    let musics = Music.data
+    let musics = Music.recommend
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabBarController?.tabBar.isHidden = false
         
         // 일기 위의 문구
         let date = StringToDate(strDate: diaryDate, format: "yyyy-MM-dd")
         let stringDate = DateToString(date: date!, format: "✏️ yyyy년 MM월 dd일의 기록")
         
         dateLabel.attributedText = NSAttributedString(string: stringDate, attributes: [NSAttributedString.Key.kern: -1.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 20)!])
-        titleLabel.attributedText = NSAttributedString(string: diaryTitle, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 16)!, NSAttributedString.Key.kern: -1])
-        emotionLabel.attributedText = NSAttributedString(string: emotion, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 12)!, NSAttributedString.Key.kern: -0.8])
-        weatherLabel.attributedText = NSAttributedString(string: weather, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 12)!, NSAttributedString.Key.kern: -0.8])
-        contentLabel.attributedText = NSAttributedString(string: content, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.kern: -0.98])
+        titleLabel.attributedText = NSAttributedString(string: diaryTitle, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -1])
+        emotionLabel.attributedText = NSAttributedString(string: emotion, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.8])
+        weatherLabel.attributedText = NSAttributedString(string: weather, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.8])
+        contentLabel.attributedText = NSAttributedString(string: content, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.98])
         musicLabel.attributedText = NSAttributedString(string: "👀 이런 노래들을 추천받았어요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.98])
         
         
@@ -76,11 +78,17 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     // 컬렉션 뷰 셀 설정
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let target = musics[indexPath.row]
         let cell = musicCollectionView.dequeueReusableCell(withReuseIdentifier: MusicCell.cellId, for: indexPath) as! MusicCell
-//        cell.img.image = UIImage(named: musics[indexPath.row].img)
-//        cell.title.text = musics[indexPath.row].title
-//        cell.singer.text = musics[indexPath.row].singer
-//        
+        
+        cell.title.attributedText = NSAttributedString(string: target.songTitle, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 13)!, NSAttributedString.Key.kern: -0.7])
+        cell.singer.attributedText = NSAttributedString(string: target.singer, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 11)!, NSAttributedString.Key.kern: -0.7])
+        
+        // 앨범 커버
+        if let imageUrl = URL(string: target.coverImagePath) {
+            cell.img.loadImage(from: imageUrl)
+        }
+
         return cell
     }
     
