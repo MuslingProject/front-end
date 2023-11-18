@@ -57,7 +57,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     // 이미지 선택 완료했을 때 호출하는 메소드
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 선택한 이미지를 미리보기에 표시
-        self.profileImg.image = info[.editedImage] as? UIImage
+        profileImg.image = info[.editedImage] as? UIImage
+        profileImg.layer.cornerRadius = profileImg.frame.height/2
+        profileImg.clipsToBounds = true
         
         // img 변수에 저장
         Member.shared.img = self.profileImg.image

@@ -36,17 +36,31 @@ class HomeViewController: UIViewController {
         
         navigationController?.navigationBar.tintColor = .blue01
         navigationController?.navigationBar.backgroundColor = UIColor.clear
-        navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 16)!,
-            NSAttributedString.Key.kern: -0.5
-        ]
+        
+        // 옵저버 등록
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProfileUpdate), name: .profileUpdated, object: nil)
         
         IsnoDiary()
         
-        guard let name = UserDefaults.standard.string(forKey: "user_name") else { return }
-        
-        titleLabel.numberOfLines = 2
-        titleLabel.attributedText = NSAttributedString(string: "\(name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.7])
+        MypageService.shared.getMypage() { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? MypageModel {
+                    print("회원 정보 불러오기 결과 :: \(data.result)")
+                    self.titleLabel.numberOfLines = 2
+                    self.titleLabel.attributedText = NSAttributedString(string: "\(data.data.name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.7])
+                    }
+                
+            case .pathErr:
+                print("회원 정보 불러오기 결과 :: Path Err")
+            case .requestErr:
+                print("회원 정보 불러오기 결과 :: Request Err")
+            case .serverErr:
+                print("회원 정보 불러오기 결과 :: Server Err")
+            case .networkFail:
+                print("회원 정보 불러오기 결과 :: Network Fail")
+            }
+        }
         
         requestAuthorization()
         
@@ -83,6 +97,33 @@ class HomeViewController: UIViewController {
             noneLabel.numberOfLines = 2
             noneLabel.attributedText = NSAttributedString(string: "아직 오늘이 기록이 없어요\n일기를 작성해 주세요!", attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!])
             noneLabel.textAlignment = .center
+        }
+    }
+    
+    // 옵저버 해제
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleProfileUpdate() {
+        MypageService.shared.getMypage() { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? MypageModel {
+                    print("회원 정보 불러오기 결과 :: \(data.result)")
+                    
+                    self.titleLabel.numberOfLines = 2
+                    self.titleLabel.attributedText = NSAttributedString(string: "\(data.data.name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.7])
+                }
+            case .pathErr:
+                print("회원 정보 불러오기 결과 :: Path Err")
+            case .requestErr:
+                print("회원 정보 불러오기 결과 :: Request Err")
+            case .serverErr:
+                print("회원 정보 불러오기 결과 :: Server Err")
+            case .networkFail:
+                print("회원 정보 불러오기 결과 :: Network Fail")
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     let emotionCategory = Category.emotion
     let weatherCategory = Category.weather
     let category = Category.all
-
+    
     // 좋아요한 전체 곡
     let all = Music.data
     
@@ -262,6 +262,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         changeSegmentedControlLinePosition(for: sender.selectedSegmentIndex)
     }
     
+    
     // Container view of the segmented control
     private lazy var segmentedControlContainerView: UIView = {
         let containerView = UIView()
@@ -328,7 +329,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
             self.favoriteTable.reloadData()
         }
     }
-
+    
     
     // Change position of the underline
     private func changeSegmentedControlLinePosition(for selectedIndex: Int) {

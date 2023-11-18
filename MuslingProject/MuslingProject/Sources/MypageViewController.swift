@@ -12,9 +12,15 @@ class MypageViewController: UIViewController {
     weak var sv: UIView!
     var genre = ""
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var userProfile: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var genreLabel: UILabel!
+    @IBOutlet var emailLabel: UILabel!
+    @IBOutlet var script: UILabel!
+    @IBOutlet var editProfile: UILabel!
+    @IBOutlet var modifyLabel: UILabel!
+    @IBOutlet var signoutLabel: UILabel!
     
     @IBAction func signOut(_ sender: Any) {
         let alert = UIAlertController(title: "뮤즐링을 탈퇴하시겠습니까?", message: "탈퇴 시 모든 정보가 사라집니다", preferredStyle: .alert)
@@ -63,6 +69,16 @@ class MypageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        titleLabel.attributedText = NSAttributedString(string: "마이페이지", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.82])
+        
+        script.attributedText = NSAttributedString(string: "계정 설정", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 20)!, NSAttributedString.Key.kern: -1.6])
+        
+        editProfile.attributedText = NSAttributedString(string: "프로필 편집", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -1.2])
+        modifyLabel.attributedText = NSAttributedString(string: "내 정보 수정", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -1.2])
+        signoutLabel.attributedText = NSAttributedString(string: "회원 탈퇴", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -1.2])
+        
+        
         // 옵저버 등록
         NotificationCenter.default.addObserver(self, selector: #selector(handleProfileUpdate), name: .profileUpdated, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleGenreUpdate), name: .genreUpdated, object: nil)
@@ -74,8 +90,10 @@ class MypageViewController: UIViewController {
                     print("회원 정보 불러오기 결과 :: \(data.result)")
                     
                     // 닉네임
-                    self.nameLabel.text = data.data.name
+                    self.nameLabel.attributedText = NSAttributedString(string: data.data.name, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 15)!, NSAttributedString.Key.kern: -1.05])
                     
+                    // 이메일 (아이디)
+                    self.emailLabel.attributedText = NSAttributedString(string: data.data.email, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 11)!, NSAttributedString.Key.kern: -0.7])
                     // 프로필 사진
                     if let imageUrl = URL(string: data.data.profileImageUrl) {
                         self.userProfile.loadImage(from: imageUrl)
@@ -132,45 +150,6 @@ class MypageViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    // navigation bar 배경, 타이틀, item 색상 변경
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .primary
-        
-        if let customFont = UIFont(name: "Pretendard-Bold", size: 24) {
-            appearance.largeTitleTextAttributes = [
-                .font: customFont,
-                .foregroundColor: UIColor.white
-            ]
-        } else {
-            print("폰트를 로드할 수 없습니다.")
-        }
-        
-        if let customFont2 = UIFont(name: "Pretendard-Bold", size: 15) {
-            appearance.titleTextAttributes = [
-                .font: customFont2,
-                .foregroundColor: UIColor.white
-            ]
-        } else {
-            print("폰트를 로드할 수 없습니다.")
-        }
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-        navigationController?.navigationBar.tintColor = .white
-        
-        // navigation bar 그림자 효과
-        navigationController?.navigationBar.layer.masksToBounds = false
-        navigationController?.navigationBar.layer.shadowColor = UIColor.primary?.cgColor
-        navigationController?.navigationBar.layer.shadowOpacity = 0.8
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
-        navigationController?.navigationBar.layer.shadowRadius = 2
-        
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-    }
-    
     @objc func handleProfileUpdate() {
         MypageService.shared.getMypage() { response in
             switch response {
@@ -178,7 +157,10 @@ class MypageViewController: UIViewController {
                 if let data = data as? MypageModel {
                     print("회원 정보 불러오기 결과 :: \(data.result)")
                     // 닉네임
-                    self.nameLabel.text = data.data.name
+                    self.nameLabel.attributedText = NSAttributedString(string: data.data.name, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 15)!, NSAttributedString.Key.kern: -1.05])
+                    
+                    // 이메일 (아이디)
+                    self.emailLabel.attributedText = NSAttributedString(string: data.data.email, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 11)!, NSAttributedString.Key.kern: -0.7])
                     // 프로필 사진
                     if let imageUrl = URL(string: data.data.profileImageUrl) {
                         self.userProfile.loadImage(from: imageUrl)

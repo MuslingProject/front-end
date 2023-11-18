@@ -44,7 +44,6 @@ class SelectViewController: ExtensionVC, UIPickerViewDelegate, UIPickerViewDataS
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         } else {
-            sv = UIViewController.displaySpinner(onView: self.view)
             signUpAPI()
         }
     }

@@ -37,9 +37,11 @@ struct NameModel: Codable {
 }
 
 struct MyData: Codable {
+    let email: String
     let profileImageUrl: String
     let name: String
     let age: String
+    let ageRecommendation: Bool
     let preferredGenres: MyGenre
 }
 

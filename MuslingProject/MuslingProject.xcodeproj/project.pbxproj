@@ -18,9 +18,10 @@
 		F30F9AC52ADEE92600507422 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30F9AC02ADEE92600507422 /* Pretendard-Light.otf */; };
 		F30F9AC62ADEE92600507422 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30F9AC12ADEE92600507422 /* Pretendard-SemiBold.otf */; };
 		F30F9AC82ADEF07F00507422 /* AllEmotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30F9AC72ADEF07F00507422 /* AllEmotionViewController.swift */; };
+		F317AF792B03A73D000733ED /* mypage.png in Resources */ = {isa = PBXBuildFile; fileRef = F317AF782B03A73D000733ED /* mypage.png */; };
+		F317AF7D2B03D81F000733ED /* loadImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F317AF7C2B03D81F000733ED /* loadImg.png */; };
 		F31B14AC2A5D224000AE12E2 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */; };
 		F31B14AE2A5D299600AE12E2 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AD2A5D299600AE12E2 /* Diary.swift */; };
-		F3244AAD2A36E8C0002C19BB /* kuromi.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA82A36E8BF002C19BB /* kuromi.jpeg */; };
 		F3244AAE2A36E8C0002C19BB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA92A36E8C0002C19BB /* logo.png */; };
 		F3244AAF2A36E8C0002C19BB /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AAA2A36E8C0002C19BB /* line.png */; };
 		F3244B422A25810A006C7E9B /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3244B412A25810A006C7E9B /* WeatherModel.swift */; };
@@ -31,6 +32,7 @@
 		F33C98AB2AADB8D000759E8A /* music-back.png in Resources */ = {isa = PBXBuildFile; fileRef = F33C98AA2AADB8D000759E8A /* music-back.png */; };
 		F34FF9E22A59894B0025EC5B /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34FF9E12A59894B0025EC5B /* ResponseModel.swift */; };
 		F350A13E2ABB2D7700203688 /* CustomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350A13D2ABB2D7700203688 /* CustomTable.swift */; };
+		F3659BD22B0735500094C3AD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3659BD12B0735500094C3AD /* EditProfileViewController.swift */; };
 		F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */; };
 		F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36A3DC329E5B89500F47A3E /* SelectViewController.swift */; };
 		F3733D5B2A87D862008B9814 /* MypageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3733D5A2A87D862008B9814 /* MypageService.swift */; };
@@ -68,7 +70,7 @@
 		F3EFB22C2A57E94E004ED092 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFB22B2A57E94E004ED092 /* WeatherService.swift */; };
 		F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F7D9A62A2C8CEC00D90B69 /* Member.swift */; };
 		F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCE3C22A1296BA00E67903 /* HSUnderLineTextField.swift */; };
-		F3FCE3C52A12A3D900E67903 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCE3C42A12A3D900E67903 /* EditViewController.swift */; };
+		F3FCE3C52A12A3D900E67903 /* ModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FCE3C42A12A3D900E67903 /* ModifyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,9 +89,10 @@
 		F30F9AC02ADEE92600507422 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Light.otf"; path = "../../../../Downloads/Pretendard-1.3.6/public/static/Pretendard-Light.otf"; sourceTree = "<group>"; };
 		F30F9AC12ADEE92600507422 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../Downloads/Pretendard-1.3.6/public/static/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		F30F9AC72ADEF07F00507422 /* AllEmotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEmotionViewController.swift; sourceTree = "<group>"; };
+		F317AF782B03A73D000733ED /* mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mypage.png; path = ../../../mypage.png; sourceTree = "<group>"; };
+		F317AF7C2B03D81F000733ED /* loadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loadImg.png; path = ../../../loadImg.png; sourceTree = "<group>"; };
 		F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		F31B14AD2A5D299600AE12E2 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
-		F3244AA82A36E8BF002C19BB /* kuromi.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kuromi.jpeg; sourceTree = "<group>"; };
 		F3244AA92A36E8C0002C19BB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F3244AAA2A36E8C0002C19BB /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		F3244B412A25810A006C7E9B /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		F33C98AA2AADB8D000759E8A /* music-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music-back.png"; sourceTree = "<group>"; };
 		F34FF9E12A59894B0025EC5B /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		F350A13D2ABB2D7700203688 /* CustomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTable.swift; sourceTree = "<group>"; };
+		F3659BD12B0735500094C3AD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		F36A3DC129E5B61200F47A3E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F36A3DC329E5B89500F47A3E /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		F3733D5A2A87D862008B9814 /* MypageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageService.swift; sourceTree = "<group>"; };
@@ -139,7 +143,7 @@
 		F3EFB22B2A57E94E004ED092 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		F3F7D9A62A2C8CEC00D90B69 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		F3FCE3C22A1296BA00E67903 /* HSUnderLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSUnderLineTextField.swift; sourceTree = "<group>"; };
-		F3FCE3C42A12A3D900E67903 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		F3FCE3C42A12A3D900E67903 /* ModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,7 +261,8 @@
 		F3EAA54529E55D1100819F7A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F3244AA82A36E8BF002C19BB /* kuromi.jpeg */,
+				F317AF7C2B03D81F000733ED /* loadImg.png */,
+				F317AF782B03A73D000733ED /* mypage.png */,
 				F3244AAA2A36E8C0002C19BB /* line.png */,
 				F33C98AA2AADB8D000759E8A /* music-back.png */,
 				F3244AA92A36E8C0002C19BB /* logo.png */,
@@ -290,7 +295,7 @@
 				F36A3DC329E5B89500F47A3E /* SelectViewController.swift */,
 				F3C2288629EC509000FDED32 /* MypageViewController.swift */,
 				F3ADDE002A010C91005650E2 /* WriteViewController.swift */,
-				F3FCE3C42A12A3D900E67903 /* EditViewController.swift */,
+				F3FCE3C42A12A3D900E67903 /* ModifyViewController.swift */,
 				F37651C22A138AB6002B4286 /* SignInViewController.swift */,
 				F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */,
 				F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */,
@@ -304,6 +309,7 @@
 				F3AD17392ACD99D100F10D7B /* RecommendViewController.swift */,
 				F3AD173D2ACD9A0100F10D7B /* TabBarVC.swift */,
 				F30F9AC72ADEF07F00507422 /* AllEmotionViewController.swift */,
+				F3659BD12B0735500094C3AD /* EditProfileViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -372,7 +378,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F33C98AB2AADB8D000759E8A /* music-back.png in Resources */,
-				F3244AAD2A36E8C0002C19BB /* kuromi.jpeg in Resources */,
 				F3D1A5362AFE289700E403BB /* Pretendard-ExtraBold.otf in Resources */,
 				F3D06D162A36FBAF006B991E /* Main.storyboard in Resources */,
 				F3244AAE2A36E8C0002C19BB /* logo.png in Resources */,
@@ -381,10 +386,12 @@
 				F3AD17302ACD8E8100F10D7B /* backImg.png in Resources */,
 				F3244AAF2A36E8C0002C19BB /* line.png in Resources */,
 				F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */,
+				F317AF7D2B03D81F000733ED /* loadImg.png in Resources */,
 				F30F9AC52ADEE92600507422 /* Pretendard-Light.otf in Resources */,
 				F30F9AC32ADEE92600507422 /* Pretendard-Bold.otf in Resources */,
 				F30F9AC42ADEE92600507422 /* Pretendard-Medium.otf in Resources */,
 				F3AD172E2ACD8E6200F10D7B /* profile.png in Resources */,
+				F317AF792B03A73D000733ED /* mypage.png in Resources */,
 				F3EAA53B29E55B6700819F7A /* Assets.xcassets in Resources */,
 				F3C2A7AB2A25F0BC0001EDD6 /* GoogleService-Info.plist in Resources */,
 				F30F9AC62ADEE92600507422 /* Pretendard-SemiBold.otf in Resources */,
@@ -448,6 +455,7 @@
 				F303F7452A2F094300FEE41E /* Genre.swift in Sources */,
 				F3AD17322ACD996800F10D7B /* HomeViewController.swift in Sources */,
 				F36A3DC229E5B61200F47A3E /* ProfileViewController.swift in Sources */,
+				F3659BD22B0735500094C3AD /* EditProfileViewController.swift in Sources */,
 				F3778B2F2AFBC8C200611AA3 /* DiaryService.swift in Sources */,
 				F30A73972A1CBDDD00CAF477 /* Category.swift in Sources */,
 				F303F7472A2F1A9800FEE41E /* Music.swift in Sources */,
@@ -457,7 +465,7 @@
 				F3244B422A25810A006C7E9B /* WeatherModel.swift in Sources */,
 				F3EFB22C2A57E94E004ED092 /* WeatherService.swift in Sources */,
 				F3ADDE012A010C91005650E2 /* WriteViewController.swift in Sources */,
-				F3FCE3C52A12A3D900E67903 /* EditViewController.swift in Sources */,
+				F3FCE3C52A12A3D900E67903 /* ModifyViewController.swift in Sources */,
 				F3EAA55529E59F8600819F7A /* SignUpViewController.swift in Sources */,
 				F36A3DC429E5B89500F47A3E /* SelectViewController.swift in Sources */,
 				F3AD173A2ACD99D100F10D7B /* RecommendViewController.swift in Sources */,
@@ -626,7 +634,7 @@
 				DEVELOPMENT_TEAM = 8FBW424TX4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MuslingProject/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "뮤즐링: Musling";
+				INFOPLIST_KEY_CFBundleDisplayName = "뮤즐링";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라로 사진 촬영";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨를 불러오기 위해 위치 정보를 제공해 주세요";
@@ -662,7 +670,7 @@
 				DEVELOPMENT_TEAM = 8FBW424TX4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MuslingProject/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "뮤즐링: Musling";
+				INFOPLIST_KEY_CFBundleDisplayName = "뮤즐링";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라로 사진 촬영";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨를 불러오기 위해 위치 정보를 제공해 주세요";

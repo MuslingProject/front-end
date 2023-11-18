@@ -50,7 +50,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        signup.attributedText = NSAttributedString(string: "회원가입", attributes: [NSAttributedString.Key.kern: -0.77, NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 13)!])
+        signup.attributedText = NSAttributedString(string: "회원가입 하기", attributes: [NSAttributedString.Key.kern: -0.77, NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 13)!])
         
         let ggAttributedTitle = NSAttributedString(string: "구글 계정으로 로그인", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 16)!, NSAttributedString.Key.kern: -0.7])
         ggBtn.setAttributedTitle(ggAttributedTitle, for: .normal)
@@ -135,66 +135,66 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
         }
         
         // 자동 로그인
-//        let saveId = UserDefaults.standard.string(forKey: "user_id")
-//        if saveId?.isEmpty == false {
-//            self.sv = UIViewController.displaySpinner(onView: self.view)
-//            // 토큰 갱신해 주기
-//            guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
-//            guard let pwd = UserDefaults.standard.string(forKey: "pwd") else { return }
-//
-//            SignService.shared.signIn(userId: userId, pwd: pwd) { response in
-//                switch response {
-//                case .success(let data):
-//                    if let data = data as? DataModel {
-//                        print("로그인 결과 :: \(data.result)")
-//                        let dataSave = UserDefaults.standard
-//                        // 새로 갱신된 token 저장
-//                        dataSave.setValue(data.data, forKey: "token")
-//                        dataSave.synchronize()
-//                        
-//                        // 홈 화면으로 넘어가기
-//                        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
-//                        vcName?.modalPresentationStyle = .fullScreen
-//                        vcName?.modalTransitionStyle = .crossDissolve
-//                        self.present(vcName!, animated: true, completion: nil)
-//                        
-//                        self.sv.removeFromSuperview()
-//                    }
-//                case .requestErr:
-//                    print("로그인 결과 :: Request Err")
-//                    let alert = UIAlertController(title: "오류 발생", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
-//                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
-//                        self.sv.removeFromSuperview()
-//                    }
-//                    alert.addAction(ok)
-//                    self.present(alert, animated: true, completion: nil)
-//                case .pathErr:
-//                    print("로그인 결과 :: decode 실패")
-//                    let alert = UIAlertController(title: "오류 발생", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
-//                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
-//                        self.sv.removeFromSuperview()
-//                    }
-//                    alert.addAction(ok)
-//                    self.present(alert, animated: true, completion: nil)
-//                case .serverErr:
-//                    print("로그인 결과 :: Server Err")
-//                    let alert = UIAlertController(title: "서버 오류", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
-//                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
-//                        self.sv.removeFromSuperview()
-//                    }
-//                    alert.addAction(ok)
-//                    self.present(alert, animated: true, completion: nil)
-//                case .networkFail:
-//                    print("로그인 결과 :: Network Err")
-//                    let alert = UIAlertController(title: "네트워크 오류", message: "네트워크가 원활한 환경에서\n다시 시도해 주세요", preferredStyle: .alert)
-//                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
-//                        self.sv.removeFromSuperview()
-//                    }
-//                    alert.addAction(ok)
-//                    self.present(alert, animated: true, completion: nil)
-//                }
-//            }
-//        }
+        let saveId = UserDefaults.standard.string(forKey: "user_id")
+        if saveId?.isEmpty == false {
+            self.sv = UIViewController.displaySpinner(onView: self.view)
+            // 토큰 갱신해 주기
+            guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
+            guard let pwd = UserDefaults.standard.string(forKey: "pwd") else { return }
+
+            SignService.shared.signIn(userId: userId, pwd: pwd) { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? DataModel {
+                        print("로그인 결과 :: \(data.result)")
+                        let dataSave = UserDefaults.standard
+                        // 새로 갱신된 token 저장
+                        dataSave.setValue(data.data, forKey: "token")
+                        dataSave.synchronize()
+                        
+                        // 홈 화면으로 넘어가기
+                        let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+                        vcName?.modalPresentationStyle = .fullScreen
+                        vcName?.modalTransitionStyle = .crossDissolve
+                        self.present(vcName!, animated: true, completion: nil)
+                        
+                        self.sv.removeFromSuperview()
+                    }
+                case .requestErr:
+                    print("로그인 결과 :: Request Err")
+                    let alert = UIAlertController(title: "오류 발생", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+                        self.sv.removeFromSuperview()
+                    }
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                case .pathErr:
+                    print("로그인 결과 :: decode 실패")
+                    let alert = UIAlertController(title: "오류 발생", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+                        self.sv.removeFromSuperview()
+                    }
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                case .serverErr:
+                    print("로그인 결과 :: Server Err")
+                    let alert = UIAlertController(title: "서버 오류", message: "잠시 후 다시 시도해 주세요", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+                        self.sv.removeFromSuperview()
+                    }
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                case .networkFail:
+                    print("로그인 결과 :: Network Err")
+                    let alert = UIAlertController(title: "네트워크 오류", message: "네트워크가 원활한 환경에서\n다시 시도해 주세요", preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "확인", style: .cancel) { _ in
+                        self.sv.removeFromSuperview()
+                    }
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
 
     }
     
