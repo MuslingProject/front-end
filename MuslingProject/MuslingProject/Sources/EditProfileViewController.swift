@@ -47,6 +47,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 case .success(let data):
                     if let data = data as? NameModifyModel {
                         print("닉네임 수정 결과 :: \(data.result)")
+                        UserDefaults.standard.setValue(newName, forKey: "user_name")
                     }
                     // 마이페이지로 이동
                     NotificationCenter.default.post(name: .profileUpdated, object: nil)

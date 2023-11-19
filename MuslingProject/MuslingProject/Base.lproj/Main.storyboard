@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EMM-yW-G9z">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
@@ -33,25 +33,24 @@
             <objects>
                 <viewController storyboardIdentifier="Login" title="로그인 화면" id="BYZ-38-t0r" customClass="FirstViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cyu-KR-cMO">
-                                <rect key="frame" x="138.66666666666666" y="166" width="115.66666666666666" height="25.666666666666657"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cyu-KR-cMO">
+                                <rect key="frame" x="129.66666666666666" y="157" width="115.66666666666666" height="25.666666666666657"/>
                                 <color key="pageIndicatorTintColor" name="Text03"/>
                                 <color key="currentPageIndicatorTintColor" name="Blue01"/>
                             </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbh-Hr-RSR">
-                                <rect key="frame" x="9" y="235" width="375" height="283"/>
+                                <rect key="frame" x="-1" y="235" width="375" height="283"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="YfY-0P-S2I"/>
-                                    <constraint firstAttribute="height" constant="283" id="gBM-5V-try"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="33t-Pz-khF"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="neP-AY-hxv"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8E-yF-S8N">
-                                <rect key="frame" x="34" y="568.66666666666663" width="325" height="43"/>
+                                <rect key="frame" x="25" y="559.66666666666663" width="325" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="325" id="8CV-ta-6wI"/>
                                     <constraint firstAttribute="height" constant="43" id="Yf8-9c-7Gs"/>
@@ -73,7 +72,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLY-2n-amg">
-                                <rect key="frame" x="34" y="626.66666666666663" width="325" height="43"/>
+                                <rect key="frame" x="25" y="617.66666666666663" width="325" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="325" id="QYl-GC-v7k"/>
                                     <constraint firstAttribute="height" constant="43" id="x0g-m5-in5"/>
@@ -95,7 +94,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yw0-UD-RLT">
-                                <rect key="frame" x="85.000000000000014" y="689.66666666666663" width="223.33333333333337" height="15.666666666666629"/>
+                                <rect key="frame" x="76.000000000000014" y="680.66666666666663" width="223.33333333333337" height="15.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뮤즐링 이용이 처음이신가요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXe-ae-iQo">
                                         <rect key="frame" x="0.0" y="0.0" width="147.66666666666666" height="15.666666666666666"/>
@@ -126,7 +125,8 @@
                         <color key="backgroundColor" name="backGray"/>
                         <constraints>
                             <constraint firstItem="vbh-Hr-RSR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Dn-Xk-SRh"/>
-                            <constraint firstItem="vbh-Hr-RSR" firstAttribute="top" secondItem="cyu-KR-cMO" secondAttribute="bottom" constant="52" id="4p1-ZX-tA2"/>
+                            <constraint firstItem="vbh-Hr-RSR" firstAttribute="top" secondItem="cyu-KR-cMO" secondAttribute="bottom" constant="45" id="4p1-ZX-tA2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yw0-UD-RLT" secondAttribute="bottom" constant="81.670000000000002" id="BSy-YR-cuI"/>
                             <constraint firstItem="s8E-yF-S8N" firstAttribute="top" secondItem="vbh-Hr-RSR" secondAttribute="bottom" constant="42" id="In7-tj-rsT"/>
                             <constraint firstItem="QLY-2n-amg" firstAttribute="top" secondItem="s8E-yF-S8N" secondAttribute="bottom" constant="15" id="JBZ-qL-TvI"/>
                             <constraint firstItem="yw0-UD-RLT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jb9-EW-Jgc"/>
@@ -134,7 +134,7 @@
                             <constraint firstItem="yw0-UD-RLT" firstAttribute="top" secondItem="QLY-2n-amg" secondAttribute="bottom" constant="20" id="abN-EC-WYx"/>
                             <constraint firstItem="cyu-KR-cMO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dB7-p8-w8c"/>
                             <constraint firstItem="QLY-2n-amg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lI6-rD-mzw"/>
-                            <constraint firstItem="cyu-KR-cMO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="63" id="pIE-DI-C7d"/>
+                            <constraint firstItem="cyu-KR-cMO" firstAttribute="top" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="63" id="pIE-DI-C7d"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="bzy-Mg-QMH"/>
@@ -155,11 +155,11 @@
             <objects>
                 <viewController id="yk6-cd-lE4" customClass="SignInViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yZt-0x-vPH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJz-ZH-9W2">
-                                <rect key="frame" x="34" y="450.66666666666669" width="324" height="46"/>
+                                <rect key="frame" x="34" y="441.66666666666669" width="306" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="3RK-0w-Upk"/>
                                 </constraints>
@@ -173,7 +173,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uSP-ic-naq" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="110" y="381.66666666666669" width="248" height="24"/>
+                                <rect key="frame" x="110" y="372.66666666666669" width="230" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="4cx-1E-xq8"/>
                                 </constraints>
@@ -190,7 +190,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0e-Bc-QnC">
-                                <rect key="frame" x="34" y="324.66666666666669" width="39" height="18"/>
+                                <rect key="frame" x="34" y="315.66666666666669" width="39" height="18"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" red="0.12866950760000001" green="0.12866950760000001" blue="0.12866950760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -201,7 +201,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJP-Tg-ta1">
-                                <rect key="frame" x="34" y="384.66666666666669" width="52" height="18"/>
+                                <rect key="frame" x="34" y="375.66666666666669" width="52" height="18"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" red="0.12866950760000001" green="0.12866950760000001" blue="0.12866950760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -212,7 +212,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7y-Ic-LKL" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="110" y="321.66666666666669" width="248" height="24"/>
+                                <rect key="frame" x="110" y="312.66666666666669" width="230" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="TID-tU-oAK"/>
                                 </constraints>
@@ -229,7 +229,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일상을 기록하고 음악을 추천받아 보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82o-gD-VKn">
-                                <rect key="frame" x="16" y="162" width="219.66666666666666" height="17"/>
+                                <rect key="frame" x="16" y="153" width="219.66666666666666" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -276,11 +276,11 @@
             <objects>
                 <viewController title="마이페이지" id="YXL-Aa-qrB" customClass="MypageViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eVO-7m-Qam">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마이페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2D-uQ-Dqh">
-                                <rect key="frame" x="22.000000000000007" y="112.99999999999999" width="112.66666666666669" height="31.333333333333329"/>
+                                <rect key="frame" x="22.000000000000007" y="104" width="112.66666666666669" height="31.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Pretendard-ExtraBold" family="Pretendard" pointSize="26"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -291,7 +291,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7b-Ew-SGQ">
-                                <rect key="frame" x="25" y="343.33333333333331" width="52" height="24"/>
+                                <rect key="frame" x="25" y="334.33333333333331" width="52" height="24"/>
                                 <fontDescription key="fontDescription" name="Pretendard-ExtraBold" family="Pretendard" pointSize="20"/>
                                 <color key="textColor" name="Text01"/>
                                 <nil key="highlightedColor"/>
@@ -302,33 +302,33 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypage.png" translatesAutoresizingMaskIntoConstraints="NO" id="CXn-y2-x6E">
-                                <rect key="frame" x="24" y="174.33333333333334" width="345" height="87.000000000000028"/>
+                                <rect key="frame" x="15" y="165.33333333333334" width="345" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="345" id="Cu3-x7-LG0"/>
                                     <constraint firstAttribute="height" constant="87" id="oXU-jn-Mbf"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="h3C-Ri-iRz">
-                                <rect key="frame" x="39" y="188" width="60" height="60"/>
+                                <rect key="frame" x="30" y="179" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="cXZ-fL-yGF"/>
                                     <constraint firstAttribute="width" constant="60" id="z0J-bx-M4f"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6m-3s-vVJ">
-                                <rect key="frame" x="129" y="204.33333333333348" width="9.6666666666667425" height="13.333333333333485"/>
+                                <rect key="frame" x="120" y="195.33333333333334" width="9.6666666666666572" height="13.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" translatesAutoresizingMaskIntoConstraints="NO" id="IUm-FH-keH">
-                                <rect key="frame" x="20" y="377.33333333333331" width="353" height="1"/>
+                                <rect key="frame" x="20" y="368.33333333333331" width="335" height="1"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zaR-Bx-G8S">
-                                <rect key="frame" x="25" y="402.33333333333331" width="343" height="110.99999999999994"/>
+                                <rect key="frame" x="25" y="393.33333333333331" width="325" height="111"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="k4j-wC-2fx">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="34.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로필 편집" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAu-vt-ks5">
                                                 <rect key="frame" x="0.0" y="0.0" width="68.666666666666671" height="34.333333333333336"/>
@@ -342,7 +342,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUP-jH-BqF">
-                                                <rect key="frame" x="309.33333333333331" y="0.0" width="33.666666666666686" height="34.333333333333336"/>
+                                                <rect key="frame" x="291.33333333333331" y="0.0" width="33.666666666666686" height="34.333333333333336"/>
                                                 <color key="tintColor" name="Text01"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain">
@@ -355,7 +355,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="f09-gV-jND">
-                                        <rect key="frame" x="0.0" y="38.333333333333371" width="343" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="38.333333333333371" width="325" height="34.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 정보 수정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqf-gK-3CM">
                                                 <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="34.333333333333336"/>
@@ -369,7 +369,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kJ-P0-tH5">
-                                                <rect key="frame" x="309.33333333333331" y="0.0" width="33.666666666666686" height="34.333333333333336"/>
+                                                <rect key="frame" x="291.33333333333331" y="0.0" width="33.666666666666686" height="34.333333333333336"/>
                                                 <color key="tintColor" name="Text01"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain">
@@ -382,7 +382,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="MMk-Uh-9AU">
-                                        <rect key="frame" x="0.0" y="76.666666666666686" width="343" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="76.666666666666686" width="325" height="34.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원 탈퇴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8g5-IC-2Uk">
                                                 <rect key="frame" x="0.0" y="0.0" width="55.666666666666664" height="34.333333333333336"/>
@@ -396,7 +396,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKu-dk-CiA">
-                                                <rect key="frame" x="309.33333333333331" y="0.0" width="33.666666666666686" height="34.333333333333336"/>
+                                                <rect key="frame" x="291.33333333333331" y="0.0" width="33.666666666666686" height="34.333333333333336"/>
                                                 <color key="tintColor" name="Text01"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain">
@@ -411,13 +411,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dz8-g4-ppJ">
-                                <rect key="frame" x="111.66666666666667" y="200" width="13.333333333333329" height="18"/>
+                                <rect key="frame" x="102.66666666666667" y="191" width="13.333333333333329" height="18"/>
                                 <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Duz-W7-uS6">
-                                <rect key="frame" x="111.66666666666667" y="222" width="9.6666666666666714" height="13.333333333333343"/>
+                                <rect key="frame" x="102.66666666666667" y="213" width="9.6666666666666714" height="13.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -472,18 +472,18 @@
             <objects>
                 <viewController title="프로필 편집" id="62j-W8-lXS" customClass="EditProfileViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eco-HB-yPI">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="A9v-pr-Ig9">
-                                <rect key="frame" x="121.66666666666669" y="219.33333333333337" width="150" height="150"/>
+                                <rect key="frame" x="112.66666666666669" y="210.66666666666663" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="2Rw-HM-7GF"/>
                                     <constraint firstAttribute="width" constant="150" id="ExQ-ec-Njf"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로필 편집" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVB-Pm-r4s">
-                                <rect key="frame" x="21.999999999999993" y="112.99999999999999" width="118.33333333333331" height="31.333333333333329"/>
+                                <rect key="frame" x="22.000000000000007" y="104" width="118.66666666666669" height="31.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Pretendard-ExtraBold" family="Pretendard" pointSize="26"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -494,7 +494,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqY-dM-F1H">
-                                <rect key="frame" x="45" y="411.33333333333331" width="37" height="17"/>
+                                <rect key="frame" x="45" y="402.66666666666669" width="37" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" name="Text01"/>
                                 <nil key="highlightedColor"/>
@@ -505,7 +505,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ges-N2-eQ8" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="109" y="408" width="231" height="23"/>
+                                <rect key="frame" x="109" y="399.33333333333331" width="213" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="JPh-0f-KJ0"/>
                                 </constraints>
@@ -522,7 +522,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4r-YU-CDq">
-                                <rect key="frame" x="35" y="488" width="323" height="46"/>
+                                <rect key="frame" x="35" y="479.33333333333331" width="305" height="45.999999999999943"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="sf2-JY-Gqf"/>
                                 </constraints>
@@ -569,11 +569,11 @@
             <objects>
                 <viewController title="내 정보 수정" id="sK8-Sd-B01" customClass="ModifyViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rcY-y3-fxv">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 정보 수정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6e-Wp-eZP">
-                                <rect key="frame" x="22" y="112.99999999999999" width="124" height="31.333333333333329"/>
+                                <rect key="frame" x="22" y="104" width="124" height="31.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Pretendard-ExtraBold" family="Pretendard" pointSize="26"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -584,13 +584,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선호하는 장르" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIR-B2-oy5">
-                                <rect key="frame" x="145" y="382.66666666666669" width="103" height="23"/>
+                                <rect key="frame" x="136" y="373.66666666666669" width="103" height="23"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="19"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여러 개 선택할 수 있어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIN-Su-kcV">
-                                <rect key="frame" x="127.33333333333333" y="408.66666666666669" width="138.66666666666669" height="17"/>
+                                <rect key="frame" x="118.33333333333333" y="399.66666666666669" width="138.66666666666669" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -601,13 +601,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선택하면 나의 추억의 노래 위주로 추천해 드려요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vND-Ar-4eW">
-                                <rect key="frame" x="74.666666666666686" y="292" width="244" height="15.666666666666686"/>
+                                <rect key="frame" x="65.666666666666686" y="283" width="244" height="15.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="67Y-Ok-cnU">
-                                <rect key="frame" x="31.666666666666657" y="510.66666666666674" width="330" height="40"/>
+                                <rect key="frame" x="22.666666666666657" y="501.66666666666674" width="330" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzP-A2-Agc" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="40"/>
@@ -660,7 +660,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gQv-rm-YfH">
-                                <rect key="frame" x="64" y="450.66666666666669" width="265" height="40"/>
+                                <rect key="frame" x="55" y="441.66666666666669" width="265" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1U-Br-7g8" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="40"/>
@@ -704,7 +704,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWt-LW-3HT">
-                                <rect key="frame" x="34" y="620.66666666666663" width="324" height="46"/>
+                                <rect key="frame" x="34" y="611.66666666666663" width="306" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="JxN-q0-026"/>
                                 </constraints>
@@ -718,10 +718,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="rhq-E2-9Ft">
-                                <rect key="frame" x="60" y="209.33333333333334" width="273" height="74.666666666666657"/>
+                                <rect key="frame" x="60" y="200.33333333333334" width="255" height="74.666666666666657"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="1B3-9r-uA9">
-                                        <rect key="frame" x="0.0" y="0.0" width="273" height="18.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="18.666666666666668"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="연령대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drC-cw-2Ws">
                                                 <rect key="frame" x="0.0" y="0.0" width="39" height="18.666666666666668"/>
@@ -735,7 +735,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="선택하세요" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ffx-Ew-LvH">
-                                                <rect key="frame" x="212.33333333333331" y="0.0" width="60.666666666666686" height="18.666666666666668"/>
+                                                <rect key="frame" x="194.33333333333334" y="0.0" width="60.666666666666657" height="18.666666666666668"/>
                                                 <color key="textColor" name="Text01"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -743,7 +743,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rI7-Hd-H0a">
-                                        <rect key="frame" x="0.0" y="43.666666666666657" width="273" height="31"/>
+                                        <rect key="frame" x="0.0" y="43.666666666666657" width="255" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 시절 노래로 추천받기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cza-19-9Cd">
                                                 <rect key="frame" x="0.0" y="0.0" width="140.33333333333334" height="31"/>
@@ -757,7 +757,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EUO-JE-WND">
-                                                <rect key="frame" x="224" y="0.0" width="51" height="31"/>
+                                                <rect key="frame" x="206" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -815,11 +815,11 @@
             <objects>
                 <viewController title="전체 다이어리 조회" id="mQM-M8-PYc" customClass="DiaryListViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8KD-at-MPY">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWd-Fz-pYV">
-                                <rect key="frame" x="22" y="122.99999999999999" width="67.333333333333329" height="31.333333333333329"/>
+                                <rect key="frame" x="22" y="114.00000000000001" width="67.666666666666671" height="31.666666666666671"/>
                                 <fontDescription key="fontDescription" name="Pretendard-ExtraBold" family="Pretendard" pointSize="26"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -830,14 +830,14 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RgG-pq-hLR">
-                                <rect key="frame" x="0.0" y="169.33333333333331" width="393" height="589.66666666666674"/>
+                                <rect key="frame" x="0.0" y="160.66666666666669" width="375" height="558.33333333333326"/>
                                 <color key="backgroundColor" name="backGray"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="diary" rowHeight="66" id="YlS-kD-8Rk" customClass="DiaryCell" customModule="MuslingProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="66"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YlS-kD-8Rk" id="OVq-T5-18U">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-th-lTg">
@@ -847,7 +847,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibg-Ej-u7B">
-                                                    <rect key="frame" x="344.33333333333331" y="26.333333333333332" width="28.666666666666686" height="13.333333333333332"/>
+                                                    <rect key="frame" x="326.66666666666669" y="26.333333333333332" width="28.333333333333314" height="13.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" name="Text02"/>
                                                     <nil key="highlightedColor"/>
@@ -898,11 +898,11 @@
             <objects>
                 <viewController storyboardIdentifier="RecommendVC" title="음악 추천" id="f5C-Bo-yPY" customClass="RecommendViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ku8-vo-cNO">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viX-Ne-lbF">
-                                <rect key="frame" x="22" y="59.000000000000007" width="67.333333333333329" height="31.333333333333336"/>
+                                <rect key="frame" x="22" y="50.000000000000007" width="67.333333333333329" height="31.333333333333336"/>
                                 <fontDescription key="fontDescription" name="Pretendard-ExtraBold" family="Pretendard" pointSize="26"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -913,7 +913,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 감정과 날씨에 어울리는 노래들을 골라봤어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9V-TA-EDT">
-                                <rect key="frame" x="22" y="94.333333333333329" width="233" height="14"/>
+                                <rect key="frame" x="22" y="85.333333333333329" width="233" height="14"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                 <color key="textColor" name="Text01"/>
                                 <nil key="highlightedColor"/>
@@ -924,7 +924,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKE-Tg-d7r">
-                                <rect key="frame" x="235.66666666666663" y="755" width="132.33333333333337" height="28"/>
+                                <rect key="frame" x="217.66666666666663" y="715" width="132.33333333333337" height="28"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="🤔 다시 추천해 주세요">
                                     <fontDescription key="titleFontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
@@ -935,15 +935,15 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EtK-ec-p7m">
-                                <rect key="frame" x="0.0" y="116.33333333333331" width="393" height="628.66666666666674"/>
+                                <rect key="frame" x="0.0" y="107.33333333333331" width="375" height="597.66666666666674"/>
                                 <color key="backgroundColor" name="backGray"/>
                                 <color key="sectionIndexBackgroundColor" name="backGray"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recommend" rowHeight="76" id="T71-oT-DW9" customClass="RecommendCell" customModule="MuslingProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="76"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T71-oT-DW9" id="zIr-gU-5vs">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="COc-Y8-Wzj">
@@ -954,13 +954,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3i-xR-K6K">
-                                                    <rect key="frame" x="90" y="20.666666666666668" width="37" height="18.000000000000004"/>
+                                                    <rect key="frame" x="90" y="20.666666666666668" width="38" height="18.000000000000004"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="15"/>
                                                     <color key="textColor" name="Text01"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-va-pZo">
-                                                    <rect key="frame" x="90" y="40.666666666666664" width="29.333333333333329" height="14.333333333333336"/>
+                                                    <rect key="frame" x="90" y="40.666666666666664" width="29.666666666666671" height="14.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14.333333333333258" id="Zjb-31-G6d"/>
                                                     </constraints>
@@ -969,7 +969,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NUI-XK-c0l">
-                                                    <rect key="frame" x="356" y="30.000000000000004" width="20" height="17.333333333333339"/>
+                                                    <rect key="frame" x="338" y="29.666666666666664" width="20" height="17.666666666666671"/>
                                                     <color key="tintColor" name="Blue01"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="wpN-He-2qo"/>
@@ -1032,14 +1032,14 @@
             <objects>
                 <viewController title="개별 다이어리 조회" id="VDH-is-n04" customClass="DiaryViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z0k-ud-7va">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcm-wq-1bA">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="635"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ii2-hu-yJh">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="441.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="441.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAt-ct-u8v">
                                                 <rect key="frame" x="21.999999999999996" y="20" width="59.666666666666657" height="27"/>
@@ -1048,7 +1048,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RQm-GM-jne">
-                                                <rect key="frame" x="14" y="273.33333333333331" width="365" height="88"/>
+                                                <rect key="frame" x="14" y="273.33333333333331" width="347" height="88"/>
                                                 <color key="backgroundColor" name="backGray"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="88" id="mbx-eS-Wyk"/>
@@ -1072,7 +1072,7 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👀 이런 노래들을 추천받았어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdz-nz-jrx">
-                                                <rect key="frame" x="108.66666666666669" y="243.66666666666669" width="176" height="17"/>
+                                                <rect key="frame" x="99.666666666666686" y="243.66666666666669" width="176" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" name="secondary"/>
                                                 <nil key="highlightedColor"/>
@@ -1096,7 +1096,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7B-TD-Q6v">
-                                                <rect key="frame" x="27" y="157" width="339" height="15.666666666666657"/>
+                                                <rect key="frame" x="27" y="157" width="321" height="15.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                                 <color key="textColor" name="Text01"/>
                                                 <nil key="highlightedColor"/>
@@ -1165,14 +1165,14 @@
             <objects>
                 <viewController id="85P-Kd-BG4" customClass="WriteViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dzs-vW-HlN">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="og1-3k-QoH">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="635"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flC-cO-Ut6">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="962"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="962"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXr-Y0-OOf">
                                                 <rect key="frame" x="23" y="82" width="26" height="18"/>
@@ -1181,13 +1181,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFr-zW-xRL">
-                                                <rect key="frame" x="23" y="32" width="48" height="18"/>
+                                                <rect key="frame" x="23" y="32" width="30" height="18"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="15"/>
                                                 <color key="textColor" name="secondary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bUC-WZ-twc" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                                <rect key="frame" x="86" y="28" width="283" height="26"/>
+                                                <rect key="frame" x="68" y="28" width="283" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="26" id="V3f-7D-B1r"/>
                                                     <constraint firstAttribute="width" constant="283" id="Y6U-2H-1Km"/>
@@ -1204,7 +1204,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="8IF-uX-Phn">
-                                                <rect key="frame" x="64" y="74" width="129" height="34.333333333333343"/>
+                                                <rect key="frame" x="64" y="74" width="111" height="34.333333333333343"/>
                                                 <color key="tintColor" name="Blue01"/>
                                                 <locale key="locale" localeIdentifier="ko_KR"/>
                                             </datePicker>
@@ -1215,7 +1215,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iSN-Lu-qT3">
-                                                <rect key="frame" x="23" y="174" width="346" height="758"/>
+                                                <rect key="frame" x="23" y="174" width="328" height="758"/>
                                                 <color key="backgroundColor" name="backGray"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="758" id="tAD-V5-kx3"/>
@@ -1299,11 +1299,11 @@
             <objects>
                 <viewController storyboardIdentifier="SignUp" title="회원가입" id="IQr-K8-1uH" customClass="SignUpViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bqa-wv-sqJ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앞으로 사용할 아이디와 비밀번호를 입력해 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3H-qM-NMi">
-                                <rect key="frame" x="16" y="59" width="271.33333333333331" height="17"/>
+                                <rect key="frame" x="16" y="50" width="271.66666666666669" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1314,7 +1314,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D0-fY-pnE">
-                                <rect key="frame" x="37" y="238" width="39" height="18"/>
+                                <rect key="frame" x="37" y="229" width="39" height="18"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" name="secondary"/>
                                 <nil key="highlightedColor"/>
@@ -1325,7 +1325,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxe-7q-a4z">
-                                <rect key="frame" x="37" y="298" width="52" height="18"/>
+                                <rect key="frame" x="37" y="289" width="52" height="18"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" name="secondary"/>
                                 <nil key="highlightedColor"/>
@@ -1336,7 +1336,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BKe-ES-zYZ" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="109" y="294" width="230" height="24"/>
+                                <rect key="frame" x="109" y="285" width="230" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="5ce-Wc-mB8"/>
                                     <constraint firstAttribute="height" constant="24" id="SU7-e0-fEm"/>
@@ -1354,7 +1354,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9B-x8-x9m" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="109" y="354" width="230" height="24"/>
+                                <rect key="frame" x="109" y="345" width="230" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="0jD-Jr-NYh"/>
                                     <constraint firstAttribute="width" constant="230" id="lXw-go-03e"/>
@@ -1372,7 +1372,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wB0-jK-bgl" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="109" y="234.66666666666666" width="230" height="23.999999999999972"/>
+                                <rect key="frame" x="109" y="225.66666666666666" width="230" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="99d-Fz-mRa"/>
                                     <constraint firstAttribute="height" constant="24" id="qFY-oz-3hQ"/>
@@ -1390,7 +1390,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="재입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uK-0O-7nc">
-                                <rect key="frame" x="37" y="357" width="39" height="18"/>
+                                <rect key="frame" x="37" y="348" width="39" height="18"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="15"/>
                                 <color key="textColor" name="secondary"/>
                                 <nil key="highlightedColor"/>
@@ -1401,7 +1401,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jho-bx-Icg">
-                                <rect key="frame" x="34" y="470" width="324" height="46"/>
+                                <rect key="frame" x="34" y="461" width="306" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="BZ8-Vc-RwA"/>
                                 </constraints>
@@ -1459,11 +1459,11 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileVC" title="회원가입2" id="lRM-Oa-MKb" customClass="ProfileViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0TC-RM-58d">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY5-rh-z31">
-                                <rect key="frame" x="37" y="339" width="41.666666666666657" height="19.333333333333314"/>
+                                <rect key="frame" x="37" y="330" width="41.666666666666657" height="19.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="16"/>
                                 <color key="textColor" name="secondary"/>
                                 <nil key="highlightedColor"/>
@@ -1474,14 +1474,14 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="sBe-Re-aUg">
-                                <rect key="frame" x="121.66666666666669" y="144.66666666666666" width="150" height="149.99999999999997"/>
+                                <rect key="frame" x="112.66666666666669" y="135.66666666666666" width="150" height="149.99999999999997"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Ozj-bt-0St"/>
                                     <constraint firstAttribute="height" constant="150" id="PUQ-lk-LLQ"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iab-mu-y47" customClass="HSUnderLineTextField" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="97.666666666666686" y="334.66666666666669" width="245" height="25"/>
+                                <rect key="frame" x="97.666666666666686" y="325.66666666666669" width="245" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="454-x3-1Dr"/>
                                     <constraint firstAttribute="width" constant="245" id="LUs-Bd-iwy"/>
@@ -1499,7 +1499,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로필 사진과 닉네임을 등록해 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IH6-Go-Gmi">
-                                <rect key="frame" x="16" y="59" width="207.33333333333334" height="17"/>
+                                <rect key="frame" x="16" y="50" width="207.66666666666666" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1510,7 +1510,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMq-As-Pp7">
-                                <rect key="frame" x="34" y="424.66666666666669" width="324" height="46"/>
+                                <rect key="frame" x="34" y="415.66666666666669" width="306" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="S0n-cL-bba"/>
                                 </constraints>
@@ -1557,17 +1557,17 @@
             <objects>
                 <viewController storyboardIdentifier="SelectVC" title="취향 선택" id="Yw2-Ls-HDH" customClass="SelectViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b0E-Dg-Hel">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선호하는 장르" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhL-Xt-8Dl">
-                                <rect key="frame" x="145" y="315.33333333333331" width="103" height="23"/>
+                                <rect key="frame" x="136" y="306.33333333333331" width="103" height="23"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="19"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여러 개 선택할 수 있어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5B-e0-HTC">
-                                <rect key="frame" x="127.33333333333333" y="341.33333333333331" width="138.66666666666669" height="17"/>
+                                <rect key="frame" x="118.33333333333333" y="332.33333333333331" width="138.66666666666669" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1578,13 +1578,13 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선택하면 나의 추억의 노래 위주로 추천해 드려요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEG-D9-cIf">
-                                <rect key="frame" x="74.666666666666686" y="224.66666666666666" width="244" height="15.666666666666657"/>
+                                <rect key="frame" x="65.666666666666686" y="215.66666666666666" width="244" height="15.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="zNO-TN-Wf3">
-                                <rect key="frame" x="31.666666666666657" y="443.33333333333331" width="330" height="40"/>
+                                <rect key="frame" x="22.666666666666657" y="434.33333333333331" width="330" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y61-dK-ioH" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="72.666666666666671" height="40"/>
@@ -1637,7 +1637,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TdG-Xs-vQF">
-                                <rect key="frame" x="64" y="383.33333333333331" width="265" height="40"/>
+                                <rect key="frame" x="55" y="374.33333333333331" width="265" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5Y-at-2pY" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="40"/>
@@ -1681,7 +1681,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jB6-Yq-qXw">
-                                <rect key="frame" x="34" y="543.33333333333337" width="324" height="46"/>
+                                <rect key="frame" x="34" y="534.33333333333337" width="306" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="uFH-cM-u5C"/>
                                 </constraints>
@@ -1695,7 +1695,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음악 추천에 필요한 정보를 완성해 주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrY-Dy-pfu">
-                                <rect key="frame" x="16" y="59" width="223" height="17"/>
+                                <rect key="frame" x="16" y="50" width="223" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1706,10 +1706,10 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="igU-K1-uhR">
-                                <rect key="frame" x="60" y="141" width="273" height="75.666666666666686"/>
+                                <rect key="frame" x="60" y="132" width="255" height="75.666666666666686"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="iCi-6J-VFh">
-                                        <rect key="frame" x="0.0" y="0.0" width="273" height="19.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="19.666666666666668"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="연령대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXo-WR-1fL">
                                                 <rect key="frame" x="0.0" y="0.0" width="39" height="19.666666666666668"/>
@@ -1723,7 +1723,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" placeholder="선택하세요" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8u-iO-68L">
-                                                <rect key="frame" x="208" y="0.0" width="65" height="19.666666666666668"/>
+                                                <rect key="frame" x="190" y="0.0" width="65" height="19.666666666666668"/>
                                                 <color key="textColor" name="Text01"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -1731,7 +1731,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="6x6-iG-bKm">
-                                        <rect key="frame" x="0.0" y="44.666666666666657" width="273" height="31"/>
+                                        <rect key="frame" x="0.0" y="44.666666666666657" width="255" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 시절 노래로 추천받기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dly-yy-Fkb">
                                                 <rect key="frame" x="0.0" y="0.0" width="140.33333333333334" height="31"/>
@@ -1745,7 +1745,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DwG-cr-myR">
-                                                <rect key="frame" x="224" y="0.0" width="51" height="31"/>
+                                                <rect key="frame" x="206" y="0.0" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="selectRec:" destination="Yw2-Ls-HDH" eventType="valueChanged" id="L26-yM-h1H"/>
                                                 </connections>
@@ -1812,7 +1812,7 @@
                     <connections>
                         <segue destination="Ndg-co-47f" kind="relationship" relationship="viewControllers" id="DU5-8K-8G8"/>
                         <segue destination="btF-l4-7f3" kind="relationship" relationship="viewControllers" id="9q9-MV-yA3"/>
-                        <segue destination="dxa-2Z-zfp" kind="relationship" relationship="viewControllers" id="3Bo-Ma-1xc"/>
+                        <segue destination="uu6-kI-Zpw" kind="relationship" relationship="viewControllers" id="ezx-xJ-IgC"/>
                         <segue destination="4z7-A8-PWI" kind="relationship" relationship="viewControllers" id="otX-rf-WxX"/>
                     </connections>
                 </tabBarController>
@@ -1825,11 +1825,11 @@
             <objects>
                 <viewController id="btF-l4-7f3" customClass="FavoriteViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OjB-g4-G9u">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gyu-fk-Aha">
-                                <rect key="frame" x="22" y="109" width="67.333333333333329" height="30.333333333333343"/>
+                                <rect key="frame" x="22" y="100" width="67.666666666666671" height="31.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Pretendard-ExtraBold" family="Pretendard" pointSize="26"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -1840,7 +1840,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kNQ-gW-Vyp">
-                                <rect key="frame" x="115" y="161.33333333333334" width="163" height="32"/>
+                                <rect key="frame" x="106" y="153.66666666666666" width="163" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="163" id="Gfi-9s-j5q"/>
                                 </constraints>
@@ -1854,14 +1854,14 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SVf-Ku-8o3">
-                                <rect key="frame" x="0.0" y="207.33333333333331" width="393" height="551.66666666666674"/>
+                                <rect key="frame" x="0.0" y="199.66666666666669" width="375" height="519.33333333333326"/>
                                 <color key="backgroundColor" name="backGray"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="88" id="oho-a4-F6Z" customClass="CategoryListCell" customModule="MuslingProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="88"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oho-a4-F6Z" id="uEY-3L-TX9">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-93-6d4">
@@ -1945,11 +1945,11 @@
             <objects>
                 <viewController id="4au-CG-bav" customClass="HomeViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="69g-T2-jyb">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPD-kz-mjn">
-                                <rect key="frame" x="22" y="138" width="23.666666666666671" height="30.333333333333343"/>
+                                <rect key="frame" x="22" y="129" width="24" height="31.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Pretendard-ExtraBold" family="Pretendard" pointSize="26"/>
                                 <color key="textColor" name="Blue01"/>
                                 <nil key="highlightedColor"/>
@@ -1960,7 +1960,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023-11-10 (금)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kQ-2W-9BY">
-                                <rect key="frame" x="22.999999999999993" y="175.33333333333334" width="101.33333333333331" height="17"/>
+                                <rect key="frame" x="23.000000000000007" y="167.66666666666666" width="101.66666666666669" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" name="Text02"/>
                                 <nil key="highlightedColor"/>
@@ -1971,7 +1971,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgs-c0-jdf">
-                                <rect key="frame" x="23" y="195.33333333333334" width="12.666666666666664" height="17"/>
+                                <rect key="frame" x="23" y="187.66666666666666" width="12.666666666666664" height="17"/>
                                 <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="14"/>
                                 <color key="textColor" name="Text02"/>
                                 <nil key="highlightedColor"/>
@@ -1982,7 +1982,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlx-j8-qLM">
-                                <rect key="frame" x="175.66666666666666" y="413" width="42" height="21"/>
+                                <rect key="frame" x="166.66666666666666" y="404" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="Text03"/>
                                 <nil key="highlightedColor"/>
@@ -1993,7 +1993,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWq-Rw-c72" customClass="CSButton" customModule="MuslingProject" customModuleProvider="target">
-                                <rect key="frame" x="144.66666666666666" y="481" width="104" height="41"/>
+                                <rect key="frame" x="135.66666666666666" y="472" width="104" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="104" id="Ao0-Xe-0Qr"/>
                                     <constraint firstAttribute="height" constant="41" id="ZCz-QT-5YI"/>
@@ -2008,7 +2008,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtn-uw-sSx">
-                                <rect key="frame" x="336" y="123" width="49" height="31"/>
+                                <rect key="frame" x="318" y="114" width="49" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="list"/>
                                 <connections>
@@ -2052,7 +2052,7 @@
                 <navigationController storyboardIdentifier="FirstVC" title="첫 화면" automaticallyAdjustsScrollViewInsets="NO" id="EMM-yW-G9z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Qya-ml-jey">
-                        <rect key="frame" x="0.0" y="59" width="393" height="103"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="28"/>
@@ -2068,140 +2068,120 @@
             </objects>
             <point key="canvasLocation" x="218" y="-2"/>
         </scene>
-        <!--감정 통계 📊-->
-        <scene sceneID="ian-HJ-Nt5">
-            <objects>
-                <viewController id="ePr-vL-Fyw" customClass="ChartViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yaC-wx-Pda">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LxC-Ev-iiB">
-                                <rect key="frame" x="0.0" y="162" width="393" height="607"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5C-Rc-AbL">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="552.33333333333337"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2U2-Zv-84h" customClass="BarChartView" customModule="Charts">
-                                                <rect key="frame" x="18" y="69" width="356" height="340"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="340" id="gg8-oC-2oP"/>
-                                                </constraints>
-                                            </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👀 한 달 간의 감정 그래프를 보여드릴게요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5Z-2u-MYk">
-                                                <rect key="frame" x="18" y="30" width="327.33333333333331" height="24"/>
-                                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
-                                                <color key="textColor" name="secondary"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
-                                                        <real key="value" value="-0.69999999999999996"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔎 감정들을 이만큼 느끼셨었네요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZe-fw-DaQ">
-                                                <rect key="frame" x="18" y="457.33333333333337" width="261.66666666666669" height="24"/>
-                                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="20"/>
-                                                <color key="textColor" name="secondary"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
-                                                        <real key="value" value="-0.69999999999999996"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEF-cD-8Ro">
-                                                <rect key="frame" x="18" y="501.33333333333337" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="2U2-Zv-84h" firstAttribute="leading" secondItem="N5C-Rc-AbL" secondAttribute="leading" constant="18" id="2vF-pw-eo3"/>
-                                            <constraint firstItem="f5Z-2u-MYk" firstAttribute="leading" secondItem="N5C-Rc-AbL" secondAttribute="leading" constant="18" id="EI5-wF-GCa"/>
-                                            <constraint firstAttribute="bottom" secondItem="VEF-cD-8Ro" secondAttribute="bottom" constant="30" id="JqU-aW-aMf"/>
-                                            <constraint firstItem="iZe-fw-DaQ" firstAttribute="leading" secondItem="N5C-Rc-AbL" secondAttribute="leading" constant="18" id="RFR-gf-gkC"/>
-                                            <constraint firstAttribute="trailing" secondItem="2U2-Zv-84h" secondAttribute="trailing" constant="19" id="VoV-1W-RkF"/>
-                                            <constraint firstItem="f5Z-2u-MYk" firstAttribute="top" secondItem="N5C-Rc-AbL" secondAttribute="top" constant="30" id="ZTa-On-J8N"/>
-                                            <constraint firstItem="2U2-Zv-84h" firstAttribute="top" secondItem="f5Z-2u-MYk" secondAttribute="bottom" constant="15" id="cet-U3-uhX"/>
-                                            <constraint firstItem="iZe-fw-DaQ" firstAttribute="top" secondItem="2U2-Zv-84h" secondAttribute="bottom" constant="48.329999999999998" id="fMp-dD-7Fi"/>
-                                            <constraint firstItem="VEF-cD-8Ro" firstAttribute="leading" secondItem="N5C-Rc-AbL" secondAttribute="leading" constant="18" id="mDF-UZ-Z8x"/>
-                                            <constraint firstItem="VEF-cD-8Ro" firstAttribute="top" secondItem="iZe-fw-DaQ" secondAttribute="bottom" constant="20" id="sGZ-7A-xY5"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="leading" secondItem="d0P-n7-CRm" secondAttribute="leading" id="COz-cZ-k2b"/>
-                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="trailing" secondItem="d0P-n7-CRm" secondAttribute="trailing" id="TgC-3X-918"/>
-                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="bottom" secondItem="d0P-n7-CRm" secondAttribute="bottom" id="XBU-J8-agk"/>
-                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="bottom" secondItem="Dju-2S-Upx" secondAttribute="bottom" priority="250" id="ago-7F-fAs"/>
-                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="width" secondItem="Dju-2S-Upx" secondAttribute="width" id="xEv-DM-1xe"/>
-                                    <constraint firstItem="N5C-Rc-AbL" firstAttribute="top" secondItem="d0P-n7-CRm" secondAttribute="top" id="zbg-z3-x1C"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="d0P-n7-CRm"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Dju-2S-Upx"/>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="AIQ-IY-A2e"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="LxC-Ev-iiB" firstAttribute="top" secondItem="AIQ-IY-A2e" secondAttribute="top" id="Ji9-TX-DfX"/>
-                            <constraint firstItem="LxC-Ev-iiB" firstAttribute="trailing" secondItem="AIQ-IY-A2e" secondAttribute="trailing" id="ehx-ny-dLr"/>
-                            <constraint firstItem="LxC-Ev-iiB" firstAttribute="leading" secondItem="AIQ-IY-A2e" secondAttribute="leading" id="t6A-h8-A6y"/>
-                            <constraint firstItem="LxC-Ev-iiB" firstAttribute="bottom" secondItem="AIQ-IY-A2e" secondAttribute="bottom" id="zxS-1V-mgN"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="감정 통계 📊" id="oDb-QK-tRY"/>
-                    <connections>
-                        <outlet property="chart" destination="2U2-Zv-84h" id="ZLv-M2-lxN"/>
-                        <outlet property="emotionScript" destination="VEF-cD-8Ro" id="S2s-a6-P0X"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2To-gl-Tv2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1657" y="2865"/>
-        </scene>
-        <!--View Controller-->
+        <!--리포트-->
         <scene sceneID="27e-58-oer">
             <objects>
-                <viewController id="uu6-kI-Zpw" sceneMemberID="viewController">
+                <viewController id="uu6-kI-Zpw" customClass="ChartViewController" customModule="MuslingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MAk-Xr-saq">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzp-4f-Nmj">
+                                <rect key="frame" x="22" y="75" width="23.666666666666671" height="31.333333333333329"/>
+                                <fontDescription key="fontDescription" name="Pretendard-ExtraBold" family="Pretendard" pointSize="26"/>
+                                <color key="textColor" name="Blue01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한 달 동안 어떤 감정이 가장 많이 나타났을까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asw-S1-urd">
+                                <rect key="frame" x="21.999999999999986" y="111.33333333333333" width="242.66666666666663" height="16"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="13"/>
+                                <color key="textColor" name="Text01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-1.1699999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNr-gs-I29" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="25" y="147.33333333333337" width="325" height="297"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="297" id="vqM-MV-Ie6"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="감정 리포트 💬 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRV-kW-HwC">
+                                <rect key="frame" x="27" y="479.33333333333331" width="112" height="21.666666666666686"/>
+                                <fontDescription key="fontDescription" name="Pretendard-ExtraBold" family="Pretendard" pointSize="18"/>
+                                <color key="textColor" name="Text01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-1.4399999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금까지 가장 많이 나타난 감정은..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlv-CS-sYf">
+                                <rect key="frame" x="27" y="521" width="194.33333333333334" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                                <color key="textColor" name="Text01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사랑/기쁨이에요 😘 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xe2-63-rl9">
+                                <rect key="frame" x="27.000000000000007" y="543" width="115.66666666666669" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="14"/>
+                                <color key="textColor" name="Blue01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금까지 가장 많이 나타난 감정은..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1y-xn-iTz">
+                                <rect key="frame" x="153.66666666666663" y="590" width="194.33333333333337" height="17"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="14"/>
+                                <color key="textColor" name="Text01"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xhb-jF-4vA"/>
                         <color key="backgroundColor" name="backGray"/>
+                        <constraints>
+                            <constraint firstItem="Asw-S1-urd" firstAttribute="leading" secondItem="xhb-jF-4vA" secondAttribute="leading" constant="22" id="304-Fh-oJj"/>
+                            <constraint firstItem="hNr-gs-I29" firstAttribute="top" secondItem="Asw-S1-urd" secondAttribute="bottom" constant="20" id="83z-zm-V3D"/>
+                            <constraint firstItem="sRV-kW-HwC" firstAttribute="leading" secondItem="xhb-jF-4vA" secondAttribute="leading" constant="27" id="JgF-HA-l9g"/>
+                            <constraint firstItem="nlv-CS-sYf" firstAttribute="leading" secondItem="xhb-jF-4vA" secondAttribute="leading" constant="27" id="JsV-Hv-juE"/>
+                            <constraint firstItem="xhb-jF-4vA" firstAttribute="trailing" secondItem="i1y-xn-iTz" secondAttribute="trailing" constant="27" id="Q7c-Y0-kwR"/>
+                            <constraint firstItem="xe2-63-rl9" firstAttribute="top" secondItem="nlv-CS-sYf" secondAttribute="bottom" constant="5" id="SVv-Ad-ICx"/>
+                            <constraint firstItem="nlv-CS-sYf" firstAttribute="top" secondItem="sRV-kW-HwC" secondAttribute="bottom" constant="20" id="Sjk-q9-QQi"/>
+                            <constraint firstItem="sRV-kW-HwC" firstAttribute="top" secondItem="hNr-gs-I29" secondAttribute="bottom" constant="35" id="bMl-OX-GkZ"/>
+                            <constraint firstItem="i1y-xn-iTz" firstAttribute="top" secondItem="xe2-63-rl9" secondAttribute="bottom" constant="30" id="bVc-Ow-BfU"/>
+                            <constraint firstItem="xe2-63-rl9" firstAttribute="leading" secondItem="xhb-jF-4vA" secondAttribute="leading" constant="27" id="en0-EY-ztT"/>
+                            <constraint firstItem="pzp-4f-Nmj" firstAttribute="top" secondItem="xhb-jF-4vA" secondAttribute="top" constant="25" id="iDy-CC-bSv"/>
+                            <constraint firstItem="pzp-4f-Nmj" firstAttribute="leading" secondItem="xhb-jF-4vA" secondAttribute="leading" constant="22" id="jra-a2-Psb"/>
+                            <constraint firstItem="xhb-jF-4vA" firstAttribute="trailing" secondItem="hNr-gs-I29" secondAttribute="trailing" constant="25" id="mNP-qY-cet"/>
+                            <constraint firstItem="hNr-gs-I29" firstAttribute="leading" secondItem="xhb-jF-4vA" secondAttribute="leading" constant="25" id="na9-9y-6bF"/>
+                            <constraint firstItem="Asw-S1-urd" firstAttribute="top" secondItem="pzp-4f-Nmj" secondAttribute="bottom" constant="5" id="sxS-lY-E6K"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="리포트" image="chart.bar" catalog="system" id="95Y-bq-JbI"/>
+                    <connections>
+                        <outlet property="chart" destination="hNr-gs-I29" id="TeF-Q3-260"/>
+                        <outlet property="moodScript" destination="xe2-63-rl9" id="v5y-wq-daN"/>
+                        <outlet property="muslingScript" destination="i1y-xn-iTz" id="NFi-Pf-ih2"/>
+                        <outlet property="script1" destination="nlv-CS-sYf" id="bv1-rw-Anl"/>
+                        <outlet property="titleLabel" destination="pzp-4f-Nmj" id="4pc-S4-kGm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4y-xa-hNG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2531" y="2865"/>
-        </scene>
-        <!--리포트-->
-        <scene sceneID="uf3-fY-HmZ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dxa-2Z-zfp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="리포트" image="chart.bar" catalog="system" id="XAa-B3-cQP"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gtl-E0-MZa">
-                        <rect key="frame" x="0.0" y="59" width="393" height="104.33333333333334"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="28"/>
-                        </textAttributes>
-                        <navigationBarAppearance key="scrollEdgeAppearance"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ePr-vL-Fyw" kind="relationship" relationship="rootViewController" id="OfZ-9n-tnh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xoo-cY-rKf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="988" y="2865.5172413793107"/>
+            <point key="canvasLocation" x="984.79999999999995" y="2876.3118440779613"/>
         </scene>
         <!--홈-->
         <scene sceneID="MRM-vG-ZbU">
@@ -2210,7 +2190,7 @@
                     <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="gbQ-Xz-6C9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IUp-Fv-1Cv">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2229,7 +2209,7 @@
                     <tabBarItem key="tabBarItem" title="마이페이지" image="person" catalog="system" id="3HR-xS-LSV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Svn-HK-dJD">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="Blue01"/>
                     </navigationBar>

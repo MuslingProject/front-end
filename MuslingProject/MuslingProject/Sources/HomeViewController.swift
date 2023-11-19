@@ -40,25 +40,30 @@ class HomeViewController: UIViewController {
         // 옵저버 등록
         NotificationCenter.default.addObserver(self, selector: #selector(handleProfileUpdate), name: .profileUpdated, object: nil)
         
+        titleLabel.numberOfLines = 2
         IsnoDiary()
         
-        MypageService.shared.getMypage() { response in
-            switch response {
-            case .success(let data):
-                if let data = data as? MypageModel {
-                    print("회원 정보 불러오기 결과 :: \(data.result)")
-                    self.titleLabel.numberOfLines = 2
-                    self.titleLabel.attributedText = NSAttributedString(string: "\(data.data.name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.7])
-                    }
-                
-            case .pathErr:
-                print("회원 정보 불러오기 결과 :: Path Err")
-            case .requestErr:
-                print("회원 정보 불러오기 결과 :: Request Err")
-            case .serverErr:
-                print("회원 정보 불러오기 결과 :: Server Err")
-            case .networkFail:
-                print("회원 정보 불러오기 결과 :: Network Fail")
+        if let name = UserDefaults.standard.string(forKey: "user_name") {
+            titleLabel.attributedText = NSAttributedString(string: "\(name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.8])
+        } else {
+            MypageService.shared.getMypage() { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? MypageModel {
+                        print("회원 정보 불러오기 결과 :: \(data.result)")
+                        UserDefaults.standard.setValue(data.data.name, forKey: "user_name")
+                        self.titleLabel.attributedText = NSAttributedString(string: "\(data.data.name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.8])
+                        }
+                    
+                case .pathErr:
+                    print("회원 정보 불러오기 결과 :: Path Err")
+                case .requestErr:
+                    print("회원 정보 불러오기 결과 :: Request Err")
+                case .serverErr:
+                    print("회원 정보 불러오기 결과 :: Server Err")
+                case .networkFail:
+                    print("회원 정보 불러오기 결과 :: Network Fail")
+                }
             }
         }
         
@@ -113,7 +118,7 @@ class HomeViewController: UIViewController {
                     print("회원 정보 불러오기 결과 :: \(data.result)")
                     
                     self.titleLabel.numberOfLines = 2
-                    self.titleLabel.attributedText = NSAttributedString(string: "\(data.data.name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.7])
+                    self.titleLabel.attributedText = NSAttributedString(string: "\(data.data.name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.8])
                 }
             case .pathErr:
                 print("회원 정보 불러오기 결과 :: Path Err")
