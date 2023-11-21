@@ -112,9 +112,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 자동 로그인
         let saveId = UserDefaults.standard.string(forKey: "user_id")
         if saveId?.isEmpty == false {
+            
             // 토큰 갱신해 주기
             guard let userId = UserDefaults.standard.string(forKey: "user_id") else { return }
             guard let pwd = UserDefaults.standard.string(forKey: "pwd") else { return }
+            
             SignService.shared.signIn(userId: userId, pwd: pwd) { response in
                 switch response {
                 case .success(let data):

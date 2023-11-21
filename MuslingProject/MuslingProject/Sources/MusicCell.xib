@@ -37,7 +37,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ7-a0-UM0">
-                        <rect key="frame" x="78" y="25.666666666666668" width="32" height="15.333333333333332"/>
+                        <rect key="frame" x="78" y="25.666666666666668" width="173" height="15.333333333333332"/>
                         <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="13"/>
                         <color key="textColor" name="Text01"/>
                         <nil key="highlightedColor"/>
@@ -56,6 +56,7 @@
                 <constraint firstAttribute="bottom" secondItem="0tt-YH-wEp" secondAttribute="bottom" constant="26" id="BgJ-FL-lxg"/>
                 <constraint firstItem="0tt-YH-wEp" firstAttribute="leading" secondItem="r3F-F8-css" secondAttribute="trailing" constant="11" id="CEM-qV-Mnf"/>
                 <constraint firstAttribute="bottom" secondItem="kqA-VQ-iyR" secondAttribute="bottom" id="HHe-aV-fNP"/>
+                <constraint firstAttribute="trailing" secondItem="dZ7-a0-UM0" secondAttribute="trailing" constant="9" id="O7u-Yx-k8J"/>
                 <constraint firstItem="kqA-VQ-iyR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="REc-pc-aYe"/>
                 <constraint firstItem="kqA-VQ-iyR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Sdt-jP-w2m"/>
                 <constraint firstItem="0tt-YH-wEp" firstAttribute="top" secondItem="dZ7-a0-UM0" secondAttribute="bottom" constant="2" id="WRg-0k-eAP"/>

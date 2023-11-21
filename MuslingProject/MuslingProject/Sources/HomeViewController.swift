@@ -115,6 +115,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        noneLabel.isHidden = true
+        diaryTableView.isHidden = true
+        diaryLabel.isHidden = true
+        
         IsnoDiary()
         
         diaryTableView.dataSource = self
