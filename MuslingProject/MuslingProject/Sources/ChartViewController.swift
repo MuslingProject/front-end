@@ -72,6 +72,9 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 옵저버 등록
+        NotificationCenter.default.addObserver(self, selector: #selector(handleProfileUpdate), name: .profileUpdated, object: nil)
+        
         script1.attributedText = NSAttributedString(string: "지금까지 가장 많이 나타난 감정은...", attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 15)!])
         moodScript.attributedText = NSAttributedString(string: "사랑/기쁨이에요 😘 ", attributes: [NSAttributedString.Key.kern: -1, NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 16)!])
         
@@ -110,15 +113,30 @@ class ChartViewController: UIViewController {
         setChart(dataPoints: emotions, values: counts)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func handleProfileUpdate() {
+        if let name = UserDefaults.standard.string(forKey: "user_name") {
+            titleLabel.attributedText = NSAttributedString(string: "\(name) 님의\n감정 그래프를 보여드릴게요 👀", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -2.34])
+        } else {
+            MypageService.shared.getMypage() { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? MypageModel {
+                        print("회원 정보 불러오기 결과 :: \(data.result)")
+                        UserDefaults.standard.setValue(data.data.name, forKey: "user_name")
+                        self.titleLabel.attributedText = NSAttributedString(string: "\(data.data.name) 님의\n감정 그래프를 보여드릴게요 👀", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -2.34])
+                        }
+                    
+                case .pathErr:
+                    print("회원 정보 불러오기 결과 :: Path Err")
+                case .requestErr:
+                    print("회원 정보 불러오기 결과 :: Request Err")
+                case .serverErr:
+                    print("회원 정보 불러오기 결과 :: Server Err")
+                case .networkFail:
+                    print("회원 정보 불러오기 결과 :: Network Fail")
+                }
+            }
+        }
     }
-    */
 
 }

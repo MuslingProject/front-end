@@ -115,6 +115,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        IsnoDiary()
+        
         diaryTableView.dataSource = self
         diaryTableView.delegate = self
         
@@ -129,7 +131,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         NotificationCenter.default.addObserver(self, selector: #selector(handleDiaryUpdate), name: .diaryUpdated, object: nil)
         
         titleLabel.numberOfLines = 2
-        IsnoDiary()
         
         if let name = UserDefaults.standard.string(forKey: "user_name") {
             titleLabel.attributedText = NSAttributedString(string: "\(name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.8])
@@ -186,24 +187,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func IsnoDiary() {
-        if UserDefaults.standard.bool(forKey: "todayWrite") == false {
-            noneLabel.isHidden = false
-            diaryLabel.isHidden = true
-            diaryTableView.isHidden = true
-            noneLabel.numberOfLines = 2
-            noneLabel.attributedText = NSAttributedString(string: "아직 오늘이 기록이 없어요\n일기를 작성해 주세요!", attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!])
-            noneLabel.textAlignment = .center
-        } else {
-            noneLabel.isHidden = true
-            diaryLabel.isHidden = false
-            diaryTableView.isHidden = false
-            
-            // 오늘 기록 조회하는 함수 실행
-            DiaryService.shared.getDiaries(page: 0, size: 30) { response in
-                switch response {
-                case .success(let data):
-                    if let data = data as? GetDiaryModel {
-                        print("전체 기록 조회 결과 :: \(data.result)")
+        
+        // 오늘 기록 조회하는 함수 실행
+        DiaryService.shared.getDiaries(page: 0, size: 30) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? GetDiaryModel {
+                    print("전체 기록 조회 결과 :: \(data.result)")
+                    
+                    if data.data.content.isEmpty {
+                        self.noneLabel.isHidden = false
+                        self.diaryLabel.isHidden = true
+                        self.diaryTableView.isHidden = true
+                        self.noneLabel.numberOfLines = 2
+                        self.noneLabel.attributedText = NSAttributedString(string: "아직 오늘이 기록이 없어요\n연필을 눌러 일기를 작성해 주세요!", attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!])
+                        self.noneLabel.textAlignment = .center
+                    } else {
+                        self.noneLabel.isHidden = true
+                        self.diaryLabel.isHidden = false
+                        self.diaryTableView.isHidden = false
+                        
                         for diary in data.data.content {
                             let formatter = DateFormatter()
                             formatter.dateFormat = "yyyy-MM-dd"
@@ -216,15 +219,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         }
                         self.diaryTableView.reloadData()
                     }
-                case .pathErr:
-                    print("회원 정보 불러오기 결과 :: Path Err")
-                case .requestErr:
-                    print("회원 정보 불러오기 결과 :: Request Err")
-                case .serverErr:
-                    print("회원 정보 불러오기 결과 :: Server Err")
-                case .networkFail:
-                    print("회원 정보 불러오기 결과 :: Network Fail")
                 }
+            case .pathErr:
+                print("회원 정보 불러오기 결과 :: Path Err")
+            case .requestErr:
+                print("회원 정보 불러오기 결과 :: Request Err")
+            case .serverErr:
+                print("회원 정보 불러오기 결과 :: Server Err")
+            case .networkFail:
+                print("회원 정보 불러오기 결과 :: Network Fail")
             }
         }
     }
@@ -239,23 +242,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @objc func handleProfileUpdate() {
-        MypageService.shared.getMypage() { response in
-            switch response {
-            case .success(let data):
-                if let data = data as? MypageModel {
-                    print("회원 정보 불러오기 결과 :: \(data.result)")
-                    
-                    self.titleLabel.numberOfLines = 2
-                    self.titleLabel.attributedText = NSAttributedString(string: "\(data.data.name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.8])
+        if let nickname = UserDefaults.standard.string(forKey: "user_name") {
+            self.titleLabel.numberOfLines = 2
+            self.titleLabel.attributedText = NSAttributedString(string: "\(nickname) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.8])
+        } else {
+            MypageService.shared.getMypage() { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? MypageModel {
+                        print("회원 정보 불러오기 결과 :: \(data.result)")
+                        
+                        self.titleLabel.numberOfLines = 2
+                        self.titleLabel.attributedText = NSAttributedString(string: "\(data.data.name) 님,\n일상을 기록해 보세요 ✍️", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.8])
+                    }
+                case .pathErr:
+                    print("회원 정보 불러오기 결과 :: Path Err")
+                case .requestErr:
+                    print("회원 정보 불러오기 결과 :: Request Err")
+                case .serverErr:
+                    print("회원 정보 불러오기 결과 :: Server Err")
+                case .networkFail:
+                    print("회원 정보 불러오기 결과 :: Network Fail")
                 }
-            case .pathErr:
-                print("회원 정보 불러오기 결과 :: Path Err")
-            case .requestErr:
-                print("회원 정보 불러오기 결과 :: Request Err")
-            case .serverErr:
-                print("회원 정보 불러오기 결과 :: Server Err")
-            case .networkFail:
-                print("회원 정보 불러오기 결과 :: Network Fail")
             }
         }
     }
