@@ -37,7 +37,7 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
             category.append("🥰 사랑/기쁨")
         case "이별/슬픔":
             category.append("😢 이별/슬픔")
-        case "불안/멘붕":
+        case "멘붕/불안":
             category.append("😨 멘붕/불안")
         case "스트레스/짜증":
             category.append("😡 스트레스/짜증")

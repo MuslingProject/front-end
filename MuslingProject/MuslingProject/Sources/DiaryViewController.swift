@@ -23,10 +23,7 @@ class DiaryViewController: UIViewController {
     var content: String!
     var emotion: String!
     var weather: String!
-    
-    // 더미데이터 불러오기
-    let diaries = Diary.data
-    let musics = Music.recommend
+    var musics: [RecMusicModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

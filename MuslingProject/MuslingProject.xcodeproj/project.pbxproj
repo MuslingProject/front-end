@@ -89,8 +89,8 @@
 		F30F9AC02ADEE92600507422 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Light.otf"; path = "../../../../Downloads/Pretendard-1.3.6/public/static/Pretendard-Light.otf"; sourceTree = "<group>"; };
 		F30F9AC12ADEE92600507422 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../Downloads/Pretendard-1.3.6/public/static/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		F30F9AC72ADEF07F00507422 /* AllEmotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEmotionViewController.swift; sourceTree = "<group>"; };
-		F317AF782B03A73D000733ED /* mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mypage.png; path = ../../../mypage.png; sourceTree = "<group>"; };
-		F317AF7C2B03D81F000733ED /* loadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loadImg.png; path = ../../../loadImg.png; sourceTree = "<group>"; };
+		F317AF782B03A73D000733ED /* mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mypage.png; sourceTree = "<group>"; };
+		F317AF7C2B03D81F000733ED /* loadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadImg.png; sourceTree = "<group>"; };
 		F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
 		F31B14AD2A5D299600AE12E2 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		F3244AA92A36E8C0002C19BB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		F3A062822A6E870000CE7085 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		F3A062832A6E870000CE7085 /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
 		F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
-		F3AD172D2ACD8E6200F10D7B /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = ../../../../Downloads/profile.png; sourceTree = "<group>"; };
+		F3AD172D2ACD8E6200F10D7B /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		F3AD172F2ACD8E8100F10D7B /* backImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg.png; sourceTree = "<group>"; };
 		F3AD17312ACD996800F10D7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F3AD17332ACD999300F10D7B /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };

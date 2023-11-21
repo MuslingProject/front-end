@@ -11,10 +11,9 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
-    
-    // 더미데이터 불러오기
-    let diaries = Diary.data
-    var groupedDiaries: [String: [Diary]] = [:]
+
+    var diaries: [DiaryModel] = []
+    var groupedDiaries: [String: [DiaryModel]] = [:]
     var diaryDates: [String] = []
     
     override func viewDidLoad() {
@@ -25,13 +24,35 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         
-        groupDiariesByDate()
+        
+        DiaryService.shared.getDiaries(page: 0, size: 10) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? GetDiaryModel {
+                    print("전체 기록 조회 결과 :: \(data.result)")
+                    self.diaries = data.data.content
+                    self.groupDiariesByDate()
+                    self.tableView.reloadData()
+                }
+            case .pathErr:
+                print("회원 정보 불러오기 결과 :: Path Err")
+            case .requestErr:
+                print("회원 정보 불러오기 결과 :: Request Err")
+            case .serverErr:
+                print("회원 정보 불러오기 결과 :: Server Err")
+            case .networkFail:
+                print("회원 정보 불러오기 결과 :: Network Fail")
+            }
+        }
     }
     
     func groupDiariesByDate() {
         // 날짜별로 diary 객체 그룹화하기
         for diary in diaries {
-            groupedDiaries[diary.date, default: []].append(diary)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let dateString = formatter.string(from: diary.date)
+            groupedDiaries[dateString, default: []].append(diary)
         }
         
         // 섹션 헤더로 사용할 날짜 목록
@@ -88,7 +109,7 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
             
             var emotionStr: String = ""
             
-            switch diary.emotion {
+            switch diary.mood {
             case "사랑/기쁨":
                 emotionStr = "🥰 사랑/기쁨"
             case "이별/슬픔":
@@ -116,10 +137,16 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
             if let destination = segue.destination as? DiaryViewController, let selectedIndex = self.tableView.indexPathForSelectedRow {
                 let date = diaryDates[selectedIndex.section]
                 if let diary = groupedDiaries[date]?[selectedIndex.row] {
+                    
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    let dateString = formatter.string(from: diary.date)
+                    
                     destination.diaryTitle = diary.title
-                    destination.diaryDate = diary.date
+                    destination.diaryDate = dateString
                     destination.content = diary.content
                     destination.weather = diary.weather
+                    destination.musics = diary.recommendations
                     
                     switch diary.weather {
                     case "화창한 날":
@@ -131,7 +158,7 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
                     default: destination.weather = ""
                     }
                     
-                    switch diary.emotion {
+                    switch diary.mood {
                     case "사랑/기쁨":
                         destination.emotion = "🥰 기뻤어요"
                     case "이별/슬픔":

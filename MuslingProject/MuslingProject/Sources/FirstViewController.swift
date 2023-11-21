@@ -151,6 +151,7 @@ class FirstViewController: UIViewController, UIScrollViewDelegate {
                         // 새로 갱신된 token 저장
                         dataSave.setValue(data.data, forKey: "token")
                         dataSave.synchronize()
+                        print(data.data)
                         
                         // 홈 화면으로 넘어가기
                         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")

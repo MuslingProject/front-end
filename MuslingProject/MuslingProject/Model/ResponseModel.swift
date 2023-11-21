@@ -65,15 +65,52 @@ struct DiaryResponseModel: Codable {
     let result: String
     let httpStatus: String
     let data: DiaryModel
-    let recommendations: [RecMusicModel]
+    
+}
+
+struct GetDiaryModel: Codable {
+    let result: String
+    let httpStatus: String
+    let data: DiaryModelWithPage
+}
+
+struct DiaryModelWithPage: Codable {
+    let content: [DiaryModel]
+    let pageable: pageableModel
+    let totalPages: Int
+    let totalElements: Int
+    let last: Bool
+    let number: Int
+    let sort: SortModel
+    let size: Int
+    let numberOfElements: Int
+    let first: Bool
+    let empty: Bool
+}
+
+struct pageableModel: Codable {
+    let sort: SortModel
+    let offset: Int
+    let pageNumber: Int
+    let pageSize: Int
+    let unpaged: Bool
+    let paged: Bool
+}
+
+struct SortModel: Codable {
+    let empty: Bool
+    let sorted: Bool
+    let unsorted: Bool
 }
 
 struct DiaryModel: Codable {
+    let diaryId: Int64
     let title: String
-    let date: String
+    let date: Date
     let weather: String
     let content: String
     let mood: String
+    let recommendations: [RecMusicModel]
 }
 
 struct RecMusicModel: Codable {
@@ -82,8 +119,4 @@ struct RecMusicModel: Codable {
     let singer: String
     let emotion: String?
     let weather: String?
-}
-
-extension DiaryResponseModel {
-    static var data = DiaryResponseModel(result: "success", httpStatus: "OK", data: DiaryModel(title: "기록 제목", date: "2023-11-14", weather: "화창한 날", content: "닐씨 조오타~", mood: "사랑/기쁨"), recommendations: [RecMusicModel(songTitle: "서로로 채워 나갈 순간들", coverImagePath: "https://image.bugsm.co.kr/album/images/200/40843/4084315.jpg?version=20230309003602.0", singer: "마치 (MRCH)", emotion: "사랑/기쁨", weather: nil), RecMusicModel(songTitle: "서로로 채워 나갈 순간들2", coverImagePath: "https://image.bugsm.co.kr/album/images/200/40843/4084315.jpg?version=20230309003602.0", singer: "마치 (MRCH)", emotion: "사랑/기쁨", weather: nil), RecMusicModel(songTitle: "서로로 채워 나갈 순간들3", coverImagePath: "https://image.bugsm.co.kr/album/images/200/40843/4084315.jpg?version=20230309003602.0", singer: "마치 (MRCH)", emotion: "사랑/기쁨", weather: nil), RecMusicModel(songTitle: "Opening Sequence", coverImagePath: "https://image.bugsm.co.kr/album/images/200/40754/4075422.jpg?version=20220521130002.0", singer: "투모로우바이투게더", emotion: nil, weather: "화창한 날"), RecMusicModel(songTitle: "Opening Sequence2", coverImagePath: "https://image.bugsm.co.kr/album/images/200/40754/4075422.jpg?version=20220521130002.0", singer: "투모로우바이투게더", emotion: nil, weather: "화창한 날"), RecMusicModel(songTitle: "Opening Sequence3", coverImagePath: "https://image.bugsm.co.kr/album/images/200/40754/4075422.jpg?version=20220521130002.0", singer: "투모로우바이투게더", emotion: nil, weather: "화창한 날")])
 }
