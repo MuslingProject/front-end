@@ -18,11 +18,14 @@ class DiaryViewController: UIViewController {
     
     @IBOutlet var deleteBtn: UIButton!
     
+    weak var sv: UIView!
+    
     @IBAction func deleteDiary(_ sender: Any) {
         // 일기 삭제하냐는 alert 띄우기
         let alert = UIAlertController(title: "헤당 일기를 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "삭제", style: .default) { _ in
             // 로딩 화면 띄우기
+            self.sv = UIViewController.displaySpinner(onView: self.view)
             DiaryService.shared.deleteDiary(diaryId: self.diaryId) { response in
                 switch response {
                 case .success(let data):
@@ -31,6 +34,7 @@ class DiaryViewController: UIViewController {
                         // 다시 리스트로 돌아가고 notification center에 등록
                         NotificationCenter.default.post(name: .diaryUpdated, object: nil)
                         // 로딩 화면 끄기
+                        self.sv.removeFromSuperview()
                         self.navigationController?.popViewController(animated: false)
                     }
                 case .pathErr:

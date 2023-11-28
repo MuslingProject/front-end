@@ -20,6 +20,8 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDiaryUpdate), name: .diaryUpdated, object: nil)
+        
         noDiaryLabel.isHidden = true
         
         titleLabel.attributedText = NSAttributedString(string: "내 기록 모아보기 📔", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.7])
@@ -36,9 +38,47 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
                     self.diaries = data.data.content
                     
                     if self.diaries.isEmpty {
+                        self.tableView.isHidden = true
                         self.noDiaryLabel.isHidden = false
                         self.noDiaryLabel.attributedText = NSAttributedString(string: "아직 아무런 기록이 없어요 🥲", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 16)!, NSAttributedString.Key.kern: -0.7])
                     } else {
+                        self.tableView.isHidden = false
+                        self.noDiaryLabel.isHidden = true
+                        self.groupDiariesByDate()
+                        self.tableView.reloadData()
+                    }
+                }
+            case .pathErr:
+                print("회원 정보 불러오기 결과 :: Path Err")
+            case .requestErr:
+                print("회원 정보 불러오기 결과 :: Request Err")
+            case .serverErr:
+                print("회원 정보 불러오기 결과 :: Server Err")
+            case .networkFail:
+                print("회원 정보 불러오기 결과 :: Network Fail")
+            }
+        }
+    }
+    
+    // 옵저버 해제
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleDiaryUpdate() {
+        DiaryService.shared.getDiaries(page: 0, size: 10) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? GetDiaryModel {
+                    print("전체 기록 조회 결과 :: \(data.result)")
+                    self.diaries = data.data.content
+                    
+                    if self.diaries.isEmpty {
+                        self.tableView.isHidden = true
+                        self.noDiaryLabel.isHidden = false
+                        self.noDiaryLabel.attributedText = NSAttributedString(string: "아직 아무런 기록이 없어요 🥲", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 16)!, NSAttributedString.Key.kern: -0.7])
+                    } else {
+                        self.tableView.isHidden = false
                         self.noDiaryLabel.isHidden = true
                         self.groupDiariesByDate()
                         self.tableView.reloadData()
