@@ -28,6 +28,6 @@ struct APIConstants {
     static let modifyNameURL = baseURL + "/users/name"
     // 일기 저장
     static let saveDiaryURL = baseURL + "/diaries"
-    // 일기 전체 조회
+    // 일기 조회
     static let getDiaryURL = baseURL + "/diaries"
 }

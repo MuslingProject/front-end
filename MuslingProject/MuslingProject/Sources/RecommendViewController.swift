@@ -25,35 +25,35 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func classifyMusic() {
         for music in recommendData {
-            if let emotion = music.emotion {
+            if music.emotion != nil {
                 emotionMusic.append(music)
-            } else if let weather = music.weather {
+            } else if music.weather != nil {
                 weatherMusic.append(music)
             }
         }
         
         switch responseData?.data.mood {
         case "사랑/기쁨":
-            category.append("🥰 사랑/기쁨")
+            category.append("기쁠 때는 이런 노래 어때요? 🥰")
         case "이별/슬픔":
-            category.append("😢 이별/슬픔")
+            category.append("마음이 좋지 않을 때에는 😞")
         case "멘붕/불안":
-            category.append("😨 멘붕/불안")
+            category.append("슬플 때는 이런 노래들이 위로해 줄 거예요 🥺")
         case "스트레스/짜증":
-            category.append("😡 스트레스/짜증")
+            category.append("스트레스 팍팍 날려버려요 👊")
         case "우울":
-            category.append("😞 우울")
+            category.append("어질어질 머릿속이 복잡할 때 😰")
         default:
             break
         }
         
         switch responseData?.data.weather {
         case "화창한 날":
-            category.append("☀️ 맑음")
+            category.append("맑은 날씨와 함께 듣는 노래 ☀️")
         case "비/흐림":
-            category.append("🌧️ 비/흐림")
+            category.append("우중충한 날씨와 함께 듣는 노래 ☁️")
         case "눈오는 날":
-            category.append("🌨️ 눈")
+            category.append("창밖의 눈을 감상하며 듣는 노래 ⛄️")
         default:
             break
         }
@@ -79,7 +79,7 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let headerLabel = UILabel()
         
-        headerLabel.attributedText = NSMutableAttributedString(string: category[section], attributes: [NSAttributedString.Key.kern: -0.6, NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 13)!, NSAttributedString.Key.foregroundColor: UIColor.text02!])
+        headerLabel.attributedText = NSMutableAttributedString(string: category[section], attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-Medium", size: 14)!, NSAttributedString.Key.foregroundColor: UIColor.text02!])
         
         headerView.addSubview(headerLabel)
         headerLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -68,6 +68,12 @@ struct DiaryResponseModel: Codable {
     
 }
 
+struct ShowDiaryModel: Codable {
+    let result: String
+    let httpStatus: String
+    let data: DiaryModel
+}
+
 struct GetDiaryModel: Codable {
     let result: String
     let httpStatus: String

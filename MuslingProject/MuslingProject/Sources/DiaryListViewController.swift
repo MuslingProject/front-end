@@ -11,13 +11,16 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
-
+    @IBOutlet var noDiaryLabel: UILabel!
+    
     var diaries: [DiaryModel] = []
     var groupedDiaries: [String: [DiaryModel]] = [:]
     var diaryDates: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        noDiaryLabel.isHidden = true
         
         titleLabel.attributedText = NSAttributedString(string: "내 기록 모아보기 📔", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 26)!, NSAttributedString.Key.kern: -1.7])
         
@@ -31,8 +34,15 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
                 if let data = data as? GetDiaryModel {
                     print("전체 기록 조회 결과 :: \(data.result)")
                     self.diaries = data.data.content
-                    self.groupDiariesByDate()
-                    self.tableView.reloadData()
+                    
+                    if self.diaries.isEmpty {
+                        self.noDiaryLabel.isHidden = false
+                        self.noDiaryLabel.attributedText = NSAttributedString(string: "아직 아무런 기록이 없어요 🥲", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 16)!, NSAttributedString.Key.kern: -0.7])
+                    } else {
+                        self.noDiaryLabel.isHidden = true
+                        self.groupDiariesByDate()
+                        self.tableView.reloadData()
+                    }
                 }
             case .pathErr:
                 print("회원 정보 불러오기 결과 :: Path Err")
@@ -136,42 +146,10 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
         if segue.identifier == "diarySegue" {
             if let destination = segue.destination as? DiaryViewController, let selectedIndex = self.tableView.indexPathForSelectedRow {
                 let date = diaryDates[selectedIndex.section]
-                if let diary = groupedDiaries[date]?[selectedIndex.row] {
+                if let diary = groupedDiaries[date]?[selectedIndex.row] {                    
                     
-                    let formatter = DateFormatter()
-                    formatter.dateFormat = "yyyy-MM-dd"
-                    let dateString = formatter.string(from: diary.date)
-                    
-                    destination.diaryTitle = diary.title
-                    destination.diaryDate = dateString
-                    destination.content = diary.content
-                    destination.weather = diary.weather
-                    destination.musics = diary.recommendations
-                    
-                    switch diary.weather {
-                    case "화창한 날":
-                        destination.weather = "☀️ 맑았어요"
-                    case "눈오는 날":
-                        destination.weather = "🌨️ 눈이 내렸어요"
-                    case "비/흐림":
-                        destination.weather = "🌧️ 비 또는 흐렸어요"
-                    default: destination.weather = ""
-                    }
-                    
-                    switch diary.mood {
-                    case "사랑/기쁨":
-                        destination.emotion = "🥰 기뻤어요"
-                    case "이별/슬픔":
-                        destination.emotion = "😢 슬펐어요"
-                    case "우울":
-                        destination.emotion = "🫠 우울했어요"
-                    case "멘붕/불안":
-                        destination.emotion = "🤯 불안했어요"
-                    case "스트레스/짜증":
-                        destination.emotion = "😡 짜증났어요"
-                    default:
-                        destination.emotion = ""
-                    }
+                    destination.diaryId = diary.diaryId
+
                 }
             }
         }

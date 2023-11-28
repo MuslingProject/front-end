@@ -12,8 +12,9 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     weak var sv: UIView!
     
-    let weather = Category.weather
+    var weather = Category.weather
     var selectWeather = ""
+    var nowWeather: Int = 0
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
@@ -26,9 +27,38 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var pickerView = UIPickerView()
     
+    var selectedWeather = false
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        
+        WeatherService.shared.getWeather(lat: LocationService.shared.latitude ?? 0, lon: LocationService.shared.longitude ?? 0) { response in
+            switch response {
+            case .success(let data):
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy년 MM월 dd일 (E)"
+                formatter.locale = Locale(identifier: "ko_KR")
+                
+                if let data = data as? WeatherData {
+                    print("날씨 불러오기 결과 :: Success")
+                    
+                    self.nowWeather = data.weather
+                    guard let weatherText = weatherDescKo[data.weather] else { return }
+                    self.weatherField.attributedText = NSAttributedString(string: weatherText, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -0.5])
+                    self.weather.insert(weatherText, at: 0)
+                }
+                
+            case .pathErr:
+                print("날씨 불러오기 결과 :: Path Err")
+            case .requestErr:
+                print("날씨 불러오기 결과 :: Request Err")
+            case .serverErr:
+                print("날씨 불러오기 결과 :: Server Err")
+            case .networkFail:
+                print("날씨 불러오기 결과 :: Network Fail")
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -69,7 +99,6 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         weatherField.delegate = self
         weatherField.tintColor = .clear // 커서 깜빡임 해결
-        weatherField.attributedPlaceholder = NSAttributedString(string: "선택하세요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -0.5])
         
         textView.layer.masksToBounds = true
         textView.clipsToBounds = true
@@ -86,7 +115,6 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         textView.layer.borderColor = UIColor.systemBackground.cgColor
         
         createPickerView(tagNo: 1)
-        dismissPickerView()
     }
     
     
@@ -103,7 +131,7 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         case "☀️ 맑음": weather = "화창한 날"
         case "🌧️ 비/흐림": weather = "비/흐림"
         case "🌨️ 눈": weather = "눈오는 날"
-        default: weather = "화창한 날"
+        default: weather = weatherToString[nowWeather]!
         }
         guard let content = textView.text else { return }
         
@@ -158,30 +186,15 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        weatherField.text = weather[row]
         weatherField.attributedText = NSAttributedString(string: weather[row], attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -0.5])
+        selectedWeather = true
     }
     
     func createPickerView(tagNo: Int) {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         weatherField.inputView = pickerView
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == weatherField {
-            let selected = pickerView.selectedRow(inComponent: 0)
-            if selected != 0 {
-                pickerView.selectRow(selected, inComponent: 0, animated: false)
-                textField.attributedText = NSAttributedString(string: weather[selected], attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -0.5])
-            } else {
-                pickerView.selectRow(0, inComponent: 0, animated: false)
-                textField.attributedText = NSAttributedString(string: weather[0], attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -0.5])
-            }
-        }
-    }
-    
-    func dismissPickerView() {
+        
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -189,6 +202,16 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         toolBar.setItems([space, button], animated: true)
         toolBar.isUserInteractionEnabled = true
         weatherField.inputAccessoryView = toolBar
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == weatherField {
+            if !selectedWeather {
+                pickerView.selectRow(0, inComponent: 0, animated: false)
+                weatherField.text = weather[0]
+                weatherField.attributedText = NSAttributedString(string: weather[0], attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -0.5])
+            }
+        }
     }
     
     // 텍스트뷰에 입력이 시작되면 플레이스 홀더 지우고 폰트 색상 검정으롭 변경

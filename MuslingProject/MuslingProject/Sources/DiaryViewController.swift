@@ -16,35 +16,93 @@ class DiaryViewController: UIViewController {
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var musicLabel: UILabel!
     
-    @IBOutlet var musicCollectionView: UICollectionView!
+    @IBOutlet var deleteBtn: UIButton!
     
-    var diaryDate: String!
-    var diaryTitle: String!
-    var content: String!
-    var emotion: String!
-    var weather: String!
+    @IBAction func deleteDiary(_ sender: Any) {
+        // 일기 삭제하냐는 alert 띄우기
+        let alert = UIAlertController(title: "헤당 일기를 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "삭제", style: .default) { _ in
+            // 로딩 화면 띄우기
+            DiaryService.shared.deleteDiary(diaryId: self.diaryId) { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? NonDataModel {
+                        print("기록 삭제 결과 :: \(data.result)")
+                        // 다시 리스트로 돌아가고 notification center에 등록
+                        NotificationCenter.default.post(name: .diaryUpdated, object: nil)
+                        // 로딩 화면 끄기
+                        self.navigationController?.popViewController(animated: false)
+                    }
+                case .pathErr:
+                    print("개별 기록 조회 결과 :: Path Err")
+                case .requestErr:
+                    print("개별 기록 조회 결과 :: Request Err")
+                case .serverErr:
+                    print("개별 기록 조회 결과 :: Server Err")
+                case .networkFail:
+                    print("개별 기록 조회 결과 :: Network Fail")
+                }
+            }
+        }
+        
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(alertAction)
+        alert.addAction(cancle)
+        
+        alertAction.setValue(UIColor.red, forKey: "titleTextColor")
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBOutlet var musicCollectionView: UICollectionView!
+
+    var diaryId: Int64!
+    var date: String!
+    var stringDate: String!
     var musics: [RecMusicModel] = []
+    var weather: String!
+    var mood: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tabBarController?.tabBar.isHidden = false
         
-        // 일기 위의 문구
-        let date = StringToDate(strDate: diaryDate, format: "yyyy-MM-dd")
-        let stringDate = DateToString(date: date!, format: "✏️ yyyy년 MM월 dd일의 기록")
+        deleteBtn.setAttributedTitle(NSAttributedString(string: "삭제", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -0.6]), for: .normal)
         
-        dateLabel.attributedText = NSAttributedString(string: stringDate, attributes: [NSAttributedString.Key.kern: -1.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 20)!])
-        titleLabel.attributedText = NSAttributedString(string: diaryTitle, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -1])
-        emotionLabel.attributedText = NSAttributedString(string: emotion, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.8])
-        weatherLabel.attributedText = NSAttributedString(string: weather, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.8])
-        contentLabel.attributedText = NSAttributedString(string: content, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.98])
         musicLabel.attributedText = NSAttributedString(string: "👀 이런 노래들을 추천받았어요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.98])
-        
         
         musicCollectionView.dataSource = self
         musicCollectionView.delegate = self
         musicCollectionView.register(UINib(nibName: MusicCell.className, bundle: nil), forCellWithReuseIdentifier: MusicCell.cellId)
+
+        DiaryService.shared.getDiary(diaryId: diaryId) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? ShowDiaryModel {
+                    print("개별 기록 조회 결과 :: \(data.result)")
+                    self.stringDate = self.DateToString(date: data.data.date, format: "✏️ yyyy년 MM월 dd일의 기록")
+                    self.dateLabel.attributedText = NSAttributedString(string: self.stringDate, attributes: [NSAttributedString.Key.kern: -1.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 20)!])
+                    self.titleLabel.attributedText = NSAttributedString(string: data.data.title, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -1])
+                    self.weather = self.transToString(origin: data.data.weather)
+                    self.mood = self.transToString(origin: data.data.mood)
+                    self.emotionLabel.attributedText = NSAttributedString(string: self.mood, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.8])
+                    self.weatherLabel.attributedText = NSAttributedString(string: self.weather, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.8])
+                    self.contentLabel.attributedText = NSAttributedString(string: data.data.content, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.98])
+                    self.musics = data.data.recommendations
+                    
+                    self.musicCollectionView.reloadData()
+                    
+                }
+            case .pathErr:
+                print("개별 기록 조회 결과 :: Path Err")
+            case .requestErr:
+                print("개별 기록 조회 결과 :: Request Err")
+            case .serverErr:
+                print("개별 기록 조회 결과 :: Server Err")
+            case .networkFail:
+                print("개별 기록 조회 결과 :: Network Fail")
+            }
+        }
     }
     
     func StringToDate(strDate: String, format: String) -> Date? {
@@ -63,6 +121,28 @@ class DiaryViewController: UIViewController {
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         
         return dateFormatter.string(from: date)
+    }
+    
+    func transToString(origin: String) -> String {
+        switch origin {
+        case "화창한 날":
+            return "☀️ 맑았어요"
+        case "눈오는 날":
+            return  "🌨️ 눈이 내렸어요"
+        case "비/흐림":
+            return "🌧️ 비 또는 흐렸어요"
+        case "사랑/기쁨":
+            return "🥰 기뻤어요"
+        case "이별/슬픔":
+            return "😢 슬펐어요"
+        case "우울":
+            return "🫠 우울했어요"
+        case "멘붕/불안":
+            return "🤯 불안했어요"
+        case "스트레스/짜증":
+            return "😡 짜증났어요"
+        default: return ""
+        }
     }
 
 }

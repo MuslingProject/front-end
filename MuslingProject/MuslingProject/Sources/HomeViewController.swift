@@ -62,40 +62,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let destination = segue.destination as? DiaryViewController, let selectedIndex = self.diaryTableView.indexPathForSelectedRow {
                 let diary = diaries[selectedIndex.row]
                 
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                let dateString = formatter.string(from: diary.date)
-                
-                destination.diaryTitle = diary.title
-                destination.diaryDate = dateString
-                destination.content = diary.content
-                destination.weather = diary.weather
-                destination.musics = diary.recommendations
-                
-                switch diary.weather {
-                case "화창한 날":
-                    destination.weather = "☀️ 맑았어요"
-                case "눈오는 날":
-                    destination.weather = "🌨️ 눈이 내렸어요"
-                case "비/흐림":
-                    destination.weather = "🌧️ 비 또는 흐렸어요"
-                default: destination.weather = ""
-                }
-                
-                switch diary.mood {
-                case "사랑/기쁨":
-                    destination.emotion = "🥰 기뻤어요"
-                case "이별/슬픔":
-                    destination.emotion = "😢 슬펐어요"
-                case "우울":
-                    destination.emotion = "🫠 우울했어요"
-                case "멘붕/불안":
-                    destination.emotion = "🤯 불안했어요"
-                case "스트레스/짜증":
-                    destination.emotion = "😡 짜증났어요"
-                default:
-                    destination.emotion = ""
-                }
+                destination.diaryId = diary.diaryId
             }
         }
         
@@ -204,12 +171,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         self.diaryLabel.isHidden = true
                         self.diaryTableView.isHidden = true
                         self.noneLabel.numberOfLines = 2
-                        self.noneLabel.attributedText = NSAttributedString(string: "아직 오늘이 기록이 없어요\n연필을 눌러 일기를 작성해 주세요!", attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!])
+                        self.noneLabel.attributedText = NSAttributedString(string: "아직 오늘이 기록이 없어요\n연필을 눌러 기록을 작성해 주세요!", attributes: [NSAttributedString.Key.kern: -0.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!])
                         self.noneLabel.textAlignment = .center
                     } else {
                         self.noneLabel.isHidden = true
                         self.diaryLabel.isHidden = false
                         self.diaryTableView.isHidden = false
+                        
+                        self.diaries = []
                         
                         for diary in data.data.content {
                             let formatter = DateFormatter()

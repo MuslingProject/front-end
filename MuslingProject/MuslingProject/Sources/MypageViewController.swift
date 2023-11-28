@@ -35,7 +35,7 @@ class MypageViewController: UIViewController {
                         print("회원 탈퇴 결과 :: \(data.result)")
                         self.sv.removeFromSuperview()
                         
-                        UserDefaults.standard.setValue("", forKey: "user_id")
+                        UserDefaults.standard.removeObject(forKey: "user_id")
                         
                         // 홈 화면으로 넘어가기
                         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "FirstVC")
