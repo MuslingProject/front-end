@@ -22,7 +22,7 @@ class DiaryViewController: UIViewController {
     
     @IBAction func deleteDiary(_ sender: Any) {
         // 일기 삭제하냐는 alert 띄우기
-        let alert = UIAlertController(title: "헤당 일기를 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "해당 일기를 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "삭제", style: .default) { _ in
             // 로딩 화면 띄우기
             self.sv = UIViewController.displaySpinner(onView: self.view)
@@ -84,17 +84,20 @@ class DiaryViewController: UIViewController {
             case .success(let data):
                 if let data = data as? ShowDiaryModel {
                     print("개별 기록 조회 결과 :: \(data.result)")
-                    self.stringDate = self.DateToString(date: data.data.date, format: "✏️ yyyy년 MM월 dd일의 기록")
-                    self.dateLabel.attributedText = NSAttributedString(string: self.stringDate, attributes: [NSAttributedString.Key.kern: -1.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 20)!])
-                    self.titleLabel.attributedText = NSAttributedString(string: data.data.title, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -1])
-                    self.weather = self.transToString(origin: data.data.weather)
-                    self.mood = self.transToString(origin: data.data.mood)
-                    self.emotionLabel.attributedText = NSAttributedString(string: self.mood, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.8])
-                    self.weatherLabel.attributedText = NSAttributedString(string: self.weather, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.8])
-                    self.contentLabel.attributedText = NSAttributedString(string: data.data.content, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.98])
-                    self.musics = data.data.recommendations
                     
-                    self.musicCollectionView.reloadData()
+                    DispatchQueue.main.async {
+                        self.stringDate = self.DateToString(date: data.data.date, format: "✏️ yyyy년 MM월 dd일의 기록")
+                        self.dateLabel.attributedText = NSAttributedString(string: self.stringDate, attributes: [NSAttributedString.Key.kern: -1.7, NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 20)!])
+                        self.titleLabel.attributedText = NSAttributedString(string: data.data.title, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -1])
+                        self.weather = self.transToString(origin: data.data.weather)
+                        self.mood = self.transToString(origin: data.data.mood)
+                        self.emotionLabel.attributedText = NSAttributedString(string: self.mood, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.8])
+                        self.weatherLabel.attributedText = NSAttributedString(string: self.weather, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 12)!, NSAttributedString.Key.kern: -0.8])
+                        self.contentLabel.attributedText = NSAttributedString(string: data.data.content, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.98])
+                        self.musics = data.data.recommendations
+                        
+                        self.musicCollectionView.reloadData()
+                    }
                     
                 }
             case .pathErr:
@@ -109,20 +112,10 @@ class DiaryViewController: UIViewController {
         }
     }
     
-    func StringToDate(strDate: String, format: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-        
-        if let date = dateFormatter.date(from: strDate) {
-            return date
-        } else { return nil }
-    }
-    
     func DateToString(date: Date, format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
         
         return dateFormatter.string(from: date)
     }

@@ -1110,14 +1110,14 @@
                                                 <color key="textColor" name="Text02"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7B-TD-Q6v">
-                                                <rect key="frame" x="27" y="157" width="339" height="15.666666666666657"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7B-TD-Q6v">
+                                                <rect key="frame" x="27" y="157" width="351" height="15.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Pretendard-Medium" family="Pretendard" pointSize="13"/>
                                                 <color key="textColor" name="Text01"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sp3-44-4ah">
-                                                <rect key="frame" x="338" y="5" width="50" height="32"/>
+                                                <rect key="frame" x="338" y="17.666666666666671" width="50" height="32"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="삭제">
                                                     <fontDescription key="titleFontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="15"/>
@@ -1135,13 +1135,13 @@
                                             <constraint firstItem="PI1-e7-4dW" firstAttribute="top" secondItem="nHa-A5-cIl" secondAttribute="bottom" constant="8" id="8hi-TG-7IB"/>
                                             <constraint firstItem="tAt-ct-u8v" firstAttribute="leading" secondItem="Ii2-hu-yJh" secondAttribute="leading" constant="22" id="CRJ-Gw-DNS"/>
                                             <constraint firstItem="Fdz-nz-jrx" firstAttribute="centerX" secondItem="Ii2-hu-yJh" secondAttribute="centerX" id="GD2-ev-uQy"/>
-                                            <constraint firstAttribute="trailing" secondItem="j7B-TD-Q6v" secondAttribute="trailing" constant="27" id="OHR-B4-LXf"/>
+                                            <constraint firstAttribute="trailing" secondItem="j7B-TD-Q6v" secondAttribute="trailing" constant="15" id="OHR-B4-LXf"/>
                                             <constraint firstItem="Fdz-nz-jrx" firstAttribute="top" secondItem="j7B-TD-Q6v" secondAttribute="bottom" constant="71" id="SvY-IB-ddM"/>
                                             <constraint firstItem="jf9-B4-GBi" firstAttribute="leading" secondItem="PI1-e7-4dW" secondAttribute="trailing" constant="7" id="TWK-2k-ZQr"/>
                                             <constraint firstItem="RQm-GM-jne" firstAttribute="top" secondItem="Fdz-nz-jrx" secondAttribute="bottom" constant="12.67" id="WRK-5k-a8B"/>
                                             <constraint firstItem="nHa-A5-cIl" firstAttribute="leading" secondItem="Ii2-hu-yJh" secondAttribute="leading" constant="27" id="Xgh-4A-6l5"/>
+                                            <constraint firstItem="Sp3-44-4ah" firstAttribute="centerY" secondItem="tAt-ct-u8v" secondAttribute="centerY" id="a9V-4I-dqx"/>
                                             <constraint firstAttribute="trailing" secondItem="RQm-GM-jne" secondAttribute="trailing" constant="14" id="aO7-9M-GCz"/>
-                                            <constraint firstItem="Sp3-44-4ah" firstAttribute="top" secondItem="Ii2-hu-yJh" secondAttribute="top" constant="5" id="aow-dx-Qoy"/>
                                             <constraint firstAttribute="bottom" secondItem="RQm-GM-jne" secondAttribute="bottom" constant="80" id="dSz-4m-cpL"/>
                                             <constraint firstItem="j7B-TD-Q6v" firstAttribute="leading" secondItem="Ii2-hu-yJh" secondAttribute="leading" constant="27" id="gnH-R9-lfz"/>
                                             <constraint firstAttribute="trailing" secondItem="Sp3-44-4ah" secondAttribute="trailing" constant="5" id="h1v-Na-JUC"/>
@@ -2159,7 +2159,7 @@
                 <navigationController storyboardIdentifier="FirstVC" title="첫 화면" automaticallyAdjustsScrollViewInsets="NO" id="EMM-yW-G9z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Qya-ml-jey">
-                        <rect key="frame" x="0.0" y="59" width="393" height="103"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="28"/>

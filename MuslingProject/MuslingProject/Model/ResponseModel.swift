@@ -126,3 +126,14 @@ struct RecMusicModel: Codable {
     let emotion: String?
     let weather: String?
 }
+
+extension RecMusicModel {
+    static var recommend = [
+        RecMusicModel(songTitle: "DOOL", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203921/20392185.jpg?version=20211013005610.0", singer: "미노이(meenoi)", emotion: "사랑/기쁨", weather: nil),
+        RecMusicModel(songTitle: "My Dear", coverImagePath: "https://image.bugsm.co.kr/album/images/200/200545/20054544.jpg?version=20190515004930.0", singer: "Red Velvet (레드벨벳)", emotion: "이별/슬픔", weather: nil),
+        RecMusicModel(songTitle: "BETELGEUSE", coverImagePath: "https://image.bugsm.co.kr/album/images/200/166101/16610139.jpg?version=20230306150744.0", singer: "Yuuri", emotion: "우울", weather: nil),
+        RecMusicModel(songTitle: "난춘 (亂春)", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203236/20323642.jpg?version=20220601225035.0", singer: "새소년", emotion: nil, weather: "화창한 날"),
+        RecMusicModel(songTitle: "EVERYTHING", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201002/20100228.jpg?version=20210428040321.0", singer: "검정치마", emotion: nil, weather: "비/흐림"),
+        RecMusicModel(songTitle: "폰서트", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201168/20116852.jpg?version=20230110011420.0", singer: "10CM", emotion: nil, weather: "화창한 날")
+    ]
+}

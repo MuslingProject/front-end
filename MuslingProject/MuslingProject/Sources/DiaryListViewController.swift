@@ -30,7 +30,7 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         
         
-        DiaryService.shared.getDiaries(page: 0, size: 10) { response in
+        DiaryService.shared.getDiaries(page: 0, size: 50) { response in
             switch response {
             case .success(let data):
                 if let data = data as? GetDiaryModel {
@@ -40,7 +40,7 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
                     if self.diaries.isEmpty {
                         self.tableView.isHidden = true
                         self.noDiaryLabel.isHidden = false
-                        self.noDiaryLabel.attributedText = NSAttributedString(string: "아직 아무런 기록이 없어요 🥲", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 16)!, NSAttributedString.Key.kern: -0.7])
+                        self.noDiaryLabel.attributedText = NSAttributedString(string: "아직 아무런 기록이 없어요 🥲", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.7])
                     } else {
                         self.tableView.isHidden = false
                         self.noDiaryLabel.isHidden = true
@@ -49,13 +49,13 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
                     }
                 }
             case .pathErr:
-                print("회원 정보 불러오기 결과 :: Path Err")
+                print("전체 기록 조회 결과 :: Path Err")
             case .requestErr:
-                print("회원 정보 불러오기 결과 :: Request Err")
+                print("전체 기록 조회 결과 :: Request Err")
             case .serverErr:
-                print("회원 정보 불러오기 결과 :: Server Err")
+                print("전체 기록 조회 결과 :: Server Err")
             case .networkFail:
-                print("회원 정보 불러오기 결과 :: Network Fail")
+                print("전체 기록 조회 결과 :: Network Fail")
             }
         }
     }
@@ -66,7 +66,7 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @objc func handleDiaryUpdate() {
-        DiaryService.shared.getDiaries(page: 0, size: 10) { response in
+        DiaryService.shared.getDiaries(page: 0, size: 50) { response in
             switch response {
             case .success(let data):
                 if let data = data as? GetDiaryModel {
@@ -76,27 +76,28 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
                     if self.diaries.isEmpty {
                         self.tableView.isHidden = true
                         self.noDiaryLabel.isHidden = false
-                        self.noDiaryLabel.attributedText = NSAttributedString(string: "아직 아무런 기록이 없어요 🥲", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 16)!, NSAttributedString.Key.kern: -0.7])
+                        self.noDiaryLabel.attributedText = NSAttributedString(string: "아직 아무런 기록이 없어요 🥲", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.7])
                     } else {
-                        self.tableView.isHidden = false
                         self.noDiaryLabel.isHidden = true
                         self.groupDiariesByDate()
                         self.tableView.reloadData()
+                        self.tableView.isHidden = false
                     }
                 }
             case .pathErr:
-                print("회원 정보 불러오기 결과 :: Path Err")
+                print("전체 기록 조회 결과 :: Path Err")
             case .requestErr:
-                print("회원 정보 불러오기 결과 :: Request Err")
+                print("전체 기록 조회 결과 :: Request Err")
             case .serverErr:
-                print("회원 정보 불러오기 결과 :: Server Err")
+                print("전체 기록 조회 결과 :: Server Err")
             case .networkFail:
-                print("회원 정보 불러오기 결과 :: Network Fail")
+                print("전체 기록 조회 결과 :: Network Fail")
             }
         }
     }
     
     func groupDiariesByDate() {
+        groupedDiaries.removeAll()
         // 날짜별로 diary 객체 그룹화하기
         for diary in diaries {
             let formatter = DateFormatter()

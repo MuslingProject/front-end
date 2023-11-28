@@ -158,7 +158,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func IsnoDiary() {
-        
         // 오늘 기록 조회하는 함수 실행
         DiaryService.shared.getDiaries(page: 0, size: 30) { response in
             switch response {
@@ -166,7 +165,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 if let data = data as? GetDiaryModel {
                     print("전체 기록 조회 결과 :: \(data.result)")
                     
-                    if data.data.content.isEmpty {
+                    self.diaries.removeAll()
+
+                    for diary in data.data.content {
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "yyyy-MM-dd"
+                        let todayDate = formatter.string(from: Date())
+                        let dateString = formatter.string(from: diary.date)
+                        
+                        if dateString == todayDate {
+                            self.diaries.append(diary)
+                        }
+                    }
+                    
+                    if self.diaries.isEmpty {
                         self.noneLabel.isHidden = false
                         self.diaryLabel.isHidden = true
                         self.diaryTableView.isHidden = true
@@ -177,30 +189,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         self.noneLabel.isHidden = true
                         self.diaryLabel.isHidden = false
                         self.diaryTableView.isHidden = false
-                        
-                        self.diaries = []
-                        
-                        for diary in data.data.content {
-                            let formatter = DateFormatter()
-                            formatter.dateFormat = "yyyy-MM-dd"
-                            let todayDate = formatter.string(from: Date())
-                            let dateString = formatter.string(from: diary.date)
-                            
-                            if dateString == todayDate {
-                                self.diaries.append(diary)
-                            }
-                        }
+
                         self.diaryTableView.reloadData()
                     }
                 }
             case .pathErr:
-                print("회원 정보 불러오기 결과 :: Path Err")
+                print("전체 기록 조회 결과 :: Path Err")
             case .requestErr:
-                print("회원 정보 불러오기 결과 :: Request Err")
+                print("전체 기록 조회 결과 :: Request Err")
             case .serverErr:
-                print("회원 정보 불러오기 결과 :: Server Err")
+                print("전체 기록 조회 결과 :: Server Err")
             case .networkFail:
-                print("회원 정보 불러오기 결과 :: Network Fail")
+                print("전체 기록 조회 결과 :: Network Fail")
             }
         }
     }

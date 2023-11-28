@@ -36,13 +36,13 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         case "사랑/기쁨":
             category.append("기쁠 때는 이런 노래 어때요? 🥰")
         case "이별/슬픔":
-            category.append("마음이 좋지 않을 때에는 😞")
-        case "멘붕/불안":
             category.append("슬플 때는 이런 노래들이 위로해 줄 거예요 🥺")
+        case "멘붕/불안":
+            category.append("어질어질 머릿속이 복잡할 때 😰")
         case "스트레스/짜증":
             category.append("스트레스 팍팍 날려버려요 👊")
         case "우울":
-            category.append("어질어질 머릿속이 복잡할 때 😰")
+            category.append("마음이 좋지 않을 때에는 😞")
         default:
             break
         }
@@ -63,6 +63,22 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     // 재추천 버튼
     @IBAction func reRecommnd(_ sender: Any) {
         // 재추천 api 실행
+        // 일단 더미데이터
+        recommendData = RecMusicModel.recommend
+        
+        emotionMusic.removeAll()
+        weatherMusic.removeAll()
+        
+        for music in recommendData {
+            if music.emotion != nil {
+                emotionMusic.append(music)
+            } else if music.weather != nil {
+                weatherMusic.append(music)
+            }
+        }
+        
+        myTableView.reloadData()
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
