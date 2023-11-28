@@ -29,9 +29,8 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     var selectedWeather = false
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = true
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         WeatherService.shared.getWeather(lat: LocationService.shared.latitude ?? 0, lon: LocationService.shared.longitude ?? 0) { response in
             switch response {
@@ -59,10 +58,6 @@ class WriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 print("날씨 불러오기 결과 :: Network Fail")
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
         titleLabel.attributedText = NSAttributedString(string: "제목", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -0.5])
         dateLabel.attributedText = NSAttributedString(string: "날짜", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 16)!, NSAttributedString.Key.kern: -0.5])

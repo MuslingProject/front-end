@@ -17,7 +17,7 @@ class ChartViewController: UIViewController {
     @IBOutlet var muslingScript: UILabel!
     
     var emotions = ["🥰", "😢", "😞", "😨", "😡"]
-    var counts = [14, 3, 5, 2, 1]
+    var counts = [5, 1, 1, 3, 1]
     
     func setChart(dataPoints: [String], values: [Int]) {
         // 데이터 생성
@@ -60,6 +60,7 @@ class ChartViewController: UIViewController {
         
         // x축 세로선 제거
         chart.xAxis.drawGridLinesEnabled = false
+        chart.xAxis.drawAxisLineEnabled = false
         chart.xAxis.labelRotatedHeight = 15.0 // 하단 범례 잘리지 않도록 설정해 주기
         chart.xAxis.labelFont = UIFont(name: "Pretendard-Regular", size: 12)!
         
