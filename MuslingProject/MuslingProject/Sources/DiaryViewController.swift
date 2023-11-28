@@ -57,7 +57,7 @@ class DiaryViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBOutlet var musicCollectionView: UICollectionView!
+    @IBOutlet var musicTableView: UITableView!
 
     var diaryId: Int64!
     var date: String!
@@ -71,13 +71,15 @@ class DiaryViewController: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = false
         
+        musicTableView.isScrollEnabled = false
+        
         deleteBtn.setAttributedTitle(NSAttributedString(string: "삭제", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -0.6]), for: .normal)
         
         musicLabel.attributedText = NSAttributedString(string: "👀 이런 노래들을 추천받았어요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.98])
         
-        musicCollectionView.dataSource = self
-        musicCollectionView.delegate = self
-        musicCollectionView.register(UINib(nibName: MusicCell.className, bundle: nil), forCellWithReuseIdentifier: MusicCell.cellId)
+        musicTableView.dataSource = self
+        musicTableView.delegate = self
+        musicTableView.backgroundColor = UIColor.clear // 배경 투명
 
         DiaryService.shared.getDiary(diaryId: diaryId) { response in
             switch response {
@@ -96,7 +98,7 @@ class DiaryViewController: UIViewController {
                         self.contentLabel.attributedText = NSAttributedString(string: data.data.content, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.98])
                         self.musics = data.data.recommendations
                         
-                        self.musicCollectionView.reloadData()
+                        self.musicTableView.reloadData()
                     }
                     
                 }
@@ -144,16 +146,14 @@ class DiaryViewController: UIViewController {
 
 }
 
-extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    // 컬렉션 뷰 개수 설정
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension DiaryViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return musics.count
     }
     
-    // 컬렉션 뷰 셀 설정
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let target = musics[indexPath.row]
-        let cell = musicCollectionView.dequeueReusableCell(withReuseIdentifier: MusicCell.cellId, for: indexPath) as! MusicCell
+        let cell = musicTableView.dequeueReusableCell(withIdentifier: MusicCell.cellId, for: indexPath) as! MusicCell
         
         cell.title.attributedText = NSAttributedString(string: target.songTitle, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 13)!, NSAttributedString.Key.kern: -0.7])
         cell.singer.attributedText = NSAttributedString(string: target.singer, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 11)!, NSAttributedString.Key.kern: -0.7])
@@ -162,13 +162,29 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
         if let imageUrl = URL(string: target.coverImagePath) {
             cell.img.loadImage(from: imageUrl)
         }
+        
+        cell.selectionStyle = .none
+        cell.backgroundColor = .clear
 
         return cell
     }
+}
+
+class MusicCell: UITableViewCell {
+    static let cellId = "music"
+    static let className = "MusicCell"
+
+    @IBOutlet var title: UILabel!
+    @IBOutlet var singer: UILabel!
+    @IBOutlet var img: UIImageView!
     
-    // UICollectionViewDelegateFlowLayout 상속
-    //컬렉션뷰 사이즈 설정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 258, height: 88)
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        roundImg()
+    }
+    
+    private func roundImg() {
+        img.layer.cornerRadius = 5
+        img.layer.masksToBounds = true
     }
 }

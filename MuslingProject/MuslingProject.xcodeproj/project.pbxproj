@@ -41,8 +41,6 @@
 		F3778B2F2AFBC8C200611AA3 /* DiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3778B2E2AFBC8C200611AA3 /* DiaryService.swift */; };
 		F386B0122A8DF7AB000A5835 /* ExtensionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */; };
 		F38C87E32B0D1F0700392742 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = F38C87E22B0D1F0700392742 /* profile.png */; };
-		F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A062822A6E870000CE7085 /* MusicCell.swift */; };
-		F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A062832A6E870000CE7085 /* MusicCell.xib */; };
 		F3A3C77D2A5FD7FE00BF13DD /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */; };
 		F3AD17302ACD8E8100F10D7B /* backImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F3AD172F2ACD8E8100F10D7B /* backImg.png */; };
 		F3AD17322ACD996800F10D7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AD17312ACD996800F10D7B /* HomeViewController.swift */; };
@@ -112,8 +110,6 @@
 		F3778B2E2AFBC8C200611AA3 /* DiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryService.swift; sourceTree = "<group>"; };
 		F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionVC.swift; sourceTree = "<group>"; };
 		F38C87E22B0D1F0700392742 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
-		F3A062822A6E870000CE7085 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
-		F3A062832A6E870000CE7085 /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
 		F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		F3AD172F2ACD8E8100F10D7B /* backImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backImg.png; sourceTree = "<group>"; };
 		F3AD17312ACD996800F10D7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -299,8 +295,6 @@
 				F37651C22A138AB6002B4286 /* SignInViewController.swift */,
 				F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */,
 				F3A3C77C2A5FD7FE00BF13DD /* DiaryViewController.swift */,
-				F3A062822A6E870000CE7085 /* MusicCell.swift */,
-				F3A062832A6E870000CE7085 /* MusicCell.xib */,
 				F386B0112A8DF7AB000A5835 /* ExtensionVC.swift */,
 				F3AD17312ACD996800F10D7B /* HomeViewController.swift */,
 				F3AD17332ACD999300F10D7B /* FavoriteViewController.swift */,
@@ -385,7 +379,6 @@
 				F3EAA53E29E55B6700819F7A /* LaunchScreen.storyboard in Resources */,
 				F3AD17302ACD8E8100F10D7B /* backImg.png in Resources */,
 				F3244AAF2A36E8C0002C19BB /* line.png in Resources */,
-				F3A062852A6E870000CE7085 /* MusicCell.xib in Resources */,
 				F317AF7D2B03D81F000733ED /* loadImg.png in Resources */,
 				F30F9AC52ADEE92600507422 /* Pretendard-Light.otf in Resources */,
 				F38C87E32B0D1F0700392742 /* profile.png in Resources */,
@@ -460,7 +453,6 @@
 				F30A73972A1CBDDD00CAF477 /* Category.swift in Sources */,
 				F303F7472A2F1A9800FEE41E /* Music.swift in Sources */,
 				F33135C72A2570F6008DF851 /* LocationService.swift in Sources */,
-				F3A062842A6E870000CE7085 /* MusicCell.swift in Sources */,
 				F3C2288729EC509000FDED32 /* MypageViewController.swift in Sources */,
 				F3244B422A25810A006C7E9B /* WeatherModel.swift in Sources */,
 				F3EFB22C2A57E94E004ED092 /* WeatherService.swift in Sources */,
