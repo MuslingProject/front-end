@@ -8,7 +8,7 @@
 import UIKit
 
 class ModifyViewController: UIViewController, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var selectAge: UITextField!
     @IBOutlet var script1: UILabel!
@@ -26,7 +26,15 @@ class ModifyViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet var rnb: CSButton!
     @IBOutlet var acoustic: CSButton!
     
+    @IBOutlet var isRecommend: UISwitch!
+    
     var isGenreModify = false
+    var recommendClicked = false
+    var selectRecommend = false
+    
+    @IBAction func recommend(_ sender: Any) {
+        recommendClicked = true
+    }
     
     @IBAction func selectKpop(_ sender: Any) {
         select(dancePop)
@@ -77,7 +85,7 @@ class ModifyViewController: UIViewController, UINavigationControllerDelegate, UI
         }
         isGenreModify = true
     }
-        
+    
     @IBAction func selectRnb(_ sender: Any) {
         select(rnb)
         if Genre.shared.rbSoul != true {
@@ -110,7 +118,6 @@ class ModifyViewController: UIViewController, UINavigationControllerDelegate, UI
                     }
                     // 마이페이지로 이동하기
                     NotificationCenter.default.post(name: .genreUpdated, object: nil)
-                    self.navigationController?.popViewController(animated: true)
                 case .pathErr:
                     print("선호 장르 수정 결과 :: Path Err")
                 case .requestErr:
@@ -122,6 +129,36 @@ class ModifyViewController: UIViewController, UINavigationControllerDelegate, UI
                 }
             }
         }
+        
+        // 내 시절 노래 추천 여부 수정
+        if recommendClicked {
+            if isRecommend.isOn {
+                selectRecommend = true
+            } else {
+                selectRecommend = false
+            }
+            
+            MypageService.shared.modifyRecommend(recommendation: selectRecommend) { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? AgeRecommendModel {
+                        print("내 시절 노래 추천 수정 결과 :: \(data.result)")
+                    }
+                    // 마이페이지로 이동하기
+                    NotificationCenter.default.post(name: .genreUpdated, object: nil)
+                case .pathErr:
+                    print("내 시절 노래 추천 수정 결과 :: Path Err")
+                case .requestErr:
+                    print("내 시절 노래 추천 수정 결과 :: Request Err")
+                case .serverErr:
+                    print("내 시절 노래 추천 수정 결과 :: Server Err")
+                case .networkFail:
+                    print("내 시절 노래 추천 수정 결과 :: Network Fail")
+                }
+            }
+        }
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     let ages = ["10대", "20대", "30대", "40대", "50대 이상"]
@@ -150,7 +187,6 @@ class ModifyViewController: UIViewController, UINavigationControllerDelegate, UI
         selectAge.tintColor = .clear // 커서 깜빡임 해결
         
         createPickerView(tagNo: 2)
-        dismissPickerView()
     }
     
     // 버튼 선택했을 때
@@ -190,9 +226,7 @@ class ModifyViewController: UIViewController, UINavigationControllerDelegate, UI
         let pickerView = UIPickerView()
         pickerView.delegate = self
         selectAge.inputView = pickerView
-    }
-    
-    func dismissPickerView() {
+        
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)

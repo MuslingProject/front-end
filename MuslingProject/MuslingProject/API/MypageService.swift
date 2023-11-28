@@ -121,6 +121,33 @@ struct MypageService {
         }
     }
     
+    // 내 시절 노래 추천 수정
+    func modifyRecommend(recommendation: Bool, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let header: HTTPHeaders = [ "Content-Type" : "application/json",
+                                    "X-AUTH-TOKEN" : token ]
+        
+        let params: Parameters = [
+            "ageRecommendation": recommendation
+        ]
+        
+        let dataRequest = AF.request(APIConstants.modifyRecommendURL, method: .patch, parameters: params, encoding: JSONEncoding.default, headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeRecommendationModify(status: statusCode, data: data))
+                
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
     // 선호 장르 조회
     func showGenre(completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
@@ -194,6 +221,21 @@ struct MypageService {
         case 200:
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(NonDataModel.self, from: data) else { return .pathErr }
+            return .success(decodedData)
+        case 400..<500:
+            return .requestErr
+        case 500:
+            return .serverErr
+        default:
+            return .networkFail
+        }
+    }
+    
+    private func judgeRecommendationModify(status: Int, data: Data) -> NetworkResult<Any> {
+        switch status {
+        case 200:
+            let decoder = JSONDecoder()
+            guard let decodedData = try? decoder.decode(AgeRecommendModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
             return .requestErr

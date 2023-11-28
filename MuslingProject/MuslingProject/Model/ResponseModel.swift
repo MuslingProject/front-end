@@ -127,6 +127,17 @@ struct RecMusicModel: Codable {
     let weather: String?
 }
 
+struct AgeRecommendModel: Codable {
+    let result: String
+    let httpStatus: String
+    let data: AgeModel
+}
+
+struct AgeModel: Codable {
+    let oldAgeRecommendation: Bool
+    let newAgeRecommendation: Bool
+}
+
 extension RecMusicModel {
     static var recommend = [
         RecMusicModel(songTitle: "DOOL", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203921/20392185.jpg?version=20211013005610.0", singer: "미노이(meenoi)", emotion: "사랑/기쁨", weather: nil),

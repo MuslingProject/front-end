@@ -191,7 +191,7 @@ class MypageViewController: UIViewController {
                     // 장르 변수 초기화
                     self.genre = ""
                     for case let (label?, value) in mirror.children {
-                        if value as! Int == 1 {
+                        if value as! Bool  {
                             guard let genreName = GenreDescKo[label] else { return }
                             self.genre += "\(genreName) "
                         }
