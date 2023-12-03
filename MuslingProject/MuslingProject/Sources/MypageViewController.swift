@@ -21,6 +21,27 @@ class MypageViewController: UIViewController {
     @IBOutlet var editProfile: UILabel!
     @IBOutlet var modifyLabel: UILabel!
     @IBOutlet var signoutLabel: UILabel!
+    @IBOutlet var logoutLabel: UILabel!
+    
+    
+    @IBAction func logOut(_ sender: Any) {
+        let alert = UIAlertController(title: "로그아웃하시겠습니까?", message: nil, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "로그아웃", style: .default) { _ in
+            UserDefaults.standard.removeObject(forKey: "user_id")
+            
+            // 홈 화면으로 넘어가기
+            let vcName = self.storyboard?.instantiateViewController(withIdentifier: "FirstVC")
+            vcName?.modalPresentationStyle = .fullScreen
+            vcName?.modalTransitionStyle = .crossDissolve
+            self.present(vcName!, animated: true, completion: nil)
+        }
+        let cancle = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(alertAction)
+        alert.addAction(cancle)
+        
+        alertAction.setValue(UIColor.red, forKey: "titleTextColor")
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func signOut(_ sender: Any) {
         let alert = UIAlertController(title: "뮤즐링을 탈퇴하시겠습니까?", message: "탈퇴 시 모든 정보가 사라집니다", preferredStyle: .alert)
@@ -77,6 +98,7 @@ class MypageViewController: UIViewController {
         editProfile.attributedText = NSAttributedString(string: "프로필 편집", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -1.2])
         modifyLabel.attributedText = NSAttributedString(string: "내 정보 수정", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -1.2])
         signoutLabel.attributedText = NSAttributedString(string: "회원 탈퇴", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -1.2])
+        logoutLabel.attributedText = NSAttributedString(string: "로그아웃", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -1.2])
         
         
         // 옵저버 등록

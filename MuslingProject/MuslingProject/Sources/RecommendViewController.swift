@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecommendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RecommendViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecommendCellDelegate {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var script: UILabel!
@@ -17,6 +17,7 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     var responseData: DiaryResponseModel?
     var recommendData: [RecMusicModel] = []
     var category: [String] = []
+    var saveMusics: [SendMusicModel] = []
     
     // 감정 노래
     var emotionMusic: [RecMusicModel] = []
@@ -63,22 +64,38 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     // 재추천 버튼
     @IBAction func reRecommnd(_ sender: Any) {
         // 재추천 api 실행
-        // 일단 더미데이터
-        recommendData = RecMusicModel.recommend
+        guard let diaryId = responseData?.data.diaryId else { return }
+        print(diaryId)
         
-        emotionMusic.removeAll()
-        weatherMusic.removeAll()
-        
-        for music in recommendData {
-            if music.emotion != nil {
-                emotionMusic.append(music)
-            } else if music.weather != nil {
-                weatherMusic.append(music)
+        MusicService.shared.reRecommend(diaryId: diaryId) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? ReRecommendModel {
+                    print("재추천 결과 :: \(data.result)")
+                    self.recommendData = data.data
+                    self.emotionMusic.removeAll()
+                    self.weatherMusic.removeAll()
+                    
+                    for music in self.recommendData {
+                        if music.emotion != nil {
+                            self.emotionMusic.append(music)
+                        } else if music.weather != nil {
+                            self.weatherMusic.append(music)
+                        }
+                    }
+                    
+                    self.myTableView.reloadData()
+                }
+            case .pathErr:
+                print("재추천 결과 :: Path Err")
+            case .networkFail:
+                print("재추천 결과 :: Network Err")
+            case .requestErr:
+                print("재추천 결과 :: Request Err")
+            case .serverErr:
+                print("재추천 결과 :: Server Err")
             }
         }
-        
-        myTableView.reloadData()
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -126,6 +143,7 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recommend", for: indexPath) as! RecommendCell
+        cell.delegate = self
         
         if indexPath.section == 0 {
             let target = emotionMusic[indexPath.row]
@@ -152,6 +170,22 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
+    func didTapHeartButton(in cell: RecommendCell) {
+        guard let indexPath = myTableView.indexPath(for: cell) else { return }
+        
+        let selectedMusic: RecMusicModel = indexPath.section == 0 ? emotionMusic[indexPath.row] : weatherMusic[indexPath.row]
+        
+        let newMusic = SendMusicModel(titles: selectedMusic.songTitle, imgs: selectedMusic.coverImagePath, singers: selectedMusic.singer, emotion: selectedMusic.emotion, weather: selectedMusic.weather)
+        
+        if cell.isHeartSelected {
+            saveMusics.append(newMusic)
+        } else {
+            if let index = saveMusics.firstIndex(where: { $0.titles == newMusic.titles && $0.singers == newMusic.singers }) {
+                saveMusics.remove(at: index)
+            }
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
@@ -166,12 +200,12 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
         
         titleLabel.attributedText = NSAttributedString(string: "분석 결과,\n\(result)의 감정이 느껴져요 🧐", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-ExtraBold", size: 24)!, NSAttributedString.Key.kern: -2.16])
         script.attributedText = NSAttributedString(string: "현재 감정과 날씨에 어울리는 노래들을 골라봤어요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -1.08])
-
+        
         let attributedString = NSMutableAttributedString(string: "🤔 다시 추천해 주세요")
-
+        
         attributedString.addAttribute(NSAttributedString.Key.kern, value: -0.84, range: NSRange(location: 0, length: attributedString.length))
         attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "Pretendard-Regular", size: 12)!, range: NSRange(location: 0, length: attributedString.length))
-
+        
         recommendBtn.setAttributedTitle(attributedString, for: .normal)
         recommendBtn.setAttributedTitle(attributedString, for: .selected)
         
@@ -199,6 +233,24 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @objc func closeBtn(_ sender: Any) {
+        // 음악 찜 api 실행
+        MusicService.shared.saveMusics(musics: saveMusics) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? SaveMusicResponseModel {
+                    print("음악 찜 결과 :: \(data.result)")
+                }
+            case .pathErr:
+                print("음악 찜 결과 :: Path Err")
+            case .networkFail:
+                print("음악 찜 결과 :: Network Err")
+            case .requestErr:
+                print("음악 찜 결과 :: Request Err")
+            case .serverErr:
+                print("음악 찜 결과 :: Server Err")
+            }
+        }
+        
         // 홈으로 이동
         let vcName = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
         vcName?.modalPresentationStyle = .fullScreen
@@ -207,21 +259,24 @@ class RecommendViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 }
 
+protocol RecommendCellDelegate: AnyObject {
+    func didTapHeartButton(in cell: RecommendCell)
+}
+
 // custom Cell
 class RecommendCell: UITableViewCell {
+    weak var delegate: RecommendCellDelegate?
+    
     @IBOutlet var img: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var singer: UILabel!
     @IBOutlet var heart: UIImageView!
+    var isHeartSelected: Bool = false
     
     @objc func saveMusic(tapGestureRecognizer: UITapGestureRecognizer) {
-        if heart.image == UIImage(systemName: "heart") {
-            // 찜하기
-            heart.image = UIImage(systemName: "heart.fill")
-        } else {
-            // 찜 취소
-            heart.image = UIImage(systemName: "heart")
-        }
+        isHeartSelected.toggle()
+        heart.image = isHeartSelected ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        delegate?.didTapHeartButton(in: self)
     }
     
     override func awakeFromNib() {

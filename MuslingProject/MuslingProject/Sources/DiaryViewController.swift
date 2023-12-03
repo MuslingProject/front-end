@@ -15,6 +15,7 @@ class DiaryViewController: UIViewController {
     @IBOutlet var weatherLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var musicLabel: UILabel!
+    @IBOutlet var heart: UIImageView!
     
     @IBOutlet var deleteBtn: UIButton!
     
@@ -73,8 +74,6 @@ class DiaryViewController: UIViewController {
         
         musicTableView.isScrollEnabled = false
         
-        deleteBtn.setAttributedTitle(NSAttributedString(string: "삭제", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 15)!, NSAttributedString.Key.kern: -0.6]), for: .normal)
-        
         musicLabel.attributedText = NSAttributedString(string: "👀 이런 노래들을 추천받았어요", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Bold", size: 14)!, NSAttributedString.Key.kern: -0.98])
         
         musicTableView.dataSource = self
@@ -111,6 +110,20 @@ class DiaryViewController: UIViewController {
             case .networkFail:
                 print("개별 기록 조회 결과 :: Network Fail")
             }
+        }
+        
+        let tapImageViewRecognizer = UITapGestureRecognizer(target: self, action: #selector(saveDiary(tapGestureRecognizer:)))
+        heart.isUserInteractionEnabled = true
+        heart.addGestureRecognizer(tapImageViewRecognizer)
+    }
+    
+    @objc func saveDiary(tapGestureRecognizer: UITapGestureRecognizer) {
+        if heart.image == UIImage(systemName: "heart") {
+            // 찜하기
+            heart.image = UIImage(systemName: "heart.fill")
+        } else {
+            // 찜 취소
+            heart.image = UIImage(systemName: "heart")
         }
     }
     

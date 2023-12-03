@@ -11,6 +11,7 @@ import Alamofire
 struct DiaryService {
     static let shared = DiaryService()
     
+    // 기록 저장
     func saveDiary(title: String, date: String, weather: String, content: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
@@ -44,6 +45,7 @@ struct DiaryService {
         }
     }
     
+    // 개별 기록 조회
     func getDiary(diaryId: Int64, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
@@ -68,6 +70,7 @@ struct DiaryService {
         }
     }
     
+    // 기록 삭제
     func deleteDiary(diaryId: Int64, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
@@ -91,6 +94,9 @@ struct DiaryService {
         }
     }
     
+    
+    
+    // 전체 기록 조회
     func getDiaries(page: Int, size: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
@@ -119,11 +125,62 @@ struct DiaryService {
         }
     }
     
+    // 찜한 기록 조회
+    func getHeartDiaries(page: Int, size: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let header: HTTPHeaders = [ "Content-Type" : "application/json",
+                                    "X-AUTH-TOKEN" : token ]
+        
+        let params: [String:Any] = [
+            "page": page,
+            "size": size,
+            "sorrt": "date,desc"
+        ]
+        
+        let dataRequest = AF.request(APIConstants.getDiaryURL, method: .get, parameters: params, encoding: URLEncoding.default, headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeGetDiary(status: statusCode, data: data))
+                
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    // 기록 감정 개수 조회
+    func getEmotions(completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let header: HTTPHeaders = [ "Content-Type" : "application/json",
+                                    "X-AUTH-TOKEN" : token ]
+        
+        let dataRequest = AF.request(APIConstants.getEmotionURL, method: .get, headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeGetEmotion(status: statusCode, data: data))
+                
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
     private func judgeDeleteDiary(status: Int, data: Data) -> NetworkResult<Any> {
         switch status {
         case 200:
             let decoder = JSONDecoder()
-            let dateFormatter = DateFormatter()
             guard let decodedData = try? decoder.decode(NonDataModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
@@ -143,6 +200,7 @@ struct DiaryService {
             dateFormatter.dateFormat = "yyyy-MM-dd"
             decoder.dateDecodingStrategy = .formatted(dateFormatter)
             guard let decodedData = try? decoder.decode(DiaryResponseModel.self, from: data) else { return .pathErr }
+            print(decodedData)
             return .success(decodedData)
         case 400..<500:
             return .requestErr
@@ -179,6 +237,21 @@ struct DiaryService {
             dateFormatter.dateFormat = "yyyy-MM-dd"
             decoder.dateDecodingStrategy = .formatted(dateFormatter)
             guard let decodedData = try? decoder.decode(ShowDiaryModel.self, from: data) else { return .pathErr }
+            return .success(decodedData)
+        case 400..<500:
+            return .requestErr
+        case 500:
+            return .serverErr
+        default:
+            return .networkFail
+        }
+    }
+    
+    private func judgeGetEmotion(status: Int, data: Data) -> NetworkResult<Any> {
+        switch status {
+        case 200:
+            let decoder = JSONDecoder()
+            guard let decodedData = try? decoder.decode(EmotionModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
             return .requestErr

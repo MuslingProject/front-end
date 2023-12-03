@@ -16,57 +16,124 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     
     var currentSegmentIndex = 0
     
-    // 더미데이터 불러오기
-    let emotionCategory = Category.emotion
-    let weatherCategory = Category.weather
-    let category = Category.all
+    var emotionCategory: [String] = []
+    var weatherCategory: [String] = []
+    var category: [String] = []
     
     // 좋아요한 전체 곡
-    let all = Music.data
+    var all: [MusicsModel] = []
     
+    @IBOutlet var noDataLabel: UILabel!
     
     // 감정별 배열
-    var happy: [Music] = []
-    var sad: [Music] = []
-    var stress: [Music] = []
-    var unrest: [Music] = []
-    var depressed: [Music] = []
+    var happy: [MusicsModel] = []
+    var sad: [MusicsModel] = []
+    var stress: [MusicsModel] = []
+    var unrest: [MusicsModel] = []
+    var depressed: [MusicsModel] = []
     
     // 날씨별 배열
-    var sunny: [Music] = []
-    var cloud: [Music] = []
-    var snow: [Music] = []
+    var sunny: [MusicsModel] = []
+    var cloud: [MusicsModel] = []
+    var snow: [MusicsModel] = []
     
     let cellSpacingHeight: CGFloat = 50
     
     func classifyMusic() {
-        for music in all {
-            if let emotion = music.emotion {
-                switch emotion {
-                case "사랑/기쁨":
-                    happy.append(music)
-                case "이별/슬픔":
-                    sad.append(music)
-                case "스트레스/짜증":
-                    stress.append(music)
-                case "우울":
-                    depressed.append(music)
-                case "멘붕/불안":
-                    unrest.append(music)
-                default:
-                    break
+        // 찜한 음악 불러오기 api
+        
+        emotionCategory.removeAll()
+        weatherCategory.removeAll()
+        happy.removeAll()
+        sad.removeAll()
+        stress.removeAll()
+        depressed.removeAll()
+        unrest.removeAll()
+        sunny.removeAll()
+        cloud.removeAll()
+        snow.removeAll()
+        
+        MusicService.shared.getSaveMusics() { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? GetMusicModel {
+                    print("찜한 음악 조회 결과 :: \(data.result)")
+                    self.all = data.data
+                    
+                    for music in self.all {
+                        if let emotion = music.emotion {
+                            switch emotion {
+                            case "사랑/기쁨":
+                                self.happy.append(music)
+                            case "이별/슬픔":
+                                self.sad.append(music)
+                            case "스트레스/짜증":
+                                self.stress.append(music)
+                            case "우울":
+                                self.depressed.append(music)
+                            case "멘붕/불안":
+                                self.unrest.append(music)
+                            default:
+                                break
+                            }
+                        } else if let weather = music.weather {
+                            switch weather {
+                            case "화창한 날":
+                                self.sunny.append(music)
+                            case "비/흐림":
+                                self.cloud.append(music)
+                            case "눈오는 날":
+                                self.snow.append(music)
+                            default:
+                                break
+                            }
+                        }
+                    }
+                    
+                    let musicCategories = [
+                        ("🥰 기쁨/사랑", self.happy),
+                        ("😢 이별/슬픔", self.sad),
+                        ("😡 스트레스/짜증", self.stress),
+                        ("😨 불안/멘붕", self.unrest),
+                        ("😞 우울", self.depressed)
+                    ]
+                    
+                    let weatherCategories = [
+                        ("☀️ 맑음", self.sunny),
+                        ("🌧️ 비/흐림", self.cloud),
+                        ("🌨️ 눈", self.snow)
+                    ]
+
+                    for (categoryName, musicArray) in musicCategories {
+                        if !musicArray.isEmpty {
+                            self.emotionCategory.append(categoryName)
+                        }
+                    }
+                    
+                    for (categoryName, weatherArray) in weatherCategories {
+                        if !weatherArray.isEmpty {
+                            self.weatherCategory.append(categoryName)
+                        }
+                    }
+                    
+                    self.category = self.emotionCategory + self.weatherCategory
+                    
+                    if self.category.isEmpty {
+                        self.noDataLabel.isHidden = false
+                        self.noDataLabel.attributedText = NSAttributedString(string: "아직 찜한 노래가 없어요 😉", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.8])
+                    } else {
+                        self.noDataLabel.isHidden = true
+                        self.favoriteTable.reloadData()
+                    }
                 }
-            } else if let weather = music.weather {
-                switch weather {
-                case "화창한 날":
-                    sunny.append(music)
-                case "비/흐림":
-                    cloud.append(music)
-                case "눈오는 날":
-                    snow.append(music)
-                default:
-                    break
-                }
+            case .pathErr:
+                print("찜한 음악 조회 결과 :: Path Err")
+            case .networkFail:
+                print("찜한 음악 조회 결과 :: Network Err")
+            case .requestErr:
+                print("찜한 음악 조회 결과 :: Request Err")
+            case .serverErr:
+                print("찜한 음악 조회 결과 :: Server Err")
             }
         }
     }
@@ -138,104 +205,72 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: - Row Cell
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numberOfRows: Int = 0
+        var selectedCategoryArray: [MusicsModel] = []
         switch currentSegmentIndex {
         case 0:
-            if section == 0 {
-                numberOfRows = happy.count
-            } else if section == 1 {
-                numberOfRows = sad.count
-            } else if section == 2 {
-                numberOfRows = stress.count
-            } else if section == 3 {
-                numberOfRows = unrest.count
-            } else if section == 4 {
-                numberOfRows = depressed.count
-            } else if section == 5 {
-                numberOfRows = sunny.count
-            } else if section == 6 {
-                numberOfRows = cloud.count
-            } else if section == 7 {
-                numberOfRows = snow.count
-            }
+            let categoryName = category[section]
+            selectedCategoryArray = getCategoryArray(for: categoryName)
         case 1:
-            if section == 0 {
-                numberOfRows = happy.count
-            } else if section == 1 {
-                numberOfRows = sad.count
-            } else if section == 2 {
-                numberOfRows = stress.count
-            } else if section == 3 {
-                numberOfRows = unrest.count
-            } else if section == 4 {
-                numberOfRows = depressed.count
-            }
+            let categoryName = emotionCategory[section]
+            selectedCategoryArray = getCategoryArray(for: categoryName)
         case 2:
-            if section == 0 {
-                numberOfRows = sunny.count
-            } else if section == 1 {
-                numberOfRows = cloud.count
-            } else if section == 2 {
-                numberOfRows = snow.count
-            }
-        default:
-            numberOfRows = 0
-        }
-        
-        return numberOfRows
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CategoryListCell
-        var target: Music?
-        
-        switch currentSegmentIndex {
-        case 0:
-            if indexPath.section == 0 {
-                target = happy[indexPath.row]
-            } else if indexPath.section == 1 {
-                target = sad[indexPath.row]
-            } else if indexPath.section == 2 {
-                target = stress[indexPath.row]
-            } else if indexPath.section == 3 {
-                target = unrest[indexPath.row]
-            } else if indexPath.section == 4 {
-                target = depressed[indexPath.row]
-            } else if indexPath.section == 5 {
-                target = sunny[indexPath.row]
-            } else if indexPath.section == 6 {
-                target = cloud[indexPath.row]
-            } else if indexPath.section == 7 {
-                target = snow[indexPath.row]
-            }
-        case 1:
-            if indexPath.section == 0 {
-                target = happy[indexPath.row]
-            } else if indexPath.section == 1 {
-                target = sad[indexPath.row]
-            } else if indexPath.section == 2 {
-                target = stress[indexPath.row]
-            } else if indexPath.section == 3 {
-                target = unrest[indexPath.row]
-            } else if indexPath.section == 4 {
-                target = depressed[indexPath.row]
-            }
-        case 2:
-            if indexPath.section == 0 {
-                target = sunny[indexPath.row]
-            } else if indexPath.section == 1 {
-                target = cloud[indexPath.row]
-            } else if indexPath.section == 2 {
-                target = snow[indexPath.row]
-            }
+            let categoryName = weatherCategory[section]
+            selectedCategoryArray = getCategoryArray(for: categoryName)
         default:
             break
         }
         
-        cell.title.text = target?.songTitle
-        cell.singer.text = target?.singer
+        return selectedCategoryArray.count
+    }
+    
+    private func getCategoryArray(for categoryName: String) -> [MusicsModel] {
+        switch categoryName {
+        case "🥰 기쁨/사랑":
+            return happy
+        case "😢 이별/슬픔":
+            return sad
+        case "😡 스트레스/짜증":
+            return stress
+        case "😨 불안/멘붕":
+            return unrest
+        case "😞 우울":
+            return depressed
+        case "☀️ 맑음":
+            return sunny
+        case "🌧️ 비/흐림":
+            return cloud
+        case "🌨️ 눈":
+            return snow
+        default:
+            return []
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CategoryListCell
+        var target: MusicsModel?
+        var selectedCategoryArray: [MusicsModel] = []
         
-        if let imageUrl = URL(string: target!.coverImagePath) {
+        switch currentSegmentIndex {
+        case 0:
+            let categoryName = category[indexPath.section]
+            selectedCategoryArray = getCategoryArray(for: categoryName)
+        case 1:
+            let categoryName = emotionCategory[indexPath.section]
+            selectedCategoryArray = getCategoryArray(for: categoryName)
+        case 2:
+            let categoryName = weatherCategory[indexPath.section]
+            selectedCategoryArray = getCategoryArray(for: categoryName)
+        default:
+            break
+        }
+        
+        target = selectedCategoryArray[indexPath.row]
+        
+        cell.title.text = target?.titles
+        cell.singer.text = target?.singers
+        
+        if let imageUrl = URL(string: target!.imgs) {
             cell.cover.loadImage(from: imageUrl)
         }
         
@@ -244,10 +279,6 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.selectionStyle = .none
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
     
     private enum Constants {
@@ -283,11 +314,17 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         return bottomUnderlineView.leftAnchor.constraint(equalTo: segmentedControlContainerView.leftAnchor)
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        noDataLabel.isHidden = true
         
         classifyMusic()
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
         favoriteTable.dataSource = self
         favoriteTable.delegate = self
         

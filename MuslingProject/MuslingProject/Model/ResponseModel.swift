@@ -127,6 +127,12 @@ struct RecMusicModel: Codable {
     let weather: String?
 }
 
+struct ReRecommendModel: Codable {
+    let result: String
+    let httpStatus: String
+    let data: [RecMusicModel]
+}
+
 struct AgeRecommendModel: Codable {
     let result: String
     let httpStatus: String
@@ -138,13 +144,89 @@ struct AgeModel: Codable {
     let newAgeRecommendation: Bool
 }
 
-extension RecMusicModel {
-    static var recommend = [
-        RecMusicModel(songTitle: "DOOL", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203921/20392185.jpg?version=20211013005610.0", singer: "미노이(meenoi)", emotion: "사랑/기쁨", weather: nil),
-        RecMusicModel(songTitle: "My Dear", coverImagePath: "https://image.bugsm.co.kr/album/images/200/200545/20054544.jpg?version=20190515004930.0", singer: "Red Velvet (레드벨벳)", emotion: "이별/슬픔", weather: nil),
-        RecMusicModel(songTitle: "BETELGEUSE", coverImagePath: "https://image.bugsm.co.kr/album/images/200/166101/16610139.jpg?version=20230306150744.0", singer: "Yuuri", emotion: "우울", weather: nil),
-        RecMusicModel(songTitle: "난춘 (亂春)", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203236/20323642.jpg?version=20220601225035.0", singer: "새소년", emotion: nil, weather: "화창한 날"),
-        RecMusicModel(songTitle: "EVERYTHING", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201002/20100228.jpg?version=20210428040321.0", singer: "검정치마", emotion: nil, weather: "비/흐림"),
-        RecMusicModel(songTitle: "폰서트", coverImagePath: "https://image.bugsm.co.kr/album/images/200/201168/20116852.jpg?version=20230110011420.0", singer: "10CM", emotion: nil, weather: "화창한 날")
-    ]
+struct EmotionModel: Codable {
+    let result: String
+    let httpStatus: String
+    let data: EmotionCounts
+}
+
+struct EmotionCountModel: Codable {
+    let unrest: Int
+    let depressed: Int
+    let happy: Int
+    let sad: Int
+    let stress: Int
+}
+
+struct EmotionCounts: Codable {
+    let emotionCounts: EmotionCountModel
+    let mostFrequentEmotion: String
+    let mostFrequentEmotionCount: Int
+}
+
+struct SaveMusicResponseModel: Codable {
+    let result: String
+    let httpStatus: String
+    let data: SaveMusicModel
+}
+
+struct SaveMusicModel: Codable {
+    let likes: [LikesMusicModel]
+}
+
+struct GetMusicModel: Codable {
+    let result: String
+    let httpStatus: String
+    let data: [MusicsModel]
+}
+
+struct LikesMusicModel: Codable {
+    let likeId: Int64
+    let titles: String
+    let imgs: String
+    let singers: String
+    let emotion: String?
+    let weather: String?
+}
+
+struct MusicsModel: Codable {
+    let likesId: Int64
+    let titles: String
+    let imgs: String
+    let singers: String
+    let emotion: String?
+    let weather: String?
+}
+
+struct SendMusicModel: Codable {
+    let titles: String
+    let imgs: String
+    let singers: String
+    let emotion: String?
+    let weather: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case titles, imgs, singers, emotion, weather
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(titles, forKey: .titles)
+        try container.encode(imgs, forKey: .imgs)
+        try container.encode(singers, forKey: .singers)
+        
+        // emotions가 nil이면 nil을 유지하고, 값이 있으면 Optional을 제거하고 값을 인코딩합니다.
+        if let emotions = emotion {
+            try container.encode(emotions, forKey: .emotion)
+        } else {
+            try container.encodeNil(forKey: .emotion)
+        }
+        
+        // weather에 대해서도 동일하게 처리합니다.
+        if let weather = weather {
+            try container.encode(weather, forKey: .weather)
+        } else {
+            try container.encodeNil(forKey: .weather)
+        }
+    }
 }
