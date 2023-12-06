@@ -21,7 +21,6 @@
 		F317AF792B03A73D000733ED /* mypage.png in Resources */ = {isa = PBXBuildFile; fileRef = F317AF782B03A73D000733ED /* mypage.png */; };
 		F317AF7D2B03D81F000733ED /* loadImg.png in Resources */ = {isa = PBXBuildFile; fileRef = F317AF7C2B03D81F000733ED /* loadImg.png */; };
 		F31B14AC2A5D224000AE12E2 /* DiaryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */; };
-		F31B14AE2A5D299600AE12E2 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31B14AD2A5D299600AE12E2 /* Diary.swift */; };
 		F3244AAE2A36E8C0002C19BB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AA92A36E8C0002C19BB /* logo.png */; };
 		F3244AAF2A36E8C0002C19BB /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = F3244AAA2A36E8C0002C19BB /* line.png */; };
 		F3244B422A25810A006C7E9B /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3244B412A25810A006C7E9B /* WeatherModel.swift */; };
@@ -90,7 +89,6 @@
 		F317AF782B03A73D000733ED /* mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mypage.png; sourceTree = "<group>"; };
 		F317AF7C2B03D81F000733ED /* loadImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadImg.png; sourceTree = "<group>"; };
 		F31B14AB2A5D224000AE12E2 /* DiaryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListViewController.swift; sourceTree = "<group>"; };
-		F31B14AD2A5D299600AE12E2 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		F3244AA92A36E8C0002C19BB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F3244AAA2A36E8C0002C19BB /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		F3244B412A25810A006C7E9B /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				F3F7D9A62A2C8CEC00D90B69 /* Member.swift */,
 				F303F7442A2F094300FEE41E /* Genre.swift */,
 				F34FF9E12A59894B0025EC5B /* ResponseModel.swift */,
-				F31B14AD2A5D299600AE12E2 /* Diary.swift */,
 				F3733D5C2A87F88D008B9814 /* NotificationCenter.swift */,
 			);
 			path = Model;
@@ -475,7 +472,6 @@
 				F30F9AC82ADEF07F00507422 /* AllEmotionViewController.swift in Sources */,
 				F3EAA53429E55B6600819F7A /* SceneDelegate.swift in Sources */,
 				F3A3C77D2A5FD7FE00BF13DD /* DiaryViewController.swift in Sources */,
-				F31B14AE2A5D299600AE12E2 /* Diary.swift in Sources */,
 				F3EFB2212A57D684004ED092 /* APIConstants.swift in Sources */,
 				F3F7D9A72A2C8CEC00D90B69 /* Member.swift in Sources */,
 				F3FCE3C32A1296BA00E67903 /* HSUnderLineTextField.swift in Sources */,

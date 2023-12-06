@@ -12,4 +12,5 @@ extension Notification.Name {
     static let genreUpdated = Notification.Name("genreUpdated")
     static let diaryUpdated = Notification.Name("diaryUpdated")
     static let diaryDeleted = Notification.Name("diaryDeleted")
+    static let diaryFavorited = Notification.Name("diaryDeleted")
 }

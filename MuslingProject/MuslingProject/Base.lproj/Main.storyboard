@@ -862,7 +862,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RgG-pq-hLR">
-                                <rect key="frame" x="0.0" y="255" width="393" height="504"/>
+                                <rect key="frame" x="0.0" y="230.33333333333331" width="393" height="528.66666666666674"/>
                                 <color key="backgroundColor" name="backGray"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="diary" rowHeight="66" id="YlS-kD-8Rk" customClass="DiaryCell" customModule="MuslingProject" customModuleProvider="target">
@@ -915,7 +915,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="DSL-M9-2s3">
-                                <rect key="frame" x="155" y="194" width="83" height="32"/>
+                                <rect key="frame" x="155" y="184.33333333333334" width="83" height="32"/>
                                 <segments>
                                     <segment title="전체"/>
                                     <segment title="찜"/>
@@ -930,9 +930,9 @@
                         <constraints>
                             <constraint firstItem="FiR-jh-riA" firstAttribute="centerY" secondItem="8KD-at-MPY" secondAttribute="centerY" id="29m-Yu-qPl"/>
                             <constraint firstItem="PWd-Fz-pYV" firstAttribute="top" secondItem="Nxs-ia-94M" secondAttribute="top" constant="20" id="3wj-eY-8h3"/>
-                            <constraint firstItem="DSL-M9-2s3" firstAttribute="top" secondItem="Nxs-ia-94M" secondAttribute="top" constant="91" id="RSS-RX-kSj"/>
+                            <constraint firstItem="DSL-M9-2s3" firstAttribute="top" secondItem="PWd-Fz-pYV" secondAttribute="bottom" constant="30" id="RSS-RX-kSj"/>
                             <constraint firstItem="RgG-pq-hLR" firstAttribute="leading" secondItem="Nxs-ia-94M" secondAttribute="leading" id="WCg-KP-vD1"/>
-                            <constraint firstItem="RgG-pq-hLR" firstAttribute="top" secondItem="DSL-M9-2s3" secondAttribute="bottom" constant="30" id="YHY-hi-Sbf"/>
+                            <constraint firstItem="RgG-pq-hLR" firstAttribute="top" secondItem="DSL-M9-2s3" secondAttribute="bottom" constant="15" id="YHY-hi-Sbf"/>
                             <constraint firstItem="RgG-pq-hLR" firstAttribute="trailing" secondItem="Nxs-ia-94M" secondAttribute="trailing" id="afu-LF-eKs"/>
                             <constraint firstItem="Nxs-ia-94M" firstAttribute="bottom" secondItem="RgG-pq-hLR" secondAttribute="bottom" constant="10" id="bn4-8w-Lc4"/>
                             <constraint firstItem="DSL-M9-2s3" firstAttribute="centerX" secondItem="8KD-at-MPY" secondAttribute="centerX" id="czB-pi-v7d"/>
@@ -1192,7 +1192,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Leq-qc-INg">
                                                 <rect key="frame" x="325.33333333333331" y="8" width="59.666666666666686" height="34.333333333333336"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tM5-vx-sGu">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="31f-JK-cfS">
                                                         <rect key="frame" x="0.0" y="1.9999999999999964" width="20.666666666666668" height="31.333333333333332"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sp3-44-4ah">
@@ -1261,7 +1261,7 @@
                         <outlet property="dateLabel" destination="tAt-ct-u8v" id="IqW-dd-A1N"/>
                         <outlet property="deleteBtn" destination="Sp3-44-4ah" id="W8S-nc-mCE"/>
                         <outlet property="emotionLabel" destination="PI1-e7-4dW" id="Zx1-PT-U3H"/>
-                        <outlet property="heart" destination="tM5-vx-sGu" id="WeG-2D-3eX"/>
+                        <outlet property="heart" destination="31f-JK-cfS" id="6QC-nD-Pct"/>
                         <outlet property="musicLabel" destination="Fdz-nz-jrx" id="6s8-oA-GNp"/>
                         <outlet property="musicTableView" destination="tUL-1S-FV8" id="GRE-hp-PD2"/>
                         <outlet property="titleLabel" destination="nHa-A5-cIl" id="rP9-vo-uor"/>
@@ -1982,7 +1982,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="노래 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qm-ZE-jOn">
-                                                    <rect key="frame" x="95" y="26" width="52" height="17"/>
+                                                    <rect key="frame" x="95" y="26" width="253" height="17"/>
                                                     <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="14"/>
                                                     <color key="textColor" name="Text01"/>
                                                     <nil key="highlightedColor"/>
@@ -2003,13 +2003,28 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-EJ-2xZ">
+                                                    <rect key="frame" x="356" y="33" width="21" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="21" id="nwW-pE-hIW"/>
+                                                    </constraints>
+                                                    <color key="tintColor" name="Blue01"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="heart.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="clickHeart:" destination="oho-a4-F6Z" eventType="touchUpInside" id="JIv-Jf-50W"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="bmf-EJ-2xZ" firstAttribute="leading" secondItem="3qm-ZE-jOn" secondAttribute="trailing" constant="8" symbolic="YES" id="4Tg-kn-qI5"/>
                                                 <constraint firstItem="8Vd-Mv-TK3" firstAttribute="top" secondItem="3qm-ZE-jOn" secondAttribute="bottom" constant="2" id="6tH-wB-gpv"/>
                                                 <constraint firstItem="bcz-93-6d4" firstAttribute="leading" secondItem="uEY-3L-TX9" secondAttribute="leading" constant="15" id="8qt-bN-UEy"/>
+                                                <constraint firstItem="bmf-EJ-2xZ" firstAttribute="centerY" secondItem="uEY-3L-TX9" secondAttribute="centerY" id="BuE-U0-dJY"/>
                                                 <constraint firstItem="8Vd-Mv-TK3" firstAttribute="leading" secondItem="bcz-93-6d4" secondAttribute="trailing" constant="15" id="KMY-Ph-4kb"/>
                                                 <constraint firstItem="3qm-ZE-jOn" firstAttribute="top" secondItem="uEY-3L-TX9" secondAttribute="topMargin" constant="15" id="N53-sX-WTx"/>
                                                 <constraint firstItem="bcz-93-6d4" firstAttribute="centerY" secondItem="uEY-3L-TX9" secondAttribute="centerY" id="Ymy-sm-KoG"/>
+                                                <constraint firstAttribute="trailing" secondItem="bmf-EJ-2xZ" secondAttribute="trailing" constant="16" id="bTO-my-8Rn"/>
                                                 <constraint firstItem="3qm-ZE-jOn" firstAttribute="leading" secondItem="bcz-93-6d4" secondAttribute="trailing" constant="15" id="pA6-Cn-C9M"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="8Vd-Mv-TK3" secondAttribute="bottom" constant="17" id="pvz-Wx-ydg"/>
                                             </constraints>
@@ -2017,6 +2032,7 @@
                                         <color key="backgroundColor" name="backGray"/>
                                         <connections>
                                             <outlet property="cover" destination="bcz-93-6d4" id="2a8-3P-ZNC"/>
+                                            <outlet property="heart" destination="bmf-EJ-2xZ" id="X8H-hi-Eu5"/>
                                             <outlet property="singer" destination="8Vd-Mv-TK3" id="1Tj-Fn-wUM"/>
                                             <outlet property="title" destination="3qm-ZE-jOn" id="Wgh-nD-ZsA"/>
                                         </connections>
@@ -2057,7 +2073,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxR-mx-vSU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="988" y="717"/>
+            <point key="canvasLocation" x="987.02290076335873" y="716.90140845070425"/>
         </scene>
         <!--홈 화면-->
         <scene sceneID="RvP-1q-2v9">
@@ -2251,7 +2267,7 @@
                 <navigationController storyboardIdentifier="FirstVC" title="첫 화면" automaticallyAdjustsScrollViewInsets="NO" id="EMM-yW-G9z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Qya-ml-jey">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="103"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="28"/>
@@ -2430,6 +2446,7 @@
         <image name="chart.bar" catalog="system" width="128" height="89"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="line.png" width="360" height="1"/>
         <image name="list" width="25" height="16.666666030883789"/>

@@ -32,6 +32,8 @@ struct APIConstants {
     static let saveDiaryURL = baseURL + "/diaries"
     // 일기 조회
     static let getDiaryURL = baseURL + "/diaries"
+    // 찜한 일기 조회
+    static let getHeartDiaryURL = baseURL + "/diaries/favorites"
     // 감정 개수 조회
     static let getEmotionURL = baseURL + "/diaries/emotions"
     // 노래 찜하기

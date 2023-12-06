@@ -33,75 +33,9 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
         changeSegmentedControlLinePosition(for: sender.selectedSegmentIndex)
         switch currentSegmentIndex {
         case 0:
-            DiaryService.shared.getDiaries(page: 0, size: 50) { response in
-                switch response {
-                case .success(let data):
-                    if let data = data as? GetDiaryModel {
-                        print("전체 기록 조회 결과 :: \(data.result)")
-                        self.diaries = data.data.content
-                        
-                        if self.diaries.isEmpty {
-                            self.tableView.isHidden = true
-                            self.noDiaryLabel.isHidden = false
-                            self.noDiaryLabel.attributedText = NSAttributedString(string: "아직 아무런 기록이 없어요 🥲", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.7])
-                        } else {
-                            self.tableView.isHidden = false
-                            self.noDiaryLabel.isHidden = true
-                            self.groupDiariesByDate()
-                            self.tableView.reloadData()
-                        }
-                    }
-                case .pathErr:
-                    print("전체 기록 조회 결과 :: Path Err")
-                case .requestErr:
-                    print("전체 기록 조회 결과 :: Request Err")
-                case .serverErr:
-                    print("전체 기록 조회 결과 :: Server Err")
-                case .networkFail:
-                    print("전체 기록 조회 결과 :: Network Fail")
-                }
-            }
+            handleDiaryUpdate()
         case 1:
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // POSIX 기준 시간으로 설정
-            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-            
-            let date1 = "2023-11-30 15:00:00 +0000"
-            let date2 = "2023-11-29 15:00:00 +0000"
-            
-            diaries = [DiaryModel(diaryId: 100, title: "더현대 다녀왔다", date: dateFormatter.date(from: date1)!, weather: "비/흐림", content: "오늘 더현대를 다녀왔는데 진짜 사람들이 너무너무 많았다 ㅠㅠ 웨이팅 다 기다렸는데 내 차례 됐다는 알람이 안 와서 못 들어감.... 너무 아쉬운데 짜증나기도 했다", mood: "멘붕/불안", recommendations: [RecMusicModel(songTitle: "노스텔지아  노스텔지아!", coverImagePath: "https://image.bugsm.co.kr/album/images/200/202742/20274216.jpg?version=20221205000045.0", singer: "사공(Sagong)", emotion: Optional("멘붕/불안"), weather: nil), RecMusicModel(songTitle: "Heavy Rain", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203941/20394109.jpg?version=20210430180003.0", singer: "검정치마", emotion: Optional("멘붕/불안"), weather: nil), RecMusicModel(songTitle: "내가 사랑하는 당신  머문 곳에", coverImagePath: "https://image.bugsm.co.kr/album/images/200/203332/20333219.jpg?version=20221204234506.0", singer: "DANIEL", emotion: Optional("멘붕/불안"), weather: nil), RecMusicModel(songTitle: "Til The End", coverImagePath: "https://image.bugsm.co.kr/album/images/200/204798/20479837.jpg?version=20220716010807.0", singer: "해리안 윤소안(Harryan Yoonsoan)", emotion: nil, weather: Optional("비/흐림")), RecMusicModel(songTitle: "단발머리", coverImagePath: "https://image.bugsm.co.kr/album/images/200/48/4828.jpg?version=20221114173012.0", singer: "조용필", emotion: nil, weather: Optional("비/흐림")), RecMusicModel(songTitle: "내 안의 외로움은 사라져", coverImagePath: "https://image.bugsm.co.kr/album/images/200/205021/20502132.jpg?version=20221028120005.0", singer: "겸(GYE0M)", emotion: nil, weather: Optional("비/흐림"))]), DiaryModel(diaryId: 99, title: "12월 하루 전이라니", date: dateFormatter.date(from: date2)!, weather: "화창한 날", content: "이제 2024년이 다가오고 있다는 게 정말 실감이 난다… 시간이 왜 이렇게 빠른 건지 😞 앞으로 어떻게 해야 할지 걱정이 많이 된다", mood: "이별/슬픔", recommendations: [RecMusicModel(songTitle: "캠퍼스 로망스 (feat. 기리보이)", coverImagePath: "https://image.bugsm.co.kr/album/images/200/200430/20043024.jpg?version=20211225003856.0", singer: "러비 (LOVEY)", emotion: Optional("이별/슬픔"), weather: nil), RecMusicModel(songTitle: "키스미", coverImagePath: "https://image.bugsm.co.kr/album/images/200/3628/362851.jpg?version=20200515002356.0", singer: "참솜(Chamsom) CONNECT 아티스트", emotion: Optional("이별/슬픔"), weather: nil), RecMusicModel(songTitle: "VENOM", coverImagePath: "https://image.bugsm.co.kr/album/images/200/204700/20470052.jpg?version=20230317003326.0", singer: "BVNDIT (밴디트)", emotion: Optional("이별/슬픔"), weather: nil), RecMusicModel(songTitle: "Cameo", coverImagePath: "https://image.bugsm.co.kr/album/images/200/200839/20083983.jpg?version=20210421044041.0", singer: "러블리즈(Lovelyz)", emotion: nil, weather: Optional("화창한 날")), RecMusicModel(songTitle: "Attention", coverImagePath: "https://image.bugsm.co.kr/album/images/200/40780/4078016.jpg?version=20221014011218.0", singer: "NewJeans", emotion: nil, weather: Optional("화창한 날")), RecMusicModel(songTitle: "MAGO", coverImagePath: "https://image.bugsm.co.kr/album/images/200/40135/4013503.jpg?version=20210421042703.0", singer: "여자친구(GFRIEND)", emotion: nil, weather: Optional("화창한 날"))])]
-            
-            groupDiariesByDate()
-            tableView.reloadData()
-//            DiaryService.shared.getHeartDiaries(page: 0, size: 50) { response in
-//                switch response {
-//                case .success(let data):
-//                    if let data = data as? GetDiaryModel {
-//                        print("찜한 기록 조회 결과 :: \(data.result)")
-//                        self.diaries = data.data.content
-//                        
-//                        if self.diaries.isEmpty {
-//                            self.tableView.isHidden = true
-//                            self.noDiaryLabel.isHidden = false
-//                            self.noDiaryLabel.attributedText = NSAttributedString(string: "아직 아무런 기록이 없어요 🥲", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.7])
-//                        } else {
-//                            self.tableView.isHidden = false
-//                            self.noDiaryLabel.isHidden = true
-//                            self.groupDiariesByDate()
-//                            self.tableView.reloadData()
-//                        }
-//                    }
-//                case .pathErr:
-//                    print("찜한 기록 조회 결과 :: Path Err")
-//                case .requestErr:
-//                    print("찜한 기록 조회 결과 :: Request Err")
-//                case .serverErr:
-//                    print("찜한 기록 조회 결과 :: Server Err")
-//                case .networkFail:
-//                    print("찜한 기록 조회 결과 :: Network Fail")
-//                }
- //           }
+            handleDiaryFavorite()
         default:
             break
         }
@@ -131,6 +65,7 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleDiaryUpdate), name: .diaryUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDiaryFavorite), name: .diaryFavorited, object: nil)
         
         noDiaryLabel.isHidden = true
         
@@ -235,6 +170,39 @@ class DiaryListViewController: UIViewController, UITableViewDelegate, UITableVie
     // 옵저버 해제
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleDiaryFavorite() {
+        if currentSegmentIndex == 1 {
+            DiaryService.shared.getHeartDiaries() { response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? HeartDiaryModel {
+                        print("찜한 기록 조회 결과 :: \(data.result)")
+                        self.diaries = data.data
+                        
+                        if self.diaries.isEmpty {
+                            self.tableView.isHidden = true
+                            self.noDiaryLabel.isHidden = false
+                            self.noDiaryLabel.attributedText = NSAttributedString(string: "아직 찜한 기록이 없어요 🙂", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.7])
+                        } else {
+                            self.tableView.isHidden = false
+                            self.noDiaryLabel.isHidden = true
+                            self.groupDiariesByDate()
+                            self.tableView.reloadData()
+                        }
+                    }
+                case .pathErr:
+                    print("찜한 기록 조회 결과 :: Path Err")
+                case .requestErr:
+                    print("찜한 기록 조회 결과 :: Request Err")
+                case .serverErr:
+                    print("찜한 기록 조회 결과 :: Server Err")
+                case .networkFail:
+                    print("찜한 기록 조회 결과 :: Network Fail")
+                }
+            }
+        }
     }
     
     @objc func handleDiaryUpdate() {

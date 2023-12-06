@@ -16,53 +16,16 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var isImgModify = false
 
     @IBAction func saveBtn(_ sender: Any) {
-        // 이미지 수정
-        if isImgModify {
-            MypageService.shared.modifyImage(imgData: Member.shared.img) { response in
-                switch response {
-                case .success(let data):
-                    if let data = data as? NonDataModel {
-                        print("프로필 사진 수정 결과 :: \(data.message)")
-                    }
-                    // 마이페이지로 이동
-                    NotificationCenter.default.post(name: .profileUpdated, object: nil)
-                    self.navigationController?.popViewController(animated: true)
-                case .pathErr:
-                    print("프로필 사진 수정 결과 :: Path Err")
-                case .requestErr:
-                    print("프로필 사진 수정 결과 :: Request Err")
-                case .serverErr:
-                    print("프로필 사진 수정 결과 :: Server Err")
-                case .networkFail:
-                    print("프로필 사진 수정 결과 :: Network Fail")
-                }
-            }
-        }
         
-        // 닉네임 수정
-        if nameField.text != "" {
-            guard let newName = nameField.text else { return }
-            MypageService.shared.modifyName(nickname: newName) { response in
-                switch response {
-                case .success(let data):
-                    if let data = data as? NameModifyModel {
-                        print("닉네임 수정 결과 :: \(data.result)")
-                        UserDefaults.standard.setValue(newName, forKey: "user_name")
-                    }
-                    // 마이페이지로 이동
-                    NotificationCenter.default.post(name: .profileUpdated, object: nil)
-                    self.navigationController?.popViewController(animated: true)
-                case .pathErr:
-                    print("닉네임 수정 결과 :: Path Err")
-                case .requestErr:
-                    print("닉네임 수정 결과 :: Request Err")
-                case .serverErr:
-                    print("닉네임 수정 결과 :: Server Err")
-                case .networkFail:
-                    print("닉네임 수정 결과 :: Network Fail")
-                }
-            }
+        if isImgModify {
+            modifyImg()
         }
+
+        if nameField.text != "" {
+            modifyName()
+        }
+
+        
     }
     
     override func viewDidLoad() {
@@ -155,5 +118,50 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
-
+    
+    private func modifyImg() {
+        MypageService.shared.modifyImage(imgData: Member.shared.img) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? NonDataModel {
+                    print("프로필 사진 수정 결과 :: \(data.message)")
+                }
+                // 마이페이지로 이동
+                NotificationCenter.default.post(name: .profileUpdated, object: nil)
+                self.navigationController?.popViewController(animated: true)
+            case .pathErr:
+                print("프로필 사진 수정 결과 :: Path Err")
+            case .requestErr:
+                print("프로필 사진 수정 결과 :: Request Err")
+            case .serverErr:
+                print("프로필 사진 수정 결과 :: Server Err")
+            case .networkFail:
+                print("프로필 사진 수정 결과 :: Network Fail")
+            }
+        }
+    }
+    
+    private func modifyName() {
+        guard let newName = nameField.text else { return }
+        MypageService.shared.modifyName(nickname: newName) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? NameModifyModel {
+                    print("닉네임 수정 결과 :: \(data.result)")
+                    UserDefaults.standard.setValue(newName, forKey: "user_name")
+                }
+                // 마이페이지로 이동
+                NotificationCenter.default.post(name: .profileUpdated, object: nil)
+                self.navigationController?.popViewController(animated: true)
+            case .pathErr:
+                print("닉네임 수정 결과 :: Path Err")
+            case .requestErr:
+                print("닉네임 수정 결과 :: Request Err")
+            case .serverErr:
+                print("닉네임 수정 결과 :: Server Err")
+            case .networkFail:
+                print("닉네임 수정 결과 :: Network Fail")
+            }
+        }
+    }
 }

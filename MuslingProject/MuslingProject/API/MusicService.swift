@@ -69,6 +69,32 @@ struct MusicService {
         }
     }
     
+    // 찜한 노래 취소
+    func cancelMusic(likesId: Int64, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let header: HTTPHeaders = [ "Content-Type" : "application/json",
+                                    "X-AUTH-TOKEN" : token ]
+        
+        let url = APIConstants.saveMusicURL + "/\(likesId)"
+        
+        let dataRequest = AF.request(url, method: .delete, headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeCancelMusic(status: statusCode, data: data))
+                
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+
+    
     // 찜한 노래 조회
     func getSaveMusics(completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
@@ -112,6 +138,21 @@ struct MusicService {
         case 200:
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(SaveMusicResponseModel.self, from: data) else { return .pathErr }
+            return .success(decodedData)
+        case 400..<500:
+            return .requestErr
+        case 500:
+            return .serverErr
+        default:
+            return .networkFail
+        }
+    }
+    
+    private func judgeCancelMusic(status: Int, data: Data) -> NetworkResult<Any> {
+        switch status {
+        case 200:
+            let decoder = JSONDecoder()
+            guard let decodedData = try? decoder.decode(NonDataModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
             return .requestErr

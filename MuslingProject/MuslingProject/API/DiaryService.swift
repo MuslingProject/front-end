@@ -126,26 +126,20 @@ struct DiaryService {
     }
     
     // 찜한 기록 조회
-    func getHeartDiaries(page: Int, size: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+    func getHeartDiaries(completion: @escaping (NetworkResult<Any>) -> (Void)) {
         guard let token = UserDefaults.standard.string(forKey: "token") else { return }
         
         let header: HTTPHeaders = [ "Content-Type" : "application/json",
                                     "X-AUTH-TOKEN" : token ]
         
-        let params: [String:Any] = [
-            "page": page,
-            "size": size,
-            "sorrt": "date,desc"
-        ]
-        
-        let dataRequest = AF.request(APIConstants.getDiaryURL, method: .get, parameters: params, encoding: URLEncoding.default, headers: header)
+        let dataRequest = AF.request(APIConstants.getHeartDiaryURL, method: .get, headers: header)
         
         dataRequest.responseData { response in
             switch response.result {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.value else { return }
-                completion(judgeGetDiary(status: statusCode, data: data))
+                completion(judgeGetHeartDiary(status: statusCode, data: data))
                 
             case .failure(let err):
                 print(err)
@@ -170,6 +164,30 @@ struct DiaryService {
                 guard let data = response.value else { return }
                 completion(judgeGetEmotion(status: statusCode, data: data))
                 
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    // 일기 찜 상태 변경
+    func favDiary(diaryId: Int64, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        guard let token = UserDefaults.standard.string(forKey: "token") else { return }
+        
+        let header: HTTPHeaders = [ "Content-Type" : "application/json",
+                                    "X-AUTH-TOKEN" : token ]
+        
+        let url = APIConstants.getDiaryURL + "/\(diaryId)/favorite"
+        
+        let dataReqeust = AF.request(url, method: .put, headers: header)
+        
+        dataReqeust.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.value else { return }
+                completion(judgeHeartDiary(status: statusCode, data: data))
             case .failure(let err):
                 print(err)
                 completion(.networkFail)
@@ -252,6 +270,39 @@ struct DiaryService {
         case 200:
             let decoder = JSONDecoder()
             guard let decodedData = try? decoder.decode(EmotionModel.self, from: data) else { return .pathErr }
+            return .success(decodedData)
+        case 400..<500:
+            return .requestErr
+        case 500:
+            return .serverErr
+        default:
+            return .networkFail
+        }
+    }
+    
+    private func judgeGetHeartDiary(status: Int, data: Data) -> NetworkResult<Any> {
+        switch status {
+        case 200:
+            let decoder = JSONDecoder()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+            guard let decodedData = try? decoder.decode(HeartDiaryModel.self, from: data) else { return .pathErr }
+            return .success(decodedData)
+        case 400..<500:
+            return .requestErr
+        case 500:
+            return .serverErr
+        default:
+            return .networkFail
+        }
+    }
+    
+    private func judgeHeartDiary(status: Int, data: Data) -> NetworkResult<Any> {
+        switch status {
+        case 200:
+            let decoder = JSONDecoder()
+            guard let decodedData = try? decoder.decode(NonDataModel.self, from: data) else { return .pathErr }
             return .success(decodedData)
         case 400..<500:
             return .requestErr

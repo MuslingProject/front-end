@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavoriteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CategoryListCellDelegate {
     
     @IBOutlet var favoriteTable: UITableView!
     @IBOutlet var titleLabel: UILabel!
@@ -41,7 +41,6 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     
     func classifyMusic() {
         // 찜한 음악 불러오기 api
-        
         emotionCategory.removeAll()
         weatherCategory.removeAll()
         happy.removeAll()
@@ -117,13 +116,40 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                     
                     self.category = self.emotionCategory + self.weatherCategory
-                    
-                    if self.category.isEmpty {
-                        self.noDataLabel.isHidden = false
-                        self.noDataLabel.attributedText = NSAttributedString(string: "아직 찜한 노래가 없어요 😉", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.8])
-                    } else {
-                        self.noDataLabel.isHidden = true
-                        self.favoriteTable.reloadData()
+            
+                    switch self.currentSegmentIndex {
+                    case 0:
+                        if self.category.isEmpty {
+                            self.noDataLabel.isHidden = false
+                            self.favoriteTable.isHidden = true
+                            self.noDataLabel.attributedText = NSAttributedString(string: "아직 찜한 노래가 없어요 😉", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.8])
+                        } else {
+                            self.noDataLabel.isHidden = true
+                            self.favoriteTable.isHidden = false
+                            self.favoriteTable.reloadData()
+                        }
+                    case 1:
+                        if self.emotionCategory.isEmpty {
+                            self.noDataLabel.isHidden = false
+                            self.favoriteTable.isHidden = true
+                            self.noDataLabel.attributedText = NSAttributedString(string: "아직 찜한 노래가 없어요 😉", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.8])
+                        } else {
+                            self.noDataLabel.isHidden = true
+                            self.favoriteTable.isHidden = false
+                            self.favoriteTable.reloadData()
+                        }
+                    case 2:
+                        if self.weatherCategory.isEmpty {
+                            self.noDataLabel.isHidden = false
+                            self.favoriteTable.isHidden = true
+                            self.noDataLabel.attributedText = NSAttributedString(string: "아직 찜한 노래가 없어요 😉", attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.8])
+                        } else {
+                            self.noDataLabel.isHidden = true
+                            self.favoriteTable.isHidden = false
+                            self.favoriteTable.reloadData()
+                        }
+                    default:
+                        break
                     }
                 }
             case .pathErr:
@@ -246,8 +272,49 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    func didTapHeartButton(in cell: CategoryListCell) {
+        guard let indexPath = favoriteTable.indexPath(for: cell) else { return }
+        var selectedCategoryArray: [MusicsModel] = []
+        
+        switch currentSegmentIndex {
+        case 0:
+            let categoryName = category[indexPath.section]
+            selectedCategoryArray = getCategoryArray(for: categoryName)
+        case 1:
+            let categoryName = emotionCategory[indexPath.section]
+            selectedCategoryArray = getCategoryArray(for: categoryName)
+        case 2:
+            let categoryName = weatherCategory[indexPath.section]
+            selectedCategoryArray = getCategoryArray(for: categoryName)
+        default:
+            break
+        }
+        
+        let selectedMusic = selectedCategoryArray[indexPath.row]
+        MusicService.shared.cancelMusic(likesId: selectedMusic.likesId) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? NonDataModel {
+                    print("찜한 음악 취소 결과 :: \(data.result)")
+                    self.classifyMusic()
+                    self.favoriteTable.reloadData()
+                }
+            case .pathErr:
+                print("찜한 음악 취소 결과 :: Path Err")
+            case .networkFail:
+                print("찜한 음악 취소 결과 :: Network Err")
+            case .requestErr:
+                print("찜한 음악 취소 결과 :: Request Err")
+            case .serverErr:
+                print("찜한 음악 취소 결과 :: Server Err")
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CategoryListCell
+        cell.delegate = self
+        
         var target: MusicsModel?
         var selectedCategoryArray: [MusicsModel] = []
         
@@ -269,6 +336,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.title.text = target?.titles
         cell.singer.text = target?.singers
+        cell.heart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         
         if let imageUrl = URL(string: target!.imgs) {
             cell.cover.loadImage(from: imageUrl)
@@ -289,7 +357,7 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         currentSegmentIndex = sender.selectedSegmentIndex
-        favoriteTable.reloadData()
+        classifyMusic()
         changeSegmentedControlLinePosition(for: sender.selectedSegmentIndex)
     }
     
@@ -374,9 +442,6 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "Pretendard-Bold", size: 14)!]
         let labelSize = (segmentTitle as NSString).size(withAttributes: attributes)
         
-        // Remove existing width constraint
-        //NSLayoutConstraint.deactivate([bottomUnderlineView.widthAnchor.constraint(equalTo: segment.widthAnchor, multiplier: 1 / CGFloat(segment.numberOfSegments))])
-        
         // Calculate new position
         let segmentWidth = segment.frame.width / CGFloat(segment.numberOfSegments)
         let newX = segmentWidth * CGFloat(selectedIndex) + (segmentWidth - labelSize.width) / 2
@@ -392,11 +457,18 @@ class FavoriteViewController: UIViewController, UITableViewDelegate, UITableView
     }
 }
 
+protocol CategoryListCellDelegate: AnyObject {
+    func didTapHeartButton(in cell: CategoryListCell)
+}
+
 // custom Cell
 class CategoryListCell: UITableViewCell {
+    weak var delegate: CategoryListCellDelegate?
+    
     @IBOutlet var cover: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var singer: UILabel!
+    @IBOutlet var heart: UIButton!
     
     func setSpacing() {
         title.attributedText = NSAttributedString(string: title.text!, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-SemiBold", size: 14)!, NSAttributedString.Key.kern: -0.5])
@@ -406,6 +478,11 @@ class CategoryListCell: UITableViewCell {
     func roundImg() {
         cover.layer.masksToBounds = true
         cover.layer.cornerRadius = 10
+    }
+    
+    @IBAction func clickHeart(_ sender: Any) {
+        heart.setImage(UIImage(systemName: "heart"), for: .normal)
+        delegate?.didTapHeartButton(in: self)
     }
 }
 

@@ -64,7 +64,7 @@ struct GenreModel: Codable {
 struct DiaryResponseModel: Codable {
     let result: String
     let httpStatus: String
-    let data: DiaryModel
+    let data: WriteDiaryModel
     
 }
 
@@ -109,6 +109,22 @@ struct SortModel: Codable {
     let unsorted: Bool
 }
 
+struct HeartDiaryModel: Codable {
+    let result: String
+    let httpStatus: String
+    let data: [DiaryModel]
+}
+
+struct WriteDiaryModel: Codable {
+    let diaryId: Int64
+    let title: String
+    let date: Date
+    let weather: String
+    let content: String
+    let mood: String
+    let recommendations: [RecMusicModel]
+}
+
 struct DiaryModel: Codable {
     let diaryId: Int64
     let title: String
@@ -116,6 +132,7 @@ struct DiaryModel: Codable {
     let weather: String
     let content: String
     let mood: String
+    let isFavorited: Bool
     let recommendations: [RecMusicModel]
 }
 

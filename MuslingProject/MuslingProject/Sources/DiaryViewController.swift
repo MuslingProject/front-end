@@ -97,6 +97,12 @@ class DiaryViewController: UIViewController {
                         self.contentLabel.attributedText = NSAttributedString(string: data.data.content, attributes: [NSAttributedString.Key.font: UIFont(name: "Pretendard-Regular", size: 14)!, NSAttributedString.Key.kern: -0.98])
                         self.musics = data.data.recommendations
                         
+                        if data.data.isFavorited {
+                            self.heart.image = UIImage(systemName: "heart.fill")
+                        } else {
+                            self.heart.image = UIImage(systemName: "heart")
+                        }
+                        
                         self.musicTableView.reloadData()
                     }
                     
@@ -118,12 +124,28 @@ class DiaryViewController: UIViewController {
     }
     
     @objc func saveDiary(tapGestureRecognizer: UITapGestureRecognizer) {
-        if heart.image == UIImage(systemName: "heart") {
-            // 찜하기
-            heart.image = UIImage(systemName: "heart.fill")
-        } else {
-            // 찜 취소
-            heart.image = UIImage(systemName: "heart")
+        let isHeartFilled = heart.image == UIImage(systemName: "heart.fill")
+        heart.image = UIImage(systemName: isHeartFilled ? "heart" : "heart.fill")
+        tapHeartButton(diaryId: diaryId)
+    }
+    
+    func tapHeartButton(diaryId: Int64) {
+        DiaryService.shared.favDiary(diaryId: diaryId) { response in
+            switch response {
+            case .success(let data):
+                if let data = data as? NonDataModel {
+                    print("일기 찜하기 결과 :: \(data.result)")
+                    NotificationCenter.default.post(name: .diaryFavorited, object: nil)
+                }
+            case .pathErr:
+                print("일기 찜하기 결과 :: Path Err")
+            case .requestErr:
+                print("일기 찜하기 결과 :: Request Err")
+            case .serverErr:
+                print("일기 찜하기 결과 :: Server Err")
+            case .networkFail:
+                print("일기 찜하기 결과 :: Network Fail")
+            }
         }
     }
     
