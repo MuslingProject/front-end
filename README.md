@@ -48,15 +48,9 @@
 
 ---
 <!--추가할 내용 의논-->
-## 화면 구성 📺
-| 메인 페이지  |  프로필 설정 페이지   |
-| :-------------------------------------------: | :------------: |
-|  <img width="329" src="https://github.com/MuslingProject/back-end/assets/68382824/5d761960-f737-490c-8e79-a59379cab49d"/> |  <img width="329" src="https://github.com/MuslingProject/back-end/assets/68382824/54503765-10a9-4c32-a376-7dae6779aa88"/>|  
-| 기록 페이지  |  노래 추천 페이지   |
-| <img width="329" src="https://github.com/MuslingProject/back-end/assets/68382824/a06866e8-e4e1-4577-9356-bf7082daaf2c"/>   |  <img width="329" src="https://github.com/MuslingProject/back-end/assets/68382824/37f52b29-da9a-4d21-9a32-81f8cee1bacf"/>     |
-|  감정 통계 페이지   | 
-|  <img width="329" src="https://github.com/MuslingProject/back-end/assets/68382824/8bd5fd91-f263-4039-a2ee-d58697dede6a"/>     |
----
+## 시연영상 📺
+https://www.youtube.com/watch?v=cXKGKmDKbAM
+
 ## 주요 기능 📦
 
 ### ⭐️ 사용자 프로필 설정
