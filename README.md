@@ -35,7 +35,7 @@
 `UIKit` </br>
 
 ### 사용 기술
-`MVP Design` </br>
+`MVC Design` </br>
 `Alamofire` </br>
 
 ### 협업 도구
